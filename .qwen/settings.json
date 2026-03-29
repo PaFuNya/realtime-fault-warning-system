@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn *)",
+      "WebSearch",
+      "WebFetch(mvnrepository.com)",
+      "WebFetch(repo.maven.apache.org)",
+      "WebFetch(github.com)"
+    ]
+  },
+  "$version": 3
+}
