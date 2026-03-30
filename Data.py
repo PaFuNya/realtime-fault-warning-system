@@ -4,6 +4,7 @@ import random
 import logging
 import signal
 import sys
+import math
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
 
@@ -50,20 +51,29 @@ def generate_sensor_data(machine_id):
     生成物联网传感器数据 (sensor_raw)
     包含字段: 设备 ID, 时间戳, 温度, 振动 (X/Y/Z), 电流, 噪声, 转速.
     """
-    # 模拟 5% 的概率发生温度过高（触发 SENSOR_ALERT）
-    is_anomaly = random.random() < 0.05 
-    temperature = random.uniform(81.0, 95.0) if is_anomaly else random.uniform(50.0, 75.0)
+    # 模拟真实数据，降低异常发生概率到 0.1%
+    is_anomaly = random.random() < 0.001 
+    
+    # 基础正弦波周期变化模拟真实设备运转
+    base_temp = 60.0 + 5.0 * math.sin(time.time() / 60.0)
+    base_vib = 1.0 + 0.2 * math.sin(time.time() / 10.0)
+    base_current = 30.0 + 2.0 * math.cos(time.time() / 30.0)
+    
+    temperature = random.uniform(85.0, 95.0) if is_anomaly else random.uniform(base_temp - 2.0, base_temp + 2.0)
+    
+    # 震动突增模拟
+    vib_multiplier = 1.5 if is_anomaly else 1.0
     
     return {
         "machine_id": machine_id,
         "ts": int(time.time() * 1000),
         "temperature": round(temperature, 2),
-        "vibration_x": round(random.uniform(0.1, 5.0), 3),
-        "vibration_y": round(random.uniform(0.1, 5.0), 3),
-        "vibration_z": round(random.uniform(0.1, 5.0), 3),
-        "current": round(random.uniform(10.0, 50.0), 2),
-        "noise": round(random.uniform(40.0, 90.0), 2),
-        "speed": round(random.uniform(1000.0, 3000.0), 2)
+        "vibration_x": round(random.uniform(base_vib - 0.1, base_vib + 0.1) * vib_multiplier, 3),
+        "vibration_y": round(random.uniform(base_vib - 0.1, base_vib + 0.1) * vib_multiplier, 3),
+        "vibration_z": round(random.uniform(base_vib - 0.1, base_vib + 0.1) * vib_multiplier, 3),
+        "current": round(random.uniform(base_current - 1.0, base_current + 1.0), 2),
+        "noise": round(random.uniform(50.0, 60.0) if not is_anomaly else random.uniform(80.0, 90.0), 2),
+        "speed": round(random.uniform(2900.0, 3100.0), 2)
     }
 
 def generate_log_data(machine_id):
@@ -72,12 +82,12 @@ def generate_log_data(machine_id):
     包含字段: 设备 ID, 时间戳, 报错代码, 错误信息, 堆栈轨迹.
     """
     rand_val = random.random()
-    # 模拟日志分布：80% 正常(200), 10% 业务报错(500), 10% 严重故障(999)
-    if rand_val < 0.8:
+    # 模拟日志分布：98% 正常(200), 1.5% 业务报错(500), 0.5% 严重故障(999)
+    if rand_val < 0.98:
         error_code = "200"
         error_msg = "System running normally"
         stack_trace = ""
-    elif rand_val < 0.9:
+    elif rand_val < 0.995:
         error_code = "500"
         error_msg = "Internal server error during data processing"
         stack_trace = "java.lang.NullPointerException\n\tat org.example.Process.run(Process.java:42)"
