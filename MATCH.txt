@@ -1,0 +1,68 @@
+======================数据==========================
+实时流数据：Kafka (Topic: sensor_raw , log_raw )。 
+sensor_raw : 设备 ID, 时间戳, 温度, 振动 (X/Y/Z), 电流, 噪声, 转速. (IoT物联网传感器数据)
+log_raw : 设备 ID, 时间戳, 报错代码, 错误信息, 堆栈轨迹. (设备运行日志)
+=============需求========================
+模块二：实时数据处理引擎 (Real-time Processing) 
+目标：毫秒级感知异常，实时预测 RUL，即时报警。 
+2.1 实时数据接入 
+Flink 消费 Kafka sensor_raw 和 log_raw 主题。 
+数据解析：解析 JSON，提取温度、振动、电流等字段。 
+流式清洗：过滤乱序数据，填补短时缺失值（线性插值）。 
+2.2 实时特征计算 (Streaming Features) 
+滑动窗口统计： 
+窗口大小：1 分钟、5 分钟、1 小时。 
+指标：实时振动 RMS 值、电流波动率、温度上升斜率。 
+状态机识别： 
+结合 ChangeRecord 流，实时判断设备当前是“启动中”、“稳定运行”还是“异常停机”。 
+仅在“稳定运行”状态下进行 RUL 预测，避免误报。 
+2.3 实时推理 (Real-time Inference) 
+模型加载：Flink 启动时从 MinIO 加载最新的 LightGBM 模型文件（支持热更新）。 
+在线预测： 
+将实时特征输入模型，输出 当前 RUL 值 和 故障概率。 
+动态阈值报警：若 RUL < 48 小时 或 故障概率 > 85% ，立即触发报警。 
+日志异常检测：对 log_raw 进行关键词匹配与聚类，发现未知错误模式（如“Error Code 999”突增）。 
+2.4 实时结果输出 
+报警消息：推送至 Kafka alert_topic 。 
+实时指标：写入 ClickHouse device_realtime_status 表，供大屏展示。 
+状态快照：每分钟更新 Redis 中的设备最新健康分。
+==============任务===================
+三、实时数据处理任务 (Flink + Hudi + ClickHouse) 
+目标：毫秒级感知，实时预警，动态更新 RUL。
+任务组 4：实时数据入湖 (Flink -> Hudi) 
+利用 Flink Hudi Connector 实现实时 Upsert。 
+13. 实时传感器流写入 Hudi： 
+源：Kafka sensor_raw 。 
+目标：Hudi dwd_hudi.sensor_detail_realtime (与离线表合并查询)。 
+配置：开启 Hudi MOR 表，异步压缩，主键 machine_id + ts 。 
+验证：Spark SQL 联查离线 + 实时表，确认最新一秒数据可见。 
+14. 实时日志流写入 Hudi： 
+源：Kafka log_raw 。 
+目标：Hudi dwd_hudi.device_log_realtime 。 
+逻辑：实时解析报错，标记紧急程度。 
+验证：Hudi Timeline 查看最新 Commit。 
+任务组 5：实时指标与推理 (Flink -> ClickHouse) 
+低延迟聚合与模型推理。 
+15. 实时状态窗口统计： 
+源：Kafka sensor_raw 。 
+目标：ClickHouse shtd_ads.realtime_status_window 。 
+逻辑：1 分钟滚动窗口，计算各设备温度最大值、振动 RMS 均值。 
+验证：ClickHouse 查询当前分钟数据。 
+16. 实时异常检测与报警： 
+源：Kafka sensor_raw + log_raw 。 
+目标：ClickHouse shtd_ads.realtime_alerts 。 
+逻辑： 
+规则引擎：温度 > 阈值 OR 振动突增 > 20%。 
+输出：报警时间，设备 ID, 报警类型，建议措施。 
+验证：模拟异常数据，查询 ClickHouse 中生成的报警记录。 
+17. 实时 RUL 动态预测： （目前没法做）
+源：Kafka sensor_raw (经 Window 计算特征)。 
+模型：加载离线训练的 LightGBM 模型 (广播变量)。 
+目标：ClickHouse shtd_ads.realtime_rul_monitor 。 
+逻辑：每分钟输出一次各设备的剩余寿命预测值及风险等级 (High/Medium/Low)。 
+验证：查询风险等级为 'High' 的设备列表。 
+18. 实时工艺参数偏离监控： 
+源：Kafka sensor_raw + Redis (标准工艺参数)。 
+目标：ClickHouse shtd_ads.realtime_process_deviation 。 
+逻辑：对比实时电流/转速与标准值的偏差，持续偏离 30 秒即记录。验证：查询偏差最大的记录。
+
