@@ -103,39 +103,10 @@ object Task2_2_FeatureEngineering {
   }
 
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession
-      .builder()
-      .appName("Task2_2_FeatureEngineering")
-      .master("local[*]")
-      .getOrCreate()
+    val spark = SparkUtils.getSparkSession("Task2_2_FeatureEngineering")
 
-    spark.sparkContext.setLogLevel("WARN")
-
-    val kafkaBrokers =
-      "100.126.226.67:9092,100.90.72.128:9092,100.123.80.25:9092"
-
-    val sensorSchema = new StructType()
-      .add("machine_id", StringType)
-      .add("ts", LongType)
-      .add("temperature", DoubleType)
-      .add("vibration_x", DoubleType)
-      .add("vibration_y", DoubleType)
-      .add("vibration_z", DoubleType)
-      .add("current", DoubleType)
-      .add("noise", DoubleType)
-      .add("speed", DoubleType)
-
-    val sensorRawDF = spark.readStream
-      .format("kafka")
-      .option("kafka.bootstrap.servers", kafkaBrokers)
-      .option("subscribe", "sensor_raw")
-      .option("startingOffsets", "latest")
-      .load()
-      .select(
-        from_json(col("value").cast("string"), sensorSchema).alias("data")
-      )
-      .select("data.*")
-      .withColumn("timestamp", timestamp_seconds(col("ts") / 1000))
+    val sensorRawDF = SparkUtils
+      .getSensorRawStream(spark)
       .withWatermark("timestamp", "5 seconds")
 
     import spark.implicits._

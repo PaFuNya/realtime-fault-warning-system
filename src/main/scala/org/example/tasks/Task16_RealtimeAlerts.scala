@@ -1,8 +1,6 @@
 package org.example.tasks
 
-import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types._
 
 /** 任务组 5：实时指标与推理 (Spark -> ClickHouse)
   *   16. 实时异常检测与报警 源：Kafka sensor_raw + log_raw (经过合并) 目标：ClickHouse
@@ -12,62 +10,13 @@ import org.apache.spark.sql.types._
 object Task16_RealtimeAlerts {
 
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession
-      .builder()
-      .appName("Task16_RealtimeAlerts")
-      .master("local[*]")
-      .getOrCreate()
-
-    spark.sparkContext.setLogLevel("WARN")
-
-    val kafkaBrokers =
-      "100.126.226.67:9092,100.90.72.128:9092,100.123.80.25:9092"
-    val ckUrl = "jdbc:clickhouse://127.0.0.1:8123/shtd_ads"
-    val ckProperties = new java.util.Properties()
-    ckProperties.put("user", "default")
-    ckProperties.put("password", "123456")
+    val spark = SparkUtils.getSparkSession("Task16_RealtimeAlerts")
 
     // 1. 读取 Sensor 流
-    val sensorSchema = new StructType()
-      .add("machine_id", StringType)
-      .add("ts", LongType)
-      .add("temperature", DoubleType)
-      .add("vibration_x", DoubleType)
-      .add("vibration_y", DoubleType)
-      .add("vibration_z", DoubleType)
-      .add("current", DoubleType)
-      .add("noise", DoubleType)
-      .add("speed", DoubleType)
-
-    val sensorRawDF = spark.readStream
-      .format("kafka")
-      .option("kafka.bootstrap.servers", kafkaBrokers)
-      .option("subscribe", "sensor_raw")
-      .option("startingOffsets", "latest")
-      .load()
-      .select(
-        from_json(col("value").cast("string"), sensorSchema).alias("data")
-      )
-      .select("data.*")
-      .withColumn("timestamp", timestamp_seconds(col("ts") / 1000))
+    val sensorRawDF = SparkUtils.getSensorRawStream(spark)
 
     // 2. 读取 Log 流
-    val logSchema = new StructType()
-      .add("machine_id", StringType)
-      .add("ts", LongType)
-      .add("error_code", StringType)
-      .add("error_msg", StringType)
-      .add("stack_trace", StringType)
-
-    val logRawDF = spark.readStream
-      .format("kafka")
-      .option("kafka.bootstrap.servers", kafkaBrokers)
-      .option("subscribe", "log_raw")
-      .option("startingOffsets", "latest")
-      .load()
-      .select(from_json(col("value").cast("string"), logSchema).alias("data"))
-      .select("data.*")
-      .withColumn("timestamp", timestamp_seconds(col("ts") / 1000))
+    val logRawDF = SparkUtils.getLogRawStream(spark)
 
     // 3. 来自传感器流的异常 (温度 > 80.0 或 振动异常 这里用基础值模拟)
     val sensorAlerts = sensorRawDF
@@ -100,7 +49,11 @@ object Task16_RealtimeAlerts {
           try {
             batchDF.write
               .mode("append")
-              .jdbc(ckUrl, "realtime_alerts", ckProperties)
+              .jdbc(
+                SparkUtils.ckUrl,
+                "realtime_alerts",
+                SparkUtils.getCkProperties()
+              )
           } catch { case _: Exception => }
       }
       .option(
@@ -117,7 +70,7 @@ object Task16_RealtimeAlerts {
       )
       .writeStream
       .format("kafka")
-      .option("kafka.bootstrap.servers", kafkaBrokers)
+      .option("kafka.bootstrap.servers", SparkUtils.kafkaBrokers)
       .option("topic", "alert_topic")
       .option(
         "checkpointLocation",

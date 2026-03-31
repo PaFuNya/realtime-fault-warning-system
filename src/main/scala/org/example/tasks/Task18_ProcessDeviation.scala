@@ -1,8 +1,6 @@
 package org.example.tasks
 
-import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.types._
 import redis.clients.jedis.Jedis
 import java.sql.Timestamp
 
@@ -12,45 +10,12 @@ import java.sql.Timestamp
 object Task18_ProcessDeviation {
 
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession
-      .builder()
-      .appName("Task18_ProcessDeviation")
-      .master("local[*]")
-      .getOrCreate()
+    val spark = SparkUtils.getSparkSession("Task18_ProcessDeviation")
 
-    spark.sparkContext.setLogLevel("WARN")
-
-    val kafkaBrokers =
-      "100.126.226.67:9092,100.90.72.128:9092,100.123.80.25:9092"
-    val ckUrl = "jdbc:clickhouse://127.0.0.1:8123/shtd_ads"
-    val ckProperties = new java.util.Properties()
-    ckProperties.put("user", "default")
-    ckProperties.put("password", "123456")
-
-    // 1. 读取 Sensor 流
-    val sensorSchema = new StructType()
-      .add("machine_id", StringType)
-      .add("ts", LongType)
-      .add("temperature", DoubleType)
-      .add("vibration_x", DoubleType)
-      .add("vibration_y", DoubleType)
-      .add("vibration_z", DoubleType)
-      .add("current", DoubleType)
-      .add("noise", DoubleType)
-      .add("speed", DoubleType)
-
-    val sensorRawDF = spark.readStream
-      .format("kafka")
-      .option("kafka.bootstrap.servers", kafkaBrokers)
-      .option("subscribe", "sensor_raw")
-      .option("startingOffsets", "latest")
-      .load()
-      .select(
-        from_json(col("value").cast("string"), sensorSchema).alias("data")
-      )
-      .select("data.*")
-      .withColumn("timestamp", timestamp_seconds(col("ts") / 1000))
-      .withWatermark("timestamp", "1 minute") // 需要 watermark 才能进行 window 聚合
+    // 1. 读取 Sensor 流并添加水位线
+    val sensorRawDF = SparkUtils
+      .getSensorRawStream(spark)
+      .withWatermark("timestamp", "1 minute")
 
     // 2. 使用 foreachBatch 查询 Redis 并处理 30 秒偏离
     sensorRawDF.writeStream
@@ -101,7 +66,11 @@ object Task18_ProcessDeviation {
           try {
             aggDevDF.write
               .mode("append")
-              .jdbc(ckUrl, "realtime_process_deviation", ckProperties)
+              .jdbc(
+                SparkUtils.ckUrl,
+                "realtime_process_deviation",
+                SparkUtils.getCkProperties()
+              )
           } catch { case _: Exception => }
       }
       .option("checkpointLocation", "/tmp/checkpoints/process_dev_standalone")
