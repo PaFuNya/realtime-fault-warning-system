@@ -1,46 +1,94 @@
 package org.example.tasks
 
-import org.apache.spark.sql.DataFrame
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
 import redis.clients.jedis.Jedis
 import java.sql.Timestamp
 
-/**
- * 任务组 5：实时指标与推理 (Flink/Spark -> ClickHouse)
- * 18. 实时工艺参数偏离监控
- * 源：Kafka sensor_raw + Redis (标准工艺参数)。
- * 目标：ClickHouse shtd_ads.realtime_process_deviation 。
- * 逻辑：对比实时电流/转速与标准值的偏差，持续偏离 30 秒即记录。
- */
+/** 任务组 5：实时指标与推理 (Spark -> ClickHouse)
+  *   18. 实时工艺参数偏离监控 逻辑：对比实时电流/转速与标准值的偏差，持续偏离 30 秒即记录。
+  */
 object Task18_ProcessDeviation {
 
-  def startDeviationSink(enrichedDF: DataFrame, ckUrl: String, ckProperties: java.util.Properties): Unit = {
-    enrichedDF.writeStream.foreachBatch { (batchDF: DataFrame, batchId: Long) =>
-      val sparkSession = batchDF.sparkSession
-      import sparkSession.implicits._
-      
-      // 使用 mapPartitions 连接 Redis 获取该设备的标准参数并对比
-      val devDF = batchDF.mapPartitions { iter =>
-        val jedis = new Jedis("127.0.0.1", 6379)
-        val res = iter.map { row =>
-          val mid = row.getAs[String]("machine_id")
-          val current = row.getAs[Double]("current")
-          val speed = row.getAs[Double]("speed")
-          
-          val stdCurrent = Option(jedis.hget(s"std_params:$mid", "current")).map(_.toDouble).getOrElse(30.0)
-          val stdSpeed = Option(jedis.hget(s"std_params:$mid", "speed")).map(_.toDouble).getOrElse(3000.0)
-          
-          val currentDev = Math.abs(current - stdCurrent) / stdCurrent
-          val speedDev = Math.abs(speed - stdSpeed) / stdSpeed
-          (mid, currentDev, speedDev, row.getAs[Timestamp]("timestamp"))
-        }.filter(x => x._2 > 0.1 || x._3 > 0.1) // 偏离阈值 > 10%
-        jedis.close()
-        res
-      }.toDF("machine_id", "current_dev", "speed_dev", "timestamp")
+  def main(args: Array[String]): Unit = {
+    val spark = SparkSession
+      .builder()
+      .appName("Task18_ProcessDeviation")
+      .master("local[*]")
+      .getOrCreate()
 
-      devDF.createOrReplaceTempView("temp_dev")
-      // 统计 30 秒内偏离记录数，满足条件即输出 (模拟持续偏离)
-      val aggDevDF = sparkSession.sql("""
+    spark.sparkContext.setLogLevel("WARN")
+
+    val kafkaBrokers =
+      "100.126.226.67:9092,100.90.72.128:9092,100.123.80.25:9092"
+    val ckUrl = "jdbc:clickhouse://127.0.0.1:8123/shtd_ads"
+    val ckProperties = new java.util.Properties()
+    ckProperties.put("user", "default")
+    ckProperties.put("password", "123456")
+
+    // 1. 读取 Sensor 流
+    val sensorSchema = new StructType()
+      .add("machine_id", StringType)
+      .add("ts", LongType)
+      .add("temperature", DoubleType)
+      .add("vibration_x", DoubleType)
+      .add("vibration_y", DoubleType)
+      .add("vibration_z", DoubleType)
+      .add("current", DoubleType)
+      .add("noise", DoubleType)
+      .add("speed", DoubleType)
+
+    val sensorRawDF = spark.readStream
+      .format("kafka")
+      .option("kafka.bootstrap.servers", kafkaBrokers)
+      .option("subscribe", "sensor_raw")
+      .option("startingOffsets", "latest")
+      .load()
+      .select(
+        from_json(col("value").cast("string"), sensorSchema).alias("data")
+      )
+      .select("data.*")
+      .withColumn("timestamp", timestamp_seconds(col("ts") / 1000))
+      .withWatermark("timestamp", "1 minute") // 需要 watermark 才能进行 window 聚合
+
+    // 2. 使用 foreachBatch 查询 Redis 并处理 30 秒偏离
+    sensorRawDF.writeStream
+      .foreachBatch {
+        (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
+          val sparkSession = batchDF.sparkSession
+          import sparkSession.implicits._
+
+          // 使用 mapPartitions 连接 Redis 获取该设备的标准参数并对比
+          val devDF = batchDF
+            .mapPartitions { iter =>
+              val jedis = new Jedis("127.0.0.1", 6379)
+              val res = iter
+                .map { row =>
+                  val mid = row.getAs[String]("machine_id")
+                  val current = row.getAs[Double]("current")
+                  val speed = row.getAs[Double]("speed")
+
+                  val stdCurrent = Option(
+                    jedis.hget(s"std_params:$mid", "current")
+                  ).map(_.toDouble).getOrElse(30.0)
+                  val stdSpeed = Option(jedis.hget(s"std_params:$mid", "speed"))
+                    .map(_.toDouble)
+                    .getOrElse(3000.0)
+
+                  val currentDev = Math.abs(current - stdCurrent) / stdCurrent
+                  val speedDev = Math.abs(speed - stdSpeed) / stdSpeed
+                  (mid, currentDev, speedDev, row.getAs[Timestamp]("timestamp"))
+                }
+                .filter(x => x._2 > 0.1 || x._3 > 0.1) // 偏离阈值 > 10%
+              jedis.close()
+              res
+            }
+            .toDF("machine_id", "current_dev", "speed_dev", "timestamp")
+
+          devDF.createOrReplaceTempView("temp_dev")
+          // 统计 30 秒内偏离记录数，达到 5 条即视为持续偏离
+          val aggDevDF = sparkSession.sql("""
         SELECT machine_id, window.start as start_time, window.end as end_time,
                MAX(current_dev) as max_current_dev, MAX(speed_dev) as max_speed_dev
         FROM (
@@ -50,9 +98,15 @@ object Task18_ProcessDeviation {
         HAVING count(*) >= 5
       """)
 
-      try {
-        aggDevDF.write.mode("append").jdbc(ckUrl, "realtime_process_deviation", ckProperties)
-      } catch { case _: Exception => }
-    }.option("checkpointLocation", "/tmp/checkpoints/process_dev").start()
+          try {
+            aggDevDF.write
+              .mode("append")
+              .jdbc(ckUrl, "realtime_process_deviation", ckProperties)
+          } catch { case _: Exception => }
+      }
+      .option("checkpointLocation", "/tmp/checkpoints/process_dev_standalone")
+      .start()
+
+    spark.streams.awaitAnyTermination()
   }
 }
