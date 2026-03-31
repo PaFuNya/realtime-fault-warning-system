@@ -3,7 +3,10 @@
 # Configuration
 SENSOR_LOG_FILE="sensor_raw.log"
 LOG_RAW_FILE="log_raw.log"
-MACHINES=("Machine_001" "Machine_002" "Machine_003" "Machine_004" "Machine_005")
+
+# 如果你确定设备 ID 就是 101, 102, 103, 104, 105, 112, 114, 115, 116 等等
+# 我们直接在这里把可能的 ID 写死，这样就不需要依赖外部传参了！
+MACHINES=("101" "102" "103" "104" "105" "112" "114" "115" "116" "117" "118")
 
 # Ensure files exist and are empty at start (optional)
 > "$SENSOR_LOG_FILE"
@@ -22,17 +25,20 @@ rand_float() {
     awk -v min="$min" -v max="$max" 'BEGIN{srand(); print min+rand()*(max-min)}'
 }
 
+# Instead of looping through all 5 machines at once, we pick ONE random machine per iteration
 while true; do
     # Get current timestamp in milliseconds
     ts=$(date +%s%3N)
     
-    for mid in "${MACHINES[@]}"; do
+    # Pick one random machine from the array
+    mid=${MACHINES[$((RANDOM % ${#MACHINES[@]}))]}
+
+    # ---------------------------------------------------------
+    # 1. Generate Sensor Data
         # ---------------------------------------------------------
-        # 1. Generate Sensor Data
-        # ---------------------------------------------------------
-        # Simulate anomaly (0.1% chance)
+        # Simulate anomaly (5% chance)
         is_anomaly=0
-        if [ $((RANDOM % 1000)) -eq 0 ]; then
+        if [ $((RANDOM % 100)) -lt 5 ]; then
             is_anomaly=1
         fi
 
@@ -60,22 +66,22 @@ while true; do
         echo "$sensor_json" >> "$SENSOR_LOG_FILE"
 
         # ---------------------------------------------------------
-        # 2. Generate Log Data (10% chance per machine per iteration)
+        # 2. Generate Log Data (30% chance per machine per iteration)
         # ---------------------------------------------------------
-        if [ $((RANDOM % 10)) -eq 0 ]; then
-            rand_val=$((RANDOM % 1000))
-            if [ $rand_val -lt 980 ]; then
-                # 98% Normal
+        if [ $((RANDOM % 10)) -lt 3 ]; then
+            rand_val=$((RANDOM % 100))
+            if [ $rand_val -lt 80 ]; then
+                # 80% Normal
                 err_code="200"
                 err_msg="System running normally"
                 stack=""
-            elif [ $rand_val -lt 995 ]; then
-                # 1.5% Warning
+            elif [ $rand_val -lt 90 ]; then
+                # 10% Warning
                 err_code="500"
                 err_msg="Internal server error during data processing"
                 stack="java.lang.NullPointerException\n\tat org.example.Process.run(Process.java:42)"
             else
-                # 0.5% Critical
+                # 10% Critical
                 err_code="999"
                 err_msg="Critical hardware failure detected"
                 stack="HardwareException: Sensor unresponsive\n\tat driver.Hardware.read(Hardware.c:120)"
@@ -87,13 +93,12 @@ while true; do
             
             echo "$log_json" >> "$LOG_RAW_FILE"
         fi
-    done
 
     count=$((count + 1))
     if [ $((count % 10)) -eq 0 ]; then
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - INFO - 📈 已循环生成 $count 批次数据，当前运行正常..."
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - INFO - 📈 已生成 $count 条数据，当前运行正常..."
     fi
 
-    # Sleep 0.5 seconds to simulate real-time stream
-    sleep 0.5
+    # Sleep 1 second to simulate exactly 1 record per second
+    sleep 1
 done
