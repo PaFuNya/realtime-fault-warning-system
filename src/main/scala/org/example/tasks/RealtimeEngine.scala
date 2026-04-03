@@ -138,11 +138,8 @@ object RealtimeEngine {
     // 模块 2.2 状态机识别与流计算
     // ==========================================
     // 恢复：结合 ChangeRecord 流 (题目要求)。
-    // 之前阻塞是因为使用了 "leftOuter" 且允许 1 分钟延迟。为了保证实时大屏演示的即时性，
-    // 这里使用 "leftOuter" 但将区间缩短，或者在实际演示时我们接受微小延迟。
-    // 在演示环境下，如果只发 sensor_raw 不发 changeRecord，Watermark 不推进就会阻塞。
-    // 为了满足“结合 ChangeRecord 判断状态”的题目要求，且不让系统卡死，
-    // 我们保留 Join 代码，但把延迟区间调小。
+    // 这里使用 "leftOuter" 但将区间缩短到 1 秒，最大程度减少阻塞。
+    // 在实际演示时，如果没有 ChangeRecord 数据，系统会稍微等待 1 秒的水位线。
     val joinedDF = sensorRawDF
       .alias("sensor")
       .join(
@@ -150,7 +147,7 @@ object RealtimeEngine {
         expr("""
           sensor.machine_id = record.machine_id AND
           sensor.timestamp >= record.start_time AND
-          sensor.timestamp <= record.start_time + interval 5 seconds
+          sensor.timestamp <= record.start_time + interval 1 seconds
         """),
         "leftOuter"
       )
@@ -166,8 +163,11 @@ object RealtimeEngine {
             val enrichedDF = batchDF
               .withColumn(
                 "machine_status",
-                // 修复状态机逻辑：即使没有 ChangeRecord(status为null)，只要转速<1000也算“异常停机”
-                when(col("status") === "预警" || col("speed") < 1000, lit("异常停机"))
+                // 修复状态机逻辑：增加 coalesce 处理 null，并明确判定优先级
+                // 如果 status 是 "预警" -> 异常停机
+                // 否则看 speed：< 1000 -> 异常停机 (或启动中，题目其实将这两种统称为非稳定运行)
+                // 这里严格遵循题目要求：仅在“稳定运行”下预测
+                when(coalesce(col("status"), lit("")) === "预警" || col("speed") < 1000, lit("异常停机"))
                   .otherwise(lit("稳定运行"))
               )
               .withColumn("prev_ts", lag("timestamp", 1).over(windowSpec))
