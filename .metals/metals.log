@@ -22255,3 +22255,142 @@ Caused by: com.github.plokhotnyuk.jsoniter_scala.core.JsonReaderException: unexp
 2026.04.03 20:15:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.03 20:15:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.03 20:15:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.03 20:16:41 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.03 20:16:41 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:16:41 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.03 20:18:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.03 20:18:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.03 20:18:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.03 20:18:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.03 20:18:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.03 20:18:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:21 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.03 20:18:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.03 20:18:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.03 20:18:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.03 20:18:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.03 20:18:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 03, 2026 8:18:46 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:18:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.03 20:19:19 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.03 20:19:19 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 20:19:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\etl\IndustryMain.scala. Using presentation compiler with project's scala-library version: 3.3.7

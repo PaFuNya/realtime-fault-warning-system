@@ -110,9 +110,22 @@ object RealtimeEngine {
     val faultPredStream = faultModel.transform(rulAssembled)
     val finalPredStream = rulModel.transform(faultPredStream)
 
+    // 注意：这里需要先把模型推理结果（因为包含机器学习Vector类型可能引发问题）提取出来
+    // 并且丢弃不需要的特征列
     val sensorRawDF = finalPredStream
       .withColumn("fault_probability", extractProb(col("fault_probability")))
       .withColumn("rul_hours", col("rul_prediction_val") * 100000 / 3600)
+      .drop(
+        "rul_features",
+        "fault_features",
+        "fault_prediction",
+        "rul_prediction_val",
+        "avg_temp",
+        "var_temp",
+        "kurtosis_temp",
+        "fft_peak"
+      )
+      .drop(rulCols: _*)
 
     // 2. 读 Log 流
     val logRawDF = SparkUtils.getLogRawStream(spark)
