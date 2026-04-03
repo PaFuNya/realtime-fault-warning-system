@@ -92,6 +92,7 @@ object Task2_2_FeatureEngineering {
         """),
         "leftOuter"
       )
+      .drop(changeRecordDF("machine_id"))
 
     // ==========================================
     // 3. 特征计算与预测过滤 (foreachBatch)
@@ -102,33 +103,33 @@ object Task2_2_FeatureEngineering {
           if (!batchDF.isEmpty) {
             // 利用 Spark SQL 的 Window 函数计算上一条数据，进行插值和差值计算
             val windowSpec = Window
-              .partitionBy("sensor.machine_id")
-              .orderBy("sensor.timestamp")
+              .partitionBy("machine_id")
+              .orderBy("timestamp")
 
             val enrichedDF = batchDF
               // 结合 ChangeRecord 的状态和当前数值判断最终状态
               .withColumn(
                 "machine_status",
-                when(col("record.status") === "预警", lit("异常停机"))
-                  .when(col("sensor.speed") < 1000, lit("启动中"))
+                when(col("status") === "预警", lit("异常停机"))
+                  .when(col("speed") < 1000, lit("启动中"))
                   .otherwise(lit("稳定运行"))
               )
               .withColumn(
                 "prev_ts",
-                lag("sensor.timestamp", 1).over(windowSpec)
+                lag("timestamp", 1).over(windowSpec)
               )
               .withColumn(
                 "prev_temp",
-                lag("sensor.temperature", 1).over(windowSpec)
+                lag("temperature", 1).over(windowSpec)
               )
               .withColumn(
                 "prev_vib_x",
-                lag("sensor.vibration_x", 1).over(windowSpec)
+                lag("vibration_x", 1).over(windowSpec)
               )
               // 计算时间差 (秒)
               .withColumn(
                 "time_diff",
-                unix_timestamp(col("sensor.timestamp")) - unix_timestamp(
+                unix_timestamp(col("timestamp")) - unix_timestamp(
                   col("prev_ts")
                 )
               )
@@ -137,7 +138,7 @@ object Task2_2_FeatureEngineering {
                 "temp_slope",
                 when(
                   col("time_diff") > 0,
-                  (col("sensor.temperature") - col("prev_temp")) / col(
+                  (col("temperature") - col("prev_temp")) / col(
                     "time_diff"
                   )
                 )
@@ -148,7 +149,7 @@ object Task2_2_FeatureEngineering {
                 "vib_surge_rate",
                 when(
                   col("prev_vib_x") > 0,
-                  (col("sensor.vibration_x") - col("prev_vib_x")) / col(
+                  (col("vibration_x") - col("prev_vib_x")) / col(
                     "prev_vib_x"
                   )
                 )
@@ -160,8 +161,8 @@ object Task2_2_FeatureEngineering {
                 when(
                   col("machine_status") === "稳定运行",
                   // 这里写你的预测逻辑模型，示例中用一个简单公式模拟
-                  lit(100.0) - (col("sensor.temperature") * 0.1) - (col(
-                    "sensor.vibration_x"
+                  lit(100.0) - (col("temperature") * 0.1) - (col(
+                    "vibration_x"
                   ) * 5.0)
                 )
                   .otherwise(lit(null)) // 启动中或异常停机不预测，避免误报

@@ -7,17 +7,20 @@ import org.apache.spark.sql.functions._
 /** 通用工具类：封装重复的样板代码，让每个 Task 专注于自己的核心逻辑。
   */
 object SparkUtils {
-  val kafkaBrokers = "100.126.226.67:9092,100.90.72.128:9092,100.123.80.25:9092"
-  val ckUrl = "jdbc:clickhouse://127.0.0.1:8123/shtd_ads"
+  val kafkaBrokers = "192.168.45.11:9092,192.168.45.12:9092,192.168.45.16:9092"
+  val ckUrl = "jdbc:clickhouse://bigdata1:8123/ldc"
 
   def getCkProperties(): java.util.Properties = {
     val props = new java.util.Properties()
     props.put("user", "default")
-    props.put("password", "123456")
+    props.put("password", "")
     props
   }
   // 获取带 Hudi 配置的 SparkSession
   def getSparkSession(appName: String): SparkSession = {
+    // 强制指定 HADOOP_HOME 以解决 Windows 下的 winutils 报错问题
+    System.setProperty("hadoop.home.dir", "D:\\hadoop")
+
     val spark = SparkSession
       .builder()
       .appName(appName)

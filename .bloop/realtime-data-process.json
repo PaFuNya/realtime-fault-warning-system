@@ -5,7 +5,6 @@
         "directory": "D:\\Desktop\\Match\\MATCH\\OverMatch",
         "workspaceDir": "D:\\Desktop\\Match\\MATCH\\OverMatch",
         "sources": [
-            "D:\\Desktop\\Match\\MATCH\\OverMatch\\src\\main\\java",
             "D:\\Desktop\\Match\\MATCH\\OverMatch\\src\\main\\scala"
         ],
         "dependencies": [
@@ -32,7 +31,6 @@
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-launcher_2.12\\3.3.0\\spark-launcher_2.12-3.3.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-kvstore_2.12\\3.3.0\\spark-kvstore_2.12-3.3.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\fusesource\\leveldbjni\\leveldbjni-all\\1.8\\leveldbjni-all-1.8.jar",
-            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\core\\jackson-annotations\\2.13.3\\jackson-annotations-2.13.3.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-network-common_2.12\\3.3.0\\spark-network-common_2.12-3.3.0.jar",
             "D:\\dev-cache\\maven\\repository\\com\\google\\crypto\\tink\\tink\\1.6.1\\tink-1.6.1.jar",
             "D:\\dev-cache\\maven\\repository\\com\\google\\code\\gson\\gson\\2.8.6\\gson-2.8.6.jar",
@@ -107,9 +105,6 @@
             "D:\\dev-cache\\maven\\repository\\io\\dropwizard\\metrics\\metrics-json\\4.2.7\\metrics-json-4.2.7.jar",
             "D:\\dev-cache\\maven\\repository\\io\\dropwizard\\metrics\\metrics-graphite\\4.2.7\\metrics-graphite-4.2.7.jar",
             "D:\\dev-cache\\maven\\repository\\io\\dropwizard\\metrics\\metrics-jmx\\4.2.7\\metrics-jmx-4.2.7.jar",
-            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\core\\jackson-databind\\2.13.3\\jackson-databind-2.13.3.jar",
-            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\module\\jackson-module-scala_2.12\\2.13.3\\jackson-module-scala_2.12-2.13.3.jar",
-            "D:\\dev-cache\\maven\\repository\\com\\thoughtworks\\paranamer\\paranamer\\2.8\\paranamer-2.8.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\ivy\\ivy\\2.5.0\\ivy-2.5.0.jar",
             "D:\\dev-cache\\maven\\repository\\oro\\oro\\2.0.8\\oro-2.0.8.jar",
             "D:\\dev-cache\\maven\\repository\\net\\razorvine\\pickle\\1.2\\pickle-1.2.jar",
@@ -154,9 +149,13 @@
             "D:\\dev-cache\\maven\\repository\\org\\apache\\httpcomponents\\httpclient\\4.5.13\\httpclient-4.5.13.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\httpcomponents\\httpcore\\4.4.13\\httpcore-4.4.13.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\httpcomponents\\httpmime\\4.5.13\\httpmime-4.5.13.jar",
-            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\core\\jackson-core\\2.9.10\\jackson-core-2.9.10.jar",
             "D:\\dev-cache\\maven\\repository\\redis\\clients\\jedis\\3.6.0\\jedis-3.6.0.jar",
             "D:\\dev-cache\\maven\\repository\\com\\alibaba\\fastjson\\1.2.83\\fastjson-1.2.83.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\core\\jackson-core\\2.13.3\\jackson-core-2.13.3.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\core\\jackson-databind\\2.13.3\\jackson-databind-2.13.3.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\core\\jackson-annotations\\2.13.3\\jackson-annotations-2.13.3.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\fasterxml\\jackson\\module\\jackson-module-scala_2.12\\2.13.3\\jackson-module-scala_2.12-2.13.3.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\thoughtworks\\paranamer\\paranamer\\2.8\\paranamer-2.8.jar",
             "C:\\Users\\蓝莓\\.m2\\repository\\org\\scala-lang\\scala-library\\2.12.15\\scala-library-2.12.15.jar"
         ],
         "out": "D:\\Desktop\\Match\\MATCH\\OverMatch\\target",
@@ -1204,22 +1203,6 @@
                     ]
                 },
                 {
-                    "organization": "com.fasterxml.jackson.core",
-                    "name": "jackson-core",
-                    "version": "2.9.10",
-                    "artifacts": [
-                        {
-                            "name": "jackson-core",
-                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\fasterxml\\jackson\\core\\jackson-core\\2.9.10\\jackson-core-2.9.10.jar"
-                        },
-                        {
-                            "name": "jackson-core",
-                            "classifier": "sources",
-                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\fasterxml\\jackson\\core\\jackson-core\\2.9.10\\jackson-core-2.9.10-sources.jar"
-                        }
-                    ]
-                },
-                {
                     "organization": "org.roaringbitmap",
                     "name": "shims",
                     "version": "0.9.25",
@@ -1520,6 +1503,22 @@
                             "name": "antlr4-runtime",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\antlr\\antlr4-runtime\\4.8\\antlr4-runtime-4.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.core",
+                    "name": "jackson-core",
+                    "version": "2.13.3",
+                    "artifacts": [
+                        {
+                            "name": "jackson-core",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\fasterxml\\jackson\\core\\jackson-core\\2.13.3\\jackson-core-2.13.3.jar"
+                        },
+                        {
+                            "name": "jackson-core",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\fasterxml\\jackson\\core\\jackson-core\\2.13.3\\jackson-core-2.13.3-sources.jar"
                         }
                     ]
                 },

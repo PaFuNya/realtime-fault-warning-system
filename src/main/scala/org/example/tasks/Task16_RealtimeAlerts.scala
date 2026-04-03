@@ -27,6 +27,8 @@ object Task16_RealtimeAlerts {
         when(col("temperature") > 80.0, "High Temperature")
           .otherwise("Vibration Sudden Increase > 20%")
           .alias("alert_type"),
+        col("temperature").alias("trigger_value"),
+        lit(80.0).alias("threshold_value"),
         lit("Inspect machine immediately").alias("suggested_action")
       )
 
@@ -37,10 +39,12 @@ object Task16_RealtimeAlerts {
         col("timestamp").alias("alert_time"),
         col("machine_id"),
         lit("Critical Log Error 999").alias("alert_type"),
+        lit(999.0).alias("trigger_value"),
+        lit(0.0).alias("threshold_value"),
         lit("Check hardware logs").alias("suggested_action")
       )
 
-    val combinedAlerts = sensorAlerts.union(logAlerts)
+    val combinedAlerts = sensorAlerts.unionByName(logAlerts)
 
     // 5. 写入 ClickHouse (任务 16)
     combinedAlerts.writeStream
