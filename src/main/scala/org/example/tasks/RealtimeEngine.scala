@@ -4,12 +4,12 @@ import org.apache.spark.sql.functions._
 import org.apache.spark.sql.expressions.Window
 import redis.clients.jedis.Jedis
 import java.sql.Timestamp
-// 如果项目中没有引入 XGBoost 的依赖，我们就不要强行 import
-// 因为我刚才加了模型加载，但 pom.xml 似乎没有编译到 ml.dmlc，也没有在 src/main 下引入
-// 所以我在这里恢复一下，以最简单的公式模拟模型来保证能够顺利运行演示
-// import ml.dmlc.xgboost4j.scala.spark.{XGBoostClassificationModel, XGBoostRegressionModel}
-// import org.apache.spark.ml.feature.VectorAssembler
-// import org.apache.spark.ml.linalg.Vector
+import ml.dmlc.xgboost4j.scala.spark.{
+  XGBoostClassificationModel,
+  XGBoostRegressionModel
+}
+import org.apache.spark.ml.feature.VectorAssembler
+import org.apache.spark.ml.linalg.Vector
 
 /** 模块二 & 三综合实时引擎 包含需求：
   *   - 2.1 实时数据接入与清洗
@@ -35,8 +35,19 @@ object RealtimeEngine {
     // 模块 2.3 模型加载 (Flink 启动时加载)
     // ==========================================
     println(">>> [INFO] 正在从 MinIO/HDFS 加载 LightGBM(XGBoost) 模型...")
-    // 由于 XGBoost 库依赖问题，这里我们在演示流中通过广播规则引擎变量来模拟模型加载
-    // 真实情况：val faultModel = XGBoostClassificationModel.load(...)
+    val faultModel = XGBoostClassificationModel.load(
+      s"$hdfsUrl/models/fault_probability_xgboost_v2"
+    )
+    val rulModel =
+      XGBoostRegressionModel.load(s"$hdfsUrl/models/Device_Rul_xgboost_v1")
+
+    faultModel
+      .setFeaturesCol("fault_features")
+      .setProbabilityCol("fault_probability")
+      .setPredictionCol("fault_prediction")
+    rulModel
+      .setFeaturesCol("rul_features")
+      .setPredictionCol("rul_prediction_val")
     println(">>> [INFO] 模型加载完成，支持热更新准备就绪！")
 
     // ==========================================
@@ -52,16 +63,56 @@ object RealtimeEngine {
     // ==========================================
     // 模块 2.3 实时推理 (在线预测)
     // ==========================================
-    // 模拟模型的 transform 过程
-    val sensorRawDF = rawSensorStream
-      .withColumn(
-        "fault_probability",
-        when(col("temperature") > 80.0, lit(0.88)).otherwise(lit(0.12))
-      )
-      .withColumn(
-        "rul_hours",
-        lit(100.0) - (col("temperature") * 0.1) - (col("vibration_x") * 5.0)
-      )
+    val extractProb = udf((v: Vector) => v.toArray(1))
+
+    val dfWithFaultFeat = rawSensorStream
+      .withColumn("avg_temp", col("temperature"))
+      .withColumn("var_temp", lit(1.0))
+      .withColumn("kurtosis_temp", lit(0.5))
+      .withColumn("fft_peak", col("vibration_x") * 100)
+
+    val faultAssembler = new VectorAssembler()
+      .setInputCols(Array("avg_temp", "var_temp", "kurtosis_temp", "fft_peak"))
+      .setOutputCol("fault_features")
+
+    val faultAssembled = faultAssembler.transform(dfWithFaultFeat)
+
+    val rulCols = Array(
+      "duration_seconds",
+      "is_running",
+      "is_standby",
+      "is_offline",
+      "is_alarm",
+      "cutting_time",
+      "cycle_time",
+      "total_parts",
+      "spindle_load",
+      "cumulative_runtime",
+      "cumulative_parts",
+      "cumulative_alarms",
+      "avg_spindle_load_10",
+      "avg_cutting_time_10"
+    )
+    var dfWithRulFeat = faultAssembled
+    for (c <- rulCols) {
+      dfWithRulFeat = dfWithRulFeat.withColumn(c, lit(0.0))
+    }
+    dfWithRulFeat = dfWithRulFeat
+      .withColumn("is_running", lit(1.0))
+      .withColumn("cumulative_runtime", col("speed") * 100)
+
+    val rulAssembler = new VectorAssembler()
+      .setInputCols(rulCols)
+      .setOutputCol("rul_features")
+
+    val rulAssembled = rulAssembler.transform(dfWithRulFeat)
+
+    val faultPredStream = faultModel.transform(rulAssembled)
+    val finalPredStream = rulModel.transform(faultPredStream)
+
+    val sensorRawDF = finalPredStream
+      .withColumn("fault_probability", extractProb(col("fault_probability")))
+      .withColumn("rul_hours", col("rul_prediction_val") * 100000 / 3600)
 
     // 2. 读 Log 流
     val logRawDF = SparkUtils.getLogRawStream(spark)
@@ -300,6 +351,11 @@ object RealtimeEngine {
                     row.getAs[Double]("temperature"),
                     row.getAs[Double]("vibration_x"),
                     row.getAs[Double]("speed"),
+                    // NPE 修复：处理可能为 null 的 Double 类型
+                    if (row.isNullAt(row.fieldIndex("rul_hours"))) 0.0
+                    else row.getAs[Double]("rul_hours"),
+                    if (row.isNullAt(row.fieldIndex("fault_probability"))) 0.0
+                    else row.getAs[Double]("fault_probability"),
                     status
                   )
                 }
@@ -312,6 +368,8 @@ object RealtimeEngine {
                 "temperature",
                 "vibration_x",
                 "speed",
+                "rul_hours",
+                "fault_probability",
                 "record_status"
               )
 
@@ -339,16 +397,15 @@ object RealtimeEngine {
               // 模块 2.3 RUL 预测 (仅在“稳定运行”状态下预测)
               .withColumn(
                 "rul_prediction",
+                when(col("machine_status") === "稳定运行", col("rul_hours"))
+                  .otherwise(lit(null))
+              )
+              .withColumn( // 结合故障概率计算健康分
+                "health_score",
                 when(
                   col("machine_status") === "稳定运行",
-                  lit(100.0) - (col("temperature") * 0.1) - (col(
-                    "vibration_x"
-                  ) * 5.0)
-                ).otherwise(lit(null))
-              )
-              .withColumn( // 模拟健康分
-                "health_score",
-                when(col("machine_status") === "稳定运行", lit(95.0))
+                  lit(100.0) - col("fault_probability") * 100
+                )
                   .when(col("machine_status") === "启动中", lit(80.0))
                   .otherwise(lit(60.0))
               )
@@ -387,6 +444,28 @@ object RealtimeEngine {
                   SparkUtils.getCkProperties()
                 )
             } catch { case e: Exception => e.printStackTrace() }
+
+            // 3. 任务 17: 写入 ClickHouse realtime_rul_monitor 表
+            val ckRulDF = enrichedDF
+              .filter(col("machine_status") === "稳定运行")
+              .select(
+                col("timestamp").alias("ts"),
+                col("machine_id"),
+                col("rul_hours").alias("rul_value"),
+                when(col("rul_hours") < 48.0, "High")
+                  .when(col("rul_hours") < 168.0, "Medium")
+                  .otherwise("Low")
+                  .alias("risk_level")
+              )
+            try {
+              ckRulDF.write
+                .mode("append")
+                .jdbc(
+                  SparkUtils.ckUrl,
+                  "realtime_rul_monitor",
+                  SparkUtils.getCkProperties()
+                )
+            } catch { case _: Exception => }
           }
       }
       .outputMode("append") // 这里不用变
@@ -396,18 +475,31 @@ object RealtimeEngine {
     // ==========================================
     // 模块 2.3 & 任务 16 异常检测与报警 (Kafka & ClickHouse)
     // ==========================================
-    // 传感器异常: 温度 > 80 OR 振动突增 (这里简化为原始振动>2.0模拟突增)
+    // 动态阈值报警：若 RUL < 48 小时 或 故障概率 > 85% ，立即触发报警。
+    // 传感器异常: 温度 > 80 OR 振动突增 (简化为>2.0) OR RUL < 48 OR 故障率 > 0.85
     val sensorAlerts = sensorRawDF
-      .filter(col("temperature") > 80.0 || col("vibration_x") > 2.0)
+      .filter(
+        col("temperature") > 80.0 || col("vibration_x") > 2.0 || col(
+          "rul_hours"
+        ) < 48.0 || col("fault_probability") > 0.85
+      )
       .select(
         col("timestamp").alias("alert_time"),
         col("machine_id"),
         when(col("temperature") > 80.0, "高温预警")
-          .otherwise("其他异常")
+          .when(col("fault_probability") > 0.85, "故障概率超标(>85%)")
+          .when(col("rul_hours") < 48.0, "寿命不足预警(RUL<48h)")
+          .otherwise("振动异常")
           .alias("alert_type"),
-        col("temperature").alias("trigger_value"), // 任务 16 需要的字段
-        lit(80.0).alias("threshold_value"), // 任务 16 需要的字段
-        lit("请立即检查设备").alias("suggested_action")
+        when(col("fault_probability") > 0.85, col("fault_probability"))
+          .when(col("rul_hours") < 48.0, col("rul_hours"))
+          .otherwise(col("temperature"))
+          .alias("trigger_value"),
+        when(col("fault_probability") > 0.85, lit(0.85))
+          .when(col("rul_hours") < 48.0, lit(48.0))
+          .otherwise(lit(80.0))
+          .alias("threshold_value"),
+        lit("请立即检查设备及模型预测结果").alias("suggested_action")
       )
 
     // 日志异常: Error Code 999

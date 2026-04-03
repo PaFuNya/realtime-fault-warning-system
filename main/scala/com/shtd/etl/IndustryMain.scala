@@ -13,8 +13,8 @@ object IndustryMain {
     ConfigUtil.loadProperties()
     val hdfsUrl=ConfigUtil.getString("hdfs.url")
     val mysqlUrl=ConfigUtil.getString("mysql.url")
-    val mysqlUser=ConfigUtil.getString("mysql.user")
-    val mysqlPass=ConfigUtil.getString("mysql.pass")
+    val mysqlUser=ConfigUtil.getString("mysql.username")
+    val mysqlPass=ConfigUtil.getString("mysql.password")
     // 1. 初始化 Spark Session
     val spark: SparkSession = SparkSession.builder()
       .master("local[*]")
