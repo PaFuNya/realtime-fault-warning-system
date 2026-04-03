@@ -57,7 +57,13 @@ while true; do
         vib_z=$(awk -v m="$vib_mult" -v r="$(rand_float 0.9 1.1)" 'BEGIN{printf "%.3f", m*r}')
         
         current=$(rand_float 29.0 31.0)
-        speed=$(rand_float 2900.0 3100.0)
+        
+        # 增加频繁触发状态更改：20% 的概率 speed < 1000 (触发启动中/异常停机逻辑)
+        if [ $((RANDOM % 100)) -lt 20 ]; then
+            speed=$(rand_float 500.0 999.0)
+        else
+            speed=$(rand_float 2900.0 3100.0)
+        fi
 
         # Format sensor JSON
         sensor_json=$(printf '{"machine_id": "%s", "ts": %s, "temperature": %.2f, "vibration_x": %s, "vibration_y": %s, "vibration_z": %s, "current": %.2f, "noise": %.2f, "speed": %.2f}' \
@@ -70,20 +76,20 @@ while true; do
         # ---------------------------------------------------------
         if [ $((RANDOM % 10)) -lt 3 ]; then
             rand_val=$((RANDOM % 100))
-            if [ $rand_val -lt 80 ]; then
-                # 80% Normal
+            if [ $rand_val -lt 60 ]; then
+                # 60% Normal
                 err_code="200"
-                err_msg="System running normally"
+                err_msg="系统运行正常"
                 stack=""
-            elif [ $rand_val -lt 90 ]; then
+            elif [ $rand_val -lt 70 ]; then
                 # 10% Warning
                 err_code="500"
-                err_msg="Internal server error during data processing"
+                err_msg="数据处理时发生内部错误"
                 stack="java.lang.NullPointerException\n\tat org.example.Process.run(Process.java:42)"
             else
-                # 10% Critical
+                # 30% Critical (提升 999 报错的出现频率，大概占总体日志生成的 10% 左右)
                 err_code="999"
-                err_msg="Critical hardware failure detected"
+                err_msg="检测到严重硬件故障"
                 stack="HardwareException: Sensor unresponsive\n\tat driver.Hardware.read(Hardware.c:120)"
             fi
 
@@ -99,6 +105,6 @@ while true; do
         echo "$(date '+%Y-%m-%d %H:%M:%S') - INFO - 📈 已生成 $count 条数据，当前运行正常..."
     fi
 
-    # Sleep 1 second to simulate exactly 1 record per second
-    sleep 1
+    # 跑快一些：从 1 秒改为 0.3 秒一条数据，一秒 3-4 条，适中且比之前快
+    sleep 0.3
 done

@@ -42,8 +42,7 @@ kafka-console-producer.sh --broker-list localhost:9092 --topic log_raw
 
 **目标**：在大屏表 (`device_realtime_status`) 中生成一条正常数据，触发 RUL 预测，并在 Redis 中更新高健康分。
 
-**操作**：向 **终端 A (sensor_raw)** 发送以下正常数据：
-
+**操作**：向 **终端 A (sensor_raw)** 发送以下正常数据（注意修改 `ts` 为当前最新的时间戳，否则会被 Watermark 丢弃）：
 ```json
 {"machine_id":"101","ts":1775188800000,"temperature":45.0,"vibration_x":0.5,"vibration_y":0.5,"vibration_z":0.5,"current":30.0,"speed":3000.0}
 ```
@@ -85,20 +84,19 @@ kafka-console-producer.sh --broker-list localhost:9092 --topic log_raw
 
 ---
 
-### 📍 场景 4：触发“异常停机”状态 (关联 2.2 状态机 & 2.4)
+### 📍 场景 4：触发“异常停机”或“启动中”状态 (关联 2.2 状态机 & 2.4)
 
 **目标**：触发机器转速极低（< 1000）导致状态变为非稳定运行，并降低健康分。
-*注意：状态机的计算和 `device_realtime_status` 的输出是基于数据批次流动的，请确保此时至少有一条匹配的 ChangeRecord，或者为了演示简便，连续发送 2 条数据以推动流转。*
+*注意：现在的状态机完全独立且极速响应。当转速 < 1000 时，会被判定为“启动中”并给 80 分。如果想要“异常停机”，可以通过向 Redis 维表注入预警信号来实现。*
 
-**操作**：向 **终端 A (sensor_raw)** 连续发送以下低转速数据 2 次：
+**操作**：向 **终端 A (sensor_raw)** 发送以下低转速数据 1 次（或 2 次）：
 ```json
 {"machine_id":"104","ts":1775188830000,"temperature":45.0,"vibration_x":0.5,"vibration_y":0.5,"vibration_z":0.5,"current":30.0,"speed":500.0}
-{"machine_id":"104","ts":1775188832000,"temperature":45.0,"vibration_x":0.5,"vibration_y":0.5,"vibration_z":0.5,"current":30.0,"speed":500.0}
 ```
 
 **预期效果**：
-1. ClickHouse 查询 `device_realtime_status` 会出现机器 104，`machine_status` 变为“启动中”或“异常停机”，且 `health_score` 降为 60.0。
-2. Redis 中 `device_health` 会更新 `104` 的分数为 60.0。
+1. ClickHouse 查询 `device_realtime_status` 会瞬间出现机器 104，`machine_status` 变为“启动中”，且 `health_score` 降为 80.0。
+2. Redis 中 `device_health` 会瞬间更新 `104` 的分数为 80.0。
 
 ---
 

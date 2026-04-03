@@ -22,13 +22,10 @@
             "D:\\dev-cache\\maven\\repository\\org\\tukaani\\xz\\1.9\\xz-1.9.jar",
             "D:\\dev-cache\\maven\\repository\\com\\twitter\\chill_2.12\\0.10.0\\chill_2.12-0.10.0.jar",
             "D:\\dev-cache\\maven\\repository\\com\\esotericsoftware\\kryo-shaded\\4.0.2\\kryo-shaded-4.0.2.jar",
-            "D:\\dev-cache\\maven\\repository\\com\\esotericsoftware\\minlog\\1.3.0\\minlog-1.3.0.jar",
-            "D:\\dev-cache\\maven\\repository\\org\\objenesis\\objenesis\\2.5.1\\objenesis-2.5.1.jar",
             "D:\\dev-cache\\maven\\repository\\com\\twitter\\chill-java\\0.10.0\\chill-java-0.10.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\xbean\\xbean-asm9-shaded\\4.20\\xbean-asm9-shaded-4.20.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\hadoop\\hadoop-client-api\\3.3.2\\hadoop-client-api-3.3.2.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\hadoop\\hadoop-client-runtime\\3.3.2\\hadoop-client-runtime-3.3.2.jar",
-            "D:\\dev-cache\\maven\\repository\\commons-logging\\commons-logging\\1.1.3\\commons-logging-1.1.3.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-launcher_2.12\\3.3.0\\spark-launcher_2.12-3.3.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-kvstore_2.12\\3.3.0\\spark-kvstore_2.12-3.3.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\fusesource\\leveldbjni\\leveldbjni-all\\1.8\\leveldbjni-all-1.8.jar",
@@ -123,7 +120,6 @@
             "D:\\dev-cache\\maven\\repository\\com\\univocity\\univocity-parsers\\2.9.1\\univocity-parsers-2.9.1.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-sketch_2.12\\3.3.0\\spark-sketch_2.12-3.3.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-catalyst_2.12\\3.3.0\\spark-catalyst_2.12-3.3.0.jar",
-            "D:\\dev-cache\\maven\\repository\\org\\scala-lang\\modules\\scala-parser-combinators_2.12\\1.1.2\\scala-parser-combinators_2.12-1.1.2.jar",
             "D:\\dev-cache\\maven\\repository\\org\\codehaus\\janino\\janino\\3.0.16\\janino-3.0.16.jar",
             "D:\\dev-cache\\maven\\repository\\org\\codehaus\\janino\\commons-compiler\\3.0.16\\commons-compiler-3.0.16.jar",
             "D:\\dev-cache\\maven\\repository\\org\\antlr\\antlr4-runtime\\4.8\\antlr4-runtime-4.8.jar",
@@ -150,6 +146,44 @@
             "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-token-provider-kafka-0-10_2.12\\3.3.0\\spark-token-provider-kafka-0-10_2.12-3.3.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\kafka\\kafka-clients\\2.8.1\\kafka-clients-2.8.1.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\commons\\commons-pool2\\2.11.1\\commons-pool2-2.11.1.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-mllib_2.12\\3.3.0\\spark-mllib_2.12-3.3.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\scala-lang\\modules\\scala-parser-combinators_2.12\\1.1.2\\scala-parser-combinators_2.12-1.1.2.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-streaming_2.12\\3.3.0\\spark-streaming_2.12-3.3.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-graphx_2.12\\3.3.0\\spark-graphx_2.12-3.3.0.jar",
+            "D:\\dev-cache\\maven\\repository\\net\\sourceforge\\f2j\\arpack_combined_all\\0.1\\arpack_combined_all-0.1.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\apache\\spark\\spark-mllib-local_2.12\\3.3.0\\spark-mllib-local_2.12-3.3.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\scalanlp\\breeze_2.12\\1.2\\breeze_2.12-1.2.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\scalanlp\\breeze-macros_2.12\\1.2\\breeze-macros_2.12-1.2.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\github\\fommil\\netlib\\core\\1.1.2\\core-1.1.2.jar",
+            "D:\\dev-cache\\maven\\repository\\net\\sf\\opencsv\\opencsv\\2.3\\opencsv-2.3.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\github\\wendykierp\\JTransforms\\3.1\\JTransforms-3.1.jar",
+            "D:\\dev-cache\\maven\\repository\\pl\\edu\\icm\\JLargeArrays\\1.5\\JLargeArrays-1.5.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\chuusai\\shapeless_2.12\\2.3.3\\shapeless_2.12-2.3.3.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\typelevel\\macro-compat_2.12\\1.1.1\\macro-compat_2.12-1.1.1.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\typelevel\\spire_2.12\\0.17.0\\spire_2.12-0.17.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\typelevel\\spire-macros_2.12\\0.17.0\\spire-macros_2.12-0.17.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\typelevel\\spire-platform_2.12\\0.17.0\\spire-platform_2.12-0.17.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\typelevel\\spire-util_2.12\\0.17.0\\spire-util_2.12-0.17.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\typelevel\\algebra_2.12\\2.0.1\\algebra_2.12-2.0.1.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\typelevel\\cats-kernel_2.12\\2.1.1\\cats-kernel_2.12-2.1.1.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\scala-lang\\modules\\scala-collection-compat_2.12\\2.1.1\\scala-collection-compat_2.12-2.1.1.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\glassfish\\jaxb\\jaxb-runtime\\2.3.2\\jaxb-runtime-2.3.2.jar",
+            "D:\\dev-cache\\maven\\repository\\jakarta\\xml\\bind\\jakarta.xml.bind-api\\2.3.2\\jakarta.xml.bind-api-2.3.2.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\sun\\istack\\istack-commons-runtime\\3.0.8\\istack-commons-runtime-3.0.8.jar",
+            "D:\\dev-cache\\maven\\repository\\dev\\ludovic\\netlib\\blas\\2.2.1\\blas-2.2.1.jar",
+            "D:\\dev-cache\\maven\\repository\\dev\\ludovic\\netlib\\lapack\\2.2.1\\lapack-2.2.1.jar",
+            "D:\\dev-cache\\maven\\repository\\dev\\ludovic\\netlib\\arpack\\2.2.1\\arpack-2.2.1.jar",
+            "D:\\dev-cache\\maven\\repository\\ml\\dmlc\\xgboost4j-spark_2.12\\1.5.2\\xgboost4j-spark_2.12-1.5.2.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\esotericsoftware\\kryo\\4.0.2\\kryo-4.0.2.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\esotericsoftware\\reflectasm\\1.11.3\\reflectasm-1.11.3.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\ow2\\asm\\asm\\5.0.4\\asm-5.0.4.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\esotericsoftware\\minlog\\1.3.0\\minlog-1.3.0.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\objenesis\\objenesis\\2.5.1\\objenesis-2.5.1.jar",
+            "D:\\dev-cache\\maven\\repository\\commons-logging\\commons-logging\\1.2\\commons-logging-1.2.jar",
+            "D:\\dev-cache\\maven\\repository\\ml\\dmlc\\xgboost4j_2.12\\1.5.2\\xgboost4j_2.12-1.5.2.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\typesafe\\akka\\akka-actor_2.12\\2.5.23\\akka-actor_2.12-2.5.23.jar",
+            "D:\\dev-cache\\maven\\repository\\com\\typesafe\\config\\1.3.3\\config-1.3.3.jar",
+            "D:\\dev-cache\\maven\\repository\\org\\scala-lang\\modules\\scala-java8-compat_2.12\\0.8.0\\scala-java8-compat_2.12-0.8.0.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\hudi\\hudi-spark3.3-bundle_2.12\\0.12.1\\hudi-spark3.3-bundle_2.12-0.12.1.jar",
             "D:\\dev-cache\\maven\\repository\\ru\\yandex\\clickhouse\\clickhouse-jdbc\\0.3.1\\clickhouse-jdbc-0.3.1.jar",
             "D:\\dev-cache\\maven\\repository\\org\\apache\\httpcomponents\\httpclient\\4.5.13\\httpclient-4.5.13.jar",
@@ -294,6 +328,54 @@
                     ]
                 },
                 {
+                    "organization": "ml.dmlc",
+                    "name": "xgboost4j_2.12",
+                    "version": "1.5.2",
+                    "artifacts": [
+                        {
+                            "name": "xgboost4j_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\ml\\dmlc\\xgboost4j_2.12\\1.5.2\\xgboost4j_2.12-1.5.2.jar"
+                        },
+                        {
+                            "name": "xgboost4j_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\ml\\dmlc\\xgboost4j_2.12\\1.5.2\\xgboost4j_2.12-1.5.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.github.fommil.netlib",
+                    "name": "core",
+                    "version": "1.1.2",
+                    "artifacts": [
+                        {
+                            "name": "core",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\github\\fommil\\netlib\\core\\1.1.2\\core-1.1.2.jar"
+                        },
+                        {
+                            "name": "core",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\github\\fommil\\netlib\\core\\1.1.2\\core-1.1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.glassfish.jaxb",
+                    "name": "jaxb-runtime",
+                    "version": "2.3.2",
+                    "artifacts": [
+                        {
+                            "name": "jaxb-runtime",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\glassfish\\jaxb\\jaxb-runtime\\2.3.2\\jaxb-runtime-2.3.2.jar"
+                        },
+                        {
+                            "name": "jaxb-runtime",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\glassfish\\jaxb\\jaxb-runtime\\2.3.2\\jaxb-runtime-2.3.2-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "commons-io",
                     "name": "commons-io",
                     "version": "2.11.0",
@@ -322,6 +404,22 @@
                             "name": "annotations",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\jetbrains\\annotations\\17.0.0\\annotations-17.0.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "spire_2.12",
+                    "version": "0.17.0",
+                    "artifacts": [
+                        {
+                            "name": "spire_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire_2.12\\0.17.0\\spire_2.12-0.17.0.jar"
+                        },
+                        {
+                            "name": "spire_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire_2.12\\0.17.0\\spire_2.12-0.17.0-sources.jar"
                         }
                     ]
                 },
@@ -374,6 +472,22 @@
                     ]
                 },
                 {
+                    "organization": "dev.ludovic.netlib",
+                    "name": "arpack",
+                    "version": "2.2.1",
+                    "artifacts": [
+                        {
+                            "name": "arpack",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\dev\\ludovic\\netlib\\arpack\\2.2.1\\arpack-2.2.1.jar"
+                        },
+                        {
+                            "name": "arpack",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\dev\\ludovic\\netlib\\arpack\\2.2.1\\arpack-2.2.1-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "io.netty",
                     "name": "netty-resolver",
                     "version": "4.1.74.Final",
@@ -406,6 +520,22 @@
                     ]
                 },
                 {
+                    "organization": "ml.dmlc",
+                    "name": "xgboost4j-spark_2.12",
+                    "version": "1.5.2",
+                    "artifacts": [
+                        {
+                            "name": "xgboost4j-spark_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\ml\\dmlc\\xgboost4j-spark_2.12\\1.5.2\\xgboost4j-spark_2.12-1.5.2.jar"
+                        },
+                        {
+                            "name": "xgboost4j-spark_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\ml\\dmlc\\xgboost4j-spark_2.12\\1.5.2\\xgboost4j-spark_2.12-1.5.2-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.apache.commons",
                     "name": "commons-lang3",
                     "version": "3.12.0",
@@ -434,6 +564,22 @@
                             "name": "commons-collections",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\commons-collections\\commons-collections\\3.2.2\\commons-collections-3.2.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.spark",
+                    "name": "spark-graphx_2.12",
+                    "version": "3.3.0",
+                    "artifacts": [
+                        {
+                            "name": "spark-graphx_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-graphx_2.12\\3.3.0\\spark-graphx_2.12-3.3.0.jar"
+                        },
+                        {
+                            "name": "spark-graphx_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-graphx_2.12\\3.3.0\\spark-graphx_2.12-3.3.0-sources.jar"
                         }
                     ]
                 },
@@ -534,6 +680,22 @@
                     ]
                 },
                 {
+                    "organization": "com.sun.istack",
+                    "name": "istack-commons-runtime",
+                    "version": "3.0.8",
+                    "artifacts": [
+                        {
+                            "name": "istack-commons-runtime",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\sun\\istack\\istack-commons-runtime\\3.0.8\\istack-commons-runtime-3.0.8.jar"
+                        },
+                        {
+                            "name": "istack-commons-runtime",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\sun\\istack\\istack-commons-runtime\\3.0.8\\istack-commons-runtime-3.0.8-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.apache.arrow",
                     "name": "arrow-memory-core",
                     "version": "7.0.0",
@@ -550,6 +712,22 @@
                     ]
                 },
                 {
+                    "organization": "org.typelevel",
+                    "name": "spire-platform_2.12",
+                    "version": "0.17.0",
+                    "artifacts": [
+                        {
+                            "name": "spire-platform_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire-platform_2.12\\0.17.0\\spire-platform_2.12-0.17.0.jar"
+                        },
+                        {
+                            "name": "spire-platform_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire-platform_2.12\\0.17.0\\spire-platform_2.12-0.17.0-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.glassfish.jersey.core",
                     "name": "jersey-common",
                     "version": "2.34",
@@ -562,6 +740,22 @@
                             "name": "jersey-common",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\glassfish\\jersey\\core\\jersey-common\\2.34\\jersey-common-2.34-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "spire-macros_2.12",
+                    "version": "0.17.0",
+                    "artifacts": [
+                        {
+                            "name": "spire-macros_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire-macros_2.12\\0.17.0\\spire-macros_2.12-0.17.0.jar"
+                        },
+                        {
+                            "name": "spire-macros_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire-macros_2.12\\0.17.0\\spire-macros_2.12-0.17.0-sources.jar"
                         }
                     ]
                 },
@@ -733,6 +927,22 @@
                             "name": "paranamer",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\thoughtworks\\paranamer\\paranamer\\2.8\\paranamer-2.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.chuusai",
+                    "name": "shapeless_2.12",
+                    "version": "2.3.3",
+                    "artifacts": [
+                        {
+                            "name": "shapeless_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\chuusai\\shapeless_2.12\\2.3.3\\shapeless_2.12-2.3.3.jar"
+                        },
+                        {
+                            "name": "shapeless_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\chuusai\\shapeless_2.12\\2.3.3\\shapeless_2.12-2.3.3-sources.jar"
                         }
                     ]
                 },
@@ -929,6 +1139,22 @@
                     ]
                 },
                 {
+                    "organization": "org.apache.spark",
+                    "name": "spark-mllib-local_2.12",
+                    "version": "3.3.0",
+                    "artifacts": [
+                        {
+                            "name": "spark-mllib-local_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-mllib-local_2.12\\3.3.0\\spark-mllib-local_2.12-3.3.0.jar"
+                        },
+                        {
+                            "name": "spark-mllib-local_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-mllib-local_2.12\\3.3.0\\spark-mllib-local_2.12-3.3.0-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "io.dropwizard.metrics",
                     "name": "metrics-graphite",
                     "version": "4.2.7",
@@ -997,6 +1223,22 @@
                             "name": "netty-transport-native-epoll",
                             "classifier": "linux-x86_64",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\io\\netty\\netty-transport-native-epoll\\4.1.74.Final\\netty-transport-native-epoll-4.1.74.Final-linux-x86_64.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-java8-compat_2.12",
+                    "version": "0.8.0",
+                    "artifacts": [
+                        {
+                            "name": "scala-java8-compat_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scala-lang\\modules\\scala-java8-compat_2.12\\0.8.0\\scala-java8-compat_2.12-0.8.0.jar"
+                        },
+                        {
+                            "name": "scala-java8-compat_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scala-lang\\modules\\scala-java8-compat_2.12\\0.8.0\\scala-java8-compat_2.12-0.8.0-sources.jar"
                         }
                     ]
                 },
@@ -1273,18 +1515,18 @@
                     ]
                 },
                 {
-                    "organization": "commons-logging",
-                    "name": "commons-logging",
-                    "version": "1.1.3",
+                    "organization": "org.ow2.asm",
+                    "name": "asm",
+                    "version": "5.0.4",
                     "artifacts": [
                         {
-                            "name": "commons-logging",
-                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\commons-logging\\commons-logging\\1.1.3\\commons-logging-1.1.3.jar"
+                            "name": "asm",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\ow2\\asm\\asm\\5.0.4\\asm-5.0.4.jar"
                         },
                         {
-                            "name": "commons-logging",
+                            "name": "asm",
                             "classifier": "sources",
-                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\commons-logging\\commons-logging\\1.1.3\\commons-logging-1.1.3-sources.jar"
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\ow2\\asm\\asm\\5.0.4\\asm-5.0.4-sources.jar"
                         }
                     ]
                 },
@@ -1433,6 +1675,22 @@
                     ]
                 },
                 {
+                    "organization": "dev.ludovic.netlib",
+                    "name": "lapack",
+                    "version": "2.2.1",
+                    "artifacts": [
+                        {
+                            "name": "lapack",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\dev\\ludovic\\netlib\\lapack\\2.2.1\\lapack-2.2.1.jar"
+                        },
+                        {
+                            "name": "lapack",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\dev\\ludovic\\netlib\\lapack\\2.2.1\\lapack-2.2.1-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.apache.spark",
                     "name": "spark-token-provider-kafka-0-10_2.12",
                     "version": "3.3.0",
@@ -1477,6 +1735,22 @@
                             "name": "spark-kvstore_2.12",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-kvstore_2.12\\3.3.0\\spark-kvstore_2.12-3.3.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.spark",
+                    "name": "spark-streaming_2.12",
+                    "version": "3.3.0",
+                    "artifacts": [
+                        {
+                            "name": "spark-streaming_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-streaming_2.12\\3.3.0\\spark-streaming_2.12-3.3.0.jar"
+                        },
+                        {
+                            "name": "spark-streaming_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-streaming_2.12\\3.3.0\\spark-streaming_2.12-3.3.0-sources.jar"
                         }
                     ]
                 },
@@ -1604,6 +1878,22 @@
                     ]
                 },
                 {
+                    "organization": "com.esotericsoftware",
+                    "name": "kryo",
+                    "version": "4.0.2",
+                    "artifacts": [
+                        {
+                            "name": "kryo",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\esotericsoftware\\kryo\\4.0.2\\kryo-4.0.2.jar"
+                        },
+                        {
+                            "name": "kryo",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\esotericsoftware\\kryo\\4.0.2\\kryo-4.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.apache.curator",
                     "name": "curator-client",
                     "version": "2.13.0",
@@ -1632,6 +1922,17 @@
                             "name": "commons-collections4",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\commons\\commons-collections4\\4.4\\commons-collections4-4.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "net.sourceforge.f2j",
+                    "name": "arpack_combined_all",
+                    "version": "0.1",
+                    "artifacts": [
+                        {
+                            "name": "arpack_combined_all",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\net\\sourceforge\\f2j\\arpack_combined_all\\0.1\\arpack_combined_all-0.1.jar"
                         }
                     ]
                 },
@@ -1668,6 +1969,22 @@
                     ]
                 },
                 {
+                    "organization": "com.github.wendykierp",
+                    "name": "JTransforms",
+                    "version": "3.1",
+                    "artifacts": [
+                        {
+                            "name": "JTransforms",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\github\\wendykierp\\JTransforms\\3.1\\JTransforms-3.1.jar"
+                        },
+                        {
+                            "name": "JTransforms",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\github\\wendykierp\\JTransforms\\3.1\\JTransforms-3.1-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.xerial.snappy",
                     "name": "snappy-java",
                     "version": "1.1.8.4",
@@ -1680,6 +1997,22 @@
                             "name": "snappy-java",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\xerial\\snappy\\snappy-java\\1.1.8.4\\snappy-java-1.1.8.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.typesafe",
+                    "name": "config",
+                    "version": "1.3.3",
+                    "artifacts": [
+                        {
+                            "name": "config",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\typesafe\\config\\1.3.3\\config-1.3.3.jar"
+                        },
+                        {
+                            "name": "config",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\typesafe\\config\\1.3.3\\config-1.3.3-sources.jar"
                         }
                     ]
                 },
@@ -1716,6 +2049,22 @@
                     ]
                 },
                 {
+                    "organization": "net.sf.opencsv",
+                    "name": "opencsv",
+                    "version": "2.3",
+                    "artifacts": [
+                        {
+                            "name": "opencsv",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\net\\sf\\opencsv\\opencsv\\2.3\\opencsv-2.3.jar"
+                        },
+                        {
+                            "name": "opencsv",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\net\\sf\\opencsv\\opencsv\\2.3\\opencsv-2.3-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.slf4j",
                     "name": "jul-to-slf4j",
                     "version": "1.7.32",
@@ -1748,6 +2097,22 @@
                     ]
                 },
                 {
+                    "organization": "com.esotericsoftware",
+                    "name": "reflectasm",
+                    "version": "1.11.3",
+                    "artifacts": [
+                        {
+                            "name": "reflectasm",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\esotericsoftware\\reflectasm\\1.11.3\\reflectasm-1.11.3.jar"
+                        },
+                        {
+                            "name": "reflectasm",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\esotericsoftware\\reflectasm\\1.11.3\\reflectasm-1.11.3-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.apache.orc",
                     "name": "orc-core",
                     "version": "1.7.4",
@@ -1760,6 +2125,38 @@
                             "name": "orc-core",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\orc\\orc-core\\1.7.4\\orc-core-1.7.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "dev.ludovic.netlib",
+                    "name": "blas",
+                    "version": "2.2.1",
+                    "artifacts": [
+                        {
+                            "name": "blas",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\dev\\ludovic\\netlib\\blas\\2.2.1\\blas-2.2.1.jar"
+                        },
+                        {
+                            "name": "blas",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\dev\\ludovic\\netlib\\blas\\2.2.1\\blas-2.2.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.spark",
+                    "name": "spark-mllib_2.12",
+                    "version": "3.3.0",
+                    "artifacts": [
+                        {
+                            "name": "spark-mllib_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-mllib_2.12\\3.3.0\\spark-mllib_2.12-3.3.0.jar"
+                        },
+                        {
+                            "name": "spark-mllib_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-mllib_2.12\\3.3.0\\spark-mllib_2.12-3.3.0-sources.jar"
                         }
                     ]
                 },
@@ -1812,6 +2209,22 @@
                     ]
                 },
                 {
+                    "organization": "jakarta.xml.bind",
+                    "name": "jakarta.xml.bind-api",
+                    "version": "2.3.2",
+                    "artifacts": [
+                        {
+                            "name": "jakarta.xml.bind-api",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\jakarta\\xml\\bind\\jakarta.xml.bind-api\\2.3.2\\jakarta.xml.bind-api-2.3.2.jar"
+                        },
+                        {
+                            "name": "jakarta.xml.bind-api",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\jakarta\\xml\\bind\\jakarta.xml.bind-api\\2.3.2\\jakarta.xml.bind-api-2.3.2-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.apache.arrow",
                     "name": "arrow-vector",
                     "version": "7.0.0",
@@ -1856,6 +2269,22 @@
                             "name": "hudi-spark3.3-bundle_2.12",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\hudi\\hudi-spark3.3-bundle_2.12\\0.12.1\\hudi-spark3.3-bundle_2.12-0.12.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "algebra_2.12",
+                    "version": "2.0.1",
+                    "artifacts": [
+                        {
+                            "name": "algebra_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\algebra_2.12\\2.0.1\\algebra_2.12-2.0.1.jar"
+                        },
+                        {
+                            "name": "algebra_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\algebra_2.12\\2.0.1\\algebra_2.12-2.0.1-sources.jar"
                         }
                     ]
                 },
@@ -2016,6 +2445,22 @@
                     ]
                 },
                 {
+                    "organization": "org.typelevel",
+                    "name": "cats-kernel_2.12",
+                    "version": "2.1.1",
+                    "artifacts": [
+                        {
+                            "name": "cats-kernel_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\cats-kernel_2.12\\2.1.1\\cats-kernel_2.12-2.1.1.jar"
+                        },
+                        {
+                            "name": "cats-kernel_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\cats-kernel_2.12\\2.1.1\\cats-kernel_2.12-2.1.1-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "com.ning",
                     "name": "compress-lzf",
                     "version": "1.1",
@@ -2028,6 +2473,22 @@
                             "name": "compress-lzf",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\ning\\compress-lzf\\1.1\\compress-lzf-1.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalanlp",
+                    "name": "breeze_2.12",
+                    "version": "1.2",
+                    "artifacts": [
+                        {
+                            "name": "breeze_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scalanlp\\breeze_2.12\\1.2\\breeze_2.12-1.2.jar"
+                        },
+                        {
+                            "name": "breeze_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scalanlp\\breeze_2.12\\1.2\\breeze_2.12-1.2-sources.jar"
                         }
                     ]
                 },
@@ -2076,6 +2537,38 @@
                             "name": "spark-launcher_2.12",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\spark\\spark-launcher_2.12\\3.3.0\\spark-launcher_2.12-3.3.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "pl.edu.icm",
+                    "name": "JLargeArrays",
+                    "version": "1.5",
+                    "artifacts": [
+                        {
+                            "name": "JLargeArrays",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\pl\\edu\\icm\\JLargeArrays\\1.5\\JLargeArrays-1.5.jar"
+                        },
+                        {
+                            "name": "JLargeArrays",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\pl\\edu\\icm\\JLargeArrays\\1.5\\JLargeArrays-1.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "spire-util_2.12",
+                    "version": "0.17.0",
+                    "artifacts": [
+                        {
+                            "name": "spire-util_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire-util_2.12\\0.17.0\\spire-util_2.12-0.17.0.jar"
+                        },
+                        {
+                            "name": "spire-util_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\spire-util_2.12\\0.17.0\\spire-util_2.12-0.17.0-sources.jar"
                         }
                     ]
                 },
@@ -2176,6 +2669,22 @@
                     ]
                 },
                 {
+                    "organization": "commons-logging",
+                    "name": "commons-logging",
+                    "version": "1.2",
+                    "artifacts": [
+                        {
+                            "name": "commons-logging",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\commons-logging\\commons-logging\\1.2\\commons-logging-1.2.jar"
+                        },
+                        {
+                            "name": "commons-logging",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\commons-logging\\commons-logging\\1.2\\commons-logging-1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "io.dropwizard.metrics",
                     "name": "metrics-core",
                     "version": "4.2.7",
@@ -2224,6 +2733,22 @@
                     ]
                 },
                 {
+                    "organization": "com.typesafe.akka",
+                    "name": "akka-actor_2.12",
+                    "version": "2.5.23",
+                    "artifacts": [
+                        {
+                            "name": "akka-actor_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\typesafe\\akka\\akka-actor_2.12\\2.5.23\\akka-actor_2.12-2.5.23.jar"
+                        },
+                        {
+                            "name": "akka-actor_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\com\\typesafe\\akka\\akka-actor_2.12\\2.5.23\\akka-actor_2.12-2.5.23-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "com.google.crypto.tink",
                     "name": "tink",
                     "version": "1.6.1",
@@ -2252,6 +2777,22 @@
                             "name": "parquet-column",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\parquet\\parquet-column\\1.12.2\\parquet-column-1.12.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.typelevel",
+                    "name": "macro-compat_2.12",
+                    "version": "1.1.1",
+                    "artifacts": [
+                        {
+                            "name": "macro-compat_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\macro-compat_2.12\\1.1.1\\macro-compat_2.12-1.1.1.jar"
+                        },
+                        {
+                            "name": "macro-compat_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\typelevel\\macro-compat_2.12\\1.1.1\\macro-compat_2.12-1.1.1-sources.jar"
                         }
                     ]
                 },
@@ -2448,6 +2989,22 @@
                     ]
                 },
                 {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-collection-compat_2.12",
+                    "version": "2.1.1",
+                    "artifacts": [
+                        {
+                            "name": "scala-collection-compat_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scala-lang\\modules\\scala-collection-compat_2.12\\2.1.1\\scala-collection-compat_2.12-2.1.1.jar"
+                        },
+                        {
+                            "name": "scala-collection-compat_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scala-lang\\modules\\scala-collection-compat_2.12\\2.1.1\\scala-collection-compat_2.12-2.1.1-sources.jar"
+                        }
+                    ]
+                },
+                {
                     "organization": "org.apache.spark",
                     "name": "spark-network-common_2.12",
                     "version": "3.3.0",
@@ -2476,6 +3033,22 @@
                             "name": "zookeeper",
                             "classifier": "sources",
                             "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\apache\\zookeeper\\zookeeper\\3.6.2\\zookeeper-3.6.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalanlp",
+                    "name": "breeze-macros_2.12",
+                    "version": "1.2",
+                    "artifacts": [
+                        {
+                            "name": "breeze-macros_2.12",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scalanlp\\breeze-macros_2.12\\1.2\\breeze-macros_2.12-1.2.jar"
+                        },
+                        {
+                            "name": "breeze-macros_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\蓝莓\\.m2\\repository\\org\\scalanlp\\breeze-macros_2.12\\1.2\\breeze-macros_2.12-1.2-sources.jar"
                         }
                     ]
                 },
