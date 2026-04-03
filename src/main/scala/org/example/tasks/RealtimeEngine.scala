@@ -313,10 +313,17 @@ object RealtimeEngine {
             (iter: Iterator[org.apache.spark.sql.Row]) =>
               val jedis = new Jedis("bigdata1", 6379)
               iter.foreach { row =>
-                val mid = row.getAs[String]("machine_id")
-                val status = row.getAs[String]("status")
-                if (mid != null && status != null) {
-                  jedis.hset("change_record_status", mid, status)
+                // NPE 修复：处理可能为 null 的 String 类型
+                if (
+                  !row.isNullAt(row.fieldIndex("machine_id")) && !row.isNullAt(
+                    row.fieldIndex("status")
+                  )
+                ) {
+                  val mid = row.getAs[String]("machine_id")
+                  val status = row.getAs[String]("status")
+                  if (mid != null && status != null) {
+                    jedis.hset("change_record_status", mid, status)
+                  }
                 }
               }
               jedis.close()
