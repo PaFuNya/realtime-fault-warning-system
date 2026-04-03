@@ -1,4 +1,0 @@
-v1
-{"batchWatermarkMs":1775246502541,"batchTimestampMs":1775217643557,"conf":{"spark.sql.streaming.stateStore.providerClass":"org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider","spark.sql.streaming.join.stateFormatVersion":"2","spark.sql.streaming.stateStore.compression.codec":"lz4","spark.sql.streaming.stateStore.rocksdb.formatVersion":"5","spark.sql.streaming.statefulOperator.useStrictDistribution":"true","spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion":"2","spark.sql.streaming.multipleWatermarkPolicy":"min","spark.sql.streaming.aggregation.stateFormatVersion":"2","spark.sql.shuffle.partitions":"200"}}
-{"sensor_raw":{"2":20324,"1":20324,"3":20332,"0":20328}}
-{"log_raw":{"2":6100,"1":6098,"3":6094,"0":6098}}

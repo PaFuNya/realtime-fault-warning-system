@@ -4,7 +4,10 @@ import org.apache.spark.sql.functions._
 import org.apache.spark.sql.expressions.Window
 import redis.clients.jedis.Jedis
 import java.sql.Timestamp
-import ml.dmlc.xgboost4j.scala.spark.{XGBoostClassificationModel, XGBoostRegressionModel}
+import ml.dmlc.xgboost4j.scala.spark.{
+  XGBoostClassificationModel,
+  XGBoostRegressionModel
+}
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.linalg.Vector
 
@@ -21,13 +24,22 @@ object RealtimeEngine {
     // 模块 2.3 模型加载 (Flink 启动时加载)
     // ==========================================
     println(">>> [INFO] 正在从 MinIO/HDFS 加载 LightGBM(XGBoost) 模型...")
-    val faultModel = XGBoostClassificationModel.load(s"$hdfsUrl/models/fault_probability_xgboost_v2")
-    val rulModel = XGBoostRegressionModel.load(s"$hdfsUrl/models/Device_Rul_xgboost_v1")
-    
-    faultModel.setFeaturesCol("fault_features").setProbabilityCol("fault_probability").setPredictionCol("fault_prediction")
-    rulModel.setFeaturesCol("rul_features").setPredictionCol("rul_prediction_val")
+    val faultModel = XGBoostClassificationModel.load(
+      s"$hdfsUrl/models/fault_probability_xgboost_v2"
+    )
+    val rulModel =
+      XGBoostRegressionModel.load(s"$hdfsUrl/models/Device_Rul_xgboost_v1")
+
+    faultModel
+      .setFeaturesCol("fault_features")
+      .setProbabilityCol("fault_probability")
+      .setPredictionCol("fault_prediction")
+    rulModel
+      .setFeaturesCol("rul_features")
+      .setPredictionCol("rul_prediction_val")
     println(">>> [INFO] 模型加载完成，支持热更新准备就绪！")
 
+    // 提取概率 UDF
     val extractProb = udf((v: Vector) => v.toArray(1))
 
     // ==========================================
@@ -37,6 +49,7 @@ object RealtimeEngine {
       .getSensorRawStream(spark)
       .withWatermark("timestamp", "1 seconds")
 
+    // 读 Log 流
     val logRawDF = SparkUtils.getLogRawStream(spark)
 
     val changeRecordDF = SparkUtils
@@ -48,13 +61,22 @@ object RealtimeEngine {
     // ==========================================
     val aggCols = Seq(
       max("temperature").alias("max_temperature"),
-      sqrt(mean(col("vibration_x") * col("vibration_x") + col("vibration_y") * col("vibration_y") + col("vibration_z") * col("vibration_z"))).alias("avg_vib_rms"),
+      sqrt(
+        mean(
+          col("vibration_x") * col("vibration_x") + col("vibration_y") * col(
+            "vibration_y"
+          ) + col("vibration_z") * col("vibration_z")
+        )
+      ).alias("avg_vib_rms"),
       stddev("current").alias("current_fluctuation"),
       (max("temperature") - min("temperature")).alias("temp_slope")
     )
 
     val window1mDF = sensorRawDF
-      .groupBy(window(col("timestamp"), "1 minute", "1 minute"), col("machine_id"))
+      .groupBy(
+        window(col("timestamp"), "1 minute", "1 minute"),
+        col("machine_id")
+      )
       .agg(aggCols.head, aggCols.tail: _*)
       .select(
         col("window.start").alias("window_start"),
@@ -69,43 +91,91 @@ object RealtimeEngine {
 
     window1mDF.writeStream
       .outputMode("update")
-      .foreachBatch { (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
+      .foreachBatch {
+        (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
           if (!batchDF.isEmpty) {
             try {
               // 任务 15: 写入 ClickHouse realtime_status_window
-              val outputDF = batchDF.select(col("window_end"), col("machine_id"), col("max_temperature"), col("avg_vib_rms"))
-              outputDF.write.mode("append").jdbc(SparkUtils.ckUrl, "realtime_status_window", SparkUtils.getCkProperties())
+              val outputDF = batchDF.select(
+                col("window_end"),
+                col("machine_id"),
+                col("max_temperature"),
+                col("avg_vib_rms")
+              )
+              outputDF.write
+                .mode("append")
+                .jdbc(
+                  SparkUtils.ckUrl,
+                  "realtime_status_window",
+                  SparkUtils.getCkProperties()
+                )
 
               // 任务 17: 实时 RUL 动态预测 (经 Window 计算特征)
               val dfWithFaultFeat = batchDF
                 .withColumn("avg_temp", col("max_temperature"))
-                .withColumn("var_temp", when(col("current_fluctuation").isNull, lit(0.0)).otherwise(col("current_fluctuation")))
+                .withColumn(
+                  "var_temp",
+                  when(col("current_fluctuation").isNull, lit(0.0))
+                    .otherwise(col("current_fluctuation"))
+                )
                 .withColumn("kurtosis_temp", lit(0.5))
                 .withColumn("fft_peak", col("avg_vib_rms") * 100)
 
-              val faultAssembler = new VectorAssembler().setInputCols(Array("avg_temp", "var_temp", "kurtosis_temp", "fft_peak")).setOutputCol("fault_features").setHandleInvalid("keep")
+              val faultAssembler = new VectorAssembler()
+                .setInputCols(
+                  Array("avg_temp", "var_temp", "kurtosis_temp", "fft_peak")
+                )
+                .setOutputCol("fault_features")
+                .setHandleInvalid("keep")
               val faultAssembled = faultAssembler.transform(dfWithFaultFeat)
 
-              val rulCols = Array("duration_seconds", "is_running", "is_standby", "is_offline", "is_alarm", "cutting_time", "cycle_time", "total_parts", "spindle_load", "cumulative_runtime", "cumulative_parts", "cumulative_alarms", "avg_spindle_load_10", "avg_cutting_time_10")
+              val rulCols = Array(
+                "duration_seconds",
+                "is_running",
+                "is_standby",
+                "is_offline",
+                "is_alarm",
+                "cutting_time",
+                "cycle_time",
+                "total_parts",
+                "spindle_load",
+                "cumulative_runtime",
+                "cumulative_parts",
+                "cumulative_alarms",
+                "avg_spindle_load_10",
+                "avg_cutting_time_10"
+              )
               var dfWithRulFeat = faultAssembled
               for (c <- rulCols) {
                 dfWithRulFeat = dfWithRulFeat.withColumn(c, lit(0.0))
               }
-              dfWithRulFeat = dfWithRulFeat.withColumn("is_running", lit(1.0)).withColumn("cumulative_runtime", lit(1000.0))
+              dfWithRulFeat = dfWithRulFeat
+                .withColumn("is_running", lit(1.0))
+                .withColumn("cumulative_runtime", lit(1000.0))
 
-              val rulAssembler = new VectorAssembler().setInputCols(rulCols).setOutputCol("rul_features").setHandleInvalid("keep")
+              val rulAssembler = new VectorAssembler()
+                .setInputCols(rulCols)
+                .setOutputCol("rul_features")
+                .setHandleInvalid("keep")
               val rulAssembled = rulAssembler.transform(dfWithRulFeat)
 
               val faultPredDF = faultModel.transform(rulAssembled)
               val finalPredDF = rulModel.transform(faultPredDF)
 
               val enrichedWindowDF = finalPredDF
-                .withColumn("fault_probability", extractProb(col("fault_probability")))
-                .withColumn("rul_hours", col("rul_prediction_val") * 100000 / 3600)
-                .withColumn("risk_level", 
-                   when(col("rul_hours") < 48.0, "High")
-                   .when(col("rul_hours") < 168.0, "Medium")
-                   .otherwise("Low")
+                .withColumn(
+                  "fault_probability",
+                  extractProb(col("fault_probability"))
+                )
+                .withColumn(
+                  "rul_hours",
+                  col("rul_prediction_val") * 100000 / 3600
+                )
+                .withColumn(
+                  "risk_level",
+                  when(col("rul_hours") < 48.0, "High")
+                    .when(col("rul_hours") < 168.0, "Medium")
+                    .otherwise("Low")
                 )
 
               val ckRulDF = enrichedWindowDF.select(
@@ -114,200 +184,387 @@ object RealtimeEngine {
                 col("rul_hours").alias("rul_value"),
                 col("risk_level")
               )
-              ckRulDF.write.mode("append").jdbc(SparkUtils.ckUrl, "realtime_rul_monitor", SparkUtils.getCkProperties())
+              ckRulDF.write
+                .mode("append")
+                .jdbc(
+                  SparkUtils.ckUrl,
+                  "realtime_rul_monitor",
+                  SparkUtils.getCkProperties()
+                )
             } catch { case e: Exception => e.printStackTrace() }
           }
       }
       .option("checkpointLocation", "checkpoints/engine_status_window")
       .start()
 
-    val window5mDF = sensorRawDF.groupBy(window(col("timestamp"), "5 minutes", "1 minute"), col("machine_id")).agg(aggCols.head, aggCols.tail: _*).select(col("window.start").alias("window_start"), col("window.end").alias("window_end"), col("machine_id"), col("max_temperature"), col("avg_vib_rms"), col("current_fluctuation"), col("temp_slope"), lit("5m").alias("window_type"))
-    val window1hDF = sensorRawDF.groupBy(window(col("timestamp"), "1 hour", "5 minutes"), col("machine_id")).agg(aggCols.head, aggCols.tail: _*).select(col("window.start").alias("window_start"), col("window.end").alias("window_end"), col("machine_id"), col("max_temperature"), col("avg_vib_rms"), col("current_fluctuation"), col("temp_slope"), lit("1h").alias("window_type"))
-    window5mDF.writeStream.outputMode("update").format("console").option("truncate", "false").start()
-    window1hDF.writeStream.outputMode("update").format("console").option("truncate", "false").start()
+    val window5mDF = sensorRawDF
+      .groupBy(
+        window(col("timestamp"), "5 minutes", "1 minute"),
+        col("machine_id")
+      )
+      .agg(aggCols.head, aggCols.tail: _*)
+      .select(
+        col("window.start").alias("window_start"),
+        col("window.end").alias("window_end"),
+        col("machine_id"),
+        col("max_temperature"),
+        col("avg_vib_rms"),
+        col("current_fluctuation"),
+        col("temp_slope"),
+        lit("5m").alias("window_type")
+      )
+    val window1hDF = sensorRawDF
+      .groupBy(
+        window(col("timestamp"), "1 hour", "5 minutes"),
+        col("machine_id")
+      )
+      .agg(aggCols.head, aggCols.tail: _*)
+      .select(
+        col("window.start").alias("window_start"),
+        col("window.end").alias("window_end"),
+        col("machine_id"),
+        col("max_temperature"),
+        col("avg_vib_rms"),
+        col("current_fluctuation"),
+        col("temp_slope"),
+        lit("1h").alias("window_type")
+      )
+    window5mDF.writeStream
+      .outputMode("update")
+      .format("console")
+      .option("truncate", "false")
+      .start()
+    window1hDF.writeStream
+      .outputMode("update")
+      .format("console")
+      .option("truncate", "false")
+      .start()
 
     // ==========================================
     // 模块 2.2 状态机识别与流计算
     // ==========================================
-    changeRecordDF.writeStream.foreachBatch { (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
-      batchDF.foreachPartition { (iter: Iterator[org.apache.spark.sql.Row]) =>
-        val jedis = new Jedis("bigdata1", 6379)
-        iter.foreach { row =>
-          if (!row.isNullAt(row.fieldIndex("machine_id")) && !row.isNullAt(row.fieldIndex("status"))) {
-            val mid = row.getAs[String]("machine_id")
-            val status = row.getAs[String]("status")
-            if (mid != null && status != null) jedis.hset("change_record_status", mid, status)
+    changeRecordDF.writeStream
+      .foreachBatch {
+        (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
+          batchDF.foreachPartition {
+            (iter: Iterator[org.apache.spark.sql.Row]) =>
+              val jedis = new Jedis("bigdata1", 6379)
+              iter.foreach { row =>
+                if (
+                  !row.isNullAt(row.fieldIndex("machine_id")) && !row.isNullAt(
+                    row.fieldIndex("status")
+                  )
+                ) {
+                  val mid = row.getAs[String]("machine_id")
+                  val status = row.getAs[String]("status")
+                  if (mid != null && status != null)
+                    jedis.hset("change_record_status", mid, status)
+                }
+              }
+              jedis.close()
           }
-        }
-        jedis.close()
       }
-    }.outputMode("update").option("checkpointLocation", "checkpoints/engine_change_record_writer").start()
+      .outputMode("update")
+      .option("checkpointLocation", "checkpoints/engine_change_record_writer")
+      .start()
 
-    sensorRawDF.writeStream.foreachBatch { (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
-      if (!batchDF.isEmpty) {
-        val sparkSession = batchDF.sparkSession
-        import sparkSession.implicits._
+    sensorRawDF.writeStream
+      .foreachBatch {
+        (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
+          if (!batchDF.isEmpty) {
+            val sparkSession = batchDF.sparkSession
+            import sparkSession.implicits._
 
-        val withStatusDF = batchDF.mapPartitions { iter =>
-          val jedis = new Jedis("bigdata1", 6379)
-          val res = iter.map { row =>
-            val mid = if (row.isNullAt(row.fieldIndex("machine_id"))) null else row.getAs[String]("machine_id")
-            val status = if (mid != null) jedis.hget("change_record_status", mid) else ""
-            (
-              mid,
-              row.getAs[Timestamp]("timestamp"),
-              row.getAs[Double]("temperature"),
-              row.getAs[Double]("vibration_x"),
-              row.getAs[Double]("speed"),
-              if (status == null) "" else status
+            val withStatusDF = batchDF
+              .mapPartitions { iter =>
+                val jedis = new Jedis("bigdata1", 6379)
+                val res = iter.map { row =>
+                  val mid =
+                    if (row.isNullAt(row.fieldIndex("machine_id"))) null
+                    else row.getAs[String]("machine_id")
+                  val status =
+                    if (mid != null) jedis.hget("change_record_status", mid)
+                    else ""
+                  (
+                    mid,
+                    row.getAs[Timestamp]("timestamp"),
+                    row.getAs[Double]("temperature"),
+                    row.getAs[Double]("vibration_x"),
+                    row.getAs[Double]("speed"),
+                    if (status == null) "" else status
+                  )
+                }
+                jedis.close()
+                res
+              }
+              .toDF(
+                "machine_id",
+                "timestamp",
+                "temperature",
+                "vibration_x",
+                "speed",
+                "record_status"
+              )
+
+            // ML 推理
+            val dfWithFaultFeat = withStatusDF
+              .withColumn("avg_temp", col("temperature"))
+              .withColumn("var_temp", lit(1.0))
+              .withColumn("kurtosis_temp", lit(0.5))
+              .withColumn("fft_peak", col("vibration_x") * 100)
+
+            val faultAssembler = new VectorAssembler()
+              .setInputCols(
+                Array("avg_temp", "var_temp", "kurtosis_temp", "fft_peak")
+              )
+              .setOutputCol("fault_features")
+              .setHandleInvalid("keep")
+
+            val faultAssembled = faultAssembler.transform(dfWithFaultFeat)
+
+            val rulCols = Array(
+              "duration_seconds",
+              "is_running",
+              "is_standby",
+              "is_offline",
+              "is_alarm",
+              "cutting_time",
+              "cycle_time",
+              "total_parts",
+              "spindle_load",
+              "cumulative_runtime",
+              "cumulative_parts",
+              "cumulative_alarms",
+              "avg_spindle_load_10",
+              "avg_cutting_time_10"
             )
-          }
-          jedis.close()
-          res
-        }.toDF("machine_id", "timestamp", "temperature", "vibration_x", "speed", "record_status")
-
-        // ML 推理
-        val dfWithFaultFeat = withStatusDF
-          .withColumn("avg_temp", col("temperature"))
-          .withColumn("var_temp", lit(1.0))
-          .withColumn("kurtosis_temp", lit(0.5))
-          .withColumn("fft_peak", col("vibration_x") * 100)
-
-        val faultAssembler = new VectorAssembler().setInputCols(Array("avg_temp", "var_temp", "kurtosis_temp", "fft_peak")).setOutputCol("fault_features").setHandleInvalid("keep")
-        val faultAssembled = faultAssembler.transform(dfWithFaultFeat)
-
-        val rulCols = Array("duration_seconds", "is_running", "is_standby", "is_offline", "is_alarm", "cutting_time", "cycle_time", "total_parts", "spindle_load", "cumulative_runtime", "cumulative_parts", "cumulative_alarms", "avg_spindle_load_10", "avg_cutting_time_10")
-        var dfWithRulFeat = faultAssembled
-        for (c <- rulCols) {
-          dfWithRulFeat = dfWithRulFeat.withColumn(c, lit(0.0))
-        }
-        dfWithRulFeat = dfWithRulFeat.withColumn("is_running", lit(1.0)).withColumn("cumulative_runtime", col("speed") * 100)
-
-        val rulAssembler = new VectorAssembler().setInputCols(rulCols).setOutputCol("rul_features").setHandleInvalid("keep")
-        val rulAssembled = rulAssembler.transform(dfWithRulFeat)
-
-        val faultPredDF = faultModel.transform(rulAssembled)
-        val finalPredDF = rulModel.transform(faultPredDF)
-
-        val enrichedDF = finalPredDF
-          .withColumn("fault_probability", extractProb(col("fault_probability")))
-          .withColumn("rul_hours", col("rul_prediction_val") * 100000 / 3600)
-          .withColumn("machine_status",
-            when(col("record_status") === "预警", lit("异常停机"))
-              .when(col("speed") < 1000, lit("启动中"))
-              .otherwise(lit("稳定运行"))
-          )
-          .withColumn("rul_prediction", when(col("machine_status") === "稳定运行", col("rul_hours")).otherwise(lit(null)))
-          .withColumn("health_score",
-            when(col("machine_status") === "稳定运行", lit(100.0) - col("fault_probability") * 100)
-              .when(col("machine_status") === "启动中", lit(80.0))
-              .otherwise(lit(60.0))
-          )
-
-        // 写入 Redis
-        enrichedDF.foreachPartition { (iter: Iterator[org.apache.spark.sql.Row]) =>
-          val jedis = new Jedis("bigdata1", 6379)
-          iter.foreach { row =>
-            if (!row.isNullAt(row.fieldIndex("machine_id"))) {
-              val mid = row.getAs[String]("machine_id")
-              val score = row.getAs[Double]("health_score")
-              jedis.hset("device_health", mid, score.toString)
+            var dfWithRulFeat = faultAssembled
+            for (c <- rulCols) {
+              dfWithRulFeat = dfWithRulFeat.withColumn(c, lit(0.0))
             }
-          }
-          jedis.close()
-        }
+            dfWithRulFeat = dfWithRulFeat
+              .withColumn("is_running", lit(1.0))
+              .withColumn("cumulative_runtime", col("speed") * 100)
 
-        // 写入 ClickHouse device_realtime_status
-        val ckRealtimeStatusDF = enrichedDF.select(
-          col("machine_id"),
-          col("timestamp").alias("update_time"),
-          col("machine_status"),
-          col("temperature").alias("current_temperature"),
-          col("vibration_x").alias("current_vibration_rms"),
-          col("rul_prediction").alias("current_rul"),
-          col("health_score")
-        )
-        try {
-          ckRealtimeStatusDF.write.mode("append").jdbc(SparkUtils.ckUrl, "device_realtime_status", SparkUtils.getCkProperties())
-        } catch { case _: Exception => }
-        
-        // 动态阈值报警
-        val mlAlerts = enrichedDF.filter(col("temperature") > 80.0 || col("vibration_x") > 2.0 || col("rul_hours") < 48.0 || col("fault_probability") > 0.85)
-          .select(
-            col("timestamp").alias("alert_time"),
-            col("machine_id"),
-            when(col("temperature") > 80.0, "高温预警")
-              .when(col("fault_probability") > 0.85, "故障概率超标(>85%)")
-              .when(col("rul_hours") < 48.0, "寿命不足预警(RUL<48h)")
-              .otherwise("振动异常").alias("alert_type"),
-            when(col("fault_probability") > 0.85, col("fault_probability"))
-              .when(col("rul_hours") < 48.0, col("rul_hours"))
-              .otherwise(col("temperature")).alias("trigger_value"),
-            when(col("fault_probability") > 0.85, lit(0.85))
-              .when(col("rul_hours") < 48.0, lit(48.0))
-              .otherwise(lit(80.0)).alias("threshold_value"),
-            lit("请立即检查设备及模型预测结果").alias("suggested_action")
-          )
-        
-        try {
-          mlAlerts.write.mode("append").jdbc(SparkUtils.ckUrl, "realtime_alerts", SparkUtils.getCkProperties())
-        } catch { case _: Exception => }
-        
-        try {
-          mlAlerts.selectExpr("CAST(machine_id AS STRING) AS key", "to_json(struct(*)) AS value")
-            .write.format("kafka").option("kafka.bootstrap.servers", SparkUtils.kafkaBrokers).option("topic", "alert_topic").save()
-        } catch { case _: Exception => }
+            val rulAssembler = new VectorAssembler()
+              .setInputCols(rulCols)
+              .setOutputCol("rul_features")
+              .setHandleInvalid("keep")
+
+            val rulAssembled = rulAssembler.transform(dfWithRulFeat)
+
+            val faultPredDF = faultModel.transform(rulAssembled)
+            val finalPredDF = rulModel.transform(faultPredDF)
+
+            val enrichedDF = finalPredDF
+              .withColumn(
+                "fault_probability",
+                extractProb(col("fault_probability"))
+              )
+              .withColumn(
+                "rul_hours",
+                col("rul_prediction_val") * 100000 / 3600
+              )
+              .withColumn(
+                "machine_status",
+                when(col("record_status") === "预警", lit("异常停机"))
+                  .when(col("speed") < 1000, lit("启动中"))
+                  .otherwise(lit("稳定运行"))
+              )
+              .withColumn(
+                "rul_prediction",
+                when(col("machine_status") === "稳定运行", col("rul_hours"))
+                  .otherwise(lit(null))
+              )
+              .withColumn(
+                "health_score",
+                when(
+                  col("machine_status") === "稳定运行",
+                  lit(100.0) - col("fault_probability") * 100
+                )
+                  .when(col("machine_status") === "启动中", lit(80.0))
+                  .otherwise(lit(60.0))
+              )
+
+            // 写入 Redis
+            enrichedDF.foreachPartition {
+              (iter: Iterator[org.apache.spark.sql.Row]) =>
+                val jedis = new Jedis("bigdata1", 6379)
+                iter.foreach { row =>
+                  if (!row.isNullAt(row.fieldIndex("machine_id"))) {
+                    val mid = row.getAs[String]("machine_id")
+                    val score = row.getAs[Double]("health_score")
+                    jedis.hset("device_health", mid, score.toString)
+                  }
+                }
+                jedis.close()
+            }
+
+            // 写入 ClickHouse device_realtime_status
+            val ckRealtimeStatusDF = enrichedDF.select(
+              col("machine_id"),
+              col("timestamp").alias("update_time"),
+              col("machine_status"),
+              col("temperature").alias("current_temperature"),
+              col("vibration_x").alias("current_vibration_rms"),
+              col("rul_prediction").alias("current_rul"),
+              col("health_score")
+            )
+            try {
+              ckRealtimeStatusDF.write
+                .mode("append")
+                .jdbc(
+                  SparkUtils.ckUrl,
+                  "device_realtime_status",
+                  SparkUtils.getCkProperties()
+                )
+            } catch { case _: Exception => }
+
+            // 动态阈值报警
+            val mlAlerts = enrichedDF
+              .filter(
+                col("temperature") > 80.0 || col("vibration_x") > 2.0 || col(
+                  "rul_hours"
+                ) < 48.0 || col("fault_probability") > 0.85
+              )
+              .select(
+                col("timestamp").alias("alert_time"),
+                col("machine_id"),
+                when(col("temperature") > 80.0, "高温预警")
+                  .when(col("fault_probability") > 0.85, "故障概率超标(>85%)")
+                  .when(col("rul_hours") < 48.0, "寿命不足预警(RUL<48h)")
+                  .otherwise("振动异常")
+                  .alias("alert_type"),
+                when(col("fault_probability") > 0.85, col("fault_probability"))
+                  .when(col("rul_hours") < 48.0, col("rul_hours"))
+                  .otherwise(col("temperature"))
+                  .alias("trigger_value"),
+                when(col("fault_probability") > 0.85, lit(0.85))
+                  .when(col("rul_hours") < 48.0, lit(48.0))
+                  .otherwise(lit(80.0))
+                  .alias("threshold_value"),
+                lit("请立即检查设备及模型预测结果").alias("suggested_action")
+              )
+
+            try {
+              mlAlerts.write
+                .mode("append")
+                .jdbc(
+                  SparkUtils.ckUrl,
+                  "realtime_alerts",
+                  SparkUtils.getCkProperties()
+                )
+            } catch { case _: Exception => }
+
+            try {
+              mlAlerts
+                .selectExpr(
+                  "CAST(machine_id AS STRING) AS key",
+                  "to_json(struct(*)) AS value"
+                )
+                .write
+                .format("kafka")
+                .option("kafka.bootstrap.servers", SparkUtils.kafkaBrokers)
+                .option("topic", "alert_topic")
+                .save()
+            } catch { case _: Exception => }
+          }
       }
-    }.outputMode("append").option("checkpointLocation", "checkpoints/engine_enriched").start()
+      .outputMode("append")
+      .option("checkpointLocation", "checkpoints/engine_enriched")
+      .start()
 
     // ==========================================
     // 日志异常检测 (独立流)
     // ==========================================
-    logRawDF.filter(col("error_code") === "999").select(
-      col("timestamp").alias("alert_time"),
-      col("machine_id"),
-      lit("严重错误: 999").alias("alert_type"),
-      lit(999.0).alias("trigger_value"),
-      lit(0.0).alias("threshold_value"),
-      lit("请立即检查硬件日志").alias("suggested_action")
-    ).writeStream.foreachBatch { (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
-      if (!batchDF.isEmpty) {
-        try {
-          batchDF.write.mode("append").jdbc(SparkUtils.ckUrl, "realtime_alerts", SparkUtils.getCkProperties())
-        } catch { case _: Exception => }
-        try {
-          batchDF.selectExpr("CAST(machine_id AS STRING) AS key", "to_json(struct(*)) AS value")
-            .write.format("kafka").option("kafka.bootstrap.servers", SparkUtils.kafkaBrokers).option("topic", "alert_topic").save()
-        } catch { case _: Exception => }
+    logRawDF
+      .filter(col("error_code") === "999")
+      .select(
+        col("timestamp").alias("alert_time"),
+        col("machine_id"),
+        lit("严重错误: 999").alias("alert_type"),
+        lit(999.0).alias("trigger_value"),
+        lit(0.0).alias("threshold_value"),
+        lit("请立即检查硬件日志").alias("suggested_action")
+      )
+      .writeStream
+      .foreachBatch {
+        (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
+          if (!batchDF.isEmpty) {
+            try {
+              batchDF.write
+                .mode("append")
+                .jdbc(
+                  SparkUtils.ckUrl,
+                  "realtime_alerts",
+                  SparkUtils.getCkProperties()
+                )
+            } catch { case _: Exception => }
+            try {
+              batchDF
+                .selectExpr(
+                  "CAST(machine_id AS STRING) AS key",
+                  "to_json(struct(*)) AS value"
+                )
+                .write
+                .format("kafka")
+                .option("kafka.bootstrap.servers", SparkUtils.kafkaBrokers)
+                .option("topic", "alert_topic")
+                .save()
+            } catch { case _: Exception => }
+          }
       }
-    }.option("checkpointLocation", "checkpoints/engine_log_alerts").start()
+      .option("checkpointLocation", "checkpoints/engine_log_alerts")
+      .start()
 
     // ==========================================
     // 任务 18 实时工艺参数偏离监控
     // ==========================================
-    sensorRawDF.writeStream.foreachBatch { (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
-      val sparkSession = batchDF.sparkSession
-      import sparkSession.implicits._
-      val devDF = batchDF.mapPartitions { iter =>
-        val jedis = new Jedis("bigdata1", 6379)
-        val res = iter.map { row =>
-          val mid = row.getAs[String]("machine_id")
-          val current = row.getAs[Double]("current")
-          val speed = row.getAs[Double]("speed")
-          val stdCurrentStr = jedis.hget(s"std_params:$mid", "current")
-          val stdSpeedStr = jedis.hget(s"std_params:$mid", "speed")
-          val stdCurrent = if (stdCurrentStr != null) stdCurrentStr.toDouble else 30.0
-          val stdSpeed = if (stdSpeedStr != null) stdSpeedStr.toDouble else 3000.0
-          val currentDev = Math.abs(current - stdCurrent) / stdCurrent
-          val speedDev = Math.abs(speed - stdSpeed) / stdSpeed
-          (mid, currentDev, speedDev, row.getAs[Timestamp]("timestamp"), current, stdCurrent)
-        }.filter(x => x._2 > 0.028 || x._3 > 0.028)
-        jedis.close()
-        res
-      }.toDF("machine_id", "current_dev", "speed_dev", "timestamp", "actual_value", "standard_value")
+    sensorRawDF.writeStream
+      .foreachBatch {
+        (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
+          val sparkSession = batchDF.sparkSession
+          import sparkSession.implicits._
+          val devDF = batchDF
+            .mapPartitions { iter =>
+              val jedis = new Jedis("bigdata1", 6379)
+              val res = iter
+                .map { row =>
+                  val mid = row.getAs[String]("machine_id")
+                  val current = row.getAs[Double]("current")
+                  val speed = row.getAs[Double]("speed")
+                  val stdCurrentStr = jedis.hget(s"std_params:$mid", "current")
+                  val stdSpeedStr = jedis.hget(s"std_params:$mid", "speed")
+                  val stdCurrent =
+                    if (stdCurrentStr != null) stdCurrentStr.toDouble else 30.0
+                  val stdSpeed =
+                    if (stdSpeedStr != null) stdSpeedStr.toDouble else 3000.0
+                  val currentDev = Math.abs(current - stdCurrent) / stdCurrent
+                  val speedDev = Math.abs(speed - stdSpeed) / stdSpeed
+                  (
+                    mid,
+                    currentDev,
+                    speedDev,
+                    row.getAs[Timestamp]("timestamp"),
+                    current,
+                    stdCurrent
+                  )
+                }
+                .filter(x => x._2 > 0.028 || x._3 > 0.028)
+              jedis.close()
+              res
+            }
+            .toDF(
+              "machine_id",
+              "current_dev",
+              "speed_dev",
+              "timestamp",
+              "actual_value",
+              "standard_value"
+            )
 
-      devDF.createOrReplaceTempView("temp_dev")
-      val aggDevDF = sparkSession.sql("""
+          devDF.createOrReplaceTempView("temp_dev")
+          val aggDevDF = sparkSession.sql("""
       SELECT window.start as record_time, machine_id, 'current' as param_name,
              ROUND(MAX(actual_value), 2) as actual_value, 
              ROUND(MAX(standard_value), 2) as standard_value,
@@ -317,10 +574,18 @@ object RealtimeEngine {
       GROUP BY machine_id, window
       """)
 
-      try {
-        aggDevDF.write.mode("append").jdbc(SparkUtils.ckUrl, "realtime_process_deviation", SparkUtils.getCkProperties())
-      } catch { case e: Exception => e.printStackTrace() }
-    }.option("checkpointLocation", "checkpoints/engine_process_dev").start()
+          try {
+            aggDevDF.write
+              .mode("append")
+              .jdbc(
+                SparkUtils.ckUrl,
+                "realtime_process_deviation",
+                SparkUtils.getCkProperties()
+              )
+          } catch { case e: Exception => e.printStackTrace() }
+      }
+      .option("checkpointLocation", "checkpoints/engine_process_dev")
+      .start()
 
     spark.streams.awaitAnyTermination()
   }
