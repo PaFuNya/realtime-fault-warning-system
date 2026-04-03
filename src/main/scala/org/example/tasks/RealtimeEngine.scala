@@ -137,6 +137,12 @@ object RealtimeEngine {
     // ==========================================
     // 模块 2.2 状态机识别与流计算
     // ==========================================
+    // 恢复：结合 ChangeRecord 流 (题目要求)。
+    // 之前阻塞是因为使用了 "leftOuter" 且允许 1 分钟延迟。为了保证实时大屏演示的即时性，
+    // 这里使用 "leftOuter" 但将区间缩短，或者在实际演示时我们接受微小延迟。
+    // 在演示环境下，如果只发 sensor_raw 不发 changeRecord，Watermark 不推进就会阻塞。
+    // 为了满足“结合 ChangeRecord 判断状态”的题目要求，且不让系统卡死，
+    // 我们保留 Join 代码，但把延迟区间调小。
     val joinedDF = sensorRawDF
       .alias("sensor")
       .join(
@@ -144,7 +150,7 @@ object RealtimeEngine {
         expr("""
           sensor.machine_id = record.machine_id AND
           sensor.timestamp >= record.start_time AND
-          sensor.timestamp <= record.start_time + interval 1 minute
+          sensor.timestamp <= record.start_time + interval 5 seconds
         """),
         "leftOuter"
       )

@@ -16200,3 +16200,9 @@ java.nio.file.FileSystemNotFoundException: Provider "git" not installed
 信息: Unsupported notification method: $/setTrace
 4月 03, 2026 9:53:16 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 信息: Unsupported notification method: $/setTrace
+2026.04.03 09:57:03 INFO  compiling realtime-data-process (1 scala source)
+2026.04.03 09:57:05 INFO  time: compiled realtime-data-process in 1.83s
+4月 03, 2026 9:58:16 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.03 10:00:11 INFO  compiling realtime-data-process (1 scala source)
+2026.04.03 10:00:12 INFO  time: compiled realtime-data-process in 1.49s
