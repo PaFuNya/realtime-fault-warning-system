@@ -237,10 +237,16 @@ object FlinkRulInference {
       var faultProb = 0.0
       if (rulPredictor != null && faultPredictor != null) {
         val rulVec = FVec.Transformer.fromArray(rulFeatureArray, true)
-        rulHours = rulPredictor.predict(rulVec)(0) * 100000 / 3600 // 还原真实寿命小时
+        // 获取预测结果数组，然后取第一个元素。如果是单输出模型，数组长度为1。
+        val rulPreds = rulPredictor.predict(rulVec)
+        rulHours = (if (rulPreds != null && rulPreds.length > 0) rulPreds(0)
+                    else 0.0) * 100000 / 3600 // 还原真实寿命小时
 
         val faultVec = FVec.Transformer.fromArray(faultFeatureArray, true)
-        faultProb = faultPredictor.predict(faultVec)(0)
+        val faultPreds = faultPredictor.predict(faultVec)
+        faultProb =
+          if (faultPreds != null && faultPreds.length > 0) faultPreds(0)
+          else 0.0
       } else {
         // Fallback，防止模型没下发导致程序崩溃
         rulHours = 100.0 - (value.max_temp * 0.1) - (value.avg_vib_rms * 5.0)
