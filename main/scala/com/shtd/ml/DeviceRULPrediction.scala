@@ -214,21 +214,15 @@ object DeviceRULPrediction {
 
     val assembler = new VectorAssembler()
       .setInputCols(featureCols)
-      .setOutputCol("features_raw")
-      .setHandleInvalid("skip")
-
-    val scaler = new MinMaxScaler()
-      .setInputCol("features_raw")
       .setOutputCol("features")
-      .setMin(0.0)
-      .setMax(1.0)
+      .setHandleInvalid("skip")
 
     val assembledDF = assembler.transform(cleanDF)
 
-    val nullFeaturesCount = assembledDF.filter(col("features_raw").isNull).count()
-    println(s">>> 特征向量为 null 的记录数：$nullFeaturesCount")
+    val nullFeaturesCount = assembledDF.filter(col("features").isNull).count()
+    println(s">>> 特征向量中 null 的记录数：$nullFeaturesCount")
 
-    val scaledDF = scaler.fit(assembledDF).transform(assembledDF)
+    val scaledDF = assembledDF
       .select("features", "RUL", "RUL_normalized", "ChangeMachineID")
 
     val validDF = scaledDF.filter(col("features").isNotNull)
@@ -287,16 +281,13 @@ object DeviceRULPrediction {
     println("\n>>> 配置 XGBoost 模型参数...")
     val xgbRegressor = new XGBoostRegressor(
       Map(
-        "eta" -> "0.1",
-        "max_depth" -> "6",
-        // Flink xgboost-predictor 0.3.1 支持 'reg:linear' (较老版本)
-        // 替换 'reg:squarederror' 为 'reg:linear' 以解决加载兼容性问题
-        "objective" -> "reg:linear",
-        "num_round" -> "100",
-        "min_child_weight" -> "5",
-        "subsample" -> "0.8",
-        "colsample_bytree" -> "0.8",
-        "missing" -> "0.0"
+        "eta" -> 0.1,
+        "max_depth" -> 6,
+        "objective" -> "reg:squarederror",
+        "num_round" -> 100,
+        "min_child_weight" -> 5,
+        "subsample" -> 0.8,
+        "colsample_bytree" -> 0.8
       )
     ).setLabelCol("RUL_normalized")
       .setFeaturesCol("features")

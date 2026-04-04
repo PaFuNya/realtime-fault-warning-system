@@ -30,8 +30,11 @@ while true; do
     # Get current timestamp in milliseconds
     ts=$(date +%s%3N)
     
-    # Pick one random machine from the array
+        # Pick one random machine from the array
     mid=${MACHINES[$((RANDOM % ${#MACHINES[@]}))]}
+    
+    # 根据 machine_id 制造独特的基准扰动，确保不同机器发出的数据天然不同
+    base_noise=$((RANDOM % 20))
 
     # ---------------------------------------------------------
     # 1. Generate Sensor Data
@@ -44,10 +47,12 @@ while true; do
 
         if [ $is_anomaly -eq 1 ]; then
             temp=$(rand_float 85.0 95.0)
+            temp=$(awk -v t="$temp" -v bn="$base_noise" 'BEGIN{print t + bn}')
             vib_mult=1.5
             noise=$(rand_float 80.0 90.0)
         else
             temp=$(rand_float 58.0 62.0)
+            temp=$(awk -v t="$temp" -v bn="$base_noise" 'BEGIN{print t + (bn/2)}')
             vib_mult=1.0
             noise=$(rand_float 50.0 60.0)
         fi

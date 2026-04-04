@@ -1,3 +1,19 @@
+error id: file:///D:/Desktop/Match/MATCH/OverMatch/src/main/scala/org/example/tasks/RealtimeEngine.scala:start.
+file:///D:/Desktop/Match/MATCH/OverMatch/src/main/scala/org/example/tasks/RealtimeEngine.scala
+empty definition using pc, found symbol in pc: 
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+	 -org/apache/spark/sql/functions.
+	 -org/apache/spark/sql/functions#
+	 -org/apache/spark/sql/functions().
+	 -scala/Predef.
+	 -scala/Predef#
+	 -scala/Predef().
+offset: 6070
+uri: file:///D:/Desktop/Match/MATCH/OverMatch/src/main/scala/org/example/tasks/RealtimeEngine.scala
+text:
+```scala
 package org.example.tasks
 
 import org.apache.spark.sql.functions._
@@ -98,7 +114,7 @@ object RealtimeEngine {
                 .withColumn("kurtosis_temp", lit(0.5))
                 .withColumn("fft_peak", col("avg_vib_rms") * 100)
 
-              val enrichedWindowDF = dfWithFaultFeat
+              val enrichedWindowDF = windowDF
                 .withColumn("hash_val", abs(hash(col("machine_id")) % 50))
                 .withColumn(
                   "fault_probability",
@@ -181,7 +197,7 @@ object RealtimeEngine {
       .outputMode("update")
       .format("console")
       .option("truncate", "false")
-      .start()
+      .star@@t()
 
     // ==========================================
     // 模块 2.2 状态机识别与流计算
@@ -340,21 +356,15 @@ object RealtimeEngine {
                   .when(col("rul_hours") < 48.0, "寿命不足预警(RUL<48h)")
                   .otherwise("振动异常")
                   .alias("alert_type"),
-                when(col("temperature") > 80.0, col("temperature"))
-                  .when(
-                    col("fault_probability") > 0.85,
-                    col("fault_probability")
-                  )
+                when(col("fault_probability") > 0.85, col("fault_probability"))
                   .when(col("rul_hours") < 48.0, col("rul_hours"))
-                  .otherwise(col("vibration_x"))
+                  .otherwise(col("temperature"))
                   .alias("trigger_value"),
-                when(col("temperature") > 80.0, lit(80.0))
-                  .when(col("fault_probability") > 0.85, lit(0.85))
+                when(col("fault_probability") > 0.85, lit(0.85))
                   .when(col("rul_hours") < 48.0, lit(48.0))
-                  .otherwise(lit(2.0))
+                  .otherwise(lit(80.0))
                   .alias("threshold_value"),
-                lit("请立即检查设备及模型预测结果").alias("suggested_action"),
-                current_timestamp().alias("insert_time")
+                lit("请立即检查设备及模型预测结果").alias("suggested_action")
               )
 
             try {
@@ -396,8 +406,7 @@ object RealtimeEngine {
         lit("严重错误: 999").alias("alert_type"),
         lit(999.0).alias("trigger_value"),
         lit(0.0).alias("threshold_value"),
-        lit("请立即检查硬件日志").alias("suggested_action"),
-        current_timestamp().alias("insert_time")
+        lit("请立即检查硬件日志").alias("suggested_action")
       )
       .writeStream
       .foreachBatch {
@@ -578,3 +587,10 @@ object RealtimeEngine {
     spark.streams.awaitAnyTermination()
   }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: 
