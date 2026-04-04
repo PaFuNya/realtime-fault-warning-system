@@ -97,26 +97,23 @@ object FlinkRulInference {
 
     // 5. 写入 ClickHouse (realtime_rul_monitor)
     val jdbcSink = JdbcSink.sink(
-      // 根据报错，原表缺少 ts 字段，应该只有: machine_id, rul_value, risk_level (或有其他时间字段名如 update_time)
-      // 如果报错 NO_SUCH_COLUMN_IN_TABLE "ts"，说明 ClickHouse 的 realtime_rul_monitor 没有 ts。
-      // 我们这里使用你的 RealtimeEngine 曾使用的类似 update_time 字段或省去它。假设是 update_time:
-      // 如果你不确定，最安全的是不写时间或者使用你在 CK 里建表时的字段。这里我将 "ts" 改为 "update_time" 尝试匹配，
-      // 因为之前的报错显示：No such column ts in table ldc.realtime_rul_monitor
-      "INSERT INTO realtime_rul_monitor (update_time, machine_id, rul_value, risk_level) VALUES (?, ?, ?, ?)",
+      // 根据你提供的真实 ClickHouse 表结构：
+      // predict_time DateTime, machine_id String, predicted_rul Float64, risk_level String, failure_probability Float64, insert_time DateTime
+      "INSERT INTO realtime_rul_monitor (predict_time, machine_id, predicted_rul, risk_level, failure_probability, insert_time) VALUES (?, ?, ?, ?, ?, ?)",
       new org.apache.flink.connector.jdbc.JdbcStatementBuilder[
-        (String, String, Double, String)
+        (String, String, Double, String, Double)
       ] {
         override def accept(
             ps: java.sql.PreparedStatement,
-            t: (String, String, Double, String)
+            t: (String, String, Double, String, Double)
         ): Unit = {
-          ps.setTimestamp(
-            1,
-            new java.sql.Timestamp(System.currentTimeMillis())
-          ) // 简化时间戳
-          ps.setString(2, t._2)
-          ps.setDouble(3, t._3)
-          ps.setString(4, t._4)
+          val now = new java.sql.Timestamp(System.currentTimeMillis())
+          ps.setTimestamp(1, now) // predict_time
+          ps.setString(2, t._2) // machine_id
+          ps.setDouble(3, t._3) // predicted_rul
+          ps.setString(4, t._4) // risk_level
+          ps.setDouble(5, t._5) // failure_probability
+          ps.setTimestamp(6, now) // insert_time
         }
       },
       JdbcExecutionOptions
@@ -127,7 +124,7 @@ object FlinkRulInference {
       new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
         .withUrl(
           "jdbc:clickhouse://192.168.45.11:8123/ldc"
-        ) // 注意：比赛环境库名如果是 ldc 请改回 ldc，当前代码中暂且使用 default，避免库不存在报错
+        )
         .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
         .build()
     )
@@ -171,7 +168,10 @@ object FlinkRulInference {
 
   // XGBoost 在线推理函数
   class XGBoostPredictFunction
-      extends ProcessFunction[FeatureData, (String, String, Double, String)] {
+      extends ProcessFunction[
+        FeatureData,
+        (String, String, Double, String, Double)
+      ] {
     @transient var rulPredictor: Predictor = _
     @transient var faultPredictor: Predictor = _
 
@@ -209,9 +209,9 @@ object FlinkRulInference {
         value: FeatureData,
         ctx: ProcessFunction[
           FeatureData,
-          (String, String, Double, String)
+          (String, String, Double, String, Double)
         ]#Context,
-        out: Collector[(String, String, Double, String)]
+        out: Collector[(String, String, Double, String, Double)]
     ): Unit = {
       // 1. 组装模型需要的 Double 数组
       // 注意：数组长度和顺序必须和离线训练时 VectorAssembler 拼装的完全一致
@@ -266,13 +266,14 @@ object FlinkRulInference {
         else if (rulHours < 168.0) "Medium"
         else "Low"
 
-      // 4. 输出结果 (当前时间, machine_id, RUL, risk_level)
+      // 4. 输出结果 (当前时间, machine_id, predicted_rul, risk_level, failure_probability)
       out.collect(
         (
           java.time.Instant.now().toString,
           value.machine_id,
           rulHours,
-          riskLevel
+          riskLevel,
+          faultProb
         )
       )
     }
