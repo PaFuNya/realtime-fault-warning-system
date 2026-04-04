@@ -97,7 +97,12 @@ object FlinkRulInference {
 
     // 5. 写入 ClickHouse (realtime_rul_monitor)
     val jdbcSink = JdbcSink.sink(
-      "INSERT INTO realtime_rul_monitor (ts, machine_id, rul_value, risk_level) VALUES (?, ?, ?, ?)",
+      // 根据报错，原表缺少 ts 字段，应该只有: machine_id, rul_value, risk_level (或有其他时间字段名如 update_time)
+      // 如果报错 NO_SUCH_COLUMN_IN_TABLE "ts"，说明 ClickHouse 的 realtime_rul_monitor 没有 ts。
+      // 我们这里使用你的 RealtimeEngine 曾使用的类似 update_time 字段或省去它。假设是 update_time:
+      // 如果你不确定，最安全的是不写时间或者使用你在 CK 里建表时的字段。这里我将 "ts" 改为 "update_time" 尝试匹配，
+      // 因为之前的报错显示：No such column ts in table ldc.realtime_rul_monitor
+      "INSERT INTO realtime_rul_monitor (update_time, machine_id, rul_value, risk_level) VALUES (?, ?, ?, ?)",
       new org.apache.flink.connector.jdbc.JdbcStatementBuilder[
         (String, String, Double, String)
       ] {
@@ -121,7 +126,7 @@ object FlinkRulInference {
         .build(),
       new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
         .withUrl(
-          "jdbc:clickhouse://192.168.45.11:8123/default"
+          "jdbc:clickhouse://192.168.45.11:8123/ldc"
         ) // 注意：比赛环境库名如果是 ldc 请改回 ldc，当前代码中暂且使用 default，避免库不存在报错
         .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
         .build()
