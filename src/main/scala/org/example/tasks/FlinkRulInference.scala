@@ -262,9 +262,9 @@ object FlinkRulInference {
 
       // 3. 计算风险等级 (任务 17 要求)
       val riskLevel =
-        if (rulHours < 48.0 || faultProb > 0.85) "High"
-        else if (rulHours < 168.0) "Medium"
-        else "Low"
+        if (rulHours < 48.0 || faultProb > 0.85) "高"
+        else if (rulHours < 168.0) "中"
+        else "低"
 
       // 4. 输出结果 (当前时间, machine_id, predicted_rul, risk_level, failure_probability)
       out.collect(
