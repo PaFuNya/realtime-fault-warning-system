@@ -120,7 +120,9 @@ object FlinkRulInference {
         .withBatchIntervalMs(200)
         .build(),
       new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
-        .withUrl("jdbc:clickhouse://192.168.45.11:8123/ldc")
+        .withUrl(
+          "jdbc:clickhouse://192.168.45.11:8123/default"
+        ) // 注意：比赛环境库名如果是 ldc 请改回 ldc，当前代码中暂且使用 default，避免库不存在报错
         .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
         .build()
     )
