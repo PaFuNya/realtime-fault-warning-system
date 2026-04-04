@@ -23166,3 +23166,433 @@ Caused by: com.github.plokhotnyuk.jsoniter_scala.core.JsonReaderException: unexp
 2026.04.03 20:34:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.03 20:34:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.03 20:34:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.03 21:05:42 INFO  Shutting down server
+2026.04.03 21:05:42 INFO  Memory monitor stopped
+2026.04.03 21:05:42 INFO  shutting down Metals
+2026.04.03 21:05:42 INFO  Exiting server
+2026.04.04 15:06:27 INFO  Started: Metals version 1.6.6 in folders 'D:\Desktop\Match\MATCH\OverMatch' for client Trae 1.107.1.
+2026.04.04 15:06:27 INFO  Memory monitor started
+2026.04.04 15:06:29 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.04.04 15:06:30 INFO  Attempting to connect to the build server...
+2026.04.04 15:06:30 INFO  Found a Bloop server running
+2026.04.04 15:06:31 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at D:\Desktop\Match\MATCH\OverMatch\.metals\bsp.trace.json or C:\Users\蓝莓\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.04.04 15:06:31 ERROR C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+21:05:42.767 [NGSession 1: (idle) (NGCommunicator orchestrator)] ERROR c.martiansoftware.nailgun.NGServer - Nailgun client read future raised an exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:394)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:426)
+	at libdaemonjvm.Util$$anon$1$$anon$2.read(Util.scala:19)
+	at java.base/sun.nio.ch.ChannelInputStream.read(ChannelInputStream.java:65)
+	at java.base/sun.nio.ch.ChannelInputStream.read(ChannelInputStream.java:107)
+	at java.base/sun.nio.ch.ChannelInputStream.read(ChannelInputStream.java:101)
+	at java.base/java.io.InputStream.read(InputStream.java:218)
+	at java.base/sun.nio.ch.ChannelInputStream.read(ChannelInputStream.java:81)
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:393)
+	at com.martiansoftware.nailgun.NGCommunicator.readChunkImpl(NGCommunicator.java:497)
+	at com.martiansoftware.nailgun.NGCommunicator.readChunk(NGCommunicator.java:480)
+	at com.martiansoftware.nailgun.NGCommunicator.lambda$null$0(NGCommunicator.java:209)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+C:\Users\???\AppData\Local\ScalaCli\data\bloop
+ssion.scala:214)
+	at com.microsoft.java.debug.core.adapter.ProtocolServer.lambda$dispatchRequest$1(ProtocolServer.java:156)
+	at java.base/java.util.concurrent.CompletableFuture.uniExceptionally(CompletableFuture.java:990)
+	... 11 more
+java.util.concurrent.CompletionException: java.lang.IllegalStateException: Promise already completed.
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320)
+	at java.base/java.util.concurrent.CompletableFuture.uniExceptionally(CompletableFuture.java:994)
+	at java.base/java.util.concurrent.CompletableFuture.uniExceptionallyStage(CompletableFuture.java:1008)
+	at java.base/java.util.concurrent.CompletableFuture.exceptionally(CompletableFuture.java:2364)
+	at com.microsoft.java.debug.core.adapter.ProtocolServer.dispatchRequest(ProtocolServer.java:136)
+	at ch.epfl.scala.debugadapter.internal.DebugSession.super$dispatchRequest(DebugSession.scala:163)
+	at ch.epfl.scala.debugadapter.internal.DebugSession.$anonfun$dispatchRequest$1(DebugSession.scala:164)
+	at ch.epfl.scala.debugadapter.internal.DebugSession.$anonfun$dispatchRequest$1$adapted(DebugSession.scala:161)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:74)
+	at monix.execution.internal.InterceptRunnable.run(InterceptRunnable.scala:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.lang.IllegalStateException: Promise already completed.
+	at scala.concurrent.Promise.complete(Promise.scala:53)
+	at scala.concurrent.Promise.complete$(Promise.scala:52)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:197)
+	at scala.concurrent.Promise.success(Promise.scala:86)
+	at scala.concurrent.Promise.success$(Promise.scala:86)
+	at scala.concurrent.impl.Promise$DefaultPromise.success(Promise.scala:197)
+	at ch.epfl.scala.debugadapter.internal.DebugSession.sendResponse(DebugSession.scala:214)
+	at com.microsoft.java.debug.core.adapter.ProtocolServer.lambda$dispatchRequest$1(ProtocolServer.java:156)
+	at java.base/java.util.concurrent.CompletableFuture.uniExceptionally(CompletableFuture.java:990)
+	... 11 more
+Exception in thread "Event Hub" com.sun.jdi.ObjectCollectedException
+	at jdk.jdi/com.sun.tools.jdi.JDWPException.toJDIException(JDWPException.java:55)
+	at jdk.jdi/com.sun.tools.jdi.ThreadReferenceImpl.name(ThreadReferenceImpl.java:192)
+	at jdk.jdi/com.sun.tools.jdi.EventSetImpl$ThreadedEventImpl.toString(EventSetImpl.java:221)
+	at java.base/java.lang.String.valueOf(String.java:4222)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:173)
+	at com.microsoft.java.debug.core.EventHub.lambda$start$0(EventHub.java:75)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+2026.04.04 15:06:31 ERROR Failed to connect with build server, no functionality will work.
+java.util.concurrent.ExecutionException: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: bloop.data.Project$ProjectReadException: Failed to load project from D:\Desktop\Match\MATCH\OverMatch\.bloop\realtime-data-process-test.json
+	at bloop.data.Project$.fromBytesAndOrigin(Project.scala:257)
+	at bloop.engine.BuildLoader$.loadProject(BuildLoader.scala:264)
+	at bloop.engine.BuildLoader$.$anonfun$loadBuildIncrementally$3(BuildLoader.scala:59)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:81)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskShift$Register$$anon$1.run(TaskShift.scala:65)
+	at monix.execution.internal.InterceptRunnable.run(InterceptRunnable.scala:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: com.github.plokhotnyuk.jsoniter_scala.core.JsonReaderException: unexpected end of input, offset: 0x00000000, buf:
++----------+-------------------------------------------------+------------------+
+|          |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f | 0123456789abcdef |
++----------+-------------------------------------------------+------------------+
++----------+-------------------------------------------------+------------------+
+
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at scala.meta.internal.metals.BuildServerConnection$.initialize(BuildServerConnection.scala:804)
+	at scala.meta.internal.metals.BuildServerConnection$.$anonfun$fromSockets$1(BuildServerConnection.scala:658)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: org.eclipse.lsp4j.jsonrpc.ResponseErrorException: bloop.data.Project$ProjectReadException: Failed to load project from D:\Desktop\Match\MATCH\OverMatch\.bloop\realtime-data-process-test.json
+	at bloop.data.Project$.fromBytesAndOrigin(Project.scala:257)
+	at bloop.engine.BuildLoader$.loadProject(BuildLoader.scala:264)
+	at bloop.engine.BuildLoader$.$anonfun$loadBuildIncrementally$3(BuildLoader.scala:59)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:81)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskShift$Register$$anon$1.run(TaskShift.scala:65)
+	at monix.execution.internal.InterceptRunnable.run(InterceptRunnable.scala:27)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: com.github.plokhotnyuk.jsoniter_scala.core.JsonReaderException: unexpected end of input, offset: 0x00000000, buf:
++----------+-------------------------------------------------+------------------+
+|          |  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f | 0123456789abcdef |
++----------+-------------------------------------------------+------------------+
++----------+-------------------------------------------------+------------------+
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.04.04 15:06:31 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:06:31 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:06:31 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.04 15:06:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:06:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:06:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 3:07:00 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 15:07:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:07:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:07:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 3:07:04 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 04, 2026 3:07:05 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 15:08:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:08:00 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:08:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:08:29 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:08:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:08:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:57 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:09:57 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:09:57 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:09:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:09:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:09:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:09:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:15 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:10:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:15 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:10:15 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:10:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 3:10:23 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 15:10:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:32 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:10:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 3:11:02 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 15:11:09 INFO  running 'D:\Java\jdk1.8.0_202\bin\java.exe -Dfile.encoding=UTF-8 -Dmaven.multiModuleProjectDirectory=D:\Desktop\Match\MATCH\OverMatch -Dmaven.home=C:\Users\蓝莓\AppData\Local\Temp\metals7486129952147165270 -cp C:\Users\蓝莓\AppData\Local\Temp\metals7486129952147165270\maven-wrapper.jar org.apache.maven.wrapper.MavenWrapperMain generate-sources ch.epfl.scala:bloop-maven-plugin:2.0.3:bloopInstall -DdownloadSources=true'
+2026.04.04 15:11:11 INFO  [INFO] Scanning for projects...
+2026.04.04 15:11:11 INFO  [INFO] 
+2026.04.04 15:11:11 INFO  [INFO] ------------------< com.match:realtime-data-process >-------------------
+2026.04.04 15:11:11 INFO  [INFO] Building realtime-data-process 1.0-SNAPSHOT
+2026.04.04 15:11:11 INFO  [INFO]   from pom.xml
+2026.04.04 15:11:11 INFO  [INFO] --------------------------------[ jar ]---------------------------------
+2026.04.04 15:11:14 INFO  [WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+2026.04.04 15:11:14 INFO  [INFO] 
+2026.04.04 15:11:14 INFO  [INFO] --- build-helper:3.2.0:add-source (add-source) @ realtime-data-process ---
+2026.04.04 15:11:14 INFO  [INFO] Source directory: D:\Desktop\Match\MATCH\OverMatch\main\scala added.
+2026.04.04 15:11:14 INFO  [INFO] Source directory: D:\Desktop\Match\MATCH\OverMatch\src\main\scala added.
+2026.04.04 15:11:14 INFO  [INFO] 
+2026.04.04 15:11:14 INFO  [INFO] --- bloop:2.0.3:bloopInstall (default-cli) @ realtime-data-process ---
+2026.04.04 15:11:16 INFO  [WARNING] Skipping configuration file generation: Failed to init BloopMojo with conf:
+2026.04.04 15:11:16 INFO  Some(<?xml version="1.0" encoding="UTF-8"?>
+2026.04.04 15:11:16 INFO  <configuration>
+2026.04.04 15:11:16 INFO    <scalaVersion>2.12.15</scalaVersion>
+2026.04.04 15:11:16 INFO    <sources>
+2026.04.04 15:11:16 INFO      <source>main/scala</source>
+2026.04.04 15:11:16 INFO      <source>src/main/scala</source>
+2026.04.04 15:11:16 INFO    </sources>
+2026.04.04 15:11:16 INFO    <addJavacArgs>${addJavacArgs}</addJavacArgs>
+2026.04.04 15:11:16 INFO    <addRunArgs>${addRunArgs}</addRunArgs>
+2026.04.04 15:11:16 INFO    <addScalacArgs>${addScalacArgs}</addScalacArgs>
+2026.04.04 15:11:16 INFO    <additionalDependencies>${additionalDependencies}</additionalDependencies>
+2026.04.04 15:11:16 INFO    <analysisCacheFile default-value="${project.build.directory}/analysis/compile">${analysisCacheFile}</analysisCacheFile>
+2026.04.04 15:11:16 INFO    <bloopConfigDir default-value="${session.executionRootDirectory}/.bloop">${bloop.configDirectory}</bloopConfigDir>
+2026.04.04 15:11:16 INFO    <bloopExecutionFork default-value="false">${bloop.executionFork}</bloopExecutionFork>
+2026.04.04 15:11:16 INFO    <checkMultipleScalaVersions default-value="true">${maven.scala.checkConsistency}</checkMultipleScalaVersions>
+2026.04.04 15:11:16 INFO    <classpathOptionsAutoBoot default-value="true">${bloop.classpathOptions.autoBoot}</classpathOptionsAutoBoot>
+2026.04.04 15:11:16 INFO    <classpathOptionsBootLibrary default-value="true">${bloop.classpathOptions.bootLibrary}</classpathOptionsBootLibrary>
+2026.04.04 15:11:16 INFO    <classpathOptionsCompiler default-value="false">${bloop.classpathOptions.compiler}</classpathOptionsCompiler>
+2026.04.04 15:11:16 INFO    <classpathOptionsExtra default-value="false">${bloop.classpathOptions.extra}</classpathOptionsExtra>
+2026.04.04 15:11:16 INFO    <classpathOptionsFilterLibrary default-value="true">${bloop.classpathOptions.filterLibrary}</classpathOptionsFilterLibrary>
+2026.04.04 15:11:16 INFO    <compileOrder default-value="Mixed">${compileOrder}</compileOrder>
+2026.04.04 15:11:16 INFO    <displayCmd default-value="false">${displayCmd}</displayCmd>
+2026.04.04 15:11:16 INFO    <downloadSources default-value="false">${downloadSources}</downloadSources>
+2026.04.04 15:11:16 INFO    <encoding default-value="UTF-8">${project.build.sourceEncoding}</encoding>
+2026.04.04 15:11:16 INFO    <failOnMultipleScalaVersions default-value="false"/>
+2026.04.04 15:11:16 INFO    <forceUseArgFile default-value="false"/>
+2026.04.04 15:11:16 INFO    <fork default-value="true"/>
+2026.04.04 15:11:16 INFO    <javacArgs>${javacArgs}</javacArgs>
+2026.04.04 15:11:16 INFO    <javacGenerateDebugSymbols default-value="true">${javacGenerateDebugSymbols}</javacGenerateDebugSymbols>
+2026.04.04 15:11:16 INFO    <launcher>${launcher}</launcher>
+2026.04.04 15:11:16 INFO    <launchers>${launchers}</launchers>
+2026.04.04 15:11:16 INFO    <mainOutputDir>${project.build.outputDirectory}</mainOutputDir>
+2026.04.04 15:11:16 INFO    <mainSourceDir default-value="${project.build.sourceDirectory}/../scala"/>
+2026.04.04 15:11:16 INFO    <mojoExecution default-value="${mojoExecution}"/>
+2026.04.04 15:11:16 INFO    <notifyCompilation default-value="true">${notifyCompilation}</notifyCompilation>
+2026.04.04 15:11:16 INFO    <once default-value="false">${once}</once>
+2026.04.04 15:11:16 INFO    <pluginArtifacts default-value="${plugin.artifacts}"/>
+2026.04.04 15:11:16 INFO    <project>${project}</project>
+2026.04.04 15:11:16 INFO    <reactorProjects>${reactorProjects}</reactorProjects>
+2026.04.04 15:11:16 INFO    <recompileMode default-value="incremental">${recompileMode}</recompileMode>
+2026.04.04 15:11:16 INFO    <release>${maven.compiler.release}</release>
+2026.04.04 15:11:16 INFO    <remoteRepos default-value="${project.remoteProjectRepositories}"/>
+2026.04.04 15:11:16 INFO    <scalaArtifactID default-value="scala-compiler">${scala.artifactID}</scalaArtifactID>
+2026.04.04 15:11:16 INFO    <scalaClassName>${maven.scala.className}</scalaClassName>
+2026.04.04 15:11:16 INFO    <scalaCompatVersion>${scala.compat.version}</scalaCompatVersion>
+2026.04.04 15:11:16 INFO    <scalaHome>${scala.home}</scalaHome>
+2026.04.04 15:11:16 INFO    <scalaOrganization default-value="org.scala-lang">${scala.organization}</scalaOrganization>
+2026.04.04 15:11:16 INFO    <secondaryCacheDir default-value="${session.executionRootDirectory}/.bloop/cache">${bloop.secondaryCacheDir}</secondaryCacheDir>
+2026.04.04 15:11:16 INFO    <sendJavaToScalac default-value="true"/>
+2026.04.04 15:11:16 INFO    <session>${session}</session>
+2026.04.04 15:11:16 INFO    <skip default-value="false">${skip}</skip>
+2026.04.04 15:11:16 INFO    <source>${maven.compiler.source}</source>
+2026.04.04 15:11:16 INFO    <sourceDir default-value="$mainSourceDir">${sourceDir}</sourceDir>
+2026.04.04 15:11:16 INFO    <target>${maven.compiler.target}</target>
+2026.04.04 15:11:16 INFO    <testAnalysisCacheFile default-value="${project.build.directory}/analysis/test-compile">${testAnalysisCacheFile}</testAnalysisCacheFile>
+2026.04.04 15:11:16 INFO    <testOutputDir default-value="${project.build.testOutputDirectory}"/>
+2026.04.04 15:11:16 INFO    <testSourceDir default-value="${project.build.testSourceDirectory}/../scala"/>
+2026.04.04 15:11:16 INFO    <useCanonicalPath default-value="true">${maven.scala.useCanonicalPath}</useCanonicalPath>
+2026.04.04 15:11:16 INFO    <useFsc default-value="true">${fsc}</useFsc>
+2026.04.04 15:11:16 INFO    <verbose default-value="false">${verbose}</verbose>
+2026.04.04 15:11:16 INFO  </configuration>)
+2026.04.04 15:11:16 INFO  Unable to parse configuration of mojo ch.epfl.scala:bloop-maven-plugin:2.0.3:bloopInstall for parameter sources: Cannot find 'sources' in class bloop.integrations.maven.BloopMojo
+2026.04.04 15:11:16 INFO  [INFO] ------------------------------------------------------------------------
+2026.04.04 15:11:16 INFO  [INFO] BUILD SUCCESS
+2026.04.04 15:11:16 INFO  [INFO] ------------------------------------------------------------------------
+2026.04.04 15:11:16 INFO  [INFO] Total time:  4.583 s
+2026.04.04 15:11:16 INFO  [INFO] Finished at: 2026-04-04T15:11:16+08:00
+2026.04.04 15:11:16 INFO  [INFO] ------------------------------------------------------------------------
+2026.04.04 15:11:16 INFO  time: ran 'mvn bloopInstall' in 6.74s
+2026.04.04 15:11:16 INFO  Attempting to connect to the build server...
+2026.04.04 15:11:16 INFO  Found a Bloop server running
+2026.04.04 15:11:16 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at D:\Desktop\Match\MATCH\OverMatch\.metals\bsp.trace.json or C:\Users\蓝莓\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.04.04 15:11:16 INFO  time: Connected to build server in 0.14s
+2026.04.04 15:11:16 INFO  Connected to Build server: Bloop v2.0.19
+2026.04.04 15:11:16 INFO  Created report: Optional.empty
+2026.04.04 15:11:16 INFO  Empty build targets. Expected at least one build target identifier. (full report at: "D:\Desktop\Match\MATCH\OverMatch\.metals\.reports\bloop\2026-04-04\r_Empty build targets...._15-11-16-744.md")
+2026.04.04 15:11:16 INFO  Empty build targets. Expected at least one build target identifier. (full report at: "D:\Desktop\Match\MATCH\OverMatch\.metals\.reports\bloop\2026-04-04\r_Empty build targets...._15-11-16-744.md")
+2026.04.04 15:11:16 INFO  Empty build targets. Expected at least one build target identifier. (full report at: "D:\Desktop\Match\MATCH\OverMatch\.metals\.reports\bloop\2026-04-04\r_Empty build targets...._15-11-16-744.md")
+2026.04.04 15:11:16 INFO  Empty build targets. Expected at least one build target identifier. (full report at: "D:\Desktop\Match\MATCH\OverMatch\.metals\.reports\bloop\2026-04-04\r_Empty build targets...._15-11-16-744.md")
+2026.04.04 15:11:16 INFO  Empty build targets. Expected at least one build target identifier. (full report at: "D:\Desktop\Match\MATCH\OverMatch\.metals\.reports\bloop\2026-04-04\r_Empty build targets...._15-11-16-744.md")
+2026.04.04 15:11:16 INFO  time: Imported build in 0.12s
+2026.04.04 15:11:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:18 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.04.04 15:11:18 INFO  time: indexed workspace in 2.09s
+2026.04.04 15:11:19 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.04 15:11:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:19 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:22 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:22 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala
+2026.04.04 15:11:34 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:11:37 INFO  running 'D:\Java\jdk1.8.0_202\bin\java.exe -Dfile.encoding=UTF-8 -Dmaven.multiModuleProjectDirectory=D:\Desktop\Match\MATCH\OverMatch -Dmaven.home=C:\Users\蓝莓\AppData\Local\Temp\metals11390322263727489104 -cp C:\Users\蓝莓\AppData\Local\Temp\metals11390322263727489104\maven-wrapper.jar org.apache.maven.wrapper.MavenWrapperMain generate-sources ch.epfl.scala:bloop-maven-plugin:2.0.3:bloopInstall -DdownloadSources=true'
+2026.04.04 15:11:39 INFO  [INFO] Scanning for projects...
+2026.04.04 15:11:39 INFO  [INFO] 
+2026.04.04 15:11:39 INFO  [INFO] ------------------< com.match:realtime-data-process >-------------------
+2026.04.04 15:11:39 INFO  [INFO] Building realtime-data-process 1.0-SNAPSHOT
+2026.04.04 15:11:39 INFO  [INFO]   from pom.xml
+2026.04.04 15:11:39 INFO  [INFO] --------------------------------[ jar ]---------------------------------

@@ -86,6 +86,40 @@
             <version>1.7.3</version>
         </dependency>
 
+        <!-- XGBoost Predictor for Flink -->
+        <dependency>
+            <groupId>biz.k11i</groupId>
+            <artifactId>xgboost-predictor</artifactId>
+            <version>0.3.1</version>
+        </dependency>
+
+        <!-- Flink Dependencies -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-scala_${scala.binary.version}</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-streaming-scala_${scala.binary.version}</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients_${scala.binary.version}</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+
         <!-- Hudi Spark Bundle -->
         <dependency>
             <groupId>org.apache.hudi</groupId>
