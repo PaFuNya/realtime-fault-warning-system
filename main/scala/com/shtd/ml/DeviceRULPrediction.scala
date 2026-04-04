@@ -289,7 +289,9 @@ object DeviceRULPrediction {
       Map(
         "eta" -> "0.1",
         "max_depth" -> "6",
-        "objective" -> "reg:squarederror",
+        // Flink xgboost-predictor 0.3.1 支持 'reg:linear' (较老版本)
+        // 替换 'reg:squarederror' 为 'reg:linear' 以解决加载兼容性问题
+        "objective" -> "reg:linear",
         "num_round" -> "100",
         "min_child_weight" -> "5",
         "subsample" -> "0.8",
