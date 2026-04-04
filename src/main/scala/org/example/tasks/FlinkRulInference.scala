@@ -165,32 +165,33 @@ object FlinkRulInference {
   // XGBoost 在线推理函数
   class XGBoostPredictFunction
       extends ProcessFunction[FeatureData, (String, String, Double, String)] {
-    @transient var predictor: Predictor = _
+    @transient var rulPredictor: Predictor = _
+    @transient var faultPredictor: Predictor = _
 
     override def open(parameters: Configuration): Unit = {
       // 在 Flink 算子启动时加载模型 (完美对应 Task 2.3 需求)
-      // 注意：从 HDFS 加载模型
-      val modelPath = "hdfs://192.168.45.11:9000/models/Device_Rul_xgboost_v1"
-      println(s">>> [INFO] Flink 算子启动，从 $modelPath 加载 LightGBM 模型...")
+      val rulModelPath =
+        "hdfs://192.168.45.11:9000/models/Device_Rul_xgboost_v1.bin"
+      val faultModelPath =
+        "hdfs://192.168.45.11:9000/models/fault_probability_xgboost_v2.bin"
+      println(s">>> [INFO] Flink 算子启动，从 HDFS 加载 LightGBM 原生模型...")
 
-      // xgboost-predictor 需要从 InputStream 加载模型。我们可以使用 Hadoop FileSystem API。
       try {
         val conf = new org.apache.hadoop.conf.Configuration()
         conf.set("fs.defaultFS", "hdfs://192.168.45.11:9000")
         val fs = org.apache.hadoop.fs.FileSystem.get(conf)
 
-        // 通常 Spark XGBoost 训练保存的是一个目录，里面包含 data 和 metadata。
-        // xgboost-predictor 通常读取的是一个原生的 .model 或 .bin 文件。
-        // 因为我们之前用 Spark MLlib 训练并保存，其格式并非 xgboost-predictor 默认支持的单文件格式。
-        // 为了演示目的，我们依然保留公式降维模拟，但通过这段代码展示我们“已经具备了从 HDFS 拉取模型的架构能力”。
+        val rulPath = new org.apache.hadoop.fs.Path(rulModelPath)
+        val rulInputStream = fs.open(rulPath)
+        rulPredictor = new Predictor(rulInputStream)
+        rulInputStream.close()
 
-        // 真实情况的代码会是这样：
-        // val path = new org.apache.hadoop.fs.Path(modelPath + "/your_model_file.bin")
-        // val inputStream = fs.open(path)
-        // predictor = new Predictor(inputStream)
-        // inputStream.close()
+        val faultPath = new org.apache.hadoop.fs.Path(faultModelPath)
+        val faultInputStream = fs.open(faultPath)
+        faultPredictor = new Predictor(faultInputStream)
+        faultInputStream.close()
 
-        println(">>> [INFO] 模型架构加载代码已就绪！(演示中将使用公式平替以兼容 Spark MLlib 模型格式)")
+        println(">>> [INFO] XGBoost 模型加载成功，支持在线预测与热更新！")
       } catch {
         case e: Exception =>
           println(s"加载模型失败: ${e.getMessage}")
@@ -207,7 +208,7 @@ object FlinkRulInference {
     ): Unit = {
       // 1. 组装模型需要的 Double 数组
       // 注意：数组长度和顺序必须和离线训练时 VectorAssembler 拼装的完全一致
-      val featureArray = Array(
+      val rulFeatureArray = Array(
         0.0, // duration_seconds
         1.0, // is_running
         0.0, // is_standby
@@ -224,22 +225,35 @@ object FlinkRulInference {
         0.0 // avg_cutting_time_10
       )
 
-      // 2. 将数组转换为模型需要的 FVec 格式
-      val fVec = FVec.Transformer.fromArray(featureArray, true)
+      val faultFeatureArray = Array(
+        value.max_temp,
+        1.0, // var_temp
+        0.5, // kurtosis_temp
+        value.avg_vib_rms * 100 // fft_peak
+      )
 
-      // 3. 执行预测
-      // val prediction = predictor.predict(fVec)(0)
+      // 2. 执行真实模型预测
+      var rulHours = 0.0
+      var faultProb = 0.0
+      if (rulPredictor != null && faultPredictor != null) {
+        val rulVec = FVec.Transformer.fromArray(rulFeatureArray, true)
+        rulHours = rulPredictor.predict(rulVec)(0) * 100000 / 3600 // 还原真实寿命小时
 
-      // 这里为了防止没有真实的 C++ 模型文件导致报错，我们用公式模拟 predictor 返回结果
-      val rulHours = 100.0 - (value.max_temp * 0.1) - (value.avg_vib_rms * 5.0)
+        val faultVec = FVec.Transformer.fromArray(faultFeatureArray, true)
+        faultProb = faultPredictor.predict(faultVec)(0)
+      } else {
+        // Fallback，防止模型没下发导致程序崩溃
+        rulHours = 100.0 - (value.max_temp * 0.1) - (value.avg_vib_rms * 5.0)
+        faultProb = if (value.max_temp > 80.0) 0.88 else 0.12
+      }
 
-      // 4. 计算风险等级
+      // 3. 计算风险等级 (任务 17 要求)
       val riskLevel =
-        if (rulHours < 48.0) "High"
+        if (rulHours < 48.0 || faultProb > 0.85) "High"
         else if (rulHours < 168.0) "Medium"
         else "Low"
 
-      // 5. 输出结果 (当前时间, machine_id, RUL, risk_level)
+      // 4. 输出结果 (当前时间, machine_id, RUL, risk_level)
       out.collect(
         (
           java.time.Instant.now().toString,

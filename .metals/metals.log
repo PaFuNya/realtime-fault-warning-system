@@ -24010,3 +24010,257 @@ Caused by: com.github.plokhotnyuk.jsoniter_scala.core.JsonReaderException: unexp
 2026.04.04 15:16:23 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.04 15:16:23 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.04 15:16:31 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:15 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:19:15 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:19:15 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:19:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:26 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:26 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:19:26 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:19:26 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:19:26 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:26 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:26 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:26 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:26 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala
+2026.04.04 15:19:26 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:34 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:19:34 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:19:34 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:19:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:20:27 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:20:27 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:20:27 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:20:27 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:27 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:28 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:28 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:28 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:20:29 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:20:28 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:20:29 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:20:28 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:20:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:20:29 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:20:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 3:21:02 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 15:21:02 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:02 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:21:02 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:21:02 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:21:02 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:02 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:02 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:02 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:02 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:11 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:21:11 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:21:11 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:21:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:11 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:12 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:13 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:21:13 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:21:13 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:21:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:14 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:13 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:18 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:21:18 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:21:18 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:21:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:21:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:21:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:29 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:29 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:21:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:21:30 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:21:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:30 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:49 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala
+2026.04.04 15:21:49 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 15:21:50 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala
+2026.04.04 15:21:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task13_14_HudiSink.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestProducer.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:21:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 15:21:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala
+2026.04.04 15:22:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 3:22:50 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 681
+4月 04, 2026 3:22:50 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 682
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:22:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:23:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:23:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:23:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:23:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:23:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 15:23:18 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+Exception in thread "pool-250-thread-1" java.lang.InterruptedException
+	at scala.meta.internal.metals.FutureCancelToken.checkCanceled(FutureCancelToken.scala:29)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:208)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:153)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)

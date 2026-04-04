@@ -303,6 +303,26 @@ object FaultProbabilityModel {
 
     // 8. 保存模型
     finalModel.write.overwrite().save(s"$hdfsUrl/models/fault_probability_xgboost_v2")
+    
+    // ==========================================
+    // 保存为原生 C++ XGBoost .bin 文件，以供 Flink 里的 xgboost-predictor 加载
+    // ==========================================
+    val localBinPath = "fault_probability_xgboost_v2.bin"
+    finalModel.nativeBooster.saveModel(localBinPath)
+    
+    // 上传到 HDFS
+    try {
+      val conf = new org.apache.hadoop.conf.Configuration()
+      conf.set("fs.defaultFS", hdfsUrl)
+      val fs = org.apache.hadoop.fs.FileSystem.get(conf)
+      val srcPath = new org.apache.hadoop.fs.Path(localBinPath)
+      val dstPath = new org.apache.hadoop.fs.Path(s"/models/fault_probability_xgboost_v2.bin")
+      // 覆盖写入
+      fs.copyFromLocalFile(false, true, srcPath, dstPath)
+      println(s">>> 原生 C++ 格式故障模型已上传到 HDFS: /models/fault_probability_xgboost_v2.bin")
+    } catch {
+      case e: Exception => println(s"上传故障原生模型到 HDFS 失败: ${e.getMessage}")
+    }
 
     spark.stop()
   }

@@ -378,7 +378,27 @@ object DeviceRULPrediction {
     println("=" * 80)
 
     model.write.overwrite().save(s"$hdfsUrl/models/Device_Rul_xgboost_v1")
-    println(s">>> 模型已保存到：$hdfsUrl/models/Device_Rul_xgboost_v1")
+    println(s">>> Spark 格式模型已保存到：$hdfsUrl/models/Device_Rul_xgboost_v1")
+    
+    // ==========================================
+    // 保存为原生 C++ XGBoost .bin 文件，以供 Flink 里的 xgboost-predictor 加载
+    // ==========================================
+    val localBinPath = "Device_Rul_xgboost_v1.bin"
+    model.nativeBooster.saveModel(localBinPath)
+    
+    // 上传到 HDFS
+    try {
+      val conf = new org.apache.hadoop.conf.Configuration()
+      conf.set("fs.defaultFS", hdfsUrl)
+      val fs = org.apache.hadoop.fs.FileSystem.get(conf)
+      val srcPath = new org.apache.hadoop.fs.Path(localBinPath)
+      val dstPath = new org.apache.hadoop.fs.Path(s"/models/Device_Rul_xgboost_v1.bin")
+      // 覆盖写入
+      fs.copyFromLocalFile(false, true, srcPath, dstPath)
+      println(s">>> 原生 C++ 格式模型已上传到 HDFS: /models/Device_Rul_xgboost_v1.bin")
+    } catch {
+      case e: Exception => println(s"上传原生模型到 HDFS 失败: ${e.getMessage}")
+    }
 
     // 11. 总结
     println("\n" + "=" * 80)
