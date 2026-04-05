@@ -10,7 +10,7 @@ object SparkReadMySQL {
       .appName("spark read mysql")
       .getOrCreate()
     var readMySQLDF=ss.read.format("jdbc")
-      .option("url", "jdbc:mysql://192.168.45.11:3306/ds_db01?characterEncoding=utf8&useSSL=false")
+      .option("url", "jdbc:mysql://master:3306/ds_db01?characterEncoding=utf8&useSSL=false")
       .option("user", "root")
       .option("password", "123456")
       .option("dbtable", "order_master")

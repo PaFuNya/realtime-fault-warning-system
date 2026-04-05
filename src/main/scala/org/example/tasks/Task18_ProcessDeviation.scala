@@ -27,7 +27,7 @@ object Task18_ProcessDeviation {
           // 使用 mapPartitions 连接 Redis 获取该设备的标准参数并对比
           val devDF = batchDF
             .mapPartitions { iter =>
-              val jedis = new Jedis("192.168.45.11", 6379)
+              val jedis = new Jedis("master", 6379)
               val res = iter
                 .map { row =>
                   val mid = row.getAs[String]("machine_id")

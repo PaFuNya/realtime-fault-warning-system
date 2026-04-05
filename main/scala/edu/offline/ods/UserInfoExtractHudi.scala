@@ -18,7 +18,7 @@ object UserInfoExtractHudi {
 
     // 创建spark读取mysql相关配置
     val readMySQLDF: DataFrame = ss.read.format("jdbc")
-      .option("url", "jdbc:mysql://192.168.45.11:3306/ds_pub?characterEncoding=utf8&useSSL=false")
+      .option("url", "jdbc:mysql://master:3306/ds_pub?characterEncoding=utf8&useSSL=false")
       .option("driver","com.mysql.jdbc.Driver")
       .option("user", "root")
       .option("password", "123456")
@@ -44,7 +44,7 @@ object UserInfoExtractHudi {
       .option(RECORDKEY_FIELD.key(),"id") //主键（primaryKey）
       .option(PARTITIONPATH_FIELD.key(),"etl_date") //分区字段
       .option(TBL_NAME.key(),"user_info") //表名
-      .save("hdfs://192.168.45.11:9000/user/hive/warehouse/ods_ds_hudi.db/user_info") //文件路径
+      .save("hdfs://master:9000/user/hive/warehouse/ods_ds_hudi.db/user_info") //文件路径
 
     // 关闭SparkSession
     ss.close()

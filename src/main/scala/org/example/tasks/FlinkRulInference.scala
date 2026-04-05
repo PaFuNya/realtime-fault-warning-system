@@ -57,7 +57,7 @@ object FlinkRulInference {
 
     // 1. Kafka Consumer 配置
     val properties = new Properties()
-    properties.setProperty("bootstrap.servers", "192.168.45.11:9092")
+    properties.setProperty("bootstrap.servers", "master:9092")
     properties.setProperty("group.id", "flink-rul-group")
 
     val consumer = new FlinkKafkaConsumer[String](
@@ -129,7 +129,7 @@ object FlinkRulInference {
         .build(),
       new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
         .withUrl(
-          "jdbc:clickhouse://192.168.45.11:8123/ldc"
+          "jdbc:clickhouse://master:8123/ldc"
         )
         .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
         .build()
@@ -230,14 +230,14 @@ object FlinkRulInference {
     override def open(parameters: Configuration): Unit = {
       // 在 Flink 算子启动时加载模型 (完美对应 Task 2.3 需求)
       val rulModelPath =
-        "hdfs://192.168.45.11:9000/models/Device_Rul_xgboost_v1.bin"
+        "hdfs://master:9000/models/Device_Rul_xgboost_v1.bin"
       val faultModelPath =
-        "hdfs://192.168.45.11:9000/models/fault_probability_xgboost_v2.bin"
+        "hdfs://master:9000/models/fault_probability_xgboost_v2.bin"
       println(s">>> [INFO] Flink 算子启动，从 HDFS 加载 XGBoost 原生模型...")
 
       try {
         val conf = new org.apache.hadoop.conf.Configuration()
-        conf.set("fs.defaultFS", "hdfs://192.168.45.11:9000")
+        conf.set("fs.defaultFS", "hdfs://master:9000")
         val fs = org.apache.hadoop.fs.FileSystem.get(conf)
 
         val rulPath = new org.apache.hadoop.fs.Path(rulModelPath)

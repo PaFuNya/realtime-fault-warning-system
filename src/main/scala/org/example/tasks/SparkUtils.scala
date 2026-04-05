@@ -7,8 +7,8 @@ import org.apache.spark.sql.functions._
 /** 通用工具类：封装重复的样板代码，让每个 Task 专注于自己的核心逻辑。
   */
 object SparkUtils {
-  val kafkaBrokers = "bigdata1:9092,bigdata2:9092,bigdata3:9092"
-  val ckUrl = "jdbc:clickhouse://bigdata1:8123/ldc"
+  val kafkaBrokers = "master:9092,slave1:9092,slave2:9092"
+  val ckUrl = "jdbc:clickhouse://master:8123/ldc"
 
   def getCkProperties(): java.util.Properties = {
     val props = new java.util.Properties()

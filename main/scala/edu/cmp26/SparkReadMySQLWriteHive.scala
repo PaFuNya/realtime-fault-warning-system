@@ -13,7 +13,7 @@ object SparkReadMySQLWriteHive {
     // 创建sparkSession，配置运行环境
     val ss:SparkSession = SparkSession.builder()
       .master("local[*]")
-      .config("spark.sql.warehouse.dir","hdfs://192.168.45.11:9000/user/hive/warehouse/")
+      .config("spark.sql.warehouse.dir","hdfs://master:9000/user/hive/warehouse/")
       .config("hive.security.authorization.enabled", "false")
       .appName("spark read mysql")
       .enableHiveSupport() // 在这里增加对hive的支持
@@ -21,7 +21,7 @@ object SparkReadMySQLWriteHive {
 
     // 创建spark读取mysql相关配置
     val readMySQLDF:DataFrame = ss.read.format("jdbc")
-      .option("url", "jdbc:mysql://192.168.45.11:3306/ds_db01?characterEncoding=utf8&useSSL=false")
+      .option("url", "jdbc:mysql://master:3306/ds_db01?characterEncoding=utf8&useSSL=false")
       .option("driver","com.mysql.jdbc.Driver")
       .option("user", "root")
       .option("password", "123456")

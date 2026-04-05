@@ -17,7 +17,7 @@ object RealtimeEngine {
     System.setProperty("HADOOP_USER_NAME", "root")
 
     val spark = SparkUtils.getSparkSession("RealtimeEngine")
-    val hdfsUrl = "hdfs://192.168.45.11:9000"
+    val hdfsUrl = "hdfs://master:9000"
 
     // ==========================================
     // 模块 2.1 实时数据接入
@@ -191,7 +191,7 @@ object RealtimeEngine {
         (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
           batchDF.foreachPartition {
             (iter: Iterator[org.apache.spark.sql.Row]) =>
-              val jedis = new Jedis("bigdata1", 6379)
+              val jedis = new Jedis("master", 6379)
               iter.foreach { row =>
                 if (
                   !row.isNullAt(row.fieldIndex("machine_id")) && !row.isNullAt(
@@ -220,7 +220,7 @@ object RealtimeEngine {
 
             val withStatusDF = batchDF
               .mapPartitions { iter =>
-                val jedis = new Jedis("bigdata1", 6379)
+                val jedis = new Jedis("master", 6379)
                 val res = iter.map { row =>
                   val mid =
                     if (row.isNullAt(row.fieldIndex("machine_id"))) null
@@ -294,7 +294,7 @@ object RealtimeEngine {
             // 写入 Redis
             enrichedDF.foreachPartition {
               (iter: Iterator[org.apache.spark.sql.Row]) =>
-                val jedis = new Jedis("bigdata1", 6379)
+                val jedis = new Jedis("master", 6379)
                 iter.foreach { row =>
                   if (!row.isNullAt(row.fieldIndex("machine_id"))) {
                     val mid = row.getAs[String]("machine_id")
@@ -439,7 +439,7 @@ object RealtimeEngine {
           import sparkSession.implicits._
           val devDF = batchDF
             .mapPartitions { iter =>
-              val jedis = new Jedis("bigdata1", 6379)
+              val jedis = new Jedis("master", 6379)
               val res = iter
                 .map { row =>
                   val mid = row.getAs[String]("machine_id")

@@ -19,7 +19,7 @@ object SkuInfoCleanHudi {
 
     // 从ods_ds_hudi库中读取sku_info表
    val odsSkuInfoDF=ss.read.format("hudi")
-     .load("hdfs://192.168.45.11:9000/user/hive/warehouse/ods_ds_hudi.db/sku_info")
+     .load("hdfs://master:9000/user/hive/warehouse/ods_ds_hudi.db/sku_info")
      .filter(col("etl_date")==="20240413")
      .drop("etl_date")
      .withColumn("dwd_insert_user",lit("user1"))
@@ -30,7 +30,7 @@ object SkuInfoCleanHudi {
     odsSkuInfoDF.show()
     // 从dwd_ds_hudi库中读取dim_sku_info分区表(最新分区)
     val dwdSkuInfoDF=ss.read.format("hudi")
-      .load("hdfs://192.168.45.11:9000/user/hive/warehouse/dwd_ds_hudi.db/dim_sku_info")
+      .load("hdfs://master:9000/user/hive/warehouse/dwd_ds_hudi.db/dim_sku_info")
       .filter(col("etl_date")==="20201107")
     dwdSkuInfoDF.show()
     //增量清洗，需要union

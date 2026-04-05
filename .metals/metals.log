@@ -27513,3 +27513,838 @@ Exception in thread "pool-1132-thread-1" java.lang.InterruptedException
 2026.04.04 19:22:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.04 19:22:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
 2026.04.04 19:22:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task16_RealtimeAlerts.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:23:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:23:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:23:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:23:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task16_RealtimeAlerts.scala
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task16_RealtimeAlerts.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task16_RealtimeAlerts.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:53 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:53 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:23:53 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:54 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:23:54 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:23:54 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task16_RealtimeAlerts.scala
+2026.04.04 19:23:54 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:23:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:53 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task16_RealtimeAlerts.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\Task16_RealtimeAlerts.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:23:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 7:26:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:30:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:30:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:30:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:30:55 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:30:55 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 7:31:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 04, 2026 7:36:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:50 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:40:50 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:40:50 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:40:50 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:40:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:40:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:40:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:41:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:41:01 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 7:41:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 19:41:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:41:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:04 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:41:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:41:04 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:41:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:41:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:41:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:41:59 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:41:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:42:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:43:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:43:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:43:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:43:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:43:20 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:20 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:33 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:43:34 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:08 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:09 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:44:10 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:45:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:45:15 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 7:46:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:49:36 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:49:36 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:49:36 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:49:39 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:49:39 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:49:38 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\FaultProbabilityModel.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:57 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:57 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:49:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:50:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:50:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:50:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:50:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:50:00 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:50:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 7:51:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 19:51:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 19:51:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 19:51:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 19:51:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 7:56:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 04, 2026 8:01:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 04, 2026 8:06:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:10:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:10:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:10:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:36 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:10:47 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:10:47 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:10:47 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 8:11:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 04, 2026 8:16:04 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:16:04 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:16:04 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:16:04 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:19:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:19:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:19:35 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:35 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:19:39 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:19:39 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:19:39 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 8:21:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:21:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:21:42 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:21:42 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:21:42 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:21:42 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:22:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:22:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:22:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:49 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:22:49 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:22:49 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:49 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:50 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:22:58 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:22:58 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:22:58 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:24:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:24:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:24:16 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:16 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:24:17 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:24:17 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:24:17 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 8:26:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:27:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:27:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:27:52 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:52 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:55 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:27:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:56 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:27:56 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:27:56 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:27:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:56 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:27:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 8:31:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:31:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:31:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:31:03 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:31:03 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:33:37 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:33:37 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:33:37 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:38 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:37 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\test_hash.scala
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala
+2026.04.04 20:33:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala
+2026.04.04 20:33:48 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\test_hash.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestReadHudiMOR.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\TestPredict2.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\main\scala\com\shtd\ml\DeviceRULPrediction.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.04 20:33:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+4月 04, 2026 8:36:03 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:23:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:28:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:33:28 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:38:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:43:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:48:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:53:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 1:58:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:03:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:08:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:13:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:18:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:23:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:28:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:33:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:38:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:43:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:48:30 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:53:29 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 2:58:29 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 3:03:29 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 3:08:30 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 3:13:29 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+4月 05, 2026 3:18:30 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2026.04.05 15:30:55 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\RealtimeEngine.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 WARN  no build target for: D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:44 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:45 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:46 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:48 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:51 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:54 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:47:59 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:48:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:48:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.04.05 15:48:01 INFO  no build target found for D:\Desktop\Match\MATCH\OverMatch\src\main\scala\org\example\tasks\FlinkRulInference.scala. Using presentation compiler with project's scala-library version: 3.3.7

@@ -13,7 +13,7 @@ object TestReadHudiMOR {
     // 初始化带 Hudi 扩展的 SparkSession
     val spark = SparkUtils.getSparkSession("TestReadHudiMOR")
 
-    val hudiTablePath = "hdfs://bigdata1:9000/hudi/dwd/sensor_detail_realtime"
+    val hudiTablePath = "hdfs://master:9000/hudi/dwd/sensor_detail_realtime"
 
     println("==============================================")
     println("1. Snapshot 模式读取 (默认模式，即读时合并，包含最新数据)")

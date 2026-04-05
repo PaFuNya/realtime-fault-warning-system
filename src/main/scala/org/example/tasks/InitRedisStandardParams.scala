@@ -6,9 +6,9 @@ import redis.clients.jedis.Jedis
   */
 object InitRedisStandardParams {
   def main(args: Array[String]): Unit = {
-    // 连接到 Linux 服务器上的 Redis (假设你的 Redis 跑在 bigdata1 或默认的 127.0.0.1 映射)
-    // 注意：如果你的 Redis 在虚拟机里，请将 127.0.0.1 替换为 bigdata1
-    val redisHost = "bigdata1"
+    // 连接到 Linux 服务器上的 Redis (假设你的 Redis 跑在 master 或默认的 127.0.0.1 映射)
+    // 注意：如果你的 Redis 在虚拟机里，请将 127.0.0.1 替换为 master
+    val redisHost = "master"
     val redisPort = 6379
 
     println(s"正在连接 Redis: $redisHost:$redisPort ...")

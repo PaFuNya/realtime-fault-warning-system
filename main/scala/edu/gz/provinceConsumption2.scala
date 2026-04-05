@@ -11,7 +11,7 @@ object provinceConsumption2 {
 
     val ss:SparkSession=SparkSession.builder()
       .master("local[*]")
-      .config("spark.sql.warehouse.dir","hdfs://192.168.45.11:9000/user/hive/warehouse/")
+      .config("spark.sql.warehouse.dir","hdfs://master:9000/user/hive/warehouse/")
       .appName("spark write hive")
       .config("hive.exec.dynamic.partition.mode","nonstrict")
       .enableHiveSupport()
@@ -53,7 +53,7 @@ object provinceConsumption2 {
     properties.put("batchsize","10000")
     properties.put("socket_timeout","300000")
 
-    val URL="jdbc:clickhouse://192.168.45.11:8123/dws"
+    val URL="jdbc:clickhouse://master:8123/dws"
 
     frame.write
       .mode(SaveMode.Append)

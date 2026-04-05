@@ -37,7 +37,7 @@ object TestProducer {
     val props = new Properties()
     props.put(
       ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-      "bigdata1:9092,bigdata2:9092,bigdata3:9092"
+      "master:9092,slave1:9092,slave2:9092"
     )
     props.put(
       ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,

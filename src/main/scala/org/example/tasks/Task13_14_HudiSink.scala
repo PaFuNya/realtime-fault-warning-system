@@ -42,10 +42,10 @@ object Task13_14_HudiSink {
       .options(hudiSensorOptions)
       .option(
         "checkpointLocation",
-        "hdfs://bigdata1:9000/hudi/checkpoints/sensor_hudi_mor"
+        "hdfs://master:9000/hudi/checkpoints/sensor_hudi_mor"
       )
       .outputMode("append")
-      .start("hdfs://bigdata1:9000/hudi/dwd/sensor_detail_realtime")
+      .start("hdfs://master:9000/hudi/dwd/sensor_detail_realtime")
 
     // 5. 任务 14: 处理并写入 Hudi (MOR)
     val processedLogDF = logRawDF.withColumn(
@@ -74,10 +74,10 @@ object Task13_14_HudiSink {
       .options(hudiLogOptions)
       .option(
         "checkpointLocation",
-        "hdfs://bigdata1:9000/hudi/checkpoints/log_hudi_mor"
+        "hdfs://master:9000/hudi/checkpoints/log_hudi_mor"
       )
       .outputMode("append")
-      .start("hdfs://bigdata1:9000/hudi/dwd/device_log_realtime")
+      .start("hdfs://master:9000/hudi/dwd/device_log_realtime")
 
     spark.streams.awaitAnyTermination()
   }
