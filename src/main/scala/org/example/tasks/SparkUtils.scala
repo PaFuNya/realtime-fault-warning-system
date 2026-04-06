@@ -7,8 +7,8 @@ import org.apache.spark.sql.functions._
 /** 通用工具类：封装重复的样板代码，让每个 Task 专注于自己的核心逻辑。
   */
 object SparkUtils {
-  val kafkaBrokers = "master:9092,slave1:9092,slave2:9092"
-  val ckUrl = "jdbc:clickhouse://master:8123/ldc"
+  val kafkaBrokers = AppConfig.getString("kafka.brokers", "master:9092,slave1:9092,slave2:9092")
+  val ckUrl = AppConfig.getString("clickhouse.url", "jdbc:clickhouse://master:8123/ldc")
 
   def getCkProperties(): java.util.Properties = {
     val props = new java.util.Properties()
@@ -54,13 +54,17 @@ object SparkUtils {
       .format("kafka")
       .option("kafka.bootstrap.servers", kafkaBrokers)
       .option("subscribe", "sensor_raw")
-      .option("startingOffsets", "latest")
+      .option("startingOffsets", "earliest")
       .load()
       .select(
         from_json(col("value").cast("string"), sensorSchema).alias("data")
       )
       .select("data.*")
       .withColumn("timestamp", timestamp_seconds(col("ts") / 1000))
+      // 注：暂时禁用时间过滤，因为数据时间戳与系统时间可能不一致
+      // .filter(
+      //   col("timestamp") >= expr(s"current_timestamp() - interval ${AppConfig.getInt("max_allowed_lateness_seconds", 30)} seconds")
+      // )
   }
   // 统一读取 Log Kafka 数据流并解析 JSON
   def getLogRawStream(spark: SparkSession): DataFrame = {
@@ -74,11 +78,15 @@ object SparkUtils {
       .format("kafka")
       .option("kafka.bootstrap.servers", kafkaBrokers)
       .option("subscribe", "log_raw")
-      .option("startingOffsets", "latest")
+      .option("startingOffsets", "earliest")
       .load()
       .select(from_json(col("value").cast("string"), logSchema).alias("data"))
       .select("data.*")
       .withColumn("timestamp", timestamp_seconds(col("ts") / 1000))
+      // 注：暂时禁用时间过滤，因为数据时间戳与系统时间可能不一致
+      // .filter(
+      //   col("timestamp") >= expr(s"current_timestamp() - interval ${AppConfig.getInt("max_allowed_lateness_seconds", 30)} seconds")
+      // )
   }
 
   // 获取 ChangeRecord 流 (CSV格式: machine_id, xxx, xxx, status, start_time, end_time, duration)
@@ -87,7 +95,7 @@ object SparkUtils {
       .format("kafka")
       .option("kafka.bootstrap.servers", kafkaBrokers)
       .option("subscribe", "ChangeRecord")
-      .option("startingOffsets", "latest")
+      .option("startingOffsets", "earliest")
       .load()
       .selectExpr("CAST(value AS STRING) as csv_line")
       .select(

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@100.126.226.67" uuid="ec4010cd-52d1-4719-8a45-0c65dc677c93">
+    <data-source source="LOCAL" name="masterClickhouse" uuid="3b85c723-717e-43e2-956f-025fcf6fa2b2">
       <driver-ref>clickhouse</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.clickhouse.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:clickhouse://100.126.226.67:9001/</jdbc-url>
+      <jdbc-driver>ru.yandex.clickhouse.ClickHouseDriver</jdbc-driver>
+      <jdbc-url>jdbc:clickhouse://master:8123/default</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />

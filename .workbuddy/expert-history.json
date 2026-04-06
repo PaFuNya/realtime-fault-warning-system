@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "sessions": {
+    "74c6319f97104221bc8efc21ab267ad9": [
+      {
+        "expertId": "DataEngineer",
+        "name": "Lily",
+        "profession": "数据工程师",
+        "avatarUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/avatars/02-Engineering/DataEngineer/DataEngineer.png",
+        "promptUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/experts/02-Engineering/DataEngineer/DataEngineer_zh.md",
+        "usedAt": 1775385928116,
+        "industryId": "02-Engineering"
+      }
+    ]
+  },
+  "lastUpdated": 1775386774631
+}

@@ -1,0 +1,135 @@
+# GitHub Actions CD 工作流
+# 自动部署到目标服务器
+
+name: CD - Deploy to Server
+
+on:
+  workflow_run:
+    workflows: ["CI - Build & Test"]
+    types: [completed]
+    branches: [main, master, recover-branch]
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+env:
+  JAVA_VERSION: '8'
+  DEPLOY_PATH: ${{ secrets.DEPLOY_PATH || '/opt/realtime-engine/jars' }}
+
+jobs:
+  # ========================================
+  # 前置条件：CI 必须通过
+  # ==========================================
+  prepare:
+    name: ✅ Check CI Result
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success' ||
+      github.event_name != 'workflow_run'
+    outputs:
+      should_deploy: ${{ steps.check.result }}
+    steps:
+      - name: Check CI status
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            echo "result=true" >> $GITHUB_OUTPUT
+          else
+            echo "result=true" >> $GITHUB_OUTPUT
+          fi
+          echo "✅ CI passed, proceeding with deployment"
+
+  # ========================================
+  # 打包
+  # ==========================================
+  build:
+    name: 📦 Build Package
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: ☕ Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: maven
+
+      - name: 📦 Build Shade JAR
+        run: mvn clean package -DskipTests -B --no-transfer-progress
+
+      - name: 🏷️ Prepare artifact name
+        id: artifact
+        run: |
+          JAR_FILE=$(find target/*.jar -name "*jar-with-dependencies*" | head -1)
+          VERSION="${GITHUB_REF_NAME}"
+          ARTIFACT_NAME="realtime-data-process-${VERSION:-snapshot}.jar"
+          cp "$JAR_FILE" "$ARTIFACT_NAME"
+          echo "artifact=$ARTIFACT_NAME" >> $GITHUB_OUTPUT
+          echo "📦 Built: $ARTIFACT_NAME ($(du -sh "$ARTIFACT_NAME" | cut -f1))"
+
+      - name: 📤 Upload deploy artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-package
+          path: ${{ steps.artifact.outputs.artifact }}
+          retention-days: 7
+
+  # ========================================
+  # 部署到服务器
+  # ==========================================
+  deploy:
+    name: 🚀 Deploy to Server
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+    environment: production
+    steps:
+      - name: 📥 Download package
+        uses: actions/download-artifact@v4
+        with:
+          name: deploy-package
+
+      - name: 📋 Prepare deploy file
+        id: prep
+        run: |
+          DEPLOY_JAR=$(ls *.jar | head -1)
+          echo "deploy_jar=$DEPLOY_JAR" >> $GITHUB_OUTPUT
+          echo "🚀 Ready to deploy: $DEPLOY_JAR"
+
+      - name: 🚀 SCP upload to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: "${{ steps.prep.outputs.deploy_jar }}"
+          target: "${{ env.DEPLOY_PATH }}/"
+          strip_components: 0
+
+      - name: 🔗 Create symlink (latest)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            cd ${{ env.DEPLOY_PATH }}
+            ln -sf ${{ steps.prep.outputs.deploy_jar }} realtime-data-process-latest.jar
+            echo "✅ Symlink created: realtime-data-process-latest.jar -> ${{ steps.prep.outputs.deploy_jar }}"
+
+      - name: 📋 Deployment summary
+        run: |
+          echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Item | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Commit | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Branch/Tag | \`${{ github.ref_name }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| JAR File | \`${{ steps.prep.outputs.deploy_jar }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Server | `${{ secrets.DEPLOY_HOST }}:${{ env.DEPLOY_PATH }}` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Time | $(date -u '+%Y-%m-%d %H:%M:%S UTC') |" >> $GITHUB_STEP_SUMMARY

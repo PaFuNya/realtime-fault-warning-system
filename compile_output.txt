@@ -1,0 +1,1249 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.match:realtime-data-process >-------------------
+[INFO] Building realtime-data-process 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'sources' is unknown for plugin 'scala-maven-plugin:4.5.6:compile (default)'
+[WARNING] Parameter 'sources' is unknown for plugin 'scala-maven-plugin:4.5.6:testCompile (default)'
+[WARNING] 2 problems were encountered while building the effective model for org.apache.yetus:audience-annotations:jar:0.5.0 during dependency collection step for project (use -X to see details)
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ realtime-data-process ---
+[INFO] Deleting D:\Desktop\Match\MATCH\OverMatch\target
+[INFO] 
+[INFO] --- build-helper:3.2.0:add-source (add-source) @ realtime-data-process ---
+[INFO] Source directory: D:\Desktop\Match\MATCH\OverMatch\main\scala added.
+[INFO] Source directory: D:\Desktop\Match\MATCH\OverMatch\src\main\scala added.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ realtime-data-process ---
+[INFO] skip non existing resourceDirectory D:\Desktop\Match\MATCH\OverMatch\main\resources
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ realtime-data-process ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- scala:4.5.6:compile (default) @ realtime-data-process ---
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[WARNING]  Expected all dependencies to require Scala version: 2.12.15
+[WARNING]  com.match:realtime-data-process:1.0-SNAPSHOT requires scala version: 2.12.15
+[WARNING]  org.apache.flink:flink-scala_2.12:1.14.4 requires scala version: 2.12.7
+[WARNING] Multiple versions of scala libraries detected!
+[INFO] Using incremental compilation using Mixed compile order
+[INFO] Compiler bridge file: C:\Users\��ݮ\.sbt\1.0\zinc\org.scala-sbt\org.scala-sbt-compiler-bridge_2.12-1.5.8-bin_2.12.15__61.0-1.5.8_20211211T222914.jar
+[INFO] compiling 10 Scala sources to D:\Desktop\Match\MATCH\OverMatch\target\classes ...
+[WARNING] D:/Desktop/Match/MATCH/OverMatch/src/main/scala/org/example/tasks/RealtimeEngine.scala:7: imported `AppConfig` is permanently hidden by definition of object AppConfig in package tasks
+[WARNING] : four deprecations; re-run with -deprecation for details
+[WARNING] two warnings found
+[INFO] done compiling
+[INFO] compile in 12.5 s
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ realtime-data-process ---
+[INFO] skip non existing resourceDirectory D:\Desktop\Match\MATCH\OverMatch\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ realtime-data-process ---
+[INFO] Changes detected - recompiling the module!
+[INFO] 
+[INFO] --- scala:4.5.6:testCompile (default) @ realtime-data-process ---
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[WARNING]  Expected all dependencies to require Scala version: 2.12.15
+[WARNING]  com.match:realtime-data-process:1.0-SNAPSHOT requires scala version: 2.12.15
+[WARNING]  org.apache.flink:flink-scala_2.12:1.14.4 requires scala version: 2.12.7
+[WARNING] Multiple versions of scala libraries detected!
+[WARNING] Plugin is modifying testCompileSourceRoots through add(), which will not work in Maven 4.0.0. Use MavenProject.addTestCompileSourceRoot()/removeTestCompileSourceRoot() methods instead. If using a plugin, please upgrade to the latest version or report the issue to the plugin maintainer. To disable these warnings, set -Dmaven.project.sourceRoots.warningsDisabled=true on the command line, in the .mvn/maven.config file, or in project POM properties.
+[INFO] compile in 0.0 s
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ realtime-data-process ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ realtime-data-process ---
+[INFO] Building jar: D:\Desktop\Match\MATCH\OverMatch\target\realtime-data-process-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- shade:3.2.4:shade (default) @ realtime-data-process ---
+[INFO] Including org.scala-lang:scala-library:jar:2.12.15 in the shaded jar.
+[INFO] Including org.apache.spark:spark-core_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.avro:avro:jar:1.11.0 in the shaded jar.
+[INFO] Including org.apache.avro:avro-mapred:jar:1.11.0 in the shaded jar.
+[INFO] Including org.apache.avro:avro-ipc:jar:1.11.0 in the shaded jar.
+[INFO] Including org.tukaani:xz:jar:1.9 in the shaded jar.
+[INFO] Including com.twitter:chill_2.12:jar:0.10.0 in the shaded jar.
+[INFO] Including com.esotericsoftware:kryo-shaded:jar:4.0.2 in the shaded jar.
+[INFO] Including com.twitter:chill-java:jar:0.10.0 in the shaded jar.
+[INFO] Including org.apache.xbean:xbean-asm9-shaded:jar:4.20 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-client-api:jar:3.3.2 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-client-runtime:jar:3.3.2 in the shaded jar.
+[INFO] Including org.apache.spark:spark-launcher_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.spark:spark-kvstore_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.fusesource.leveldbjni:leveldbjni-all:jar:1.8 in the shaded jar.
+[INFO] Including org.apache.spark:spark-network-common_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including com.google.crypto.tink:tink:jar:1.6.1 in the shaded jar.
+[INFO] Including org.apache.spark:spark-network-shuffle_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.spark:spark-unsafe_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including javax.activation:activation:jar:1.1.1 in the shaded jar.
+[INFO] Including org.apache.curator:curator-recipes:jar:2.13.0 in the shaded jar.
+[INFO] Including org.apache.curator:curator-framework:jar:2.13.0 in the shaded jar.
+[INFO] Including org.apache.zookeeper:zookeeper:jar:3.6.2 in the shaded jar.
+[INFO] Including commons-lang:commons-lang:jar:2.6 in the shaded jar.
+[INFO] Including org.apache.zookeeper:zookeeper-jute:jar:3.6.2 in the shaded jar.
+[INFO] Including org.apache.yetus:audience-annotations:jar:0.5.0 in the shaded jar.
+[INFO] Including jakarta.servlet:jakarta.servlet-api:jar:4.0.3 in the shaded jar.
+[INFO] Including commons-codec:commons-codec:jar:1.15 in the shaded jar.
+[INFO] Including org.apache.commons:commons-lang3:jar:3.12.0 in the shaded jar.
+[INFO] Including org.apache.commons:commons-math3:jar:3.6.1 in the shaded jar.
+[INFO] Including org.apache.commons:commons-text:jar:1.9 in the shaded jar.
+[INFO] Including commons-io:commons-io:jar:2.11.0 in the shaded jar.
+[INFO] Including commons-collections:commons-collections:jar:3.2.2 in the shaded jar.
+[INFO] Including org.apache.commons:commons-collections4:jar:4.4 in the shaded jar.
+[INFO] Including com.google.code.findbugs:jsr305:jar:3.0.0 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-api:jar:1.7.32 in the shaded jar.
+[INFO] Including org.slf4j:jul-to-slf4j:jar:1.7.32 in the shaded jar.
+[INFO] Including org.slf4j:jcl-over-slf4j:jar:1.7.32 in the shaded jar.
+[INFO] Including org.apache.logging.log4j:log4j-slf4j-impl:jar:2.17.2 in the shaded jar.
+[INFO] Including org.apache.logging.log4j:log4j-api:jar:2.17.2 in the shaded jar.
+[INFO] Including org.apache.logging.log4j:log4j-core:jar:2.17.2 in the shaded jar.
+[INFO] Including org.apache.logging.log4j:log4j-1.2-api:jar:2.17.2 in the shaded jar.
+[INFO] Including com.ning:compress-lzf:jar:1.1 in the shaded jar.
+[INFO] Including org.xerial.snappy:snappy-java:jar:1.1.8.4 in the shaded jar.
+[INFO] Including org.lz4:lz4-java:jar:1.8.0 in the shaded jar.
+[INFO] Including com.github.luben:zstd-jni:jar:1.5.2-1 in the shaded jar.
+[INFO] Including org.roaringbitmap:RoaringBitmap:jar:0.9.25 in the shaded jar.
+[INFO] Including org.roaringbitmap:shims:jar:0.9.25 in the shaded jar.
+[INFO] Including org.scala-lang.modules:scala-xml_2.12:jar:1.2.0 in the shaded jar.
+[INFO] Including org.scala-lang:scala-reflect:jar:2.12.15 in the shaded jar.
+[INFO] Including org.json4s:json4s-jackson_2.12:jar:3.7.0-M11 in the shaded jar.
+[INFO] Including org.json4s:json4s-core_2.12:jar:3.7.0-M11 in the shaded jar.
+[INFO] Including org.json4s:json4s-ast_2.12:jar:3.7.0-M11 in the shaded jar.
+[INFO] Including org.json4s:json4s-scalap_2.12:jar:3.7.0-M11 in the shaded jar.
+[INFO] Including org.glassfish.jersey.core:jersey-client:jar:2.34 in the shaded jar.
+[INFO] Including jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6 in the shaded jar.
+[INFO] Including org.glassfish.hk2.external:jakarta.inject:jar:2.6.1 in the shaded jar.
+[INFO] Including org.glassfish.jersey.core:jersey-common:jar:2.34 in the shaded jar.
+[INFO] Including jakarta.annotation:jakarta.annotation-api:jar:1.3.5 in the shaded jar.
+[INFO] Including org.glassfish.hk2:osgi-resource-locator:jar:1.0.3 in the shaded jar.
+[INFO] Including org.glassfish.jersey.core:jersey-server:jar:2.34 in the shaded jar.
+[INFO] Including jakarta.validation:jakarta.validation-api:jar:2.0.2 in the shaded jar.
+[INFO] Including org.glassfish.jersey.containers:jersey-container-servlet:jar:2.34 in the shaded jar.
+[INFO] Including org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.34 in the shaded jar.
+[INFO] Including org.glassfish.jersey.inject:jersey-hk2:jar:2.34 in the shaded jar.
+[INFO] Including org.glassfish.hk2:hk2-locator:jar:2.6.1 in the shaded jar.
+[INFO] Including org.glassfish.hk2.external:aopalliance-repackaged:jar:2.6.1 in the shaded jar.
+[INFO] Including org.glassfish.hk2:hk2-api:jar:2.6.1 in the shaded jar.
+[INFO] Including org.glassfish.hk2:hk2-utils:jar:2.6.1 in the shaded jar.
+[INFO] Including org.javassist:javassist:jar:3.25.0-GA in the shaded jar.
+[INFO] Including io.netty:netty-all:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-buffer:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-codec:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-common:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-handler:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-tcnative-classes:jar:2.0.48.Final in the shaded jar.
+[INFO] Including io.netty:netty-resolver:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport-classes-epoll:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport-native-unix-common:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport-classes-kqueue:jar:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport-native-epoll:jar:linux-aarch_64:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport-native-kqueue:jar:osx-x86_64:4.1.74.Final in the shaded jar.
+[INFO] Including io.netty:netty-transport-native-kqueue:jar:osx-aarch_64:4.1.74.Final in the shaded jar.
+[INFO] Including com.clearspring.analytics:stream:jar:2.9.6 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-core:jar:4.2.7 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-jvm:jar:4.2.7 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-json:jar:4.2.7 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-graphite:jar:4.2.7 in the shaded jar.
+[INFO] Including io.dropwizard.metrics:metrics-jmx:jar:4.2.7 in the shaded jar.
+[INFO] Including org.apache.ivy:ivy:jar:2.5.0 in the shaded jar.
+[INFO] Including oro:oro:jar:2.0.8 in the shaded jar.
+[INFO] Including net.razorvine:pickle:jar:1.2 in the shaded jar.
+[INFO] Including net.sf.py4j:py4j:jar:0.10.9.5 in the shaded jar.
+[INFO] Including org.apache.spark:spark-tags_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.commons:commons-crypto:jar:1.1.0 in the shaded jar.
+[INFO] Including org.spark-project.spark:unused:jar:1.0.0 in the shaded jar.
+[INFO] Including org.apache.spark:spark-sql_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.rocksdb:rocksdbjni:jar:6.20.3 in the shaded jar.
+[INFO] Including com.univocity:univocity-parsers:jar:2.9.1 in the shaded jar.
+[INFO] Including org.apache.spark:spark-sketch_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.spark:spark-catalyst_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.codehaus.janino:janino:jar:3.0.16 in the shaded jar.
+[INFO] Including org.codehaus.janino:commons-compiler:jar:3.0.16 in the shaded jar.
+[INFO] Including org.antlr:antlr4-runtime:jar:4.8 in the shaded jar.
+[INFO] Including org.apache.arrow:arrow-vector:jar:7.0.0 in the shaded jar.
+[INFO] Including org.apache.arrow:arrow-format:jar:7.0.0 in the shaded jar.
+[INFO] Including org.apache.arrow:arrow-memory-core:jar:7.0.0 in the shaded jar.
+[INFO] Including com.google.flatbuffers:flatbuffers-java:jar:1.12.0 in the shaded jar.
+[INFO] Including org.apache.arrow:arrow-memory-netty:jar:7.0.0 in the shaded jar.
+[INFO] Including org.apache.orc:orc-core:jar:1.7.4 in the shaded jar.
+[INFO] Including org.apache.orc:orc-shims:jar:1.7.4 in the shaded jar.
+[INFO] Including io.airlift:aircompressor:jar:0.21 in the shaded jar.
+[INFO] Including org.jetbrains:annotations:jar:17.0.0 in the shaded jar.
+[INFO] Including org.threeten:threeten-extra:jar:1.5.0 in the shaded jar.
+[INFO] Including org.apache.orc:orc-mapreduce:jar:1.7.4 in the shaded jar.
+[INFO] Including org.apache.hive:hive-storage-api:jar:2.7.2 in the shaded jar.
+[INFO] Including org.apache.parquet:parquet-column:jar:1.12.2 in the shaded jar.
+[INFO] Including org.apache.parquet:parquet-common:jar:1.12.2 in the shaded jar.
+[INFO] Including org.apache.parquet:parquet-encoding:jar:1.12.2 in the shaded jar.
+[INFO] Including org.apache.parquet:parquet-hadoop:jar:1.12.2 in the shaded jar.
+[INFO] Including org.apache.parquet:parquet-format-structures:jar:1.12.2 in the shaded jar.
+[INFO] Including org.apache.parquet:parquet-jackson:jar:1.12.2 in the shaded jar.
+[INFO] Including org.apache.spark:spark-hive_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.hive:hive-common:jar:2.3.9 in the shaded jar.
+[INFO] Including jline:jline:jar:2.12 in the shaded jar.
+[INFO] Including com.tdunning:json:jar:1.8 in the shaded jar.
+[INFO] Including com.github.joshelser:dropwizard-metrics-hadoop-metrics2-reporter:jar:0.1.2 in the shaded jar.
+[INFO] Including org.apache.hive:hive-exec:jar:core:2.3.9 in the shaded jar.
+[INFO] Including org.apache.hive:hive-vector-code-gen:jar:2.3.9 in the shaded jar.
+[INFO] Including org.apache.velocity:velocity:jar:1.5 in the shaded jar.
+[INFO] Including org.antlr:antlr-runtime:jar:3.5.2 in the shaded jar.
+[INFO] Including org.antlr:ST4:jar:4.0.4 in the shaded jar.
+[INFO] Including stax:stax-api:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.hive:hive-metastore:jar:2.3.9 in the shaded jar.
+[INFO] Including javolution:javolution:jar:5.5.1 in the shaded jar.
+[INFO] Including com.jolbox:bonecp:jar:0.8.0.RELEASE in the shaded jar.
+[INFO] Including com.zaxxer:HikariCP:jar:2.5.1 in the shaded jar.
+[INFO] Including org.datanucleus:datanucleus-api-jdo:jar:4.2.4 in the shaded jar.
+[INFO] Including org.datanucleus:datanucleus-rdbms:jar:4.1.19 in the shaded jar.
+[INFO] Including commons-pool:commons-pool:jar:1.5.4 in the shaded jar.
+[INFO] Including commons-dbcp:commons-dbcp:jar:1.4 in the shaded jar.
+[INFO] Including javax.jdo:jdo-api:jar:3.0.1 in the shaded jar.
+[INFO] Including javax.transaction:jta:jar:1.1 in the shaded jar.
+[INFO] Including org.datanucleus:javax.jdo:jar:3.2.0-m3 in the shaded jar.
+[INFO] Including javax.transaction:transaction-api:jar:1.1 in the shaded jar.
+[INFO] Including org.apache.hive:hive-serde:jar:2.3.9 in the shaded jar.
+[INFO] Including net.sf.opencsv:opencsv:jar:2.3 in the shaded jar.
+[INFO] Including org.apache.hive:hive-shims:jar:2.3.9 in the shaded jar.
+[INFO] Including org.apache.hive.shims:hive-shims-common:jar:2.3.9 in the shaded jar.
+[INFO] Including org.apache.hive.shims:hive-shims-0.23:jar:2.3.9 in the shaded jar.
+[INFO] Including org.apache.hive.shims:hive-shims-scheduler:jar:2.3.9 in the shaded jar.
+[INFO] Including org.apache.hive:hive-llap-common:jar:2.3.9 in the shaded jar.
+[INFO] Including org.apache.hive:hive-llap-client:jar:2.3.9 in the shaded jar.
+[INFO] Including org.apache.httpcomponents:httpclient:jar:4.5.13 in the shaded jar.
+[INFO] Including org.apache.httpcomponents:httpcore:jar:4.4.13 in the shaded jar.
+[INFO] Including org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13 in the shaded jar.
+[INFO] Including org.codehaus.jackson:jackson-core-asl:jar:1.9.13 in the shaded jar.
+[INFO] Including joda-time:joda-time:jar:2.10.13 in the shaded jar.
+[INFO] Including org.jodd:jodd-core:jar:3.5.2 in the shaded jar.
+[INFO] Including org.datanucleus:datanucleus-core:jar:4.1.17 in the shaded jar.
+[INFO] Including org.apache.thrift:libthrift:jar:0.12.0 in the shaded jar.
+[INFO] Including org.apache.thrift:libfb303:jar:0.9.3 in the shaded jar.
+[INFO] Including org.apache.derby:derby:jar:10.14.2.0 in the shaded jar.
+[INFO] Including org.apache.spark:spark-sql-kafka-0-10_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.spark:spark-token-provider-kafka-0-10_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.kafka:kafka-clients:jar:2.8.1 in the shaded jar.
+[INFO] Including org.apache.commons:commons-pool2:jar:2.11.1 in the shaded jar.
+[INFO] Including org.apache.spark:spark-mllib_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.scala-lang.modules:scala-parser-combinators_2.12:jar:1.1.2 in the shaded jar.
+[INFO] Including org.apache.spark:spark-streaming_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.apache.spark:spark-graphx_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including net.sourceforge.f2j:arpack_combined_all:jar:0.1 in the shaded jar.
+[INFO] Including org.apache.spark:spark-mllib-local_2.12:jar:3.3.0 in the shaded jar.
+[INFO] Including org.scalanlp:breeze_2.12:jar:1.2 in the shaded jar.
+[INFO] Including org.scalanlp:breeze-macros_2.12:jar:1.2 in the shaded jar.
+[INFO] Including com.github.fommil.netlib:core:jar:1.1.2 in the shaded jar.
+[INFO] Including com.github.wendykierp:JTransforms:jar:3.1 in the shaded jar.
+[INFO] Including pl.edu.icm:JLargeArrays:jar:1.5 in the shaded jar.
+[INFO] Including com.chuusai:shapeless_2.12:jar:2.3.3 in the shaded jar.
+[INFO] Including org.typelevel:macro-compat_2.12:jar:1.1.1 in the shaded jar.
+[INFO] Including org.typelevel:spire_2.12:jar:0.17.0 in the shaded jar.
+[INFO] Including org.typelevel:spire-macros_2.12:jar:0.17.0 in the shaded jar.
+[INFO] Including org.typelevel:spire-platform_2.12:jar:0.17.0 in the shaded jar.
+[INFO] Including org.typelevel:spire-util_2.12:jar:0.17.0 in the shaded jar.
+[INFO] Including org.typelevel:algebra_2.12:jar:2.0.1 in the shaded jar.
+[INFO] Including org.typelevel:cats-kernel_2.12:jar:2.1.1 in the shaded jar.
+[INFO] Including org.scala-lang.modules:scala-collection-compat_2.12:jar:2.1.1 in the shaded jar.
+[INFO] Including org.glassfish.jaxb:jaxb-runtime:jar:2.3.2 in the shaded jar.
+[INFO] Including jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.2 in the shaded jar.
+[INFO] Including com.sun.istack:istack-commons-runtime:jar:3.0.8 in the shaded jar.
+[INFO] Including dev.ludovic.netlib:blas:jar:2.2.1 in the shaded jar.
+[INFO] Including dev.ludovic.netlib:lapack:jar:2.2.1 in the shaded jar.
+[INFO] Including dev.ludovic.netlib:arpack:jar:2.2.1 in the shaded jar.
+[INFO] Including com.mysql:mysql-connector-j:jar:8.0.33 in the shaded jar.
+[INFO] Including com.google.protobuf:protobuf-java:jar:3.21.9 in the shaded jar.
+[INFO] Including ml.dmlc:xgboost4j_2.12:jar:1.7.3 in the shaded jar.
+[INFO] Including com.typesafe.akka:akka-actor_2.12:jar:2.5.23 in the shaded jar.
+[INFO] Including com.typesafe:config:jar:1.3.3 in the shaded jar.
+[INFO] Including org.scala-lang.modules:scala-java8-compat_2.12:jar:0.8.0 in the shaded jar.
+[INFO] Including com.esotericsoftware:kryo:jar:4.0.2 in the shaded jar.
+[INFO] Including com.esotericsoftware:reflectasm:jar:1.11.3 in the shaded jar.
+[INFO] Including org.ow2.asm:asm:jar:5.0.4 in the shaded jar.
+[INFO] Including com.esotericsoftware:minlog:jar:1.3.0 in the shaded jar.
+[INFO] Including org.objenesis:objenesis:jar:2.5.1 in the shaded jar.
+[INFO] Including commons-logging:commons-logging:jar:1.2 in the shaded jar.
+[INFO] Including ml.dmlc:xgboost4j-spark_2.12:jar:1.7.3 in the shaded jar.
+[INFO] Including org.apache.flink:flink-scala_2.12:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-core:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-annotations:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-metrics-core:jar:1.14.4 in the shaded jar.
+[INFO] Including com.esotericsoftware.kryo:kryo:jar:2.24.0 in the shaded jar.
+[INFO] Including com.esotericsoftware.minlog:minlog:jar:1.2 in the shaded jar.
+[INFO] Including org.apache.flink:flink-shaded-guava:jar:30.1.1-jre-14.0 in the shaded jar.
+[INFO] Including org.apache.flink:flink-java:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-shaded-asm-7:jar:7.1-14.0 in the shaded jar.
+[INFO] Including org.scala-lang:scala-compiler:jar:2.12.7 in the shaded jar.
+[INFO] Including org.apache.flink:flink-shaded-force-shading:jar:14.0 in the shaded jar.
+[INFO] Including org.apache.flink:flink-streaming-scala_2.12:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-streaming-java_2.12:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-file-sink-common:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-clients_2.12:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-runtime:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-rpc-core:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-rpc-akka-loader:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-queryable-state-client-java:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-hadoop-fs:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-shaded-netty:jar:4.1.65.Final-14.0 in the shaded jar.
+[INFO] Including org.apache.flink:flink-shaded-jackson:jar:2.12.4-14.0 in the shaded jar.
+[INFO] Including org.apache.flink:flink-shaded-zookeeper-3:jar:3.4.14-14.0 in the shaded jar.
+[INFO] Including org.apache.flink:flink-optimizer:jar:1.14.4 in the shaded jar.
+[INFO] Including commons-cli:commons-cli:jar:1.3.1 in the shaded jar.
+[INFO] Including org.apache.flink:flink-connector-kafka_2.12:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-connector-base:jar:1.14.4 in the shaded jar.
+[INFO] Including org.apache.flink:flink-connector-jdbc_2.12:jar:1.14.4 in the shaded jar.
+[INFO] Including com.h2database:h2:jar:2.1.210 in the shaded jar.
+[INFO] Including org.apache.hudi:hudi-spark3.3-bundle_2.12:jar:0.12.1 in the shaded jar.
+[INFO] Including ru.yandex.clickhouse:clickhouse-jdbc:jar:0.3.1 in the shaded jar.
+[INFO] Including org.apache.httpcomponents:httpmime:jar:4.5.13 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-client:jar:3.3.4 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-hdfs-client:jar:3.3.4 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-yarn-api:jar:3.3.4 in the shaded jar.
+[INFO] Including javax.xml.bind:jaxb-api:jar:2.2.11 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-yarn-client:jar:3.3.4 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-client:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-client:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-common:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty.websocket:websocket-api:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.jline:jline:jar:3.9.0 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-mapreduce-client-core:jar:3.3.4 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-yarn-common:jar:3.3.4 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-client:jar:1.19 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.12.7 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.12.7 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.12.7 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-mapreduce-client-jobclient:jar:3.3.4 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-mapreduce-client-common:jar:3.3.4 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-annotations:jar:3.3.4 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-common:jar:3.3.4 in the shaded jar.
+[INFO] Including org.apache.hadoop.thirdparty:hadoop-shaded-protobuf_3_7:jar:1.1.1 in the shaded jar.
+[INFO] Including org.apache.hadoop.thirdparty:hadoop-shaded-guava:jar:1.1.1 in the shaded jar.
+[INFO] Including com.google.guava:guava:jar:27.0-jre in the shaded jar.
+[INFO] Including com.google.guava:failureaccess:jar:1.0 in the shaded jar.
+[INFO] Including com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava in the shaded jar.
+[INFO] Including org.checkerframework:checker-qual:jar:2.5.2 in the shaded jar.
+[INFO] Including com.google.j2objc:j2objc-annotations:jar:1.1 in the shaded jar.
+[INFO] Including org.codehaus.mojo:animal-sniffer-annotations:jar:1.17 in the shaded jar.
+[INFO] Including commons-net:commons-net:jar:3.6 in the shaded jar.
+[INFO] Including javax.servlet:javax.servlet-api:jar:3.1.0 in the shaded jar.
+[INFO] Including jakarta.activation:jakarta.activation-api:jar:1.2.1 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-server:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-http:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-io:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-util:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-servlet:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-security:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-util-ajax:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-webapp:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including org.eclipse.jetty:jetty-xml:jar:9.4.43.v20210629 in the shaded jar.
+[INFO] Including javax.servlet.jsp:jsp-api:jar:2.1 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-core:jar:1.19 in the shaded jar.
+[INFO] Including javax.ws.rs:jsr311-api:jar:1.1.1 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-servlet:jar:1.19 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-json:jar:1.19 in the shaded jar.
+[INFO] Including org.codehaus.jettison:jettison:jar:1.1 in the shaded jar.
+[INFO] Including com.sun.xml.bind:jaxb-impl:jar:2.2.3-1 in the shaded jar.
+[INFO] Including org.codehaus.jackson:jackson-jaxrs:jar:1.9.2 in the shaded jar.
+[INFO] Including org.codehaus.jackson:jackson-xc:jar:1.9.2 in the shaded jar.
+[INFO] Including com.sun.jersey:jersey-server:jar:1.19 in the shaded jar.
+[INFO] Including ch.qos.reload4j:reload4j:jar:1.2.22 in the shaded jar.
+[INFO] Including commons-beanutils:commons-beanutils:jar:1.9.4 in the shaded jar.
+[INFO] Including org.apache.commons:commons-configuration2:jar:2.1.1 in the shaded jar.
+[INFO] Including org.slf4j:slf4j-reload4j:jar:1.7.36 in the shaded jar.
+[INFO] Including com.google.re2j:re2j:jar:1.1 in the shaded jar.
+[INFO] Including com.google.code.gson:gson:jar:2.8.9 in the shaded jar.
+[INFO] Including org.apache.hadoop:hadoop-auth:jar:3.3.4 in the shaded jar.
+[INFO] Including com.nimbusds:nimbus-jose-jwt:jar:9.8.1 in the shaded jar.
+[INFO] Including com.github.stephenc.jcip:jcip-annotations:jar:1.0-1 in the shaded jar.
+[INFO] Including net.minidev:json-smart:jar:2.4.7 in the shaded jar.
+[INFO] Including net.minidev:accessors-smart:jar:2.4.7 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-simplekdc:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-client:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerby-config:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-common:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-crypto:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-util:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:token-provider:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-admin:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-server:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-identity:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerby-xdr:jar:1.0.1 in the shaded jar.
+[INFO] Including com.jcraft:jsch:jar:0.1.55 in the shaded jar.
+[INFO] Including org.apache.curator:curator-client:jar:4.2.0 in the shaded jar.
+[INFO] Including org.apache.commons:commons-compress:jar:1.21 in the shaded jar.
+[INFO] Including org.apache.kerby:kerb-core:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerby-pkix:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerby-asn1:jar:1.0.1 in the shaded jar.
+[INFO] Including org.apache.kerby:kerby-util:jar:1.0.1 in the shaded jar.
+[INFO] Including org.codehaus.woodstox:stax2-api:jar:4.2.1 in the shaded jar.
+[INFO] Including com.fasterxml.woodstox:woodstox-core:jar:5.3.0 in the shaded jar.
+[INFO] Including dnsjava:dnsjava:jar:2.1.7 in the shaded jar.
+[INFO] Including redis.clients:jedis:jar:3.6.0 in the shaded jar.
+[INFO] Including com.alibaba:fastjson:jar:1.2.83 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-core:jar:2.13.3 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-databind:jar:2.13.3 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.core:jackson-annotations:jar:2.13.3 in the shaded jar.
+[INFO] Including com.fasterxml.jackson.module:jackson-module-scala_2.12:jar:2.13.3 in the shaded jar.
+[INFO] Including com.thoughtworks.paranamer:paranamer:jar:2.8 in the shaded jar.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] Discovered module-info.class. Shading will break its strong encapsulation.
+[WARNING] HikariCP-2.5.1.jar, JLargeArrays-1.5.jar, JTransforms-3.1.jar, RoaringBitmap-0.9.25.jar, ST4-4.0.4.jar, accessors-smart-2.4.7.jar, activation-1.1.1.jar, aircompressor-0.21.jar, akka-actor_2.12-2.5.23.jar, algebra_2.12-2.0.1.jar, animal-sniffer-annotations-1.17.jar, annotations-17.0.0.jar, antlr-runtime-3.5.2.jar, antlr4-runtime-4.8.jar, aopalliance-repackaged-2.6.1.jar, arpack-2.2.1.jar, arpack_combined_all-0.1.jar, arrow-format-7.0.0.jar, arrow-memory-core-7.0.0.jar, arrow-memory-netty-7.0.0.jar, arrow-vector-7.0.0.jar, asm-5.0.4.jar, audience-annotations-0.5.0.jar, avro-1.11.0.jar, avro-ipc-1.11.0.jar, avro-mapred-1.11.0.jar, blas-2.2.1.jar, bonecp-0.8.0.RELEASE.jar, breeze-macros_2.12-1.2.jar, breeze_2.12-1.2.jar, cats-kernel_2.12-2.1.1.jar, checker-qual-2.5.2.jar, chill-java-0.10.0.jar, chill_2.12-0.10.0.jar, clickhouse-jdbc-0.3.1.jar, commons-beanutils-1.9.4.jar, commons-cli-1.3.1.jar, commons-codec-1.15.jar, commons-collections-3.2.2.jar, commons-collections4-4.4.jar, commons-compiler-3.0.16.jar, commons-compress-1.21.jar, commons-configuration2-2.1.1.jar, commons-crypto-1.1.0.jar, commons-dbcp-1.4.jar, commons-io-2.11.0.jar, commons-lang-2.6.jar, commons-lang3-3.12.0.jar, commons-logging-1.2.jar, commons-math3-3.6.1.jar, commons-net-3.6.jar, commons-pool-1.5.4.jar, commons-pool2-2.11.1.jar, commons-text-1.9.jar, compress-lzf-1.1.jar, config-1.3.3.jar, core-1.1.2.jar, curator-client-4.2.0.jar, curator-framework-2.13.0.jar, curator-recipes-2.13.0.jar, datanucleus-api-jdo-4.2.4.jar, datanucleus-core-4.1.17.jar, datanucleus-rdbms-4.1.19.jar, derby-10.14.2.0.jar, dnsjava-2.1.7.jar, dropwizard-metrics-hadoop-metrics2-reporter-0.1.2.jar, failureaccess-1.0.jar, fastjson-1.2.83.jar, flatbuffers-java-1.12.0.jar, flink-annotations-1.14.4.jar, flink-clients_2.12-1.14.4.jar, flink-connector-base-1.14.4.jar, flink-connector-jdbc_2.12-1.14.4.jar, flink-connector-kafka_2.12-1.14.4.jar, flink-core-1.14.4.jar, flink-file-sink-common-1.14.4.jar, flink-hadoop-fs-1.14.4.jar, flink-java-1.14.4.jar, flink-metrics-core-1.14.4.jar, flink-optimizer-1.14.4.jar, flink-queryable-state-client-java-1.14.4.jar, flink-rpc-akka-loader-1.14.4.jar, flink-rpc-core-1.14.4.jar, flink-runtime-1.14.4.jar, flink-scala_2.12-1.14.4.jar, flink-shaded-asm-7-7.1-14.0.jar, flink-shaded-force-shading-14.0.jar, flink-shaded-guava-30.1.1-jre-14.0.jar, flink-shaded-jackson-2.12.4-14.0.jar, flink-shaded-netty-4.1.65.Final-14.0.jar, flink-shaded-zookeeper-3-3.4.14-14.0.jar, flink-streaming-java_2.12-1.14.4.jar, flink-streaming-scala_2.12-1.14.4.jar, gson-2.8.9.jar, guava-27.0-jre.jar, h2-2.1.210.jar, hadoop-annotations-3.3.4.jar, hadoop-auth-3.3.4.jar, hadoop-client-3.3.4.jar, hadoop-client-api-3.3.2.jar, hadoop-client-runtime-3.3.2.jar, hadoop-common-3.3.4.jar, hadoop-hdfs-client-3.3.4.jar, hadoop-mapreduce-client-common-3.3.4.jar, hadoop-mapreduce-client-core-3.3.4.jar, hadoop-mapreduce-client-jobclient-3.3.4.jar, hadoop-shaded-guava-1.1.1.jar, hadoop-shaded-protobuf_3_7-1.1.1.jar, hadoop-yarn-api-3.3.4.jar, hadoop-yarn-client-3.3.4.jar, hadoop-yarn-common-3.3.4.jar, hive-common-2.3.9.jar, hive-exec-2.3.9-core.jar, hive-llap-client-2.3.9.jar, hive-llap-common-2.3.9.jar, hive-metastore-2.3.9.jar, hive-serde-2.3.9.jar, hive-shims-0.23-2.3.9.jar, hive-shims-2.3.9.jar, hive-shims-common-2.3.9.jar, hive-shims-scheduler-2.3.9.jar, hive-storage-api-2.7.2.jar, hive-vector-code-gen-2.3.9.jar, hk2-api-2.6.1.jar, hk2-locator-2.6.1.jar, hk2-utils-2.6.1.jar, httpclient-4.5.13.jar, httpcore-4.4.13.jar, httpmime-4.5.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, istack-commons-runtime-3.0.8.jar, ivy-2.5.0.jar, j2objc-annotations-1.1.jar, jackson-annotations-2.13.3.jar, jackson-core-2.13.3.jar, jackson-core-asl-1.9.13.jar, jackson-databind-2.13.3.jar, jackson-jaxrs-1.9.2.jar, jackson-jaxrs-base-2.12.7.jar, jackson-jaxrs-json-provider-2.12.7.jar, jackson-mapper-asl-1.9.13.jar, jackson-module-jaxb-annotations-2.12.7.jar, jackson-module-scala_2.12-2.13.3.jar, jackson-xc-1.9.2.jar, jakarta.activation-api-1.2.1.jar, jakarta.annotation-api-1.3.5.jar, jakarta.inject-2.6.1.jar, jakarta.servlet-api-4.0.3.jar, jakarta.validation-api-2.0.2.jar, jakarta.ws.rs-api-2.1.6.jar, jakarta.xml.bind-api-2.3.2.jar, janino-3.0.16.jar, javassist-3.25.0-GA.jar, javax.jdo-3.2.0-m3.jar, javax.servlet-api-3.1.0.jar, javolution-5.5.1.jar, jaxb-api-2.2.11.jar, jaxb-impl-2.2.3-1.jar, jaxb-runtime-2.3.2.jar, jcip-annotations-1.0-1.jar, jcl-over-slf4j-1.7.32.jar, jdo-api-3.0.1.jar, jedis-3.6.0.jar, jersey-client-1.19.jar, jersey-client-2.34.jar, jersey-common-2.34.jar, jersey-container-servlet-2.34.jar, jersey-container-servlet-core-2.34.jar, jersey-core-1.19.jar, jersey-hk2-2.34.jar, jersey-json-1.19.jar, jersey-server-1.19.jar, jersey-server-2.34.jar, jersey-servlet-1.19.jar, jettison-1.1.jar, jetty-client-9.4.43.v20210629.jar, jetty-http-9.4.43.v20210629.jar, jetty-io-9.4.43.v20210629.jar, jetty-security-9.4.43.v20210629.jar, jetty-server-9.4.43.v20210629.jar, jetty-servlet-9.4.43.v20210629.jar, jetty-util-9.4.43.v20210629.jar, jetty-util-ajax-9.4.43.v20210629.jar, jetty-webapp-9.4.43.v20210629.jar, jetty-xml-9.4.43.v20210629.jar, jline-2.12.jar, jline-3.9.0.jar, joda-time-2.10.13.jar, jodd-core-3.5.2.jar, jsch-0.1.55.jar, json-1.8.jar, json-smart-2.4.7.jar, json4s-ast_2.12-3.7.0-M11.jar, json4s-core_2.12-3.7.0-M11.jar, json4s-jackson_2.12-3.7.0-M11.jar, json4s-scalap_2.12-3.7.0-M11.jar, jsp-api-2.1.jar, jsr305-3.0.0.jar, jsr311-api-1.1.1.jar, jta-1.1.jar, jul-to-slf4j-1.7.32.jar, kafka-clients-2.8.1.jar, kerb-admin-1.0.1.jar, kerb-client-1.0.1.jar, kerb-common-1.0.1.jar, kerb-core-1.0.1.jar, kerb-crypto-1.0.1.jar, kerb-identity-1.0.1.jar, kerb-server-1.0.1.jar, kerb-simplekdc-1.0.1.jar, kerb-util-1.0.1.jar, kerby-asn1-1.0.1.jar, kerby-config-1.0.1.jar, kerby-pkix-1.0.1.jar, kerby-util-1.0.1.jar, kerby-xdr-1.0.1.jar, kryo-2.24.0.jar, kryo-4.0.2.jar, kryo-shaded-4.0.2.jar, lapack-2.2.1.jar, leveldbjni-all-1.8.jar, libfb303-0.9.3.jar, libthrift-0.12.0.jar, listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar, log4j-1.2-api-2.17.2.jar, log4j-api-2.17.2.jar, log4j-core-2.17.2.jar, log4j-slf4j-impl-2.17.2.jar, lz4-java-1.8.0.jar, macro-compat_2.12-1.1.1.jar, metrics-core-4.2.7.jar, metrics-graphite-4.2.7.jar, metrics-jmx-4.2.7.jar, metrics-json-4.2.7.jar, metrics-jvm-4.2.7.jar, minlog-1.2.jar, minlog-1.3.0.jar, mysql-connector-j-8.0.33.jar, netty-all-4.1.74.Final.jar, netty-buffer-4.1.74.Final.jar, netty-codec-4.1.74.Final.jar, netty-common-4.1.74.Final.jar, netty-handler-4.1.74.Final.jar, netty-resolver-4.1.74.Final.jar, netty-tcnative-classes-2.0.48.Final.jar, netty-transport-4.1.74.Final.jar, netty-transport-classes-epoll-4.1.74.Final.jar, netty-transport-classes-kqueue-4.1.74.Final.jar, netty-transport-native-epoll-4.1.74.Final-linux-aarch_64.jar, netty-transport-native-epoll-4.1.74.Final-linux-x86_64.jar, netty-transport-native-kqueue-4.1.74.Final-osx-aarch_64.jar, netty-transport-native-kqueue-4.1.74.Final-osx-x86_64.jar, netty-transport-native-unix-common-4.1.74.Final.jar, nimbus-jose-jwt-9.8.1.jar, objenesis-2.5.1.jar, opencsv-2.3.jar, orc-core-1.7.4.jar, orc-mapreduce-1.7.4.jar, orc-shims-1.7.4.jar, oro-2.0.8.jar, osgi-resource-locator-1.0.3.jar, paranamer-2.8.jar, parquet-column-1.12.2.jar, parquet-common-1.12.2.jar, parquet-encoding-1.12.2.jar, parquet-format-structures-1.12.2.jar, parquet-hadoop-1.12.2.jar, parquet-jackson-1.12.2.jar, pickle-1.2.jar, protobuf-java-3.21.9.jar, py4j-0.10.9.5.jar, re2j-1.1.jar, realtime-data-process-1.0-SNAPSHOT.jar, reflectasm-1.11.3.jar, reload4j-1.2.22.jar, rocksdbjni-6.20.3.jar, scala-collection-compat_2.12-2.1.1.jar, scala-compiler-2.12.7.jar, scala-java8-compat_2.12-0.8.0.jar, scala-library-2.12.15.jar, scala-parser-combinators_2.12-1.1.2.jar, scala-reflect-2.12.15.jar, scala-xml_2.12-1.2.0.jar, shapeless_2.12-2.3.3.jar, shims-0.9.25.jar, slf4j-api-1.7.32.jar, slf4j-reload4j-1.7.36.jar, snappy-java-1.1.8.4.jar, spark-catalyst_2.12-3.3.0.jar, spark-core_2.12-3.3.0.jar, spark-graphx_2.12-3.3.0.jar, spark-hive_2.12-3.3.0.jar, spark-kvstore_2.12-3.3.0.jar, spark-launcher_2.12-3.3.0.jar, spark-mllib-local_2.12-3.3.0.jar, spark-mllib_2.12-3.3.0.jar, spark-network-common_2.12-3.3.0.jar, spark-network-shuffle_2.12-3.3.0.jar, spark-sketch_2.12-3.3.0.jar, spark-sql-kafka-0-10_2.12-3.3.0.jar, spark-sql_2.12-3.3.0.jar, spark-streaming_2.12-3.3.0.jar, spark-tags_2.12-3.3.0.jar, spark-token-provider-kafka-0-10_2.12-3.3.0.jar, spark-unsafe_2.12-3.3.0.jar, spire-macros_2.12-0.17.0.jar, spire-platform_2.12-0.17.0.jar, spire-util_2.12-0.17.0.jar, spire_2.12-0.17.0.jar, stax-api-1.0.1.jar, stax2-api-4.2.1.jar, stream-2.9.6.jar, threeten-extra-1.5.0.jar, tink-1.6.1.jar, token-provider-1.0.1.jar, transaction-api-1.1.jar, univocity-parsers-2.9.1.jar, unused-1.0.0.jar, velocity-1.5.jar, websocket-api-9.4.43.v20210629.jar, websocket-client-9.4.43.v20210629.jar, websocket-common-9.4.43.v20210629.jar, woodstox-core-5.3.0.jar, xbean-asm9-shaded-4.20.jar, xgboost4j-spark_2.12-1.7.3.jar, xgboost4j_2.12-1.7.3.jar, xz-1.9.jar, zookeeper-3.6.2.jar, zookeeper-jute-3.6.2.jar, zstd-jni-1.5.2-1.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, kafka-clients-2.8.1.jar, mysql-connector-j-8.0.33.jar, scala-library-2.12.15.jar, scala-reflect-2.12.15.jar define 1 overlapping resource: 
+[WARNING]   - LICENSE
+[WARNING] kafka-clients-2.8.1.jar, scala-library-2.12.15.jar, scala-reflect-2.12.15.jar define 1 overlapping resource: 
+[WARNING]   - NOTICE
+[WARNING] scala-compiler-2.12.7.jar, scala-library-2.12.15.jar define 1 overlapping resource: 
+[WARNING]   - rootdoc.txt
+[WARNING] arrow-format-7.0.0.jar, arrow-memory-core-7.0.0.jar, arrow-memory-netty-7.0.0.jar, arrow-vector-7.0.0.jar, audience-annotations-0.5.0.jar, avro-1.11.0.jar, avro-ipc-1.11.0.jar, avro-mapred-1.11.0.jar, compress-lzf-1.1.jar, curator-client-4.2.0.jar, curator-framework-2.13.0.jar, curator-recipes-2.13.0.jar, derby-10.14.2.0.jar, dropwizard-metrics-hadoop-metrics2-reporter-0.1.2.jar, flink-annotations-1.14.4.jar, flink-clients_2.12-1.14.4.jar, flink-connector-base-1.14.4.jar, flink-connector-jdbc_2.12-1.14.4.jar, flink-connector-kafka_2.12-1.14.4.jar, flink-core-1.14.4.jar, flink-file-sink-common-1.14.4.jar, flink-hadoop-fs-1.14.4.jar, flink-java-1.14.4.jar, flink-metrics-core-1.14.4.jar, flink-optimizer-1.14.4.jar, flink-queryable-state-client-java-1.14.4.jar, flink-rpc-akka-loader-1.14.4.jar, flink-rpc-core-1.14.4.jar, flink-runtime-1.14.4.jar, flink-scala_2.12-1.14.4.jar, flink-shaded-asm-7-7.1-14.0.jar, flink-shaded-force-shading-14.0.jar, flink-shaded-guava-30.1.1-jre-14.0.jar, flink-shaded-jackson-2.12.4-14.0.jar, flink-shaded-netty-4.1.65.Final-14.0.jar, flink-shaded-zookeeper-3-3.4.14-14.0.jar, flink-streaming-java_2.12-1.14.4.jar, flink-streaming-scala_2.12-1.14.4.jar, hive-common-2.3.9.jar, hive-exec-2.3.9-core.jar, hive-llap-client-2.3.9.jar, hive-llap-common-2.3.9.jar, hive-metastore-2.3.9.jar, hive-serde-2.3.9.jar, hive-shims-0.23-2.3.9.jar, hive-shims-2.3.9.jar, hive-shims-common-2.3.9.jar, hive-shims-scheduler-2.3.9.jar, hive-storage-api-2.7.2.jar, hive-vector-code-gen-2.3.9.jar, httpclient-4.5.13.jar, httpcore-4.4.13.jar, httpmime-4.5.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, ivy-2.5.0.jar, jackson-core-2.13.3.jar, jackson-core-asl-1.9.13.jar, jackson-databind-2.13.3.jar, jackson-jaxrs-1.9.2.jar, jackson-jaxrs-json-provider-2.12.7.jar, jackson-mapper-asl-1.9.13.jar, jackson-module-jaxb-annotations-2.12.7.jar, jackson-xc-1.9.2.jar, kerb-admin-1.0.1.jar, kerb-client-1.0.1.jar, kerb-common-1.0.1.jar, kerb-core-1.0.1.jar, kerb-crypto-1.0.1.jar, kerb-identity-1.0.1.jar, kerb-server-1.0.1.jar, kerb-simplekdc-1.0.1.jar, kerb-util-1.0.1.jar, kerby-asn1-1.0.1.jar, kerby-config-1.0.1.jar, kerby-pkix-1.0.1.jar, kerby-util-1.0.1.jar, kerby-xdr-1.0.1.jar, log4j-1.2-api-2.17.2.jar, log4j-api-2.17.2.jar, log4j-core-2.17.2.jar, log4j-slf4j-impl-2.17.2.jar, objenesis-2.5.1.jar, orc-core-1.7.4.jar, orc-mapreduce-1.7.4.jar, orc-shims-1.7.4.jar, parquet-jackson-1.12.2.jar, reload4j-1.2.22.jar, spark-catalyst_2.12-3.3.0.jar, spark-core_2.12-3.3.0.jar, spark-graphx_2.12-3.3.0.jar, spark-hive_2.12-3.3.0.jar, spark-kvstore_2.12-3.3.0.jar, spark-launcher_2.12-3.3.0.jar, spark-mllib-local_2.12-3.3.0.jar, spark-mllib_2.12-3.3.0.jar, spark-network-common_2.12-3.3.0.jar, spark-network-shuffle_2.12-3.3.0.jar, spark-sketch_2.12-3.3.0.jar, spark-sql-kafka-0-10_2.12-3.3.0.jar, spark-sql_2.12-3.3.0.jar, spark-streaming_2.12-3.3.0.jar, spark-tags_2.12-3.3.0.jar, spark-token-provider-kafka-0-10_2.12-3.3.0.jar, spark-unsafe_2.12-3.3.0.jar, token-provider-1.0.1.jar, velocity-1.5.jar, xbean-asm9-shaded-4.20.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/NOTICE
+[WARNING] arrow-format-7.0.0.jar, arrow-memory-core-7.0.0.jar, arrow-memory-netty-7.0.0.jar, arrow-vector-7.0.0.jar, audience-annotations-0.5.0.jar, avro-1.11.0.jar, avro-ipc-1.11.0.jar, avro-mapred-1.11.0.jar, compress-lzf-1.1.jar, curator-client-4.2.0.jar, curator-framework-2.13.0.jar, curator-recipes-2.13.0.jar, derby-10.14.2.0.jar, dropwizard-metrics-hadoop-metrics2-reporter-0.1.2.jar, flink-annotations-1.14.4.jar, flink-clients_2.12-1.14.4.jar, flink-connector-base-1.14.4.jar, flink-connector-jdbc_2.12-1.14.4.jar, flink-connector-kafka_2.12-1.14.4.jar, flink-core-1.14.4.jar, flink-file-sink-common-1.14.4.jar, flink-hadoop-fs-1.14.4.jar, flink-java-1.14.4.jar, flink-metrics-core-1.14.4.jar, flink-optimizer-1.14.4.jar, flink-queryable-state-client-java-1.14.4.jar, flink-rpc-akka-loader-1.14.4.jar, flink-rpc-core-1.14.4.jar, flink-runtime-1.14.4.jar, flink-scala_2.12-1.14.4.jar, flink-shaded-asm-7-7.1-14.0.jar, flink-shaded-force-shading-14.0.jar, flink-shaded-guava-30.1.1-jre-14.0.jar, flink-shaded-jackson-2.12.4-14.0.jar, flink-shaded-netty-4.1.65.Final-14.0.jar, flink-shaded-zookeeper-3-3.4.14-14.0.jar, flink-streaming-java_2.12-1.14.4.jar, flink-streaming-scala_2.12-1.14.4.jar, hive-common-2.3.9.jar, hive-exec-2.3.9-core.jar, hive-llap-client-2.3.9.jar, hive-llap-common-2.3.9.jar, hive-metastore-2.3.9.jar, hive-serde-2.3.9.jar, hive-shims-0.23-2.3.9.jar, hive-shims-2.3.9.jar, hive-shims-common-2.3.9.jar, hive-shims-scheduler-2.3.9.jar, hive-storage-api-2.7.2.jar, hive-vector-code-gen-2.3.9.jar, httpclient-4.5.13.jar, httpcore-4.4.13.jar, httpmime-4.5.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, ivy-2.5.0.jar, jackson-annotations-2.13.3.jar, jackson-core-2.13.3.jar, jackson-core-asl-1.9.13.jar, jackson-databind-2.13.3.jar, jackson-jaxrs-1.9.2.jar, jackson-jaxrs-base-2.12.7.jar, jackson-jaxrs-json-provider-2.12.7.jar, jackson-mapper-asl-1.9.13.jar, jackson-module-jaxb-annotations-2.12.7.jar, jackson-module-scala_2.12-2.13.3.jar, jackson-xc-1.9.2.jar, jettison-1.1.jar, jetty-client-9.4.43.v20210629.jar, jetty-http-9.4.43.v20210629.jar, jetty-io-9.4.43.v20210629.jar, jetty-security-9.4.43.v20210629.jar, jetty-server-9.4.43.v20210629.jar, jetty-servlet-9.4.43.v20210629.jar, jetty-util-9.4.43.v20210629.jar, jetty-util-ajax-9.4.43.v20210629.jar, jetty-webapp-9.4.43.v20210629.jar, jetty-xml-9.4.43.v20210629.jar, kerb-admin-1.0.1.jar, kerb-client-1.0.1.jar, kerb-common-1.0.1.jar, kerb-core-1.0.1.jar, kerb-crypto-1.0.1.jar, kerb-identity-1.0.1.jar, kerb-server-1.0.1.jar, kerb-simplekdc-1.0.1.jar, kerb-util-1.0.1.jar, kerby-asn1-1.0.1.jar, kerby-config-1.0.1.jar, kerby-pkix-1.0.1.jar, kerby-util-1.0.1.jar, kerby-xdr-1.0.1.jar, log4j-1.2-api-2.17.2.jar, log4j-api-2.17.2.jar, log4j-core-2.17.2.jar, log4j-slf4j-impl-2.17.2.jar, objenesis-2.5.1.jar, orc-core-1.7.4.jar, orc-mapreduce-1.7.4.jar, orc-shims-1.7.4.jar, oro-2.0.8.jar, parquet-column-1.12.2.jar, parquet-encoding-1.12.2.jar, parquet-hadoop-1.12.2.jar, parquet-jackson-1.12.2.jar, reload4j-1.2.22.jar, spark-catalyst_2.12-3.3.0.jar, spark-core_2.12-3.3.0.jar, spark-graphx_2.12-3.3.0.jar, spark-hive_2.12-3.3.0.jar, spark-kvstore_2.12-3.3.0.jar, spark-launcher_2.12-3.3.0.jar, spark-mllib-local_2.12-3.3.0.jar, spark-mllib_2.12-3.3.0.jar, spark-network-common_2.12-3.3.0.jar, spark-network-shuffle_2.12-3.3.0.jar, spark-sketch_2.12-3.3.0.jar, spark-sql-kafka-0-10_2.12-3.3.0.jar, spark-sql_2.12-3.3.0.jar, spark-streaming_2.12-3.3.0.jar, spark-tags_2.12-3.3.0.jar, spark-token-provider-kafka-0-10_2.12-3.3.0.jar, spark-unsafe_2.12-3.3.0.jar, stax2-api-4.2.1.jar, token-provider-1.0.1.jar, velocity-1.5.jar, websocket-api-9.4.43.v20210629.jar, websocket-client-9.4.43.v20210629.jar, websocket-common-9.4.43.v20210629.jar, woodstox-core-5.3.0.jar, xbean-asm9-shaded-4.20.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/LICENSE
+[WARNING] spark-core_2.12-3.3.0.jar, spark-sql_2.12-3.3.0.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.spark.deploy.history.EventFilterBuilder
+[WARNING] spark-core_2.12-3.3.0.jar, spark-hive_2.12-3.3.0.jar, spark-token-provider-kafka-0-10_2.12-3.3.0.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.spark.security.HadoopDelegationTokenProvider
+[WARNING] arrow-format-7.0.0.jar, arrow-memory-core-7.0.0.jar, arrow-memory-netty-7.0.0.jar, arrow-vector-7.0.0.jar, audience-annotations-0.5.0.jar, avro-1.11.0.jar, avro-ipc-1.11.0.jar, avro-mapred-1.11.0.jar, curator-client-4.2.0.jar, curator-framework-2.13.0.jar, curator-recipes-2.13.0.jar, flink-annotations-1.14.4.jar, flink-clients_2.12-1.14.4.jar, flink-connector-base-1.14.4.jar, flink-connector-jdbc_2.12-1.14.4.jar, flink-connector-kafka_2.12-1.14.4.jar, flink-core-1.14.4.jar, flink-file-sink-common-1.14.4.jar, flink-hadoop-fs-1.14.4.jar, flink-java-1.14.4.jar, flink-metrics-core-1.14.4.jar, flink-optimizer-1.14.4.jar, flink-queryable-state-client-java-1.14.4.jar, flink-rpc-akka-loader-1.14.4.jar, flink-rpc-core-1.14.4.jar, flink-runtime-1.14.4.jar, flink-scala_2.12-1.14.4.jar, flink-shaded-asm-7-7.1-14.0.jar, flink-shaded-force-shading-14.0.jar, flink-shaded-guava-30.1.1-jre-14.0.jar, flink-shaded-jackson-2.12.4-14.0.jar, flink-shaded-netty-4.1.65.Final-14.0.jar, flink-shaded-zookeeper-3-3.4.14-14.0.jar, flink-streaming-java_2.12-1.14.4.jar, flink-streaming-scala_2.12-1.14.4.jar, hadoop-client-runtime-3.3.2.jar, hadoop-shaded-guava-1.1.1.jar, hadoop-shaded-protobuf_3_7-1.1.1.jar, hive-common-2.3.9.jar, hive-exec-2.3.9-core.jar, hive-llap-client-2.3.9.jar, hive-llap-common-2.3.9.jar, hive-metastore-2.3.9.jar, hive-serde-2.3.9.jar, hive-shims-0.23-2.3.9.jar, hive-shims-2.3.9.jar, hive-shims-common-2.3.9.jar, hive-shims-scheduler-2.3.9.jar, hive-storage-api-2.7.2.jar, hive-vector-code-gen-2.3.9.jar, httpclient-4.5.13.jar, httpcore-4.4.13.jar, httpmime-4.5.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, kerb-admin-1.0.1.jar, kerb-client-1.0.1.jar, kerb-common-1.0.1.jar, kerb-core-1.0.1.jar, kerb-crypto-1.0.1.jar, kerb-identity-1.0.1.jar, kerb-server-1.0.1.jar, kerb-simplekdc-1.0.1.jar, kerb-util-1.0.1.jar, kerby-asn1-1.0.1.jar, kerby-config-1.0.1.jar, kerby-pkix-1.0.1.jar, kerby-util-1.0.1.jar, kerby-xdr-1.0.1.jar, log4j-1.2-api-2.17.2.jar, log4j-api-2.17.2.jar, log4j-core-2.17.2.jar, log4j-slf4j-impl-2.17.2.jar, orc-core-1.7.4.jar, orc-mapreduce-1.7.4.jar, orc-shims-1.7.4.jar, spark-catalyst_2.12-3.3.0.jar, spark-core_2.12-3.3.0.jar, spark-graphx_2.12-3.3.0.jar, spark-hive_2.12-3.3.0.jar, spark-kvstore_2.12-3.3.0.jar, spark-launcher_2.12-3.3.0.jar, spark-mllib-local_2.12-3.3.0.jar, spark-mllib_2.12-3.3.0.jar, spark-network-common_2.12-3.3.0.jar, spark-network-shuffle_2.12-3.3.0.jar, spark-sketch_2.12-3.3.0.jar, spark-sql-kafka-0-10_2.12-3.3.0.jar, spark-sql_2.12-3.3.0.jar, spark-streaming_2.12-3.3.0.jar, spark-tags_2.12-3.3.0.jar, spark-token-provider-kafka-0-10_2.12-3.3.0.jar, spark-unsafe_2.12-3.3.0.jar, token-provider-1.0.1.jar, xbean-asm9-shaded-4.20.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/DEPENDENCIES
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-client-9.4.43.v20210629.jar, jetty-http-9.4.43.v20210629.jar, jetty-io-9.4.43.v20210629.jar, jetty-security-9.4.43.v20210629.jar, jetty-server-9.4.43.v20210629.jar, jetty-servlet-9.4.43.v20210629.jar, jetty-util-9.4.43.v20210629.jar, jetty-util-ajax-9.4.43.v20210629.jar, jetty-webapp-9.4.43.v20210629.jar, jetty-xml-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar, websocket-api-9.4.43.v20210629.jar, websocket-client-9.4.43.v20210629.jar, websocket-common-9.4.43.v20210629.jar define 1 overlapping resource: 
+[WARNING]   - about.html
+[WARNING] commons-beanutils-1.9.4.jar, commons-cli-1.3.1.jar, commons-codec-1.15.jar, commons-collections-3.2.2.jar, commons-collections4-4.4.jar, commons-compress-1.21.jar, commons-configuration2-2.1.1.jar, commons-dbcp-1.4.jar, commons-io-2.11.0.jar, commons-lang-2.6.jar, commons-lang3-3.12.0.jar, commons-logging-1.2.jar, commons-math3-3.6.1.jar, commons-net-3.6.jar, commons-pool-1.5.4.jar, commons-pool2-2.11.1.jar, commons-text-1.9.jar, datanucleus-api-jdo-4.2.4.jar, datanucleus-core-4.1.17.jar, datanucleus-rdbms-4.1.19.jar, fastjson-1.2.83.jar, hadoop-annotations-3.3.4.jar, hadoop-auth-3.3.4.jar, hadoop-client-3.3.4.jar, hadoop-client-api-3.3.2.jar, hadoop-client-runtime-3.3.2.jar, hadoop-common-3.3.4.jar, hadoop-hdfs-client-3.3.4.jar, hadoop-mapreduce-client-common-3.3.4.jar, hadoop-mapreduce-client-core-3.3.4.jar, hadoop-mapreduce-client-jobclient-3.3.4.jar, hadoop-shaded-guava-1.1.1.jar, hadoop-shaded-protobuf_3_7-1.1.1.jar, hadoop-yarn-api-3.3.4.jar, hadoop-yarn-client-3.3.4.jar, hadoop-yarn-common-3.3.4.jar, jdo-api-3.0.1.jar, jetty-client-9.4.43.v20210629.jar, jetty-http-9.4.43.v20210629.jar, jetty-io-9.4.43.v20210629.jar, jetty-security-9.4.43.v20210629.jar, jetty-server-9.4.43.v20210629.jar, jetty-servlet-9.4.43.v20210629.jar, jetty-util-9.4.43.v20210629.jar, jetty-util-ajax-9.4.43.v20210629.jar, jetty-webapp-9.4.43.v20210629.jar, jetty-xml-9.4.43.v20210629.jar, joda-time-2.10.13.jar, libthrift-0.12.0.jar, spark-core_2.12-3.3.0.jar, websocket-api-9.4.43.v20210629.jar, websocket-client-9.4.43.v20210629.jar, websocket-common-9.4.43.v20210629.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/NOTICE.txt
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-security-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-security/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-security/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-util-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-util/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-util/pom.xml
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-server-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 3 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-server/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-server/pom.xml
+[WARNING]   - jetty-dir.css
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-io-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-io/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-io/pom.xml
+[WARNING] jetty-http-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.eclipse.jetty.http.HttpFieldPreEncoder
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-http-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-http/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-http/pom.xml
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-servlet-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-servlet/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-servlet/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-client-9.4.43.v20210629.jar, spark-core_2.12-3.3.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-client/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-client/pom.xml
+[WARNING] spark-catalyst_2.12-3.3.0.jar, spark-core_2.12-3.3.0.jar, spark-graphx_2.12-3.3.0.jar, spark-hive_2.12-3.3.0.jar, spark-kvstore_2.12-3.3.0.jar, spark-launcher_2.12-3.3.0.jar, spark-mllib-local_2.12-3.3.0.jar, spark-mllib_2.12-3.3.0.jar, spark-network-common_2.12-3.3.0.jar, spark-network-shuffle_2.12-3.3.0.jar, spark-sketch_2.12-3.3.0.jar, spark-sql-kafka-0-10_2.12-3.3.0.jar, spark-sql_2.12-3.3.0.jar, spark-streaming_2.12-3.3.0.jar, spark-tags_2.12-3.3.0.jar, spark-token-provider-kafka-0-10_2.12-3.3.0.jar, spark-unsafe_2.12-3.3.0.jar, unused-1.0.0.jar define 3 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.spark-project.spark/unused/pom.properties
+[WARNING]   - META-INF/maven/org.spark-project.spark/unused/pom.xml
+[WARNING]   - org.apache.spark.unused.UnusedStubClass
+[WARNING] avro-1.11.0.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.avro/avro/pom.properties
+[WARNING]   - META-INF/maven/org.apache.avro/avro/pom.xml
+[WARNING] jackson-core-2.13.3.jar, jackson-databind-2.13.3.jar, log4j-api-2.17.2.jar, xz-1.9.jar define 1 overlapping classes: 
+[WARNING]   - META-INF.versions.9.module-info
+[WARNING] kryo-2.24.0.jar, kryo-4.0.2.jar, kryo-shaded-4.0.2.jar define 169 overlapping classes: 
+[WARNING]   - com.esotericsoftware.kryo.ClassResolver
+[WARNING]   - com.esotericsoftware.kryo.DefaultSerializer
+[WARNING]   - com.esotericsoftware.kryo.Kryo
+[WARNING]   - com.esotericsoftware.kryo.Kryo$DefaultInstantiatorStrategy
+[WARNING]   - com.esotericsoftware.kryo.Kryo$DefaultInstantiatorStrategy$1
+[WARNING]   - com.esotericsoftware.kryo.Kryo$DefaultInstantiatorStrategy$2
+[WARNING]   - com.esotericsoftware.kryo.Kryo$DefaultSerializerEntry
+[WARNING]   - com.esotericsoftware.kryo.KryoCopyable
+[WARNING]   - com.esotericsoftware.kryo.KryoException
+[WARNING]   - com.esotericsoftware.kryo.KryoSerializable
+[WARNING]   - 159 more...
+[WARNING] kryo-4.0.2.jar, kryo-shaded-4.0.2.jar define 45 overlapping classes: 
+[WARNING]   - com.esotericsoftware.kryo.io.Util
+[WARNING]   - com.esotericsoftware.kryo.pool.KryoCallback
+[WARNING]   - com.esotericsoftware.kryo.pool.KryoFactory
+[WARNING]   - com.esotericsoftware.kryo.pool.KryoPool
+[WARNING]   - com.esotericsoftware.kryo.pool.KryoPool$Builder
+[WARNING]   - com.esotericsoftware.kryo.pool.KryoPoolQueueImpl
+[WARNING]   - com.esotericsoftware.kryo.pool.SoftReferenceQueue
+[WARNING]   - com.esotericsoftware.kryo.serializers.ClosureSerializer
+[WARNING]   - com.esotericsoftware.kryo.serializers.ClosureSerializer$Closure
+[WARNING]   - com.esotericsoftware.kryo.serializers.DefaultSerializers$CharsetSerializer
+[WARNING]   - 35 more...
+[WARNING] kryo-2.24.0.jar, kryo-shaded-4.0.2.jar, reflectasm-1.11.3.jar define 4 overlapping classes: 
+[WARNING]   - com.esotericsoftware.reflectasm.AccessClassLoader
+[WARNING]   - com.esotericsoftware.reflectasm.ConstructorAccess
+[WARNING]   - com.esotericsoftware.reflectasm.FieldAccess
+[WARNING]   - com.esotericsoftware.reflectasm.MethodAccess
+[WARNING] kryo-shaded-4.0.2.jar, reflectasm-1.11.3.jar define 3 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/com.esotericsoftware/reflectasm/pom.properties
+[WARNING]   - META-INF/maven/com.esotericsoftware/reflectasm/pom.xml
+[WARNING]   - com.esotericsoftware.reflectasm.PublicConstructorAccess
+[WARNING] kryo-2.24.0.jar, kryo-shaded-4.0.2.jar define 19 overlapping classes: 
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.AnnotationVisitor
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.AnnotationWriter
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.Attribute
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.ByteVector
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.ClassReader
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.ClassVisitor
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.ClassWriter
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.Edge
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.FieldVisitor
+[WARNING]   - com.esotericsoftware.reflectasm.shaded.org.objectweb.asm.FieldWriter
+[WARNING]   - 9 more...
+[WARNING] hadoop-client-3.3.4.jar, hadoop-client-api-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-client/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-client/pom.xml
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-common-3.3.4.jar define 2514 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-common/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-common/pom.xml
+[WARNING]   - META-INF/services/org.apache.hadoop.crypto.key.KeyProviderFactory
+[WARNING]   - META-INF/services/org.apache.hadoop.io.compress.CompressionCodec
+[WARNING]   - META-INF/services/org.apache.hadoop.io.erasurecode.rawcoder.RawErasureCoderFactory
+[WARNING]   - META-INF/services/org.apache.hadoop.security.alias.CredentialProviderFactory
+[WARNING]   - common-version-info.properties
+[WARNING]   - core-default.xml
+[WARNING]   - org.apache.hadoop.HadoopIllegalArgumentException
+[WARNING]   - org.apache.hadoop.application-classloader.properties
+[WARNING]   - 2504 more...
+[WARNING] hadoop-auth-3.3.4.jar, hadoop-client-api-3.3.2.jar define 50 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-auth/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-auth/pom.xml
+[WARNING]   - org.apache.hadoop.security.authentication.client.AuthenticatedURL
+[WARNING]   - org.apache.hadoop.security.authentication.client.AuthenticatedURL$1
+[WARNING]   - org.apache.hadoop.security.authentication.client.AuthenticatedURL$AuthCookieHandler
+[WARNING]   - org.apache.hadoop.security.authentication.client.AuthenticatedURL$Token
+[WARNING]   - org.apache.hadoop.security.authentication.client.AuthenticationException
+[WARNING]   - org.apache.hadoop.security.authentication.client.Authenticator
+[WARNING]   - org.apache.hadoop.security.authentication.client.ConnectionConfigurator
+[WARNING]   - org.apache.hadoop.security.authentication.client.KerberosAuthenticator
+[WARNING]   - 40 more...
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-hdfs-client-3.3.4.jar define 2165 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-hdfs-client/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-hdfs-client/pom.xml
+[WARNING]   - org.apache.hadoop.fs.CacheFlag
+[WARNING]   - org.apache.hadoop.fs.Hdfs
+[WARNING]   - org.apache.hadoop.fs.Hdfs$1
+[WARNING]   - org.apache.hadoop.fs.Hdfs$2
+[WARNING]   - org.apache.hadoop.fs.Hdfs$DirListingIterator
+[WARNING]   - org.apache.hadoop.fs.HdfsBlockLocation
+[WARNING]   - org.apache.hadoop.fs.SWebHdfs
+[WARNING]   - org.apache.hadoop.fs.WebHdfs
+[WARNING]   - 2155 more...
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-yarn-api-3.3.4.jar define 1485 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-yarn-api/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-yarn-api/pom.xml
+[WARNING]   - org.apache.hadoop.yarn.ams.ApplicationMasterServiceContext
+[WARNING]   - org.apache.hadoop.yarn.ams.ApplicationMasterServiceProcessor
+[WARNING]   - org.apache.hadoop.yarn.ams.ApplicationMasterServiceUtils
+[WARNING]   - org.apache.hadoop.yarn.ams.package-info
+[WARNING]   - org.apache.hadoop.yarn.api.ApplicationBaseProtocol
+[WARNING]   - org.apache.hadoop.yarn.api.ApplicationClientProtocol
+[WARNING]   - org.apache.hadoop.yarn.api.ApplicationConstants
+[WARNING]   - org.apache.hadoop.yarn.api.ApplicationConstants$ContainerLaunchType
+[WARNING]   - 1475 more...
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-yarn-api-3.3.4.jar, hadoop-yarn-common-3.3.4.jar define 1 overlapping resource: 
+[WARNING]   - yarn-default.xml
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-yarn-client-3.3.4.jar define 106 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-yarn-client/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-yarn-client/pom.xml
+[WARNING]   - org.apache.hadoop.yarn.client.SCMAdmin
+[WARNING]   - org.apache.hadoop.yarn.client.api.AHSClient
+[WARNING]   - org.apache.hadoop.yarn.client.api.AMRMClient
+[WARNING]   - org.apache.hadoop.yarn.client.api.AMRMClient$1
+[WARNING]   - org.apache.hadoop.yarn.client.api.AMRMClient$ContainerRequest
+[WARNING]   - org.apache.hadoop.yarn.client.api.AMRMClient$ContainerRequest$ContainerRequestBuilder
+[WARNING]   - org.apache.hadoop.yarn.client.api.ContainerShellWebSocket
+[WARNING]   - org.apache.hadoop.yarn.client.api.ContainerShellWebSocket$Reader
+[WARNING]   - 96 more...
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-mapreduce-client-core-3.3.4.jar define 921 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-mapreduce-client-core/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-mapreduce-client-core/pom.xml
+[WARNING]   - mapred-default.xml
+[WARNING]   - org.apache.hadoop.filecache.DistributedCache
+[WARNING]   - org.apache.hadoop.mapred.AMFeedback
+[WARNING]   - org.apache.hadoop.mapred.BackupStore
+[WARNING]   - org.apache.hadoop.mapred.BackupStore$BackupRamManager
+[WARNING]   - org.apache.hadoop.mapred.BackupStore$FileCache
+[WARNING]   - org.apache.hadoop.mapred.BackupStore$MemoryCache
+[WARNING]   - org.apache.hadoop.mapred.BasicTypeSorterBase
+[WARNING]   - 911 more...
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-yarn-common-3.3.4.jar define 1243 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-yarn-common/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-yarn-common/pom.xml
+[WARNING]   - org.apache.hadoop.yarn.ContainerLogAppender
+[WARNING]   - org.apache.hadoop.yarn.ContainerRollingLogAppender
+[WARNING]   - org.apache.hadoop.yarn.FileSystemBasedConfigurationProvider
+[WARNING]   - org.apache.hadoop.yarn.LocalConfigurationProvider
+[WARNING]   - org.apache.hadoop.yarn.YarnUncaughtExceptionHandler
+[WARNING]   - org.apache.hadoop.yarn.api.ApplicationClientProtocolPB
+[WARNING]   - org.apache.hadoop.yarn.api.ApplicationHistoryProtocolPB
+[WARNING]   - org.apache.hadoop.yarn.api.ApplicationMasterProtocolPB
+[WARNING]   - 1233 more...
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-mapreduce-client-jobclient-3.3.4.jar define 10 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-mapreduce-client-jobclient/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-mapreduce-client-jobclient/pom.xml
+[WARNING]   - org.apache.hadoop.mapred.ClientCache
+[WARNING]   - org.apache.hadoop.mapred.ClientCache$1
+[WARNING]   - org.apache.hadoop.mapred.ClientServiceDelegate
+[WARNING]   - org.apache.hadoop.mapred.ClientServiceDelegate$1
+[WARNING]   - org.apache.hadoop.mapred.NotRunningJob
+[WARNING]   - org.apache.hadoop.mapred.ResourceMgrDelegate
+[WARNING]   - org.apache.hadoop.mapred.YARNRunner
+[WARNING]   - org.apache.hadoop.mapred.YarnClientProtocolProvider
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-mapreduce-client-common-3.3.4.jar define 364 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-mapreduce-client-common/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-mapreduce-client-common/pom.xml
+[WARNING]   - org.apache.hadoop.mapred.LocalClientProtocolProvider
+[WARNING]   - org.apache.hadoop.mapred.LocalDistributedCacheManager
+[WARNING]   - org.apache.hadoop.mapred.LocalDistributedCacheManager$1
+[WARNING]   - org.apache.hadoop.mapred.LocalDistributedCacheManager$2
+[WARNING]   - org.apache.hadoop.mapred.LocalJobRunner
+[WARNING]   - org.apache.hadoop.mapred.LocalJobRunner$Job
+[WARNING]   - org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable
+[WARNING]   - org.apache.hadoop.mapred.LocalJobRunner$Job$ReduceTaskRunnable
+[WARNING]   - 354 more...
+[WARNING] hadoop-annotations-3.3.4.jar, hadoop-client-api-3.3.2.jar define 19 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-annotations/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop/hadoop-annotations/pom.xml
+[WARNING]   - org.apache.hadoop.classification.InterfaceAudience
+[WARNING]   - org.apache.hadoop.classification.InterfaceAudience$LimitedPrivate
+[WARNING]   - org.apache.hadoop.classification.InterfaceAudience$Private
+[WARNING]   - org.apache.hadoop.classification.InterfaceAudience$Public
+[WARNING]   - org.apache.hadoop.classification.InterfaceStability
+[WARNING]   - org.apache.hadoop.classification.InterfaceStability$Evolving
+[WARNING]   - org.apache.hadoop.classification.InterfaceStability$Stable
+[WARNING]   - org.apache.hadoop.classification.InterfaceStability$Unstable
+[WARNING]   - 9 more...
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-common-3.3.4.jar, hadoop-hdfs-client-3.3.4.jar, hadoop-mapreduce-client-common-3.3.4.jar, hadoop-mapreduce-client-core-3.3.4.jar, hadoop-yarn-common-3.3.4.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.hadoop.security.token.TokenRenewer
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-mapreduce-client-common-3.3.4.jar, hadoop-mapreduce-client-jobclient-3.3.4.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.hadoop.mapreduce.protocol.ClientProtocolProvider
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-common-3.3.4.jar, hadoop-mapreduce-client-common-3.3.4.jar, hadoop-yarn-common-3.3.4.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.hadoop.security.SecurityInfo
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-common-3.3.4.jar, hadoop-hdfs-client-3.3.4.jar, hive-exec-2.3.9-core.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.hadoop.fs.FileSystem
+[WARNING] hadoop-client-api-3.3.2.jar, hadoop-common-3.3.4.jar, hadoop-hdfs-client-3.3.4.jar, hadoop-mapreduce-client-common-3.3.4.jar, hadoop-mapreduce-client-core-3.3.4.jar, hadoop-yarn-common-3.3.4.jar, hive-llap-common-2.3.9.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.hadoop.security.token.TokenIdentifier
+[WARNING] activation-1.1.1.jar, commons-beanutils-1.9.4.jar, commons-cli-1.3.1.jar, commons-codec-1.15.jar, commons-collections-3.2.2.jar, commons-collections4-4.4.jar, commons-compress-1.21.jar, commons-configuration2-2.1.1.jar, commons-dbcp-1.4.jar, commons-io-2.11.0.jar, commons-lang-2.6.jar, commons-lang3-3.12.0.jar, commons-logging-1.2.jar, commons-math3-3.6.1.jar, commons-net-3.6.jar, commons-pool-1.5.4.jar, commons-pool2-2.11.1.jar, commons-text-1.9.jar, datanucleus-api-jdo-4.2.4.jar, datanucleus-core-4.1.17.jar, datanucleus-rdbms-4.1.19.jar, fastjson-1.2.83.jar, hadoop-annotations-3.3.4.jar, hadoop-auth-3.3.4.jar, hadoop-client-3.3.4.jar, hadoop-client-api-3.3.2.jar, hadoop-client-runtime-3.3.2.jar, hadoop-common-3.3.4.jar, hadoop-hdfs-client-3.3.4.jar, hadoop-mapreduce-client-common-3.3.4.jar, hadoop-mapreduce-client-core-3.3.4.jar, hadoop-mapreduce-client-jobclient-3.3.4.jar, hadoop-shaded-guava-1.1.1.jar, hadoop-shaded-protobuf_3_7-1.1.1.jar, hadoop-yarn-api-3.3.4.jar, hadoop-yarn-client-3.3.4.jar, hadoop-yarn-common-3.3.4.jar, javax.jdo-3.2.0-m3.jar, javax.servlet-api-3.1.0.jar, jdo-api-3.0.1.jar, joda-time-2.10.13.jar, jta-1.1.jar, libthrift-0.12.0.jar, threeten-extra-1.5.0.jar, transaction-api-1.1.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/LICENSE.txt
+[WARNING] hadoop-client-runtime-3.3.2.jar, hadoop-shaded-protobuf_3_7-1.1.1.jar define 600 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/org.apache.hadoop.thirdparty/hadoop-shaded-protobuf_3_7/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop.thirdparty/hadoop-shaded-protobuf_3_7/pom.xml
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractMessage
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractMessage$Builder
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractMessage$BuilderParent
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractMessageLite
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractMessageLite$Builder
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractMessageLite$Builder$LimitedInputStream
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractParser
+[WARNING]   - org.apache.hadoop.thirdparty.protobuf.AbstractProtobufList
+[WARNING]   - 590 more...
+[WARNING] hadoop-client-runtime-3.3.2.jar, hadoop-shaded-guava-1.1.1.jar, hadoop-shaded-protobuf_3_7-1.1.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/NOTICE-binary
+[WARNING]   - META-INF/licenses-binary/LICENSE.protobuf.txt
+[WARNING] hadoop-client-runtime-3.3.2.jar, hadoop-shaded-protobuf_3_7-1.1.1.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, protobuf-java-3.21.9.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.google.protobuf/protobuf-java/pom.properties
+[WARNING]   - META-INF/maven/com.google.protobuf/protobuf-java/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hadoop-shaded-guava-1.1.1.jar define 2414 overlapping classes and resources: 
+[WARNING]   - META-INF/maven/com.google.errorprone/error_prone_annotations/pom.properties
+[WARNING]   - META-INF/maven/com.google.errorprone/error_prone_annotations/pom.xml
+[WARNING]   - META-INF/maven/org.apache.hadoop.thirdparty/hadoop-shaded-guava/pom.properties
+[WARNING]   - META-INF/maven/org.apache.hadoop.thirdparty/hadoop-shaded-guava/pom.xml
+[WARNING]   - org.apache.hadoop.thirdparty.com.google.common.annotations.Beta
+[WARNING]   - org.apache.hadoop.thirdparty.com.google.common.annotations.GwtCompatible
+[WARNING]   - org.apache.hadoop.thirdparty.com.google.common.annotations.GwtIncompatible
+[WARNING]   - org.apache.hadoop.thirdparty.com.google.common.annotations.VisibleForTesting
+[WARNING]   - org.apache.hadoop.thirdparty.com.google.common.base.Absent
+[WARNING]   - org.apache.hadoop.thirdparty.com.google.common.base.AbstractIterator
+[WARNING]   - 2404 more...
+[WARNING] guava-27.0-jre.jar, hadoop-client-runtime-3.3.2.jar, hadoop-shaded-guava-1.1.1.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, spark-network-common_2.12-3.3.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.google.guava/guava/pom.properties
+[WARNING]   - META-INF/maven/com.google.guava/guava/pom.xml
+[WARNING] curator-client-4.2.0.jar, failureaccess-1.0.jar, hadoop-client-runtime-3.3.2.jar, hadoop-shaded-guava-1.1.1.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.google.guava/failureaccess/pom.properties
+[WARNING]   - META-INF/maven/com.google.guava/failureaccess/pom.xml
+[WARNING] curator-client-4.2.0.jar, hadoop-client-runtime-3.3.2.jar, hadoop-shaded-guava-1.1.1.jar, listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.google.guava/listenablefuture/pom.properties
+[WARNING]   - META-INF/maven/com.google.guava/listenablefuture/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hadoop-shaded-guava-1.1.1.jar, j2objc-annotations-1.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.google.j2objc/j2objc-annotations/pom.properties
+[WARNING]   - META-INF/maven/com.google.j2objc/j2objc-annotations/pom.xml
+[WARNING] animal-sniffer-annotations-1.17.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.codehaus.mojo/animal-sniffer-annotations/pom.properties
+[WARNING]   - META-INF/maven/org.codehaus.mojo/animal-sniffer-annotations/pom.xml
+[WARNING] commons-cli-1.3.1.jar, hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/commons-cli/commons-cli/pom.properties
+[WARNING]   - META-INF/maven/commons-cli/commons-cli/pom.xml
+[WARNING] commons-math3-3.6.1.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.commons/commons-math3/pom.properties
+[WARNING]   - META-INF/maven/org.apache.commons/commons-math3/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, httpclient-4.5.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 3 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.httpcomponents/httpclient/pom.properties
+[WARNING]   - META-INF/maven/org.apache.httpcomponents/httpclient/pom.xml
+[WARNING]   - mozilla/public-suffix-list.txt
+[WARNING] hadoop-client-runtime-3.3.2.jar, httpcore-4.4.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.httpcomponents/httpcore/pom.properties
+[WARNING]   - META-INF/maven/org.apache.httpcomponents/httpcore/pom.xml
+[WARNING] commons-codec-1.15.jar, hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/commons-codec/commons-codec/pom.properties
+[WARNING]   - META-INF/maven/commons-codec/commons-codec/pom.xml
+[WARNING] commons-io-2.11.0.jar, hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/commons-io/commons-io/pom.properties
+[WARNING]   - META-INF/maven/commons-io/commons-io/pom.xml
+[WARNING] commons-net-3.6.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/commons-net/commons-net/pom.properties
+[WARNING]   - META-INF/maven/commons-net/commons-net/pom.xml
+[WARNING] commons-collections-3.2.2.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/commons-collections/commons-collections/pom.properties
+[WARNING]   - META-INF/maven/commons-collections/commons-collections/pom.xml
+[WARNING] aopalliance-repackaged-2.6.1.jar, hadoop-client-runtime-3.3.2.jar, hk2-api-2.6.1.jar, hk2-locator-2.6.1.jar, hk2-utils-2.6.1.jar, istack-commons-runtime-3.0.8.jar, jakarta.activation-api-1.2.1.jar, jakarta.annotation-api-1.3.5.jar, jakarta.inject-2.6.1.jar, jakarta.ws.rs-api-2.1.6.jar, jakarta.xml.bind-api-2.3.2.jar, jaxb-runtime-2.3.2.jar, jersey-client-2.34.jar, jersey-common-2.34.jar, jersey-container-servlet-2.34.jar, jersey-container-servlet-core-2.34.jar, jersey-hk2-2.34.jar, jersey-server-2.34.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/LICENSE.md
+[WARNING]   - META-INF/NOTICE.md
+[WARNING] hadoop-client-runtime-3.3.2.jar, jakarta.activation-api-1.2.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/jakarta.activation/jakarta.activation-api/pom.properties
+[WARNING]   - META-INF/maven/jakarta.activation/jakarta.activation-api/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jetty-util-ajax-9.4.43.v20210629.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-util-ajax/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-util-ajax/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-webapp-9.4.43.v20210629.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-webapp/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-webapp/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jetty-xml-9.4.43.v20210629.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-xml/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty/jetty-xml/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jersey-client-1.19.jar, jersey-core-1.19.jar, jersey-json-1.19.jar, jersey-server-1.19.jar, jersey-servlet-1.19.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/jersey-module-version
+[WARNING] hadoop-client-runtime-3.3.2.jar, jersey-servlet-1.19.jar define 3 overlapping resources: 
+[WARNING]   - META-INF/maven/com.sun.jersey/jersey-servlet/pom.properties
+[WARNING]   - META-INF/maven/com.sun.jersey/jersey-servlet/pom.xml
+[WARNING]   - META-INF/taglib.tld
+[WARNING] commons-beanutils-1.9.4.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/commons-beanutils/commons-beanutils/pom.properties
+[WARNING]   - META-INF/maven/commons-beanutils/commons-beanutils/pom.xml
+[WARNING] commons-configuration2-2.1.1.jar, hadoop-client-runtime-3.3.2.jar define 4 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.commons/commons-configuration2/pom.properties
+[WARNING]   - META-INF/maven/org.apache.commons/commons-configuration2/pom.xml
+[WARNING]   - PropertyList-1.0.dtd
+[WARNING]   - properties.dtd
+[WARNING] commons-lang3-3.12.0.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.commons/commons-lang3/pom.properties
+[WARNING]   - META-INF/maven/org.apache.commons/commons-lang3/pom.xml
+[WARNING] commons-text-1.9.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.commons/commons-text/pom.properties
+[WARNING]   - META-INF/maven/org.apache.commons/commons-text/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jackson-core-asl-1.9.13.jar, jackson-jaxrs-1.9.2.jar, jackson-mapper-asl-1.9.13.jar, jackson-xc-1.9.2.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/ASL2.0
+[WARNING] hadoop-client-runtime-3.3.2.jar, paranamer-2.8.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.thoughtworks.paranamer/paranamer/pom.properties
+[WARNING]   - META-INF/maven/com.thoughtworks.paranamer/paranamer/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, re2j-1.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.google.re2j/re2j/pom.properties
+[WARNING]   - META-INF/maven/com.google.re2j/re2j/pom.xml
+[WARNING] gson-2.8.9.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.google.code.gson/gson/pom.properties
+[WARNING]   - META-INF/maven/com.google.code.gson/gson/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, nimbus-jose-jwt-9.8.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.nimbusds/nimbus-jose-jwt/pom.properties
+[WARNING]   - META-INF/maven/com.nimbusds/nimbus-jose-jwt/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, json-smart-2.4.7.jar, nimbus-jose-jwt-9.8.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/net.minidev/json-smart/pom.properties
+[WARNING]   - META-INF/maven/net.minidev/json-smart/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jcip-annotations-1.0-1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.github.stephenc.jcip/jcip-annotations/pom.properties
+[WARNING]   - META-INF/maven/com.github.stephenc.jcip/jcip-annotations/pom.xml
+[WARNING] accessors-smart-2.4.7.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/net.minidev/accessors-smart/pom.properties
+[WARNING]   - META-INF/maven/net.minidev/accessors-smart/pom.xml
+[WARNING] curator-framework-2.13.0.jar, hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.curator/curator-framework/pom.properties
+[WARNING]   - META-INF/maven/org.apache.curator/curator-framework/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-simplekdc-1.0.1.jar define 4 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-simplekdc/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-simplekdc/pom.xml
+[WARNING]   - krb5-template.conf
+[WARNING]   - krb5_udp-template.conf
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-client-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-client/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-client/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerby-config-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-config/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-config/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-common-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-common/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-common/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-crypto-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-crypto/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-crypto/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-util-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-util/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-util/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, token-provider-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/token-provider/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/token-provider/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-admin-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-admin/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-admin/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-server-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-server/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-server/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-identity-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-identity/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-identity/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerby-xdr-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-xdr/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-xdr/pom.xml
+[WARNING] curator-client-4.2.0.jar, hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.curator/curator-client/pom.properties
+[WARNING]   - META-INF/maven/org.apache.curator/curator-client/pom.xml
+[WARNING] curator-recipes-2.13.0.jar, hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.curator/curator-recipes/pom.properties
+[WARNING]   - META-INF/maven/org.apache.curator/curator-recipes/pom.xml
+[WARNING] commons-compress-1.21.jar, hadoop-client-runtime-3.3.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.commons/commons-compress/pom.properties
+[WARNING]   - META-INF/maven/org.apache.commons/commons-compress/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerb-core-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-core/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerb-core/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerby-pkix-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-pkix/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-pkix/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerby-asn1-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-asn1/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-asn1/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, kerby-util-1.0.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-util/pom.properties
+[WARNING]   - META-INF/maven/org.apache.kerby/kerby-util/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jackson-databind-2.13.3.jar, parquet-jackson-1.12.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.properties
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jackson-core-2.13.3.jar, parquet-jackson-1.12.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.properties
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, stax2-api-4.2.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.codehaus.woodstox/stax2-api/pom.properties
+[WARNING]   - META-INF/maven/org.codehaus.woodstox/stax2-api/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, woodstox-core-5.3.0.jar define 5 overlapping resources: 
+[WARNING]   - META-INF/maven/com.fasterxml.woodstox/woodstox-core/pom.properties
+[WARNING]   - META-INF/maven/com.fasterxml.woodstox/woodstox-core/pom.xml
+[WARNING]   - META-INF/services/javax.xml.stream.XMLEventFactory
+[WARNING]   - META-INF/services/javax.xml.stream.XMLInputFactory
+[WARNING]   - META-INF/services/javax.xml.stream.XMLOutputFactory
+[WARNING] dnsjava-2.1.7.jar, hadoop-client-runtime-3.3.2.jar define 3 overlapping resources: 
+[WARNING]   - META-INF/maven/dnsjava/dnsjava/pom.properties
+[WARNING]   - META-INF/maven/dnsjava/dnsjava/pom.xml
+[WARNING]   - META-INF/services/sun.net.spi.nameservice.NameServiceDescriptor
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, jackson-annotations-2.13.3.jar, parquet-jackson-1.12.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, websocket-client-9.4.43.v20210629.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty.websocket/websocket-client/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty.websocket/websocket-client/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, websocket-common-9.4.43.v20210629.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty.websocket/websocket-common/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty.websocket/websocket-common/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, websocket-api-9.4.43.v20210629.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.eclipse.jetty.websocket/websocket-api/pom.properties
+[WARNING]   - META-INF/maven/org.eclipse.jetty.websocket/websocket-api/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jline-3.9.0.jar define 18 overlapping resources: 
+[WARNING]   - META-INF/maven/org.jline/jline-builtins/pom.properties
+[WARNING]   - META-INF/maven/org.jline/jline-builtins/pom.xml
+[WARNING]   - META-INF/maven/org.jline/jline-reader/pom.properties
+[WARNING]   - META-INF/maven/org.jline/jline-reader/pom.xml
+[WARNING]   - META-INF/maven/org.jline/jline-remote-ssh/pom.properties
+[WARNING]   - META-INF/maven/org.jline/jline-remote-ssh/pom.xml
+[WARNING]   - META-INF/maven/org.jline/jline-remote-telnet/pom.properties
+[WARNING]   - META-INF/maven/org.jline/jline-remote-telnet/pom.xml
+[WARNING]   - META-INF/maven/org.jline/jline-style/pom.properties
+[WARNING]   - META-INF/maven/org.jline/jline-style/pom.xml
+[WARNING]   - 8 more...
+[WARNING] hadoop-client-runtime-3.3.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, javax.servlet-api-3.1.0.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/javax.servlet/javax.servlet-api/pom.properties
+[WARNING]   - META-INF/maven/javax.servlet/javax.servlet-api/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jersey-core-1.19.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.sun.jersey/jersey-core/pom.properties
+[WARNING]   - META-INF/maven/com.sun.jersey/jersey-core/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jsr311-api-1.1.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/javax.ws.rs/jsr311-api/pom.properties
+[WARNING]   - META-INF/maven/javax.ws.rs/jsr311-api/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jersey-client-1.19.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.sun.jersey/jersey-client/pom.properties
+[WARNING]   - META-INF/maven/com.sun.jersey/jersey-client/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jackson-module-jaxb-annotations-2.12.7.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.module/jackson-module-jaxb-annotations/pom.properties
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.module/jackson-module-jaxb-annotations/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jakarta.xml.bind-api-2.3.2.jar define 3 overlapping classes and resources: 
+[WARNING]   - META-INF.versions.9.javax.xml.bind.ModuleUtil
+[WARNING]   - META-INF/maven/jakarta.xml.bind/jakarta.xml.bind-api/pom.properties
+[WARNING]   - META-INF/maven/jakarta.xml.bind/jakarta.xml.bind-api/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jackson-jaxrs-json-provider-2.12.7.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/pom.properties
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/pom.xml
+[WARNING] hadoop-client-runtime-3.3.2.jar, jackson-jaxrs-base-2.12.7.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/pom.properties
+[WARNING]   - META-INF/maven/com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/pom.xml
+[WARNING] jline-2.12.jar, leveldbjni-all-1.8.jar define 4 overlapping classes: 
+[WARNING]   - org.fusesource.hawtjni.runtime.Callback
+[WARNING]   - org.fusesource.hawtjni.runtime.JNIEnv
+[WARNING]   - org.fusesource.hawtjni.runtime.Library
+[WARNING]   - org.fusesource.hawtjni.runtime.PointerMath
+[WARNING] activation-1.1.1.jar, jakarta.activation-api-1.2.1.jar define 27 overlapping classes: 
+[WARNING]   - javax.activation.ActivationDataFlavor
+[WARNING]   - javax.activation.CommandInfo
+[WARNING]   - javax.activation.CommandMap
+[WARNING]   - javax.activation.CommandObject
+[WARNING]   - javax.activation.DataContentHandler
+[WARNING]   - javax.activation.DataContentHandlerFactory
+[WARNING]   - javax.activation.DataHandler
+[WARNING]   - javax.activation.DataHandler$1
+[WARNING]   - javax.activation.DataHandlerDataSource
+[WARNING]   - javax.activation.DataSource
+[WARNING]   - 17 more...
+[WARNING] curator-recipes-2.13.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 199 overlapping classes: 
+[WARNING]   - org.apache.curator.framework.recipes.AfterConnectionEstablished
+[WARNING]   - org.apache.curator.framework.recipes.AfterConnectionEstablished$1
+[WARNING]   - org.apache.curator.framework.recipes.atomic.AtomicStats
+[WARNING]   - org.apache.curator.framework.recipes.atomic.AtomicValue
+[WARNING]   - org.apache.curator.framework.recipes.atomic.CachedAtomicInteger
+[WARNING]   - org.apache.curator.framework.recipes.atomic.CachedAtomicLong
+[WARNING]   - org.apache.curator.framework.recipes.atomic.DistributedAtomicInteger
+[WARNING]   - org.apache.curator.framework.recipes.atomic.DistributedAtomicInteger$1
+[WARNING]   - org.apache.curator.framework.recipes.atomic.DistributedAtomicInteger$AtomicInteger
+[WARNING]   - org.apache.curator.framework.recipes.atomic.DistributedAtomicLong
+[WARNING]   - 189 more...
+[WARNING] curator-framework-2.13.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 167 overlapping classes: 
+[WARNING]   - org.apache.curator.framework.AuthInfo
+[WARNING]   - org.apache.curator.framework.CuratorFramework
+[WARNING]   - org.apache.curator.framework.CuratorFrameworkFactory
+[WARNING]   - org.apache.curator.framework.CuratorFrameworkFactory$1
+[WARNING]   - org.apache.curator.framework.CuratorFrameworkFactory$Builder
+[WARNING]   - org.apache.curator.framework.CuratorTempFramework
+[WARNING]   - org.apache.curator.framework.api.ACLBackgroundPathAndBytesable
+[WARNING]   - org.apache.curator.framework.api.ACLBackgroundPathable
+[WARNING]   - org.apache.curator.framework.api.ACLCreateModeBackgroundPathAndBytesable
+[WARNING]   - org.apache.curator.framework.api.ACLCreateModePathAndBytesable
+[WARNING]   - 157 more...
+[WARNING] jakarta.servlet-api-4.0.3.jar, javax.servlet-api-3.1.0.jar define 90 overlapping classes and resources: 
+[WARNING]   - javax.servlet.AsyncContext
+[WARNING]   - javax.servlet.AsyncEvent
+[WARNING]   - javax.servlet.AsyncListener
+[WARNING]   - javax.servlet.DispatcherType
+[WARNING]   - javax.servlet.Filter
+[WARNING]   - javax.servlet.FilterChain
+[WARNING]   - javax.servlet.FilterConfig
+[WARNING]   - javax.servlet.FilterRegistration
+[WARNING]   - javax.servlet.FilterRegistration$Dynamic
+[WARNING]   - javax.servlet.GenericServlet
+[WARNING]   - 80 more...
+[WARNING] commons-collections4-4.4.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/org.apache.commons/commons-collections4/pom.properties
+[WARNING]   - META-INF/maven/org.apache.commons/commons-collections4/pom.xml
+[WARNING] commons-logging-1.2.jar, jcl-over-slf4j-1.7.32.jar define 6 overlapping classes: 
+[WARNING]   - org.apache.commons.logging.Log
+[WARNING]   - org.apache.commons.logging.LogConfigurationException
+[WARNING]   - org.apache.commons.logging.LogFactory
+[WARNING]   - org.apache.commons.logging.impl.NoOpLog
+[WARNING]   - org.apache.commons.logging.impl.SimpleLog
+[WARNING]   - org.apache.commons.logging.impl.SimpleLog$1
+[WARNING] log4j-slf4j-impl-2.17.2.jar, slf4j-reload4j-1.7.36.jar define 3 overlapping classes: 
+[WARNING]   - org.slf4j.impl.StaticLoggerBinder
+[WARNING]   - org.slf4j.impl.StaticMDCBinder
+[WARNING]   - org.slf4j.impl.StaticMarkerBinder
+[WARNING] hive-exec-2.3.9-core.jar, log4j-1.2-api-2.17.2.jar, log4j-core-2.17.2.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/org/apache/logging/log4j/core/config/plugins/Log4j2Plugins.dat
+[WARNING] log4j-1.2-api-2.17.2.jar, reload4j-1.2.22.jar define 100 overlapping class and resource: 
+[WARNING]   - org.apache.log4j.Appender
+[WARNING]   - org.apache.log4j.AppenderSkeleton
+[WARNING]   - org.apache.log4j.BasicConfigurator
+[WARNING]   - org.apache.log4j.Category
+[WARNING]   - org.apache.log4j.CategoryKey
+[WARNING]   - org.apache.log4j.ConsoleAppender
+[WARNING]   - org.apache.log4j.DefaultCategoryFactory
+[WARNING]   - org.apache.log4j.DefaultThrowableRenderer
+[WARNING]   - org.apache.log4j.FileAppender
+[WARNING]   - org.apache.log4j.Hierarchy
+[WARNING]   - 90 more...
+[WARNING] jakarta.ws.rs-api-2.1.6.jar, jsr311-api-1.1.1.jar define 54 overlapping classes: 
+[WARNING]   - javax.ws.rs.ApplicationPath
+[WARNING]   - javax.ws.rs.Consumes
+[WARNING]   - javax.ws.rs.CookieParam
+[WARNING]   - javax.ws.rs.DELETE
+[WARNING]   - javax.ws.rs.DefaultValue
+[WARNING]   - javax.ws.rs.Encoded
+[WARNING]   - javax.ws.rs.FormParam
+[WARNING]   - javax.ws.rs.GET
+[WARNING]   - javax.ws.rs.HEAD
+[WARNING]   - javax.ws.rs.HeaderParam
+[WARNING]   - 44 more...
+[WARNING] jersey-common-2.34.jar, jersey-server-2.34.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/NOTICE.markdown
+[WARNING] fastjson-1.2.83.jar, jersey-common-2.34.jar, jersey-server-2.34.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.glassfish.jersey.internal.spi.AutoDiscoverable
+[WARNING] jersey-server-1.19.jar, jersey-server-2.34.jar define 39 overlapping class and resource: 
+[WARNING]   - META-INF/services/javax.ws.rs.ext.RuntimeDelegate
+[WARNING]   - com.sun.research.ws.wadl.Application
+[WARNING]   - com.sun.research.ws.wadl.Doc
+[WARNING]   - com.sun.research.ws.wadl.Grammars
+[WARNING]   - com.sun.research.ws.wadl.HTTPMethods
+[WARNING]   - com.sun.research.ws.wadl.Include
+[WARNING]   - com.sun.research.ws.wadl.Link
+[WARNING]   - com.sun.research.ws.wadl.Method
+[WARNING]   - com.sun.research.ws.wadl.ObjectFactory
+[WARNING]   - com.sun.research.ws.wadl.Option
+[WARNING]   - 29 more...
+[WARNING] jersey-container-servlet-2.34.jar, jersey-servlet-1.19.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/javax.servlet.ServletContainerInitializer
+[WARNING] flink-shaded-netty-4.1.65.Final-14.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, netty-all-4.1.74.Final.jar, netty-buffer-4.1.74.Final.jar, netty-codec-4.1.74.Final.jar, netty-common-4.1.74.Final.jar, netty-handler-4.1.74.Final.jar, netty-resolver-4.1.74.Final.jar, netty-transport-4.1.74.Final.jar, netty-transport-classes-epoll-4.1.74.Final.jar, netty-transport-classes-kqueue-4.1.74.Final.jar, netty-transport-native-epoll-4.1.74.Final-linux-aarch_64.jar, netty-transport-native-epoll-4.1.74.Final-linux-x86_64.jar, netty-transport-native-kqueue-4.1.74.Final-osx-aarch_64.jar, netty-transport-native-kqueue-4.1.74.Final-osx-x86_64.jar, netty-transport-native-unix-common-4.1.74.Final.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/io.netty.versions.properties
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, netty-all-4.1.74.Final.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/io.netty/netty-all/pom.properties
+[WARNING]   - META-INF/maven/io.netty/netty-all/pom.xml
+[WARNING] flink-shaded-netty-4.1.65.Final-14.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, netty-buffer-4.1.74.Final.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/native-image/io.netty/buffer/native-image.properties
+[WARNING] flink-shaded-netty-4.1.65.Final-14.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, netty-common-4.1.74.Final.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/native-image/io.netty/common/native-image.properties
+[WARNING] flink-shaded-netty-4.1.65.Final-14.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, netty-handler-4.1.74.Final.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/native-image/io.netty/handler/native-image.properties
+[WARNING] flink-shaded-netty-4.1.65.Final-14.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar, netty-transport-4.1.74.Final.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/native-image/io.netty/transport/native-image.properties
+[WARNING]   - META-INF/native-image/io.netty/transport/reflection-config.json
+[WARNING] netty-transport-native-epoll-4.1.74.Final-linux-aarch_64.jar, netty-transport-native-epoll-4.1.74.Final-linux-x86_64.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/io.netty/netty-transport-native-epoll/pom.properties
+[WARNING]   - META-INF/maven/io.netty/netty-transport-native-epoll/pom.xml
+[WARNING] flink-shaded-netty-4.1.65.Final-14.0.jar, netty-transport-native-epoll-4.1.74.Final-linux-aarch_64.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/native/libnetty_transport_native_epoll_aarch_64.so
+[WARNING] netty-transport-native-kqueue-4.1.74.Final-osx-aarch_64.jar, netty-transport-native-kqueue-4.1.74.Final-osx-x86_64.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/io.netty/netty-transport-native-kqueue/pom.properties
+[WARNING]   - META-INF/maven/io.netty/netty-transport-native-kqueue/pom.xml
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, metrics-core-4.2.7.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/io.dropwizard.metrics/metrics-core/pom.properties
+[WARNING]   - META-INF/maven/io.dropwizard.metrics/metrics-core/pom.xml
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, metrics-graphite-4.2.7.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/io.dropwizard.metrics/metrics-graphite/pom.properties
+[WARNING]   - META-INF/maven/io.dropwizard.metrics/metrics-graphite/pom.xml
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, metrics-jmx-4.2.7.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/io.dropwizard.metrics/metrics-jmx/pom.properties
+[WARNING]   - META-INF/maven/io.dropwizard.metrics/metrics-jmx/pom.xml
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, spark-hive_2.12-3.3.0.jar, spark-mllib_2.12-3.3.0.jar, spark-sql-kafka-0-10_2.12-3.3.0.jar, spark-sql_2.12-3.3.0.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.spark.sql.sources.DataSourceRegister
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, rocksdbjni-6.20.3.jar define 148 overlapping classes and resources: 
+[WARNING]   - HISTORY-JAVA.md
+[WARNING]   - librocksdbjni-linux-ppc64le.so
+[WARNING]   - librocksdbjni-linux32.so
+[WARNING]   - librocksdbjni-linux64.so
+[WARNING]   - librocksdbjni-osx.jnilib
+[WARNING]   - librocksdbjni-win64.dll
+[WARNING]   - org.rocksdb.AbstractCompactionFilter
+[WARNING]   - org.rocksdb.AbstractCompactionFilter$Context
+[WARNING]   - org.rocksdb.AbstractCompactionFilterFactory
+[WARNING]   - org.rocksdb.AbstractComparator
+[WARNING]   - 138 more...
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, spark-catalyst_2.12-3.3.0.jar define 4 overlapping classes: 
+[WARNING]   - org.apache.spark.sql.catalyst.plans.logical.CreateIndex
+[WARNING]   - org.apache.spark.sql.catalyst.plans.logical.CreateIndex$
+[WARNING]   - org.apache.spark.sql.catalyst.plans.logical.DropIndex
+[WARNING]   - org.apache.spark.sql.catalyst.plans.logical.DropIndex$
+[WARNING] arrow-format-7.0.0.jar, arrow-memory-core-7.0.0.jar, arrow-memory-netty-7.0.0.jar, arrow-vector-7.0.0.jar define 1 overlapping resource: 
+[WARNING]   - git.properties
+[WARNING] hive-common-2.3.9.jar, hive-storage-api-2.7.2.jar define 3 overlapping classes: 
+[WARNING]   - org.apache.hadoop.hive.common.ValidReadTxnList
+[WARNING]   - org.apache.hadoop.hive.common.ValidTxnList
+[WARNING]   - org.apache.hadoop.hive.common.ValidTxnList$RangeResponse
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, parquet-column-1.12.2.jar, parquet-hadoop-1.12.2.jar define 206 overlapping classes: 
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.Arrays
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.Arrays$ForkJoinGenericQuickSort
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.BidirectionalIterator
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.BigArrays
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.BigSwapper
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.Hash
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.Hash$Strategy
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.SafeMath
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.Stack
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.Swapper
+[WARNING]   - 196 more...
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, parquet-column-1.12.2.jar define 110 overlapping classes: 
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.HashCommon
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.AbstractBooleanCollection
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.AbstractBooleanList
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.AbstractBooleanList$1
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.AbstractBooleanList$BooleanSubList
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.AbstractBooleanList$BooleanSubList$1
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.BooleanArrayList
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.BooleanArrayList$1
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.BooleanBidirectionalIterator
+[WARNING]   - shaded.parquet.it.unimi.dsi.fastutil.booleans.BooleanCollection
+[WARNING]   - 100 more...
+[WARNING] parquet-column-1.12.2.jar, parquet-hadoop-1.12.2.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/net.openhft/zero-allocation-hashing/pom.properties
+[WARNING]   - META-INF/maven/net.openhft/zero-allocation-hashing/pom.xml
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, jackson-core-2.13.3.jar, parquet-jackson-1.12.2.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/com.fasterxml.jackson.core.JsonFactory
+[WARNING] hudi-spark3.3-bundle_2.12-0.12.1.jar, jackson-databind-2.13.3.jar, parquet-jackson-1.12.2.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/com.fasterxml.jackson.core.ObjectCodec
+[WARNING] jline-2.12.jar, scala-compiler-2.12.7.jar define 7 overlapping resources: 
+[WARNING]   - META-INF/maven/jline/jline/pom.properties
+[WARNING]   - META-INF/maven/jline/jline/pom.xml
+[WARNING]   - META-INF/native/linux32/libjansi.so
+[WARNING]   - META-INF/native/linux64/libjansi.so
+[WARNING]   - META-INF/native/osx/libjansi.jnilib
+[WARNING]   - META-INF/native/windows32/jansi.dll
+[WARNING]   - META-INF/native/windows64/jansi.dll
+[WARNING] datanucleus-api-jdo-4.2.4.jar, datanucleus-core-4.1.17.jar, datanucleus-rdbms-4.1.19.jar, javax.jdo-3.2.0-m3.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/README.txt
+[WARNING] datanucleus-api-jdo-4.2.4.jar, datanucleus-core-4.1.17.jar, datanucleus-rdbms-4.1.19.jar define 1 overlapping resource: 
+[WARNING]   - plugin.xml
+[WARNING] javax.jdo-3.2.0-m3.jar, jdo-api-3.0.1.jar define 208 overlapping classes and resources: 
+[WARNING]   - javax.jdo.Constants
+[WARNING]   - javax.jdo.Enhancer
+[WARNING]   - javax.jdo.Extent
+[WARNING]   - javax.jdo.FetchGroup
+[WARNING]   - javax.jdo.FetchPlan
+[WARNING]   - javax.jdo.InstanceCallbacks
+[WARNING]   - javax.jdo.JDOCanRetryException
+[WARNING]   - javax.jdo.JDODataStoreException
+[WARNING]   - javax.jdo.JDODetachedFieldAccessException
+[WARNING]   - javax.jdo.JDOEnhanceException
+[WARNING]   - 198 more...
+[WARNING] jta-1.1.jar, transaction-api-1.1.jar define 18 overlapping classes: 
+[WARNING]   - javax.transaction.HeuristicCommitException
+[WARNING]   - javax.transaction.HeuristicMixedException
+[WARNING]   - javax.transaction.HeuristicRollbackException
+[WARNING]   - javax.transaction.InvalidTransactionException
+[WARNING]   - javax.transaction.NotSupportedException
+[WARNING]   - javax.transaction.RollbackException
+[WARNING]   - javax.transaction.Status
+[WARNING]   - javax.transaction.Synchronization
+[WARNING]   - javax.transaction.SystemException
+[WARNING]   - javax.transaction.Transaction
+[WARNING]   - 8 more...
+[WARNING] httpclient-4.5.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 454 overlapping class and resource: 
+[WARNING]   - org.apache.http.auth.AUTH
+[WARNING]   - org.apache.http.auth.AuthOption
+[WARNING]   - org.apache.http.auth.AuthProtocolState
+[WARNING]   - org.apache.http.auth.AuthScheme
+[WARNING]   - org.apache.http.auth.AuthSchemeFactory
+[WARNING]   - org.apache.http.auth.AuthSchemeProvider
+[WARNING]   - org.apache.http.auth.AuthSchemeRegistry
+[WARNING]   - org.apache.http.auth.AuthSchemeRegistry$1
+[WARNING]   - org.apache.http.auth.AuthScope
+[WARNING]   - org.apache.http.auth.AuthState
+[WARNING]   - 444 more...
+[WARNING] httpcore-4.4.13.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 250 overlapping class and resource: 
+[WARNING]   - org.apache.http.ConnectionClosedException
+[WARNING]   - org.apache.http.ConnectionReuseStrategy
+[WARNING]   - org.apache.http.Consts
+[WARNING]   - org.apache.http.ContentTooLongException
+[WARNING]   - org.apache.http.ExceptionLogger
+[WARNING]   - org.apache.http.ExceptionLogger$1
+[WARNING]   - org.apache.http.ExceptionLogger$2
+[WARNING]   - org.apache.http.FormattedHeader
+[WARNING]   - org.apache.http.Header
+[WARNING]   - org.apache.http.HeaderElement
+[WARNING]   - 240 more...
+[WARNING] clickhouse-jdbc-0.3.1.jar, derby-10.14.2.0.jar, h2-2.1.210.jar, mysql-connector-j-8.0.33.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/java.sql.Driver
+[WARNING] spire-macros_2.12-0.17.0.jar, spire-platform_2.12-0.17.0.jar, spire-util_2.12-0.17.0.jar, spire_2.12-0.17.0.jar define 6 overlapping classes: 
+[WARNING]   - spire.scalacompat.BuilderCompat
+[WARNING]   - spire.scalacompat.IterableLikeCompat
+[WARNING]   - spire.scalacompat.ScalaOrderingWrapperCompat
+[WARNING]   - spire.scalacompat.package
+[WARNING]   - spire.scalacompat.package$
+[WARNING]   - spire.scalacompat.package$FactoryCompatOps
+[WARNING] jaxb-impl-2.2.3-1.jar, jaxb-runtime-2.3.2.jar define 590 overlapping classes and resources: 
+[WARNING]   - META-INF/services/javax.xml.bind.JAXBContext
+[WARNING]   - com.sun.xml.bind.AccessorFactory
+[WARNING]   - com.sun.xml.bind.AccessorFactoryImpl
+[WARNING]   - com.sun.xml.bind.AnyTypeAdapter
+[WARNING]   - com.sun.xml.bind.CycleRecoverable
+[WARNING]   - com.sun.xml.bind.CycleRecoverable$Context
+[WARNING]   - com.sun.xml.bind.DatatypeConverterImpl
+[WARNING]   - com.sun.xml.bind.DatatypeConverterImpl$CalendarFormatter
+[WARNING]   - com.sun.xml.bind.IDResolver
+[WARNING]   - com.sun.xml.bind.InternalAccessorFactory
+[WARNING]   - 580 more...
+[WARNING] jakarta.xml.bind-api-2.3.2.jar, jaxb-api-2.2.11.jar define 107 overlapping classes and resources: 
+[WARNING]   - javax.xml.bind.Binder
+[WARNING]   - javax.xml.bind.ContextFinder
+[WARNING]   - javax.xml.bind.ContextFinder$1
+[WARNING]   - javax.xml.bind.ContextFinder$2
+[WARNING]   - javax.xml.bind.ContextFinder$3
+[WARNING]   - javax.xml.bind.DataBindingException
+[WARNING]   - javax.xml.bind.DatatypeConverter
+[WARNING]   - javax.xml.bind.DatatypeConverterImpl
+[WARNING]   - javax.xml.bind.DatatypeConverterImpl$CalendarFormatter
+[WARNING]   - javax.xml.bind.DatatypeConverterInterface
+[WARNING]   - 97 more...
+[WARNING] istack-commons-runtime-3.0.8.jar, jaxb-impl-2.2.3-1.jar define 19 overlapping classes: 
+[WARNING]   - com.sun.istack.Builder
+[WARNING]   - com.sun.istack.ByteArrayDataSource
+[WARNING]   - com.sun.istack.FinalArrayList
+[WARNING]   - com.sun.istack.FragmentContentHandler
+[WARNING]   - com.sun.istack.Interned
+[WARNING]   - com.sun.istack.NotNull
+[WARNING]   - com.sun.istack.Nullable
+[WARNING]   - com.sun.istack.Pool
+[WARNING]   - com.sun.istack.Pool$Impl
+[WARNING]   - com.sun.istack.SAXException2
+[WARNING]   - 9 more...
+[WARNING] arpack-2.2.1.jar, blas-2.2.1.jar, lapack-2.2.1.jar define 1 overlapping classes: 
+[WARNING]   - dev.ludovic.netlib.InstanceBuilder
+[WARNING] minlog-1.2.jar, minlog-1.3.0.jar define 2 overlapping classes: 
+[WARNING]   - com.esotericsoftware.minlog.Log
+[WARNING]   - com.esotericsoftware.minlog.Log$Logger
+[WARNING] commons-logging-1.2.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 2 overlapping resources: 
+[WARNING]   - META-INF/maven/commons-logging/commons-logging/pom.properties
+[WARNING]   - META-INF/maven/commons-logging/commons-logging/pom.xml
+[WARNING] flink-shaded-netty-4.1.65.Final-14.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 3 overlapping resources: 
+[WARNING]   - META-INF/native-image/io.netty/codec-http/native-image.properties
+[WARNING]   - META-INF/native-image/io.netty/codec-http2/native-image.properties
+[WARNING]   - META-INF/native-image/io.netty/resolver-dns/native-image.properties
+[WARNING] flink-connector-jdbc_2.12-1.14.4.jar, flink-connector-kafka_2.12-1.14.4.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/org.apache.flink.table.factories.Factory
+[WARNING] curator-client-4.2.0.jar, hudi-spark3.3-bundle_2.12-0.12.1.jar define 56 overlapping classes: 
+[WARNING]   - org.apache.curator.ConnectionState
+[WARNING]   - org.apache.curator.ConnectionState$1
+[WARNING]   - org.apache.curator.CuratorConnectionLossException
+[WARNING]   - org.apache.curator.CuratorZookeeperClient
+[WARNING]   - org.apache.curator.CuratorZookeeperClient$1
+[WARNING]   - org.apache.curator.HandleHolder
+[WARNING]   - org.apache.curator.HandleHolder$1
+[WARNING]   - org.apache.curator.HandleHolder$1$1
+[WARNING]   - org.apache.curator.HandleHolder$2
+[WARNING]   - org.apache.curator.HandleHolder$Helper
+[WARNING]   - 46 more...
+[WARNING] jackson-module-jaxb-annotations-2.12.7.jar, jackson-module-scala_2.12-2.13.3.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/com.fasterxml.jackson.databind.Module
+[WARNING] jackson-jaxrs-base-2.12.7.jar, jackson-jaxrs-json-provider-2.12.7.jar, jackson-module-jaxb-annotations-2.12.7.jar define 1 overlapping classes: 
+[WARNING]   - META-INF.versions.11.module-info
+[WARNING] fastjson-1.2.83.jar, jackson-jaxrs-json-provider-2.12.7.jar, jersey-core-1.19.jar, jersey-json-1.19.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/javax.ws.rs.ext.MessageBodyReader
+[WARNING] fastjson-1.2.83.jar, jackson-jaxrs-json-provider-2.12.7.jar, jersey-core-1.19.jar, jersey-json-1.19.jar, jersey-server-1.19.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/services/javax.ws.rs.ext.MessageBodyWriter
+[WARNING] failureaccess-1.0.jar, guava-27.0-jre.jar define 2 overlapping classes: 
+[WARNING]   - com.google.common.util.concurrent.internal.InternalFutureFailureAccess
+[WARNING]   - com.google.common.util.concurrent.internal.InternalFutures
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing D:\Desktop\Match\MATCH\OverMatch\target\realtime-data-process-1.0-SNAPSHOT.jar with D:\Desktop\Match\MATCH\OverMatch\target\realtime-data-process-1.0-SNAPSHOT-shaded.jar
+[INFO] Dependency-reduced POM written at: D:\Desktop\Match\MATCH\OverMatch\dependency-reduced-pom.xml
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  55.810 s
+[INFO] Finished at: 2026-04-06T18:36:17+08:00
+[INFO] ------------------------------------------------------------------------
