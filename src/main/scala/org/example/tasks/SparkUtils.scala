@@ -54,7 +54,7 @@ object SparkUtils {
       .format("kafka")
       .option("kafka.bootstrap.servers", kafkaBrokers)
       .option("subscribe", "sensor_raw")
-      .option("startingOffsets", "earliest")
+      .option("startingOffsets", "latest")
       .load()
       .select(
         from_json(col("value").cast("string"), sensorSchema).alias("data")
@@ -78,7 +78,7 @@ object SparkUtils {
       .format("kafka")
       .option("kafka.bootstrap.servers", kafkaBrokers)
       .option("subscribe", "log_raw")
-      .option("startingOffsets", "earliest")
+      .option("startingOffsets", "latest")
       .load()
       .select(from_json(col("value").cast("string"), logSchema).alias("data"))
       .select("data.*")
@@ -95,7 +95,7 @@ object SparkUtils {
       .format("kafka")
       .option("kafka.bootstrap.servers", kafkaBrokers)
       .option("subscribe", "ChangeRecord")
-      .option("startingOffsets", "earliest")
+      .option("startingOffsets", "latest")
       .load()
       .selectExpr("CAST(value AS STRING) as csv_line")
       .select(

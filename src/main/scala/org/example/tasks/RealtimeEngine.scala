@@ -344,16 +344,12 @@ object RealtimeEngine {
     // ==========================================
     // 模块 2.2 状态机识别与流计算
     // ==========================================
-    println(">>> [1/6] 启动 ChangeRecord 流 (状态机识别)")
     changeRecordDF.writeStream
       .foreachBatch {
         (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
           // 收集到 Driver 端处理，避免在 Executor 中创建不可序列化的 Jedis
-          println(s"[批次 $batchId] ChangeRecord 触发")
           val rows = batchDF.collect()
-          println(s"[批次 $batchId] ChangeRecord 数据条数: ${rows.length}")
           if (rows.nonEmpty) {
-            println(s"[批次 $batchId] 开始写入 Redis")
             val jedis = new Jedis("master", 6379)
             try {
               rows.foreach { row =>
@@ -375,19 +371,13 @@ object RealtimeEngine {
       .option("checkpointLocation", "checkpoints/engine_change_record_writer")
       .start()
 
-    println(">>> [2/6] 启动 SensorRaw 流 (实时指标计算)")
     sensorRawDF.writeStream
       .foreachBatch {
         (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
-          println(s"[批次 $batchId] SensorRaw 触发")
-          val count = batchDF.count()
-          println(s"[批次 $batchId] 数据条数: $count")
-          if (count > 0) {
-            println(s"[批次 $batchId] 开始处理 $count 条 sensor_raw 数据")
+          if (!batchDF.isEmpty) {
             val sparkSession = batchDF.sparkSession
             import sparkSession.implicits._
 
-            // 收集到 Driver 端处理，避免 Jedis 序列化问题
             val sensorRows = batchDF.collect()
             val jedis = new Jedis("master", 6379)
             val statusMap = scala.collection.mutable.Map[String, String]()
@@ -490,9 +480,7 @@ object RealtimeEngine {
             // 写入 Redis，但限制每设备更新频率为每分钟一次，以减少 Redis 压力并保证"每分钟快照"语义
             // 在 Driver 端处理，避免 Jedis 序列化问题
             val healthRows = enrichedDF.collect()
-          println(s"[批次 $batchId] 健康数据条数: ${healthRows.length}")
           if (healthRows.nonEmpty) {
-            println(s"[批次 $batchId] 开始写入 Redis/ClickHouse")
             val jedis = new Jedis(AppConfig.getString("redis.host", "master"), AppConfig.getInt("redis.port", 6379))
               try {
                 val nowSec = System.currentTimeMillis() / 1000
@@ -632,7 +620,6 @@ object RealtimeEngine {
     // ==========================================
     // 日志异常检测 (独立流)
     // ==========================================
-    println(">>> [3/6] 启动 LogRaw 流 (异常检测)")
     logRawDF
       .filter(col("error_code") === "999")
       .select(
@@ -677,7 +664,6 @@ object RealtimeEngine {
     // ==========================================
     // 任务 18 实时工艺参数偏离监控
     // ==========================================
-    println(">>> [4/6] 启动工艺参数偏离监控流")
     sensorRawDF.writeStream
       .foreachBatch {
         (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
@@ -748,7 +734,6 @@ object RealtimeEngine {
     // ==========================================
     // 模块 4.1 实时传感器数据入湖 (Hudi)
     // ==========================================
-    println(">>> [5/6] 启动 Sensor Hudi 入湖流")
     sensorRawDF.writeStream
       .foreachBatch {
         (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
@@ -789,7 +774,6 @@ object RealtimeEngine {
     // ==========================================
     // 模块 4.2 实时日志入湖 (Hudi)
     // ==========================================
-    println(">>> [6/6] 启动 Log Hudi 入湖流")
     logRawDF.writeStream
       .foreachBatch {
         (batchDF: org.apache.spark.sql.DataFrame, batchId: Long) =>
@@ -823,8 +807,6 @@ object RealtimeEngine {
       .option("checkpointLocation", "checkpoints/hudi_log_sink")
       .start()
 
-    println(">>> 所有流已启动，等待数据...")
-    println("=" * 70)
     spark.streams.awaitAnyTermination()
   }
 }

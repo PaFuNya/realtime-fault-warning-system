@@ -82,6 +82,11 @@
                   </excludes>
                 </filter>
               </filters>
+              <transformers>
+                <transformer>
+                  <mainClass>org.example.tasks.FlinkRulInference</mainClass>
+                </transformer>
+              </transformers>
             </configuration>
           </execution>
         </executions>

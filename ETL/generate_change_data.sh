@@ -178,7 +178,7 @@ while true; do
         run_count=$((run_count + 1))
 
         base_dur=${BASE_DURATION[$mid]:-100000}
-        duration=$(awk -v b="$base_dur" 'BEGIN{printf "%.1f", b + rand()*7000 - 2000}')
+        duration=$(awk -v b="$base_dur" 'BEGIN{printf "%.1f", b + rand()*7000 + 1000}')
 
         # 累计值递增（模拟设备在持续加工）
         inc_cutting=$(awk 'BEGIN{printf "%.1f", rand()*30+5}')
@@ -186,7 +186,7 @@ while true; do
         inc_runtime=$(awk 'BEGIN{printf "%.1f", rand()*3+0.5}')
         inc_parts=$((RANDOM % 3))
 
-        ACCUM_CUTTING[$mid]=$(awk -v v="${ACCUM_CUTTING[$m]}" -v i="$inc_cutting" 'BEGIN{printf "%.1f", v+i}')
+        ACCUM_CUTTING[$mid]=$(awk -v v="${ACCUM_CUTTING[$mid]}" -v i="$inc_cutting" 'BEGIN{printf "%.1f", v+i}')
         ACCUM_CYCLE[$mid]=$(awk   -v v="${ACCUM_CYCLE[$mid]}"   -v i="$inc_cycle"   'BEGIN{printf "%.1f", v+i}')
         ACCUM_RUNTIME[$mid]=$(awk -v v="${ACCUM_RUNTIME[$mid]}" -v i="$inc_runtime" 'BEGIN{printf "%.1f", v+i}')
         ACCUM_PARTS[$mid]=$((${ACCUM_PARTS[$mid]} + inc_parts))
@@ -211,7 +211,7 @@ while true; do
         standby_count=$((standby_count + 1))
 
         base_dur=${BASE_DURATION[$mid]:-50000}
-        duration=$(awk -v b="$base_dur" 'BEGIN{printf "%.1f", b + rand()*5000 - 1000}')
+        duration=$(awk -v b="$base_dur" 'BEGIN{printf "%.1f", b + rand()*5000 + 500}')
 
         cutting_time=${ACCUM_CUTTING[$mid]}
         cycle_time=${ACCUM_CYCLE[$mid]}

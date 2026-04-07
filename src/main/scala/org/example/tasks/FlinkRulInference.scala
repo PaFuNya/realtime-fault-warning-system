@@ -2,13 +2,19 @@ package org.example.tasks
 
 import org.apache.flink.api.common.functions.AggregateFunction
 import org.apache.flink.api.common.serialization.SimpleStringSchema
-import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows
+import org.apache.flink.streaming.api.windowing.assigners.{TumblingEventTimeWindows, TumblingProcessingTimeWindows}
 import org.apache.flink.streaming.api.scala._
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer}
 import org.apache.flink.streaming.connectors.kafka.partitioner.FlinkFixedPartitioner
-import org.apache.flink.streaming.api.functions.co.CoProcessFunction
+import org.apache.flink.streaming.api.functions.co.{CoProcessFunction, BroadcastProcessFunction, KeyedBroadcastProcessFunction}
 import org.apache.flink.util.Collector
+import org.apache.flink.api.common.state.{MapStateDescriptor, BroadcastState, ReadOnlyBroadcastState}
+import org.apache.flink.streaming.api.datastream.BroadcastStream
+import org.apache.flink.streaming.api.scala.function.ProcessWindowFunction
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow
+import org.apache.flink.api.common.eventtime.{WatermarkStrategy, SerializableTimestampAssigner}
+import java.time.Duration
 import java.util.Properties
 import com.alibaba.fastjson.JSON
 import scala.collection.mutable
@@ -297,7 +303,7 @@ object FlinkRulInference {
   // ==================== 高频窗口聚合函数 ====================
 
   /**
-   * 自定义 AggregateFunction: 在 5 分钟滚动窗口内
+   * 自定义 AggregateFunction: 在 3 分钟滚动窗口内
    * 逐步计算 7 个时序特征的统计量
    */
   class HighFreqAggregator extends AggregateFunction[HighFreqSensor, HighFreqAccumulator, TimeSeriesFeatures] {
@@ -459,44 +465,83 @@ object FlinkRulInference {
 
     val highFreqStream = env
       .addSource(highFreqConsumer).name("Kafka-HighFreqSensor")
-      .map(parseHighFreqSensor _).name("Parse-HighFreqSensor")
-      .filter(_.isDefined).map(_.get)
+      .map { jsonStr =>
+        println(s"[高频原始数据] $jsonStr")
+        parseHighFreqSensor(jsonStr)
+      }.name("Parse-HighFreqSensor")
+      .filter { opt =>
+        if (opt.isDefined) {
+          println(s"[高频解析成功] 设备${opt.get.machineId}")
+          true
+        } else {
+          println("[高频解析失败] 数据被过滤")
+          false
+        }
+      }
+      .map(_.get)
+      // 添加调试：打印高频数据流入
+      .map { h =>
+        println(s"[高频数据] 设备${h.machineId} 时间:${h.timestamp} 温度:${h.temperature} 负载:${h.spindle_load}")
+        h
+      }.name("Debug-HighFreqInput")
 
     // ================================================================
-    //  分支 A: 高频流 → 5分钟TumblingWindow → 聚合 7 个时序特征
+    //  分支 A: 高频流 → 3分钟TumblingWindow → 聚合 7 个时序特征 → Broadcast
     // ================================================================
-    val windowSize = Time.minutes(5)
+    val windowSize = Time.minutes(3)
 
+    // 使用 AggregateFunction + ProcessWindowFunction 组合，获取 key 并设置 machineId
+    // 使用处理时间窗口（Processing Time），避免事件时间延迟问题
     val timeSeriesFeatureStream: DataStream[TimeSeriesFeatures] = highFreqStream
       .keyBy(_.machineId)
-      .windowAll(TumblingEventTimeWindows.of(windowSize))
-      .aggregate(new HighFreqAggregator)
+      .window(TumblingProcessingTimeWindows.of(windowSize))
+      .aggregate(
+        new HighFreqAggregator,
+        new ProcessWindowFunction[TimeSeriesFeatures, TimeSeriesFeatures, Int, TimeWindow] {
+          override def process(
+              key: Int,
+              context: Context,
+              elements: Iterable[TimeSeriesFeatures],
+              out: Collector[TimeSeriesFeatures]
+          ): Unit = {
+            elements.foreach { f =>
+              val result = f.copy(machineId = key)
+              println(s"[高频窗口] 设备$key 窗口聚合完成: var_temp=${result.var_temp}, fft_peak=${result.fft_peak}, avg_load=${result.avg_spindle_load}")
+              out.collect(result)
+            }
+          }
+        }
+      )
       .name("Window-Aggregate-TimeSeriesFeatures")
-      // 补上 machineId (aggregate 后 key 信息保留在 KeyedStream 中)
-      .map { f => f }  // 保持原样，machineId 需要从上下文获取
 
-    // 将窗口结果存入共享缓存，供 CoProcessFunction 关联
-    // 用一个侧输出或 broadcast 方式传递给下游
+    // 创建 Broadcast State Descriptor
+    val highFreqStateDescriptor = new MapStateDescriptor[Int, TimeSeriesFeatures](
+      "highFreqFeatures",
+      classOf[Int],
+      classOf[TimeSeriesFeatures]
+    )
+
+    // 将高频窗口结果转为 Broadcast Stream
+    val highFreqBroadcast: BroadcastStream[TimeSeriesFeatures] = timeSeriesFeatureStream
+      .broadcast(highFreqStateDescriptor)
 
     // ================================================================
-    //  分支 B: 低频双流 → CoProcessFunction 关联 → 合并高频特征
+    //  分支 B: 低频双流 → CoProcessFunction 关联
     //  ================================================================
-
-    // 由于 Flink 中窗口聚合流和 CoProcessFunction 直接合并较复杂，
-    // 这里采用策略：将高频窗口结果写入一个可查询的状态，
-    // CoProcessFunction 在匹配时查询最新的窗口特征
-
-    // 简化实现：使用 connect + 广播模式
-    // 实际生产中建议用 QueryableState 或 Redis Bridge
-
     val lowFreqConnected = stateStream
       .connect(metricsStream)
       .keyBy(_.machineId, _.machineId)
       .process(new LowFreqCoProcessFunction)
       .name("LowFreq-Merge")
 
-    // 最终将低频结果与高频窗口特征连接
-    // （此处简化为两步：先低频合并，再与高频 join）
+    // ================================================================
+    //  三流合并: 低频结果 + Broadcast 高频特征
+    // ================================================================
+    val mergedStream = lowFreqConnected
+      .keyBy(_.machineId)
+      .connect(highFreqBroadcast)
+      .process(new MergeHighFreqFunction(highFreqStateDescriptor))
+      .name("Merge-HighFreq-Features")
 
     // ================================================================
     //  输出: warning_log topic (仅报警数据)
@@ -523,9 +568,11 @@ object FlinkRulInference {
     // 当前版本: 先完成低频双流的报警转译 + 高频窗口聚合的独立管道
     // 下一步迭代: 用 BroadcastState 或 Async I/O (Redis) 做三流合并
 
-    lowFreqConnected
-      .filter(_.alarmMessage != null)  // 仅报警记录
+    // 输出1: 全量特征数据 (供 Java 预测模型使用)
+    mergedStream
       .map { r: AlarmRecord =>
+        val hasAlarm = r.alarmMessage != null && r.alarmMessage.nonEmpty
+        val alarmMsg = if (hasAlarm) r.alarmMessage else ""
         // 手动构建 JSON (解决 Scala case class + fastjson 序列化为空 {} 的问题)
         s"""{"machineId":${r.machineId},""" +
         s""""duration_seconds":${r.duration_seconds},""" +
@@ -548,15 +595,15 @@ object FlinkRulInference {
         s""""max_spindle_load_win":${r.max_spindle_load_win},""" +
         s""""running_ratio":${r.running_ratio},""" +
         s""""avg_feed_rate":${r.avg_feed_rate},""" +
-        s""""alarmMessage":"${escapeJson(r.alarmMessage)}"}"""
+        s""""alarmMessage":"${escapeJson(alarmMsg)}"}"""
       }
       .addSink(warningSink)
-      .name("Kafka-Sink-WarningLog")
+      .name("Kafka-Sink-AllFeatures")
 
     // 同时打印高频特征流（调试用）
     timeSeriesFeatureStream.name("HighFreqFeatures").print()
 
-    lowFreqConnected.filter(_.alarmMessage != null).name("AlarmOutput").print()
+    mergedStream.filter(r => r.alarmMessage != null && r.alarmMessage.nonEmpty).name("AlarmOutput").print()
 
     // ---------- 启动信息 ----------
     println("-" * 70)
@@ -567,7 +614,7 @@ object FlinkRulInference {
     println("    └─ highfreq_sensor  (高频, 时序采样) ★NEW")
     println("")
     println("  窗口聚合 (highfreq_sensor):")
-    println(s"    └─ TumblingWindow = ${windowSize.toMilliseconds / 60000} 分钟")
+    println(s"    └─ TumblingWindow = 3 分钟")
     println("       输出 7 个时序特征:")
     println("         var_temp, kurtosis_temp, fft_peak,")
     println("         avg/max_spindle_load, running_ratio, avg_feed_rate")
@@ -673,7 +720,7 @@ object FlinkRulInference {
     ): Unit = {
       metricsBuffer.get(state.machineId) match {
         case Some(m) =>
-          emitIfAlarm(state, m, out)
+          emitRecord(state, m, out)
           metricsBuffer.remove(state.machineId)
         case None =>
           stateBuffer(state.machineId) = state
@@ -687,54 +734,111 @@ object FlinkRulInference {
     ): Unit = {
       stateBuffer.get(metrics.machineId) match {
         case Some(s) =>
-          emitIfAlarm(s, metrics, out)
+          emitRecord(s, metrics, out)
           stateBuffer.remove(metrics.machineId)
         case None =>
           metricsBuffer(metrics.machineId) = metrics
       }
     }
 
-    private def emitIfAlarm(
+    private def emitRecord(
         state: DeviceState,
         metrics: SensorMetrics,
         out: Collector[AlarmRecord]
     ): Unit = {
-      if (state.isAlarm != null && state.isAlarm.nonEmpty) {
-        val alarmMsg = ALARM_DICTIONARY.getOrElse(
-          state.isAlarm, s"未知错误码: ${state.isAlarm}"
-        )
+      // 判断是否有报警
+      val hasAlarm = state.isAlarm != null && state.isAlarm.nonEmpty
+      val alarmMsg = if (hasAlarm) {
+        ALARM_DICTIONARY.getOrElse(state.isAlarm, s"未知错误码: ${state.isAlarm}")
+      } else ""
 
-        val record = AlarmRecord(
-          machineId = state.machineId,
-          duration_seconds = state.duration_seconds,
-          is_running = state.is_running,
-          is_standby = state.is_standby,
-          is_offline = state.is_offline,
-          cutting_time = metrics.cutting_time,
-          cycle_time = metrics.cycle_time,
-          total_parts = metrics.total_parts,
-          spindle_load = metrics.spindle_load,
-          cumulative_runtime = metrics.cumulative_runtime,
-          cumulative_parts = metrics.cumulative_parts,
-          cumulative_alarms = state.cumulative_alarms,
-          avg_spindle_load_10 = metrics.avg_spindle_load_10,
-          avg_cutting_time_10 = metrics.avg_cutting_time_10,
-          // 高频窗口特征 (当前版本占位，三流合并后填入真实值)
-          var_temp = 0.0,
-          kurtosis_temp = 0.0,
-          fft_peak = 0.0,
-          avg_spindle_load_win = 0.0,
-          max_spindle_load_win = 0.0,
-          running_ratio = 0.0,
-          avg_feed_rate = 0.0,
-          alarmMessage = alarmMsg
-        )
+      val record = AlarmRecord(
+        machineId = state.machineId,
+        duration_seconds = state.duration_seconds,
+        is_running = state.is_running,
+        is_standby = state.is_standby,
+        is_offline = state.is_offline,
+        cutting_time = metrics.cutting_time,
+        cycle_time = metrics.cycle_time,
+        total_parts = metrics.total_parts,
+        spindle_load = metrics.spindle_load,
+        cumulative_runtime = metrics.cumulative_runtime,
+        cumulative_parts = metrics.cumulative_parts,
+        cumulative_alarms = state.cumulative_alarms,
+        avg_spindle_load_10 = metrics.avg_spindle_load_10,
+        avg_cutting_time_10 = metrics.avg_cutting_time_10,
+        // 高频窗口特征 (由 MergeHighFreqFunction 填充)
+        var_temp = 0.0,
+        kurtosis_temp = 0.0,
+        fft_peak = 0.0,
+        avg_spindle_load_win = 0.0,
+        max_spindle_load_win = 0.0,
+        running_ratio = 0.0,
+        avg_feed_rate = 0.0,
+        alarmMessage = alarmMsg
+      )
 
-        out.collect(record)
+      out.collect(record)
+      
+      if (hasAlarm) {
         println(s"[报警] 设备${record.machineId} => ${record.alarmMessage}")
-
+      } else {
+        println(s"[正常] 设备${record.machineId} 特征数据已生成")
       }
-      // 无报警时不输出
+    }
+  }
+
+  // ==================== 三流合并：低频结果 + Broadcast 高频特征 ====================
+
+  /**
+   * 使用 Broadcast State 合并低频报警记录与高频窗口特征
+   * 当高频窗口有新结果时，Broadcast 给所有并行实例更新状态
+   * 当低频记录到达时，从 Broadcast State 查询对应 machineId 的高频特征
+   */
+  class MergeHighFreqFunction(
+      highFreqStateDescriptor: MapStateDescriptor[Int, TimeSeriesFeatures]
+  ) extends KeyedBroadcastProcessFunction[Int, AlarmRecord, TimeSeriesFeatures, AlarmRecord] {
+
+    override def processElement(
+        record: AlarmRecord,
+        ctx: KeyedBroadcastProcessFunction[Int, AlarmRecord, TimeSeriesFeatures, AlarmRecord]#ReadOnlyContext,
+        out: Collector[AlarmRecord]
+    ): Unit = {
+      // 从 Broadcast State 读取对应 machineId 的高频特征
+      val highFreqState: ReadOnlyBroadcastState[Int, TimeSeriesFeatures] = ctx.getBroadcastState(highFreqStateDescriptor)
+
+      val features = highFreqState.get(record.machineId)
+
+      val mergedRecord = if (features != null) {
+        // 使用高频窗口特征填充
+        println(s"[合并] 设备${record.machineId} 找到高频特征: fft_peak=${features.fft_peak}, avg_load=${features.avg_spindle_load}")
+        record.copy(
+          var_temp = features.var_temp,
+          kurtosis_temp = features.kurtosis_temp,
+          fft_peak = features.fft_peak,
+          avg_spindle_load_win = features.avg_spindle_load,
+          max_spindle_load_win = features.max_spindle_load,
+          running_ratio = features.running_ratio,
+          avg_feed_rate = features.avg_feed_rate
+        )
+      } else {
+        // 还没有高频特征数据，保持原值（0.0）
+        println(s"[合并] 设备${record.machineId} 未找到高频特征，使用默认值0.0")
+        record
+      }
+
+      out.collect(mergedRecord)
+    }
+
+    override def processBroadcastElement(
+        features: TimeSeriesFeatures,
+        ctx: KeyedBroadcastProcessFunction[Int, AlarmRecord, TimeSeriesFeatures, AlarmRecord]#Context,
+        out: Collector[AlarmRecord]
+    ): Unit = {
+      // 更新 Broadcast State
+      val highFreqState: BroadcastState[Int, TimeSeriesFeatures] = ctx.getBroadcastState(highFreqStateDescriptor)
+      highFreqState.put(features.machineId, features)
+      println(s"[高频窗口] 设备${features.machineId} 窗口特征已更新: var_temp=${features.var_temp}, fft_peak=${features.fft_peak}")
     }
   }
 

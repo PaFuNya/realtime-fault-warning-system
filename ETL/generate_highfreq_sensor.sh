@@ -66,7 +66,7 @@ BASE_LOAD[115]=26; BASE_LOAD[116]=20; BASE_LOAD[117]=19
 declare -A BASE_FEED
 BASE_FEED[109]=12000; BASE_FEED[110]=8000;  BASE_FEED[111]=15000
 BASE_FEED[112]=6000;  BASE_FEED[113]=4000;  BASE_FEED[114]=5000
-BASE_FEED[115]=20000; BASE_FEED[116]=10000; BASE_FEED[170]=9000
+BASE_FEED[115]=20000; BASE_FEED[116]=10000; BASE_FEED[117]=9000
 
 # 转速基准
 declare -A BASE_SPEED
@@ -122,7 +122,10 @@ rand_int() {
 # 用法: rand_normal $均值 $标准差
 rand_normal() {
     local mean=$1 std=$2
-    awk -v m="$mean" -v s="$std" 'BEGIN{
+    # 使用 /dev/urandom 生成随机种子，确保每次调用都不同
+    local seed=$(od -An -N4 -tu4 < /dev/urandom 2>/dev/null || echo $RANDOM)
+    awk -v m="$mean" -v s="$std" -v seed="$seed" 'BEGIN{
+        srand(seed);
         u1=rand(); u2=rand();
         # Box-Muller 变换
         z=sqrt(-2*log(u1))*cos(2*3.14159265358979*u2);
@@ -272,7 +275,12 @@ while true; do
             "$mid" "$ts" "$temperature" "$vibration_x" "$vibration_y" "$vibration_z" \
             "$spindle_load" "$feed_rate" "$spindle_speed" "$is_running")
 
+        # 写入本地日志文件
         echo "$json_line" >> "$OUT_FILE"
+        
+        # 发送到Kafka
+        echo "$json_line" | kafka-console-producer.sh --broker-list master:9092 --topic highfreq_sensor 2>/dev/null
+        
         count=$((count + 1))
 
     done  # end for each machine
