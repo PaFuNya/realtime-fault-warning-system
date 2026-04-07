@@ -11,7 +11,18 @@
         "usedAt": 1775385928116,
         "industryId": "02-Engineering"
       }
+    ],
+    "8bc263cde14a4d5799fb41748655bd13": [
+      {
+        "expertId": "ContentCreator",
+        "name": "Kai",
+        "profession": "内容创作专家",
+        "avatarUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/avatars/03-Marketing/ContentCreator/ContentCreator.png",
+        "promptUrl": "https://acc-1258344699.cos.accelerate.myqcloud.com/workbuddy/experts/experts/03-Marketing/ContentCreator/ContentCreator_zh.md",
+        "usedAt": 1775548088981,
+        "industryId": "04-PaidMedia"
+      }
     ]
   },
-  "lastUpdated": 1775386774631
+  "lastUpdated": 1775548115065
 }

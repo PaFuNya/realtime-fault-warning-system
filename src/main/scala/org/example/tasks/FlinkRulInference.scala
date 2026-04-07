@@ -43,7 +43,7 @@ import org.apache.kafka.clients.producer.ProducerRecord
  *
  *    4. 合并: 14个低频特征 + 7个高频窗口特征 → 完整 21 特征向量
  *
- *    5. 检测 isAlarm → 查报警字典转译中文 → 发往 warning_log (给 Ollama/LLM)
+ *    5. 检测 isAlarm → 查报警字典转译中文 → 发往 Feature_log (给 Ollama/LLM)
  *
  *  数据流拓扑：
  *
@@ -56,11 +56,11 @@ import org.apache.kafka.clients.producer.ProducerRecord
  *                             7个时序特征           ▼
  *                                                  合并+过滤
  *                                                       │
- *                                              有报警？──► warning_log
+ *                                              有报警？──► Feature_log
  *                                                       │
  *                                              全部? ──► features (Redis/CH)
  *
- *  输出到 warning_log 的 JSON 格式：
+ *  输出到 Feature_log 的 JSON 格式：
  *    {
  *      "machineId": 109,
  *      ...14个低频字段...,
@@ -270,7 +270,7 @@ object FlinkRulInference {
   )
 
   /**
-   * 最终输出到 warning_log 的完整报警记录
+   * 最终输出到 Feature_log 的完整报警记录
    * 包含 14个低频特征 + 7个高频时序特征 + alarmMessage = 22 字段
    */
   case class AlarmRecord(
@@ -488,7 +488,7 @@ object FlinkRulInference {
     // ================================================================
     //  分支 A: 高频流 → 3分钟TumblingWindow → 聚合 7 个时序特征 → Broadcast
     // ================================================================
-    val windowSize = Time.minutes(3)
+    val windowSize = Time.minutes(1)
 
     // 使用 AggregateFunction + ProcessWindowFunction 组合，获取 key 并设置 machineId
     // 使用处理时间窗口（Processing Time），避免事件时间延迟问题
@@ -544,9 +544,9 @@ object FlinkRulInference {
       .name("Merge-HighFreq-Features")
 
     // ================================================================
-    //  输出: warning_log topic (仅报警数据)
+    //  输出: Feature_log topic (仅报警数据)
     // ================================================================
-    println(s">>> [输出] 将报警数据写入 Kafka topic: warning_log")
+    println(s">>> [输出] 将报警数据写入 Kafka topic: Feature_log")
 
     val producerProps = new Properties()
     producerProps.setProperty("bootstrap.servers", kafkaProps.getProperty("bootstrap.servers"))
@@ -554,10 +554,10 @@ object FlinkRulInference {
 
     // 使用 KafkaSerializationSchema 包装 SimpleStringSchema (兼容 Flink 1.x)
     val warningSink = new FlinkKafkaProducer[String](
-      "warning_log",
+      "Feature_log",
       new org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema[String]() {
         override def serialize(element: String, timestamp: java.lang.Long): ProducerRecord[Array[Byte], Array[Byte]] = {
-          new ProducerRecord("warning_log", element.getBytes("UTF-8"))
+          new ProducerRecord("Feature_log", element.getBytes("UTF-8"))
         }
       },
       producerProps,
@@ -620,7 +620,7 @@ object FlinkRulInference {
     println("         avg/max_spindle_load, running_ratio, avg_feed_rate")
     println("")
     println("  输出 topics:")
-    println("    └─ warning_log (仅含报警数据, 14低频+7高频+alarmMessage)")
+    println("    └─ Feature_log (仅含报警数据, 14低频+7高频+alarmMessage)")
     println(f"  报警字典条目数: ${ALARM_DICTIONARY.size}%d 条")
     println("-" * 70)
     println("  等待数据流... (Ctrl+C 停止)")
