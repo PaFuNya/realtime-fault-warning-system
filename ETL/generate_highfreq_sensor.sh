@@ -1,299 +1,220 @@
 #!/bin/bash
 
 # ============================================================
-#  CNC 高频传感器时序数据生成器 (服务器版)
+#  CNC 高频传感器时序数据生成器 v2 (高性能版)
 #
-#  模拟 PLC/边缘网关采集的高频时序数据源
-#  用于 Flink 窗口聚合计算以下 7 个时序特征:
-#    1. var_temp        — 温度波动方差 (VAR_POP)
-#    2. kurtosis_temp   — 温度峭度 (冲击性检测)
-#    3. fft_peak        — 振动频域峰值 (FFT主频率)
-#    4. avg_spindle_load— 窗口平均主轴负载
-#    5. max_spindle_load— 窗口峰值主轴负载
-#    6. running_ratio   — 设备运行占比
-#    7. avg_feed_rate   — 窗口平均进给速度
+#  v2 改进: 用单次 awk 批量生成所有9台设备的数据
+#        每轮循环只调用1次 awk (原版: ~180次)
+#        性能提升: ~20x, 不再卡顿
 #
-#  输出文件:
-#    highfreq_sensor_generated.log — 高频时序日志(JSON,每条1行)
-#
-#  输出字段(每条记录):
-#    machineId, timestamp,
-#    temperature(温度), vibration_x/vibration_y/vibration_z(三轴振动),
-#    spindle_load, feed_rate, spindle_speed, is_running
-#
-#  数据特性:
-#    - 高频采样: 默认每 1 秒一条 (可配置)
-#    - 9 台设备轮询
-#    - 运行状态: 温度/振动高、负载正常范围
-#    - 待机状态:  温度/振动低、接近零
-#    - 离线状态:  所有值归零或极低
-#    - 偶发异常尖峰: 模拟故障前兆
+#  输出文件: highfreq_sensor_generated.log
+#  Kafka:    highfreq_sensor topic (后台异步发送)
 #
 #  用法:
-#    bash generate_highfreq_sensor.sh          # 默认每1秒一条
-#    bash generate_highfreq_sensor.sh 0.5      # 每0.5秒一条
+#    bash generate_highfreq_sensor.sh          # 默认每1秒一轮(9条)
+#    bash generate_highfreq_sensor.sh 0.5      # 每0.5秒一轮
 #    nohup bash generate_highfreq_sensor.sh &  # 后台运行
-#    Ctrl+C 停止
 # ============================================================
+
+set -u
 
 # --- 配置 ---
 INTERVAL_SEC=${1:-1}
 OUT_FILE="highfreq_sensor_generated.log"
-
-# 9 台设备
-MACHINES=(109 110 111 112 113 114 115 116 117)
-
-# ========== 各设备传感器基准值（不同设备略有差异） ==========
-# 温度基准 (°C) — 运行时正常范围 35~65
-declare -A BASE_TEMP
-BASE_TEMP[109]=45; BASE_TEMP[110]=42; BASE_TEMP[111]=48
-BASE_TEMP[112]=40; BASE_TEMP[113]=38; BASE_TEMP[114]=41
-BASE_TEMP[115]=50; BASE_TEMP[116]=47; BASE_TEMP[117]=44
-
-# 振动基准 (mm/s) — 运行时正常范围 0.5~4.0
-declare -A BASE_VIB
-BASE_VIB[109]=2.0; BASE_VIB[110]=1.8; BASE_VIB[111]=2.2
-BASE_VIB[112]=1.5; BASE_VIB[113]=1.2; BASE_VIB[114]=1.4
-BASE_VIB[115]=2.8; BASE_VIB[116]=2.5; BASE_VIB[117]=1.9
-
-# 主轴负载基准 — 与 generate_change_data.sh 一致
-declare -A BASE_LOAD
-BASE_LOAD[109]=22; BASE_LOAD[110]=18; BASE_LOAD[111]=24
-BASE_LOAD[112]=16; BASE_LOAD[113]=10; BASE_LOAD[114]=12
-BASE_LOAD[115]=26; BASE_LOAD[116]=20; BASE_LOAD[117]=19
-
-# 进给速度基准
-declare -A BASE_FEED
-BASE_FEED[109]=12000; BASE_FEED[110]=8000;  BASE_FEED[111]=15000
-BASE_FEED[112]=6000;  BASE_FEED[113]=4000;  BASE_FEED[114]=5000
-BASE_FEED[115]=20000; BASE_FEED[116]=10000; BASE_FEED[117]=9000
-
-# 转速基准
-declare -A BASE_SPEED
-BASE_SPEED[109]=2200; BASE_SPEED[110]=1800; BASE_SPEED[111]=2400
-BASE_SPEED[112]=1500; BASE_SPEED[113]=1200; BASE_SPEED[114]=1400
-BASE_SPEED[115]=2800; BASE_SPEED[116]=2000; BASE_SPEED[117]=1900
-
-# ========== 每台设备的内部状态 ==========
-declare -A DEVICE_STATE      # 0=离线 1=待机 2=运行
-declare -A TEMP_DRIFT        # 温度漂移量（缓慢变化）
-declare -A VIB_DRIFT         # 振动漂移量
-declare -A ANOMALY_COUNTER   # 异常计数器（控制偶发尖峰）
-
-for m in "${MACHINES[@]}"; do
-    DEVICE_STATE[$m]=2          # 初始默认运行
-    TEMP_DRIFT[$m]=0
-    VIB_DRIFT[$m]=0
-    ANOMALY_COUNTER[$m]=0
-done
+KAFKA_TOPIC="highfreq_sensor"
+KAFKA_BROKER="master:9092"
 
 echo "============================================"
-echo "  CNC 高频传感器时序数据生成器"
+echo "  CNC 高频传感器时序数据生成器 v2 (高性能)"
 echo "============================================"
-echo "  输出间隔: ${INTERVAL_SEC}秒/条"
-echo "  输出文件: $OUT_FILE (追加模式)"
-echo "  设备数:  ${#MACHINES[@]} 台"
-echo "  字段: machineId, timestamp, temperature,"
-echo "        vibration_x/y/z, spindle_load,"
-echo "        feed_rate, spindle_speed, is_running"
-echo "--------------------------------------------"
+echo "  输出间隔: ${INTERVAL_SEC}秒/轮(9条)"
+echo "  输出文件: $OUT_FILE"
 echo "  启动时间: $(date '+%Y-%m-%d %H:%M:%S')"
 echo "  按 Ctrl+C 可随时停止"
 echo "============================================"
 
 count=0
 
-# 随机浮点数 (1位小数)
-rand_float() {
-    awk -v min="$1" -v max="$2" 'BEGIN{srand(); printf "%.1f", min+rand()*(max-min)}'
-}
-
-# 随机浮点数 (3位小数，用于振动)
-rand_float3() {
-    awk -v min="$1" -v max="$2" 'BEGIN{srand(); printf "%.3f", min+rand()*(max-min)}'
-}
-
-# 随机整数
-rand_int() {
-    awk -v min="$1" -v max="$2" 'BEGIN{printf "%d", int(min+rand()*(max-min+1))}'
-}
-
-# 生成正态分布随机数 (Box-Muller 近似，用于更真实的温度/振动波动)
-# 用法: rand_normal $均值 $标准差
-rand_normal() {
-    local mean=$1 std=$2
-    # 使用 /dev/urandom 生成随机种子，确保每次调用都不同
-    local seed=$(od -An -N4 -tu4 < /dev/urandom 2>/dev/null || echo $RANDOM)
-    awk -v m="$mean" -v s="$std" -v seed="$seed" 'BEGIN{
-        srand(seed);
-        u1=rand(); u2=rand();
-        # Box-Muller 变换
-        z=sqrt(-2*log(u1))*cos(2*3.14159265358979*u2);
-        printf "%.1f", m + s*z
-    }'
-}
-
 # ======== 主循环 ========
 while true; do
 
-    # 轮询所有设备（高频意味着每轮都遍历全部设备）
-    for mid in "${MACHINES[@]}"; do
+    # 获取当前时间戳
+    ts=$(date '+%Y-%m-%d %H:%M:%S')
 
-        ts=$(date '+%Y-%m-%d %H:%M:%S')
+    # ========== 单次 awk 调用，批量生成9台设备的全部数据 ==========
+    # 核心思路: 把所有随机数生成、状态机、漂移、边界检查全部在 awk 内完成
+    # 只输出最终JSON行到 stdout, 再由 shell 写入文件
+    json_block=$(
+    awk '
+    BEGIN {
+        srand()
 
-        # ---- 状态决定：模拟设备状态切换（比低频慢很多）----
-        # 约 30 条数据(~30秒)才可能切换一次状态，保证窗口内数据相对稳定
-        if [ $((RANDOM % 30)) -eq 0 ]; then
-            r=$(( RANDOM % 100 ))
-            if [ $r -lt 55 ]; then
-                DEVICE_STATE[$mid]=2       # 运行 55%
-            elif [ $r -lt 95 ]; then
-                DEVICE_STATE[$mid]=1       # 待机 40%
-            else
-                DEVICE_STATE[$mid]=0       # 离线 5%
-            fi
-        fi
+        # 设备列表
+        split("109 110 111 112 113 114 115 116 117", machines)
 
-        state=${DEVICE_STATE[$mid]}
+        # 各设备基准值
+        base_temp[109]=45; base_temp[110]=42; base_temp[111]=48
+        base_temp[112]=40; base_temp[113]=38; base_temp[114]=41
+        base_temp[115]=50; base_temp[116]=47; base_temp[117]=44
 
-        # ---- 缓慢漂移（模拟真实传感器的温升/磨损趋势）----
-        # 每 100 条左右漂移一点
-        if [ $((RANDOM % 100)) -lt 3 ]; then
-            drift=$(awk 'BEGIN{printf "%.1f", rand()*2-0.5}')  # -0.5 ~ +1.5
-            TEMP_DRIFT[$mid]=$(awk -v v="${TEMP_DRIFT[$mid]}" -v d="$drift" '{
-                nv=v+d; if(nv<-5)nv=-5; if(nv>15)nv=15; printf "%.1f", nv
-            }')
-            vib_drift=$(awk 'BEGIN{printf "%.3f", rand()*0.4-0.1}')
-            VIB_DRIFT[$mid]=$(awk -v v="${VIB_DRIFT[$mid]}" -v d="$vib_drift" '{
-                nv=v+d; if(nv<-0.5)nv=-0.5; if(nv>1.5)nv=1.5; printf "%.3f", nv
-            }')
-        fi
+        base_vib[109]=2.0; base_vib[110]=1.8; base_vib[111]=2.2
+        base_vib[112]=1.5; base_vib[113]=1.2; base_vib[114]=1.4
+        base_vib[115]=2.8; base_vib[116]=2.5; base_vib[117]=1.9
 
-        # ---- 根据状态生成传感器数值 ----
+        base_load[109]=22; base_load[110]=18; base_load[111]=24
+        base_load[112]=16; base_load[113]=10; base_load[114]=12
+        base_load[115]=26; base_load[116]=20; base_load[117]=19
 
-        if [ "$state" -eq 2 ]; then
-            # ====== 运行状态 ======
-            is_running=1
+        base_feed[109]=12000; base_feed[110]=8000;  base_feed[111]=15000
+        base_feed[112]=6000;  base_feed[113]=4000;  base_feed[114]=5000
+        base_feed[115]=20000; base_feed[116]=10000; base_feed[117]=9000
 
-            # 温度: 基准 + 漂移 + 正态噪声 (范围 30~75°C)
-            base_t=${BASE_TEMP[$mid]:-45}
-            temp_drift=${TEMP_DRIFT[$mid]}
-            temperature=$(rand_normal $(awk -v b="$base_t" -v d="$temp_drift" 'BEGIN{printf "%.1f", b+d}') 4.0)
-            # 边界钳制
-            temperature=$(awk -v t="$temperature" 'BEGIN{if(t<25)t=25;if(t>80)t=80;printf "%.1f",t}')
+        base_speed[109]=2200; base_speed[110]=1800; base_speed[111]=2400
+        base_speed[112]=1500; base_speed[113]=1200; base_speed[114]=1400
+        base_speed[115]=2800; base_speed[116]=2000; base_speed[117]=1900
 
-            # 三轴振动: 基准 + 漂移 + 正态噪声 (范围 0.1~6.0 mm/s)
-            base_v=${BASE_VIB[$mid]:-2.0}
-            vib_d=${VIB_DRIFT[$mid]}
-            vib_base=$(awk -v b="$base_v" -v d="$vib_d" 'BEGIN{printf "%.3f", b+d}')
-            vibration_x=$(rand_normal "$vib_base" 0.5)
-            vibration_y=$(rand_normal "$(awk -v v="$vib_base" 'BEGIN{printf "%.3f", v*0.8}')" 0.3)
-            vibration_z=$(rand_normal "$(awk -v v="$vib_base" 'BEGIN{printf "%.3f", v*1.2}')" 0.6)
+        ts = ARGV[1]
+        delete ARGV[1]
 
-            # 振动边界钳制
-            vibration_x=$(awk -v v="$vibration_x" 'BEGIN{if(v<0.05)v=0.05;if(v>8.0)v=8.0;printf "%.3f",v}')
-            vibration_y=$(awk -v v="$vibration_y" 'BEGIN{if(v<0.03)v=0.03;if(v>6.0)v=6.0;printf "%.3f",v}')
-            vibration_z=$(awk -v v="$vibration_z" 'BEGIN{if(v<0.08)v=0.08;if(v>10.0)v=10.0;printf "%.3f",v}')
+        for (i = 1; i <= 9; i++) {
+            mid = machines[i]
 
-            # 主轴负载 / 进给 / 转速 — 运行区间
-            base_l=${BASE_LOAD[$mid]:-20}
-            spindle_load=$(rand_float $((base_l-5)) $((base_l+10)))
-            spindle_load=$(awk -v l="$spindle_load" 'BEGIN{if(l<8)l=8;if(l>32)l=32;printf "%.1f",l}')
+            # --- 状态决定 (~3.3%概率切换) ---
+            if (int(rand() * 30) == 0) {
+                r = int(rand() * 100)
+                if (r < 55) dev_state[mid] = 2       # 运行 55%
+                else if (r < 95) dev_state[mid] = 1   # 待机 40%
+                else dev_state[mid] = 0                 # 离线 5%
+            }
+            if (!(mid in dev_state)) dev_state[mid] = 2
+            state = dev_state[mid]
 
-            base_f=${BASE_FEED[$mid]:-10000}
-            feed_rate=$(rand_int $((base_f-3000)) $((base_f+5000)))
-            feed_rate=$(awk -v f="$feed_rate" 'BEGIN{if(f<200)f=200;if(f>33535)f=33535;printf "%d",f}')
+            # --- 温度漂移 ---
+            if (int(rand() * 100) < 3) {
+                temp_drift[mid] += rand() * 2 - 0.5
+                if (temp_drift[mid] < -5) temp_drift[mid] = -5
+                if (temp_drift[mid] > 15) temp_drift[mid] = 15
+            }
+            if (!(mid in temp_drift)) temp_drift[mid] = 0
 
-            base_s=${BASE_SPEED[$mid]:-2000}
-            spindle_speed=$(rand_int $((base_s-400)) $((base_s+600)))
-            spindle_speed=$(awk -v s="$spindle_speed" 'BEGIN{if(s<500)s=500;if(s>3200)s=3200;printf "%d",s}')
+            if (state == 2) {
+                # ====== 运行状态 ======
+                is_running = 1
+                bt = base_temp[mid] + temp_drift[mid]
+                # 正态近似: 均值bt, 标准差4
+                temperature = bt + (rand() + rand() + rand() - 1.5) * 4.0
+                if (temperature < 25) temperature = 25
+                if (temperature > 80) temperature = 80
 
-        elif [ "$state" -eq 1 ]; then
-            # ====== 待机状态 ======
-            is_running=0
+                bv = base_vib[mid]
+                vibration_x = bv + (rand() + rand() + rand() - 1.5) * 0.5
+                vibration_y = bv * 0.8 + (rand() + rand() + rand() - 1.5) * 0.3
+                vibration_z = bv * 1.2 + (rand() + rand() + rand() - 1.5) * 0.6
+                if (vibration_x < 0.05) vibration_x = 0.05
+                if (vibration_x > 8.0) vibration_x = 8.0
+                if (vibration_y < 0.03) vibration_y = 0.03
+                if (vibration_y > 6.0) vibration_y = 6.0
+                if (vibration_z < 0.08) vibration_z = 0.08
+                if (vibration_z > 10.0) vibration_z = 10.0
 
-            # 温度: 缓慢降低到环境温度附近 (25~38°C)
-            base_t=${BASE_TEMP[$mid]:-45}
-            temperature=$(rand_float 25.0 38.0)
+                bl = base_load[mid]
+                spindle_load = bl - 5 + rand() * (bl + 10 - (bl - 5))
+                if (spindle_load < 8) spindle_load = 8
+                if (spindle_load > 32) spindle_load = 32
 
-            # 振动: 极低 (0.01~0.5 mm/s)
-            vibration_x=$(rand_float3 0.01 0.3)
-            vibration_y=$(rand_float3 0.01 0.2)
-            vibration_z=$(rand_float3 0.02 0.5)
+                bf = base_feed[mid]
+                feed_rate = int(bf - 3000 + rand() * 8000)
+                if (feed_rate < 200) feed_rate = 200
+                if (feed_rate > 33535) feed_rate = 33535
 
-            # 负载/进给/转速: 低区间
-            spindle_load=$(rand_float 1.0 8.0)
-            feed_rate=$(rand_int 35 800)
-            spindle_speed=$(rand_int 144 600)
+                bs = base_speed[mid]
+                spindle_speed = int(bs - 400 + rand() * 1000)
+                if (spindle_speed < 500) spindle_speed = 500
+                if (spindle_speed > 3200) spindle_speed = 3200
 
-        else
-            # ====== 离线状态 ======
-            is_running=0
+            } else if (state == 1) {
+                # ====== 待机状态 ======
+                is_running = 0
+                temperature = 25.0 + rand() * 13.0
+                vibration_x = 0.01 + rand() * 0.29
+                vibration_y = 0.01 + rand() * 0.19
+                vibration_z = 0.02 + rand() * 0.48
+                spindle_load = 1.0 + rand() * 7.0
+                feed_rate = int(35 + rand() * 765)
+                spindle_speed = int(144 + rand() * 456)
 
-            # 全部接近零
-            temperature=$(rand_float 18.0 28.0)
-            vibration_x=$(rand_float3 0.000 0.05)
-            vibration_y=$(rand_float3 0.000 0.04)
-            vibration_z=$(rand_float3 0.000 0.08)
-            spindle_load=$(rand_float 0.0 2.0)
-            feed_rate=0
-            spindle_speed=0
-        fi
+            } else {
+                # ====== 离线状态 ======
+                is_running = 0
+                temperature = 18.0 + rand() * 10.0
+                vibration_x = rand() * 0.05
+                vibration_y = rand() * 0.04
+                vibration_z = rand() * 0.08
+                spindle_load = rand() * 2.0
+                feed_rate = 0
+                spindle_speed = 0
+            }
 
-        # ---- 偶发异常尖峰 (模拟故障前兆, ~3%概率) ----
-        # 用于让 Flink 的方差/峭度/FFT 能检测到异常
-        if [ "$state" -eq 2 ] && [ $((RANDOM % 100)) -lt 3 ]; then
-            anomaly_type=$(( RANDOM % 4 ))
+            # --- 异常尖峰 (运行状态3%概率) ---
+            if (state == 2 && int(rand() * 100) < 3) {
+                atype = int(rand() * 4)
+                if (atype == 0) {
+                    temperature += rand() * 15 + 5
+                } else if (atype == 1) {
+                    vibration_x += rand() * 3 + 1
+                    vibration_z += rand() * 1.5 + 0.5
+                } else if (atype == 2) {
+                    spindle_load += rand() * 8 + 3
+                    if (spindle_load > 32) spindle_load = 32
+                } else {
+                    temperature += rand() * 8 + 2
+                    vibration_x += rand() * 1 + 0.3
+                    spindle_load += rand() * 4 + 1
+                    if (spindle_load > 32) spindle_load = 32
+                }
+            }
 
-            case $anomaly_type in
-                0)  # 温度尖峰
-                    temperature=$(awk -v t="$temperature" 'BEGIN{printf "%.1f", t+rand()*15+5}')
-                    ;;
-                1)  # 振动尖峰(X轴为主)
-                    vibration_x=$(awk -v v="$vibration_x" 'BEGIN{printf "%.3f", v+rand()*3+1}')
-                    vibration_z=$(awk -v v="$vibration_z" 'BEGIN{printf "%.3f", v+rand()*1.5+0.5}')
-                    ;;
-                2)  # 负载尖峰
-                    spindle_load=$(awk -v l="$spindle_load" 'BEGIN{v=l+rand()*8+3; if(v>32)v=32; printf "%.1f",v}')
-                    ;;
-                3)  # 综合轻微异常（多参数同时偏离）
-                    temperature=$(awk -v t="$temperature" 'BEGIN{printf "%.1f", t+rand()*8+2}')
-                    vibration_x=$(awk -v v="$vibration_x" 'BEGIN{printf "%.3f", v+rand()*1+0.3}')
-                    spindle_load=$(awk -v l="$spindle_load" 'BEGIN{v=l+rand()*4+1; if(v>32)v=32; printf "%.1f",v}')
-                    ;;
-            esac
-        fi
+            # --- 最终边界检查 ---
+            if (temperature < 15) temperature = 15
+            if (temperature > 95) temperature = 95
+            if (vibration_x < 0) vibration_x = 0
+            if (vibration_x > 12) vibration_x = 12
+            if (vibration_y < 0) vibration_y = 0
+            if (vibration_y > 10) vibration_y = 10
+            if (vibration_z < 0) vibration_z = 0
+            if (vibration_z > 15) vibration_z = 15
 
-        # ---- 温度二次边界检查（防止尖峰后超限）----
-        temperature=$(awk -v t="$temperature" 'BEGIN{if(t<15)t=15;if(t>95)t=95;printf "%.1f",t}')
-        vibration_x=$(awk -v v="$vibration_x" 'BEGIN{if(v<0)v=0;if(v>12)v=12;printf "%.3f",v}')
-        vibration_y=$(awk -v v="$vibration_y" 'BEGIN{if(v<0)v=0;if(v>10)v=10;printf "%.3f",v}')
-        vibration_z=$(awk -v v="$vibration_z" 'BEGIN{if(v<0)v=0;if(v>15)v=15;printf "%.3f",v}')
+            # --- 输出JSON ---
+            printf "{\"machineId\":%s,\"timestamp\":\"%s\",\"temperature\":%.1f,\"vibration_x\":%.3f,\"vibration_y\":%.3f,\"vibration_z\":%.3f,\"spindle_load\":%.1f,\"feed_rate\":%d,\"spindle_speed\":%d,\"is_running\":%d}\n",
+                mid, ts, temperature, vibration_x, vibration_y, vibration_z,
+                spindle_load, feed_rate, spindle_speed, is_running
+        }
+    }
+    ' "$ts"
+    )
 
-        # ========== 输出 JSON (10个字段) ==========
-        json_line=$(printf '{"machineId":%s,"timestamp":"%s","temperature":%.1f,"vibration_x":%.3f,"vibration_y":%.3f,"vibration_z":%.3f,"spindle_load":%.1f,"feed_rate":%d,"spindle_speed":%d,"is_running":%d}' \
-            "$mid" "$ts" "$temperature" "$vibration_x" "$vibration_y" "$vibration_z" \
-            "$spindle_load" "$feed_rate" "$spindle_speed" "$is_running")
+    # 批量写入本地日志文件 (只做1次I/O!)
+    echo "$json_block" >> "$OUT_FILE"
 
-        # 写入本地日志文件
-        echo "$json_line" >> "$OUT_FILE"
-        
-        # 发送到Kafka
-        echo "$json_line" | kafka-console-producer.sh --broker-list master:9092 --topic highfreq_sensor 2>/dev/null
-        
-        count=$((count + 1))
+    # 统计行数
+    count=$((count + 9))
 
-    done  # end for each machine
-
-    # 每轮(9条)打印一次进度
-    total_this_round=$(( ${#MACHINES[@]} ))
-    if $(( (count % total_this_round) == 0 )) 2>/dev/null; then
-        :
-    fi
-    # 用更简单的方式：每90条(约10轮)打一次
+    # 进度显示
     if [ $((count % 90)) -eq 0 ]; then
         echo "  [$ts] 已输出 ${count} 条高频记录 | 文件: $OUT_FILE"
     fi
+
+    # Kafka 异步发送 (后台, 不阻塞主循环)
+    # 用括号开 subshell 避免变量污染
+    (
+        # 检查 kafka 命令是否存在且 Kafka 是否可用 (快速判断)
+        if command -v kafka-console-producer.sh >/dev/null 2>&1; then
+            echo "$json_block" | timeout 5 kafka-console-producer.sh \
+                --broker-list "$KAFKA_BROKER" \
+                --topic "$KAFKA_TOPIC" \
+                2>/dev/null
+        fi
+    ) &
 
     sleep "$INTERVAL_SEC"
 

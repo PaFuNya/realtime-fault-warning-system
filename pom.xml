@@ -114,11 +114,28 @@
             <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
             <version>1.14.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-api-scala-bridge_${scala.binary.version}</artifactId>
+            <version>1.14.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-planner_${scala.binary.version}</artifactId>
+            <version>1.14.4</version>
+        </dependency>
 
         <!-- Hudi Spark Bundle -->
         <dependency>
             <groupId>org.apache.hudi</groupId>
             <artifactId>hudi-spark3.3-bundle_${scala.binary.version}</artifactId>
+            <version>${hudi.version}</version>
+        </dependency>
+        
+        <!-- Hudi Flink Bundle -->
+        <dependency>
+            <groupId>org.apache.hudi</groupId>
+            <artifactId>hudi-flink1.14-bundle</artifactId>
             <version>${hudi.version}</version>
         </dependency>
 

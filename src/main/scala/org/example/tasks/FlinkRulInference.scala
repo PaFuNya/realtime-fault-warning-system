@@ -2,79 +2,95 @@ package org.example.tasks
 
 import org.apache.flink.api.common.functions.AggregateFunction
 import org.apache.flink.api.common.serialization.SimpleStringSchema
-import org.apache.flink.streaming.api.windowing.assigners.{TumblingEventTimeWindows, TumblingProcessingTimeWindows}
+import org.apache.flink.streaming.api.windowing.assigners.{
+  TumblingEventTimeWindows,
+  TumblingProcessingTimeWindows
+}
 import org.apache.flink.streaming.api.scala._
 import org.apache.flink.streaming.api.windowing.time.Time
-import org.apache.flink.streaming.connectors.kafka.{FlinkKafkaConsumer, FlinkKafkaProducer}
+import org.apache.flink.streaming.connectors.kafka.{
+  FlinkKafkaConsumer,
+  FlinkKafkaProducer
+}
 import org.apache.flink.streaming.connectors.kafka.partitioner.FlinkFixedPartitioner
-import org.apache.flink.streaming.api.functions.co.{CoProcessFunction, BroadcastProcessFunction, KeyedBroadcastProcessFunction}
+import org.apache.flink.streaming.api.functions.co.{
+  CoProcessFunction,
+  BroadcastProcessFunction,
+  KeyedBroadcastProcessFunction
+}
 import org.apache.flink.util.Collector
-import org.apache.flink.api.common.state.{MapStateDescriptor, BroadcastState, ReadOnlyBroadcastState}
+import org.apache.flink.api.common.state.{
+  MapStateDescriptor,
+  BroadcastState,
+  ReadOnlyBroadcastState
+}
 import org.apache.flink.streaming.api.datastream.BroadcastStream
 import org.apache.flink.streaming.api.scala.function.ProcessWindowFunction
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
-import org.apache.flink.api.common.eventtime.{WatermarkStrategy, SerializableTimestampAssigner}
+import org.apache.flink.api.common.eventtime.{
+  WatermarkStrategy,
+  SerializableTimestampAssigner
+}
 import java.time.Duration
 import java.util.Properties
 import com.alibaba.fastjson.JSON
 import scala.collection.mutable
 import org.apache.kafka.clients.producer.ProducerRecord
 
-/**
- * ============================================================
- *  Flink 实时特征计算引擎（Feature Engine + Alarm Translator）
- *
- *  功能：
- *    1. 消费 Kafka 3 个 topic：
- *       - device_state     (状态日志, 低频)
- *       - sensor_metrics   (传感器数据, 低频)
- *       - highfreq_sensor  (高频时序传感器, ~1秒/条) ★新增
- *
- *    2. 高频流 → TumblingWindow(5分钟) 聚合计算 7 个时序特征：
- *       - var_temp         温度方差 (VAR_POP)
- *       - kurtosis_temp    温度峭度 (冲击性检测)
- *       - fft_peak         振动频域峰值 (FFT 主频率能量)
- *       - avg_spindle_load 窗口平均主轴负载
- *       - max_spindle_load 窗口峰值主轴负载
- *       - running_ratio    设备运行占比
- *       - avg_feed_rate    窗口平均进给速度
- *
- *    3. 低频双流 → 按 machineId 关联(CoProcessFunction)，提取 14 个数值特征
- *
- *    4. 合并: 14个低频特征 + 7个高频窗口特征 → 完整 21 特征向量
- *
- *    5. 检测 isAlarm → 查报警字典转译中文 → 发往 Feature_log (给 Ollama/LLM)
- *
- *  数据流拓扑：
- *
- *  device_state (Kafka) ──┐
- *                          ├──► CoProcessFunction ──┐
- *  sensor_metrics (Kafka)─┘                         │
- *                                             14个低频特征
- *                                                   │
- *  highfreq_sensor (Kafka)──► Window(5min) ──────►│
- *                             7个时序特征           ▼
- *                                                  合并+过滤
- *                                                       │
- *                                              有报警？──► Feature_log
- *                                                       │
- *                                              全部? ──► features (Redis/CH)
- *
- *  输出到 Feature_log 的 JSON 格式：
- *    {
- *      "machineId": 109,
- *      ...14个低频字段...,
- *      "var_temp": 12.3,
- *      "kurtosis_temp": 2.8,
- *      "fft_peak": 4.5,
- *      "avg_spindle_load": 22.1,
- *      "max_spindle_load": 31.5,
- *      "running_ratio": 0.85,
- *      "avg_feed_rate": 12500,
- *      "alarmMessage": "OP170 工位：吸盒失败，真空吸盘磨损"
- *    }
- * ============================================================
- */
+/** ============================================================
+  *  Flink 实时特征计算引擎（Feature Engine + Alarm Translator）
+  *
+  *  功能：
+  *    1. 消费 Kafka 3 个 topic：
+  *       - device_state     (状态日志, 低频)
+  *       - sensor_metrics   (传感器数据, 低频)
+  *       - highfreq_sensor  (高频时序传感器, ~1秒/条) ★新增
+  *
+  *    2. 高频流 → TumblingWindow(5分钟) 聚合计算 7 个时序特征：
+  *       - var_temp         温度方差 (VAR_POP)
+  *       - kurtosis_temp    温度峭度 (冲击性检测)
+  *       - fft_peak         振动频域峰值 (FFT 主频率能量)
+  *       - avg_spindle_load 窗口平均主轴负载
+  *       - max_spindle_load 窗口峰值主轴负载
+  *       - running_ratio    设备运行占比
+  *       - avg_feed_rate    窗口平均进给速度
+  *
+  *    3. 低频双流 → 按 machineId 关联(CoProcessFunction)，提取 14 个数值特征
+  *
+  *    4. 合并: 14个低频特征 + 7个高频窗口特征 → 完整 21 特征向量
+  *
+  *    5. 检测 isAlarm → 查报警字典转译中文 → 发往 Feature_log (给 Ollama/LLM)
+  *
+  *  数据流拓扑：
+  *
+  *  device_state (Kafka) ──┐
+  *                          ├──► CoProcessFunction ──┐
+  *  sensor_metrics (Kafka)─┘                         │
+  *                                             14个低频特征
+  *                                                   │
+  *  highfreq_sensor (Kafka)──► Window(5min) ──────►│
+  *                             7个时序特征           ▼
+  *                                                  合并+过滤
+  *                                                       │
+  *                                              有报警？──► Feature_log
+  *                                                       │
+  *                                              全部? ──► features (Redis/CH)
+  *
+  *  输出到 Feature_log 的 JSON 格式：
+  *    {
+  *      "machineId": 109,
+  *      ...14个低频字段...,
+  *      "var_temp": 12.3,
+  *      "kurtosis_temp": 2.8,
+  *      "fft_peak": 4.5,
+  *      "avg_spindle_load": 22.1,
+  *      "max_spindle_load": 31.5,
+  *      "running_ratio": 0.85,
+  *      "avg_feed_rate": 12500,
+  *      "alarmMessage": "OP170 工位：吸盒失败，真空吸盘磨损"
+  *    }
+  * ============================================================
+  */
 object FlinkRulInference {
 
   // ==================== 报警字典（错误码 → 中文描述）====================
@@ -195,6 +211,7 @@ object FlinkRulInference {
   )
 
   // ==================== 数据模型 ====================
+  import org.example.tasks.utils.FeatureUtils
 
   /** 从 device_state topic 解析 */
   case class DeviceState(
@@ -236,9 +253,8 @@ object FlinkRulInference {
       is_running: Int
   )
 
-  /**
-   * 高频窗口聚合累加器 — 在窗口内逐步累积统计量
-   */
+  /** 高频窗口聚合累加器 — 在窗口内逐步累积统计量
+    */
   class HighFreqAccumulator(
       var count: Long,
       var sumTemp: Double,
@@ -252,27 +268,25 @@ object FlinkRulInference {
       var maxVibX: Double,
       var vibXSumSq: Double
   ) {
-    def this() = this(0L, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MinValue, 0.0, 0L, 0.0, 0.0)
+    def this() =
+      this(0L, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MinValue, 0.0, 0L, 0.0, 0.0)
   }
 
-  /**
-   * 窗口聚合结果 — 7 个时序特征
-   */
+  /** 窗口聚合结果 — 7 个时序特征
+    */
   case class TimeSeriesFeatures(
       machineId: Int,
-      var_temp: Double,           // 温度方差
-      kurtosis_temp: Double,      // 温度峭度 (>3=尖峰, <3=平坦)
-      fft_peak: Double,           // 振动频域峰值能量
-      avg_spindle_load: Double,   // 窗口平均主轴负载
-      max_spindle_load: Double,   // 窗口峰值主轴负载
-      running_ratio: Double,      // 运行占比 [0~1]
-      avg_feed_rate: Double       // 窗口平均进给速度
+      var_temp: Double, // 温度方差
+      kurtosis_temp: Double, // 温度峭度 (>3=尖峰, <3=平坦)
+      fft_peak: Double, // 振动频域峰值能量
+      avg_spindle_load: Double, // 窗口平均主轴负载
+      max_spindle_load: Double, // 窗口峰值主轴负载
+      running_ratio: Double, // 运行占比 [0~1]
+      avg_feed_rate: Double // 窗口平均进给速度
   )
 
-  /**
-   * 最终输出到 Feature_log 的完整报警记录
-   * 包含 14个低频特征 + 7个高频时序特征 + alarmMessage = 22 字段
-   */
+  /** 最终输出到 Feature_log 的完整报警记录 包含 14个低频特征 + 7个高频时序特征 + alarmMessage = 22 字段
+    */
   case class AlarmRecord(
       machineId: Int,
       duration_seconds: Double,
@@ -302,110 +316,33 @@ object FlinkRulInference {
 
   // ==================== 高频窗口聚合函数 ====================
 
-  /**
-   * 自定义 AggregateFunction: 在 3 分钟滚动窗口内
-   * 逐步计算 7 个时序特征的统计量
-   */
-  class HighFreqAggregator extends AggregateFunction[HighFreqSensor, HighFreqAccumulator, TimeSeriesFeatures] {
+  // <-----------HighFreqAggregator特征计算-------------->
+  /** 自定义 AggregateFunction: 在 3 分钟滚动窗口内 逐步计算 7 个时序特征的统计量
+    */
+  class HighFreqAggregator
+      extends AggregateFunction[
+        HighFreqSensor,
+        HighFreqAccumulator,
+        TimeSeriesFeatures
+      ] {
 
-    override def createAccumulator(): HighFreqAccumulator = new HighFreqAccumulator()
+    override def createAccumulator(): HighFreqAccumulator =
+      new HighFreqAccumulator()
 
-    override def add(value: HighFreqSensor, acc: HighFreqAccumulator): HighFreqAccumulator = {
-      acc.count += 1
-      val t = value.temperature
-      acc.sumTemp += t
-      acc.sumTempSq += t * t
-      acc.sumTempCubic += t * t * t
-      acc.sumTempQuad += t * t * t * t
+    override def add(
+        value: HighFreqSensor,
+        acc: HighFreqAccumulator
+    ): HighFreqAccumulator = FeatureUtils.accumulateFeatures(value, acc)
 
-      val sl = value.spindle_load
-      acc.sumLoad += sl
-      if (sl > acc.maxLoad) acc.maxLoad = sl
+    override def merge(
+        a: HighFreqAccumulator,
+        b: HighFreqAccumulator
+    ): HighFreqAccumulator = FeatureUtils.mergeAccumulators(a, b)
 
-      acc.sumFeedRate += value.feed_rate.toDouble
-
-      if (value.is_running == 1) acc.runningCount += 1
-
-      // 振动 FFT 代理指标
-      val vx = math.abs(value.vibration_x)
-      if (vx > acc.maxVibX) acc.maxVibX = vx
-      acc.vibXSumSq += vx * vx
-      acc
-    }
-
-    override def merge(a: HighFreqAccumulator, b: HighFreqAccumulator): HighFreqAccumulator = {
-      a.count += b.count
-      a.sumTemp += b.sumTemp
-      a.sumTempSq += b.sumTempSq
-      a.sumTempCubic += b.sumTempCubic
-      a.sumTempQuad += b.sumTempQuad
-      a.sumLoad += b.sumLoad
-      a.maxLoad = math.max(a.maxLoad, b.maxLoad)
-      a.sumFeedRate += b.sumFeedRate
-      a.runningCount += b.runningCount
-      a.maxVibX = math.max(a.maxVibX, b.maxVibX)
-      a.vibXSumSq += b.vibXSumSq
-      a
-    }
-
-    override def getResult(acc: HighFreqAccumulator): TimeSeriesFeatures = {
-      val n = acc.count.toDouble
-      if (n == 0) {
-        return TimeSeriesFeatures(0, 0, 0, 0, 0, 0, 0, 0)
-      }
-
-      // ---- 1. var_temp: 总体方差 (Population Variance) ----
-      // VAR = E[X²] - (E[X])²
-      val meanTemp = acc.sumTemp / n
-      val meanTempSq = acc.sumTempSq / n
-      val variance = meanTempSq - meanTemp * meanTemp
-
-      // ---- 2. kurtosis_temp: 峰度 ( excess kurtosis ) ----
-      // 公式: μ₄/σ⁴ - 3  (超额峰度，正态分布=0, >0=尖峰, <0=平坦)
-      val std2 = variance
-      val kurtosis = if (std2 > 1e-9) {
-        val mean4 = acc.sumTempQuad / n
-        val meanCubed = acc.sumTempCubic / n
-        // 使用标准峰度公式: E[(X-μ)⁴] / σ⁴ - 3
-        // 展开后: (μ₄ - 4μ³μ + 6μ²σ² + 3μ⁴) / σ⁴ - 3
-        // 简化版近似:
-        val central4th = mean4 - 4.0 * meanCubed * meanTemp +
-                         6.0 * meanTempSq * meanTemp * meanTemp -
-                         3.0 * math.pow(meanTemp, 4)
-        central4th / (std2 * std2) - 3.0
-      } else 0.0
-
-      // ---- 3. fft_peak: 振动频域峰值 (代理指标) ----
-      // 用 X轴振动的 RMS + 峰值因子 近似 FFT 主频率能量
-      val vibRms = math.sqrt(acc.vibXSumSq / n)
-      val peakFactor = if (vibRms > 1e-6) acc.maxVibX / vibRms else 0.0
-      // fft_peak = RMS * peakFactor 作为综合频域能量指标
-      val fftPeak = vibRms * peakFactor
-
-      // ---- 4. avg_spindle_load ----
-      val avgLoad = acc.sumLoad / n
-
-      // ---- 5. max_spindle_load ----
-      val maxLoad = acc.maxLoad
-
-      // ---- 6. running_ratio ----
-      val runRatio = acc.runningCount / n
-
-      // ---- 7. avg_feed_rate ----
-      val avgFeed = acc.sumFeedRate / n
-
-      TimeSeriesFeatures(
-        machineId = 0,  // 由上游 keyBy 传入，这里填0，后续从key获取
-        var_temp = math.round(variance * 100.0) / 100.0,
-        kurtosis_temp = math.round(kurtosis * 100.0) / 100.0,
-        fft_peak = math.round(fftPeak * 1000.0) / 1000.0,
-        avg_spindle_load = math.round(avgLoad * 10.0) / 10.0,
-        max_spindle_load = math.round(maxLoad * 10.0) / 10.0,
-        running_ratio = math.round(runRatio * 10000.0) / 10000.0,
-        avg_feed_rate = math.round(avgFeed)
-      )
-    }
+    override def getResult(acc: HighFreqAccumulator): TimeSeriesFeatures =
+      FeatureUtils.calculateTimeSeriesFeatures(acc)
   }
+  // <-----------HighFreqAggregator特征计算结束-------------->
 
   // ==================== 主函数 ====================
 
@@ -415,7 +352,10 @@ object FlinkRulInference {
 
     // ---------- Kafka 配置 ----------
     val kafkaProps = new Properties()
-    kafkaProps.setProperty("bootstrap.servers", AppConfig.getString("kafka.bootstrap.servers", "master:9092"))
+    kafkaProps.setProperty(
+      "bootstrap.servers",
+      AppConfig.getString("kafka.bootstrap.servers", "master:9092")
+    )
     kafkaProps.setProperty("group.id", "flink-feature-engine-group")
 
     println("=" * 70)
@@ -429,14 +369,19 @@ object FlinkRulInference {
     println(s">>> [1/3] 订阅 Kafka topic: device_state")
 
     val stateConsumer = new FlinkKafkaConsumer[String](
-      "device_state", new SimpleStringSchema(), kafkaProps
+      "device_state",
+      new SimpleStringSchema(),
+      kafkaProps
     )
     stateConsumer.setStartFromLatest()
 
     val stateStream = env
-      .addSource(stateConsumer).name("Kafka-DeviceState")
-      .map(parseDeviceState _).name("Parse-DeviceState")
-      .filter(_.isDefined).map(_.get)
+      .addSource(stateConsumer)
+      .name("Kafka-DeviceState")
+      .map(parseDeviceState _)
+      .name("Parse-DeviceState")
+      .filter(_.isDefined)
+      .map(_.get)
 
     // ================================================================
     //  流 2: sensor_metrics (传感器数据)
@@ -444,14 +389,19 @@ object FlinkRulInference {
     println(s">>> [2/3] 订阅 Kafka topic: sensor_metrics")
 
     val metricsConsumer = new FlinkKafkaConsumer[String](
-      "sensor_metrics", new SimpleStringSchema(), kafkaProps
+      "sensor_metrics",
+      new SimpleStringSchema(),
+      kafkaProps
     )
     metricsConsumer.setStartFromLatest()
 
     val metricsStream = env
-      .addSource(metricsConsumer).name("Kafka-SensorMetrics")
-      .map(parseSensorMetrics _).name("Parse-SensorMetrics")
-      .filter(_.isDefined).map(_.get)
+      .addSource(metricsConsumer)
+      .name("Kafka-SensorMetrics")
+      .map(parseSensorMetrics _)
+      .name("Parse-SensorMetrics")
+      .filter(_.isDefined)
+      .map(_.get)
 
     // ================================================================
     //  流 3: highfreq_sensor (高频时序传感器) ★ 新增 ★
@@ -459,16 +409,20 @@ object FlinkRulInference {
     println(s">>> [3/3] 订阅 Kafka topic: highfreq_sensor (高频)")
 
     val highFreqConsumer = new FlinkKafkaConsumer[String](
-      "highfreq_sensor", new SimpleStringSchema(), kafkaProps
+      "highfreq_sensor",
+      new SimpleStringSchema(),
+      kafkaProps
     )
     highFreqConsumer.setStartFromLatest()
 
     val highFreqStream = env
-      .addSource(highFreqConsumer).name("Kafka-HighFreqSensor")
+      .addSource(highFreqConsumer)
+      .name("Kafka-HighFreqSensor")
       .map { jsonStr =>
         println(s"[高频原始数据] $jsonStr")
         parseHighFreqSensor(jsonStr)
-      }.name("Parse-HighFreqSensor")
+      }
+      .name("Parse-HighFreqSensor")
       .filter { opt =>
         if (opt.isDefined) {
           println(s"[高频解析成功] 设备${opt.get.machineId}")
@@ -481,14 +435,17 @@ object FlinkRulInference {
       .map(_.get)
       // 添加调试：打印高频数据流入
       .map { h =>
-        println(s"[高频数据] 设备${h.machineId} 时间:${h.timestamp} 温度:${h.temperature} 负载:${h.spindle_load}")
+        println(
+          s"[高频数据] 设备${h.machineId} 时间:${h.timestamp} 温度:${h.temperature} 负载:${h.spindle_load}"
+        )
         h
-      }.name("Debug-HighFreqInput")
+      }
+      .name("Debug-HighFreqInput")
 
     // ================================================================
     //  分支 A: 高频流 → 3分钟TumblingWindow → 聚合 7 个时序特征 → Broadcast
     // ================================================================
-    val windowSize = Time.minutes(1)
+    val windowSize = Time.minutes(3)
 
     // 使用 AggregateFunction + ProcessWindowFunction 组合，获取 key 并设置 machineId
     // 使用处理时间窗口（Processing Time），避免事件时间延迟问题
@@ -497,7 +454,12 @@ object FlinkRulInference {
       .window(TumblingProcessingTimeWindows.of(windowSize))
       .aggregate(
         new HighFreqAggregator,
-        new ProcessWindowFunction[TimeSeriesFeatures, TimeSeriesFeatures, Int, TimeWindow] {
+        new ProcessWindowFunction[
+          TimeSeriesFeatures,
+          TimeSeriesFeatures,
+          Int,
+          TimeWindow
+        ] {
           override def process(
               key: Int,
               context: Context,
@@ -506,7 +468,9 @@ object FlinkRulInference {
           ): Unit = {
             elements.foreach { f =>
               val result = f.copy(machineId = key)
-              println(s"[高频窗口] 设备$key 窗口聚合完成: var_temp=${result.var_temp}, fft_peak=${result.fft_peak}, avg_load=${result.avg_spindle_load}")
+              println(
+                s"[高频窗口] 设备$key 窗口聚合完成: var_temp=${result.var_temp}, fft_peak=${result.fft_peak}, avg_load=${result.avg_spindle_load}"
+              )
               out.collect(result)
             }
           }
@@ -515,15 +479,17 @@ object FlinkRulInference {
       .name("Window-Aggregate-TimeSeriesFeatures")
 
     // 创建 Broadcast State Descriptor
-    val highFreqStateDescriptor = new MapStateDescriptor[Int, TimeSeriesFeatures](
-      "highFreqFeatures",
-      classOf[Int],
-      classOf[TimeSeriesFeatures]
-    )
+    val highFreqStateDescriptor =
+      new MapStateDescriptor[Int, TimeSeriesFeatures](
+        "highFreqFeatures",
+        classOf[Int],
+        classOf[TimeSeriesFeatures]
+      )
 
     // 将高频窗口结果转为 Broadcast Stream
-    val highFreqBroadcast: BroadcastStream[TimeSeriesFeatures] = timeSeriesFeatureStream
-      .broadcast(highFreqStateDescriptor)
+    val highFreqBroadcast: BroadcastStream[TimeSeriesFeatures] =
+      timeSeriesFeatureStream
+        .broadcast(highFreqStateDescriptor)
 
     // ================================================================
     //  分支 B: 低频双流 → CoProcessFunction 关联
@@ -549,14 +515,22 @@ object FlinkRulInference {
     println(s">>> [输出] 将报警数据写入 Kafka topic: Feature_log")
 
     val producerProps = new Properties()
-    producerProps.setProperty("bootstrap.servers", kafkaProps.getProperty("bootstrap.servers"))
+    producerProps.setProperty(
+      "bootstrap.servers",
+      kafkaProps.getProperty("bootstrap.servers")
+    )
     producerProps.setProperty("transaction.timeout.ms", "60000")
 
     // 使用 KafkaSerializationSchema 包装 SimpleStringSchema (兼容 Flink 1.x)
     val warningSink = new FlinkKafkaProducer[String](
       "Feature_log",
-      new org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema[String]() {
-        override def serialize(element: String, timestamp: java.lang.Long): ProducerRecord[Array[Byte], Array[Byte]] = {
+      new org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema[
+        String
+      ]() {
+        override def serialize(
+            element: String,
+            timestamp: java.lang.Long
+        ): ProducerRecord[Array[Byte], Array[Byte]] = {
           new ProducerRecord("Feature_log", element.getBytes("UTF-8"))
         }
       },
@@ -575,27 +549,27 @@ object FlinkRulInference {
         val alarmMsg = if (hasAlarm) r.alarmMessage else ""
         // 手动构建 JSON (解决 Scala case class + fastjson 序列化为空 {} 的问题)
         s"""{"machineId":${r.machineId},""" +
-        s""""duration_seconds":${r.duration_seconds},""" +
-        s""""is_running":${r.is_running},""" +
-        s""""is_standby":${r.is_standby},""" +
-        s""""is_offline":${r.is_offline},""" +
-        s""""cutting_time":${r.cutting_time},""" +
-        s""""cycle_time":${r.cycle_time},""" +
-        s""""total_parts":${r.total_parts},""" +
-        s""""spindle_load":${r.spindle_load},""" +
-        s""""cumulative_runtime":${r.cumulative_runtime},""" +
-        s""""cumulative_parts":${r.cumulative_parts},""" +
-        s""""cumulative_alarms":${r.cumulative_alarms},""" +
-        s""""avg_spindle_load_10":${r.avg_spindle_load_10},""" +
-        s""""avg_cutting_time_10":${r.avg_cutting_time_10},""" +
-        s""""var_temp":${r.var_temp},""" +
-        s""""kurtosis_temp":${r.kurtosis_temp},""" +
-        s""""fft_peak":${r.fft_peak},""" +
-        s""""avg_spindle_load_win":${r.avg_spindle_load_win},""" +
-        s""""max_spindle_load_win":${r.max_spindle_load_win},""" +
-        s""""running_ratio":${r.running_ratio},""" +
-        s""""avg_feed_rate":${r.avg_feed_rate},""" +
-        s""""alarmMessage":"${escapeJson(alarmMsg)}"}"""
+          s""""duration_seconds":${r.duration_seconds},""" +
+          s""""is_running":${r.is_running},""" +
+          s""""is_standby":${r.is_standby},""" +
+          s""""is_offline":${r.is_offline},""" +
+          s""""cutting_time":${r.cutting_time},""" +
+          s""""cycle_time":${r.cycle_time},""" +
+          s""""total_parts":${r.total_parts},""" +
+          s""""spindle_load":${r.spindle_load},""" +
+          s""""cumulative_runtime":${r.cumulative_runtime},""" +
+          s""""cumulative_parts":${r.cumulative_parts},""" +
+          s""""cumulative_alarms":${r.cumulative_alarms},""" +
+          s""""avg_spindle_load_10":${r.avg_spindle_load_10},""" +
+          s""""avg_cutting_time_10":${r.avg_cutting_time_10},""" +
+          s""""var_temp":${r.var_temp},""" +
+          s""""kurtosis_temp":${r.kurtosis_temp},""" +
+          s""""fft_peak":${r.fft_peak},""" +
+          s""""avg_spindle_load_win":${r.avg_spindle_load_win},""" +
+          s""""max_spindle_load_win":${r.max_spindle_load_win},""" +
+          s""""running_ratio":${r.running_ratio},""" +
+          s""""avg_feed_rate":${r.avg_feed_rate},""" +
+          s""""alarmMessage":"${escapeJson(alarmMsg)}"}"""
       }
       .addSink(warningSink)
       .name("Kafka-Sink-AllFeatures")
@@ -603,7 +577,10 @@ object FlinkRulInference {
     // 同时打印高频特征流（调试用）
     timeSeriesFeatureStream.name("HighFreqFeatures").print()
 
-    mergedStream.filter(r => r.alarmMessage != null && r.alarmMessage.nonEmpty).name("AlarmOutput").print()
+    mergedStream
+      .filter(r => r.alarmMessage != null && r.alarmMessage.nonEmpty)
+      .name("AlarmOutput")
+      .print()
 
     // ---------- 启动信息 ----------
     println("-" * 70)
@@ -635,24 +612,26 @@ object FlinkRulInference {
   private def escapeJson(s: String): String = {
     if (s == null) return ""
     s.replace("\\", "\\\\")
-     .replace("\"", "\\\"")
-     .replace("\n", "\\n")
-     .replace("\r", "\\r")
-     .replace("\t", "\\t")
+      .replace("\"", "\\\"")
+      .replace("\n", "\\n")
+      .replace("\r", "\\r")
+      .replace("\t", "\\t")
   }
 
   private def parseDeviceState(jsonStr: String): Option[DeviceState] = {
     try {
       val obj = JSON.parseObject(jsonStr)
-      Some(DeviceState(
-        machineId = obj.getIntValue("machineId"),
-        duration_seconds = obj.getDoubleValue("duration_seconds"),
-        is_running = obj.getIntValue("is_running"),
-        is_standby = obj.getIntValue("is_standby"),
-        is_offline = obj.getIntValue("is_offline"),
-        isAlarm = Option(obj.getString("isAlarm")).getOrElse(""),
-        cumulative_alarms = obj.getIntValue("cumulative_alarms")
-      ))
+      Some(
+        DeviceState(
+          machineId = obj.getIntValue("machineId"),
+          duration_seconds = obj.getDoubleValue("duration_seconds"),
+          is_running = obj.getIntValue("is_running"),
+          is_standby = obj.getIntValue("is_standby"),
+          is_offline = obj.getIntValue("is_offline"),
+          isAlarm = Option(obj.getString("isAlarm")).getOrElse(""),
+          cumulative_alarms = obj.getIntValue("cumulative_alarms")
+        )
+      )
     } catch {
       case e: Exception =>
         println(s"[警告] device_state JSON 解析失败: ${e.getMessage}")
@@ -663,19 +642,21 @@ object FlinkRulInference {
   private def parseSensorMetrics(jsonStr: String): Option[SensorMetrics] = {
     try {
       val obj = JSON.parseObject(jsonStr)
-      Some(SensorMetrics(
-        machineId = obj.getIntValue("machineId"),
-        cutting_time = obj.getDoubleValue("cutting_time"),
-        cycle_time = obj.getDoubleValue("cycle_time"),
-        spindle_load = obj.getDoubleValue("spindle_load"),
-        feed_rate = obj.getIntValue("feed_rate"),
-        spindle_speed = obj.getIntValue("spindle_speed"),
-        total_parts = obj.getIntValue("total_parts"),
-        cumulative_runtime = obj.getDoubleValue("cumulative_runtime"),
-        cumulative_parts = obj.getIntValue("cumulative_parts"),
-        avg_spindle_load_10 = obj.getDoubleValue("avg_spindle_load_10"),
-        avg_cutting_time_10 = obj.getDoubleValue("avg_cutting_time_10")
-      ))
+      Some(
+        SensorMetrics(
+          machineId = obj.getIntValue("machineId"),
+          cutting_time = obj.getDoubleValue("cutting_time"),
+          cycle_time = obj.getDoubleValue("cycle_time"),
+          spindle_load = obj.getDoubleValue("spindle_load"),
+          feed_rate = obj.getIntValue("feed_rate"),
+          spindle_speed = obj.getIntValue("spindle_speed"),
+          total_parts = obj.getIntValue("total_parts"),
+          cumulative_runtime = obj.getDoubleValue("cumulative_runtime"),
+          cumulative_parts = obj.getIntValue("cumulative_parts"),
+          avg_spindle_load_10 = obj.getDoubleValue("avg_spindle_load_10"),
+          avg_cutting_time_10 = obj.getDoubleValue("avg_cutting_time_10")
+        )
+      )
     } catch {
       case e: Exception =>
         println(s"[警告] sensor_metrics JSON 解析失败: ${e.getMessage}")
@@ -686,18 +667,20 @@ object FlinkRulInference {
   private def parseHighFreqSensor(jsonStr: String): Option[HighFreqSensor] = {
     try {
       val obj = JSON.parseObject(jsonStr)
-      Some(HighFreqSensor(
-        machineId = obj.getIntValue("machineId"),
-        timestamp = obj.getString("timestamp"),
-        temperature = obj.getDoubleValue("temperature"),
-        vibration_x = obj.getDoubleValue("vibration_x"),
-        vibration_y = obj.getDoubleValue("vibration_y"),
-        vibration_z = obj.getDoubleValue("vibration_z"),
-        spindle_load = obj.getDoubleValue("spindle_load"),
-        feed_rate = obj.getIntValue("feed_rate"),
-        spindle_speed = obj.getIntValue("spindle_speed"),
-        is_running = obj.getIntValue("is_running")
-      ))
+      Some(
+        HighFreqSensor(
+          machineId = obj.getIntValue("machineId"),
+          timestamp = obj.getString("timestamp"),
+          temperature = obj.getDoubleValue("temperature"),
+          vibration_x = obj.getDoubleValue("vibration_x"),
+          vibration_y = obj.getDoubleValue("vibration_y"),
+          vibration_z = obj.getDoubleValue("vibration_z"),
+          spindle_load = obj.getDoubleValue("spindle_load"),
+          feed_rate = obj.getIntValue("feed_rate"),
+          spindle_speed = obj.getIntValue("spindle_speed"),
+          is_running = obj.getIntValue("is_running")
+        )
+      )
     } catch {
       case e: Exception =>
         println(s"[警告] highfreq_sensor JSON 解析失败: ${e.getMessage}")
@@ -711,7 +694,8 @@ object FlinkRulInference {
       extends CoProcessFunction[DeviceState, SensorMetrics, AlarmRecord] {
 
     private val stateBuffer: mutable.Map[Int, DeviceState] = mutable.Map.empty
-    private val metricsBuffer: mutable.Map[Int, SensorMetrics] = mutable.Map.empty
+    private val metricsBuffer: mutable.Map[Int, SensorMetrics] =
+      mutable.Map.empty
 
     override def processElement1(
         state: DeviceState,
@@ -779,7 +763,7 @@ object FlinkRulInference {
       )
 
       out.collect(record)
-      
+
       if (hasAlarm) {
         println(s"[报警] 设备${record.machineId} => ${record.alarmMessage}")
       } else {
@@ -789,38 +773,41 @@ object FlinkRulInference {
   }
 
   // ==================== 三流合并：低频结果 + Broadcast 高频特征 ====================
-
-  /**
-   * 使用 Broadcast State 合并低频报警记录与高频窗口特征
-   * 当高频窗口有新结果时，Broadcast 给所有并行实例更新状态
-   * 当低频记录到达时，从 Broadcast State 查询对应 machineId 的高频特征
-   */
+  // <-----------Broadcast State合并-------------->
+  /** 使用 Broadcast State 合并低频报警记录与高频窗口特征 当高频窗口有新结果时，Broadcast 给所有并行实例更新状态
+    * 当低频记录到达时，从 Broadcast State 查询对应 machineId 的高频特征
+    */
   class MergeHighFreqFunction(
       highFreqStateDescriptor: MapStateDescriptor[Int, TimeSeriesFeatures]
-  ) extends KeyedBroadcastProcessFunction[Int, AlarmRecord, TimeSeriesFeatures, AlarmRecord] {
+  ) extends KeyedBroadcastProcessFunction[
+        Int,
+        AlarmRecord,
+        TimeSeriesFeatures,
+        AlarmRecord
+      ] {
 
     override def processElement(
         record: AlarmRecord,
-        ctx: KeyedBroadcastProcessFunction[Int, AlarmRecord, TimeSeriesFeatures, AlarmRecord]#ReadOnlyContext,
+        ctx: KeyedBroadcastProcessFunction[
+          Int,
+          AlarmRecord,
+          TimeSeriesFeatures,
+          AlarmRecord
+        ]#ReadOnlyContext,
         out: Collector[AlarmRecord]
     ): Unit = {
       // 从 Broadcast State 读取对应 machineId 的高频特征
-      val highFreqState: ReadOnlyBroadcastState[Int, TimeSeriesFeatures] = ctx.getBroadcastState(highFreqStateDescriptor)
+      val highFreqState: ReadOnlyBroadcastState[Int, TimeSeriesFeatures] =
+        ctx.getBroadcastState(highFreqStateDescriptor)
 
       val features = highFreqState.get(record.machineId)
 
       val mergedRecord = if (features != null) {
         // 使用高频窗口特征填充
-        println(s"[合并] 设备${record.machineId} 找到高频特征: fft_peak=${features.fft_peak}, avg_load=${features.avg_spindle_load}")
-        record.copy(
-          var_temp = features.var_temp,
-          kurtosis_temp = features.kurtosis_temp,
-          fft_peak = features.fft_peak,
-          avg_spindle_load_win = features.avg_spindle_load,
-          max_spindle_load_win = features.max_spindle_load,
-          running_ratio = features.running_ratio,
-          avg_feed_rate = features.avg_feed_rate
+        println(
+          s"[合并] 设备${record.machineId} 找到高频特征: fft_peak=${features.fft_peak}, avg_load=${features.avg_spindle_load}"
         )
+        FeatureUtils.fillAlarmRecordWithFeatures(record, features)
       } else {
         // 还没有高频特征数据，保持原值（0.0）
         println(s"[合并] 设备${record.machineId} 未找到高频特征，使用默认值0.0")
@@ -832,14 +819,22 @@ object FlinkRulInference {
 
     override def processBroadcastElement(
         features: TimeSeriesFeatures,
-        ctx: KeyedBroadcastProcessFunction[Int, AlarmRecord, TimeSeriesFeatures, AlarmRecord]#Context,
+        ctx: KeyedBroadcastProcessFunction[
+          Int,
+          AlarmRecord,
+          TimeSeriesFeatures,
+          AlarmRecord
+        ]#Context,
         out: Collector[AlarmRecord]
     ): Unit = {
       // 更新 Broadcast State
-      val highFreqState: BroadcastState[Int, TimeSeriesFeatures] = ctx.getBroadcastState(highFreqStateDescriptor)
+      val highFreqState: BroadcastState[Int, TimeSeriesFeatures] =
+        ctx.getBroadcastState(highFreqStateDescriptor)
       highFreqState.put(features.machineId, features)
-      println(s"[高频窗口] 设备${features.machineId} 窗口特征已更新: var_temp=${features.var_temp}, fft_peak=${features.fft_peak}")
+      println(
+        s"[高频窗口] 设备${features.machineId} 窗口特征已更新: var_temp=${features.var_temp}, fft_peak=${features.fft_peak}"
+      )
     }
   }
-
+  // <-----------Broadcast State合并结束-------------->
 }
