@@ -14,25 +14,22 @@ object FeatureUtils {
       value: HighFreqSensor,
       acc: HighFreqAccumulator
   ): HighFreqAccumulator = {
-    acc.count += 1
-    val t = value.temperature
-    acc.sumTemp += t
-    acc.sumTempSq += t * t
-    acc.sumTempCubic += t * t * t
-    acc.sumTempQuad += t * t * t * t
+    acc.count+=1
+    val t=value.temperature
+    acc.sumTemp+=t
+    acc.sumTempSq+=t*t
+    acc.sumTempCubic+=t*t*t
+    acc.sumTempQuad+=t*t*t*t
 
-    val sl = value.spindle_load
-    acc.sumLoad += sl
-    if (sl > acc.maxLoad) acc.maxLoad = sl
+    val sl=value.spindle_load
+    acc.sumLoad+=sl
+    if(sl>acc.maxLoad) acc.maxLoad=sl
+    acc.sumFeedRate+=value.feed_rate.toDouble
+    if(value.is_running==1) acc.runningCount+=1
 
-    acc.sumFeedRate += value.feed_rate.toDouble
-
-    if (value.is_running == 1) acc.runningCount += 1
-
-    // 振动 FFT 代理指标
-    val vx = math.abs(value.vibration_x)
-    if (vx > acc.maxVibX) acc.maxVibX = vx
-    acc.vibXSumSq += vx * vx
+    val vx=math.abs(value.vibration_x)
+    if(vx>acc.maxVibX) acc.maxVibX=vx
+    acc.vibXSumSq+=vx*vx
     acc
   }
 
@@ -42,17 +39,17 @@ object FeatureUtils {
       a: HighFreqAccumulator,
       b: HighFreqAccumulator
   ): HighFreqAccumulator = {
-    a.count += b.count
-    a.sumTemp += b.sumTemp
-    a.sumTempSq += b.sumTempSq
-    a.sumTempCubic += b.sumTempCubic
-    a.sumTempQuad += b.sumTempQuad
-    a.sumLoad += b.sumLoad
-    a.maxLoad = math.max(a.maxLoad, b.maxLoad)
-    a.sumFeedRate += b.sumFeedRate
-    a.runningCount += b.runningCount
-    a.maxVibX = math.max(a.maxVibX, b.maxVibX)
-    a.vibXSumSq += b.vibXSumSq
+    a.count+=b.count
+    a.sumTemp+=b.sumTemp
+    a.sumTempSq+=b.sumTempSq
+    a.sumTempCubic+=b.sumTempCubic
+    a.sumTempQuad+=b.sumTempQuad
+    a.sumLoad+=b.sumLoad
+    a.maxLoad=math.max(a.maxLoad,b.maxLoad)
+    a.sumFeedRate+=b.sumFeedRate
+    a.runningCount+=b.runningCount
+    a.maxVibX=math.max(a.maxVibX,b.maxVibX)
+    a.vibXSumSq+=b.vibXSumSq
     a
   }
 
@@ -61,44 +58,29 @@ object FeatureUtils {
   def calculateTimeSeriesFeatures(
       acc: HighFreqAccumulator
   ): TimeSeriesFeatures = {
-    val n = acc.count.toDouble
-    if (n == 0) {
-      return TimeSeriesFeatures(0, 0, 0, 0, 0, 0, 0, 0)
+    val n=acc.count.toDouble
+    if(n==0){
+      return TimeSeriesFeatures(0,0,0,0,0,0,0,0)
     }
+    val meanTemp=acc.sumTemp /n
+    val meanTempSq=acc.sumTempSq /n
+    val variance=meanTempSq - meanTemp *meanTemp
 
-    // ---- 1. var_temp: 总体方差 (Population Variance) ----
-    val meanTemp = acc.sumTemp / n
-    val meanTempSq = acc.sumTempSq / n
-    val variance = meanTempSq - meanTemp * meanTemp
+    val std2=variance
+    val kurtosis=if(std2>1e-9){
+      val mean4=acc.sumTempQuad /n
+      val meanCubed=acc.sumTempCubic /n
+      val central4th =mean4-4.0*meanCubed*meanTemp + 6.0 *meanTempSq * meanTemp *meanTemp-3.0 *math.pow(meanTemp,4)
+      central4th /(std2*std2)-3.0
+    }else 0.0
 
-    // ---- 2. kurtosis_temp: 峰度 ( excess kurtosis ) ----
-    val std2 = variance
-    val kurtosis = if (std2 > 1e-9) {
-      val mean4 = acc.sumTempQuad / n
-      val meanCubed = acc.sumTempCubic / n
-      val central4th = mean4 - 4.0 * meanCubed * meanTemp +
-        6.0 * meanTempSq * meanTemp * meanTemp -
-        3.0 * math.pow(meanTemp, 4)
-      central4th / (std2 * std2) - 3.0
-    } else 0.0
-
-    // ---- 3. fft_peak: 振动频域峰值 (代理指标) ----
-    val vibRms = math.sqrt(acc.vibXSumSq / n)
-    val peakFactor = if (vibRms > 1e-6) acc.maxVibX / vibRms else 0.0
-    val fftPeak = vibRms * peakFactor
-
-    // ---- 4. avg_spindle_load ----
-    val avgLoad = acc.sumLoad / n
-
-    // ---- 5. max_spindle_load ----
-    val maxLoad = acc.maxLoad
-
-    // ---- 6. running_ratio ----
-    val runRatio = acc.runningCount / n
-
-    // ---- 7. avg_feed_rate ----
-    val avgFeed = acc.sumFeedRate / n
-
+    val vibRms=math.sqrt(acc.vibXSumSq /n)
+    val peakFactor=if(vibRms>1e-6) acc.maxVibX /vibRms else 0.0
+    val fftPeak=vibRms * peakFactor
+    val avgLoad=acc.sumLoad /n
+    val maxLoad=acc.maxLoad
+    val runRatio=acc.runningCount /n
+    val avgFeed=acc.sumFeedRate /n
     TimeSeriesFeatures(
       machineId = 0, // 由上游 keyBy 传入，这里填0，后续从key获取
       var_temp = math.round(variance * 100.0) / 100.0,
